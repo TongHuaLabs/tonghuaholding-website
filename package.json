@@ -6,6 +6,7 @@
   "author": "Anakorn Kyavatanakij <anakornk@tonghualabs.com>",
   "dependencies": {
     "@headlessui/react": "^1.4.2",
+    "@heroicons/react": "^1.0.6",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/line-clamp": "^0.3.0",
     "classnames": "^2.3.1",

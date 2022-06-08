@@ -8,3 +8,12 @@ declare module '*.png' {
   const content: string;
   export default content;
 }
+
+declare module 'gatsby-plugin-breadcrumb';
+
+type BreadCrumbType = {
+  crumbs: {
+    pathname: string;
+    crumbLabel: string;
+  }[];
+};

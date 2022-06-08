@@ -17,5 +17,24 @@
   }
   .businesses::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
+  }
+  .oblique-lined {
+    clip-path: polygon(0 0 ,100% 0%, 100% 84%, 0 100%);
+  }
 }
+
+.breadcrumb__list {
+  @apply items-center
+}
+
+.breadcrumb__link {
+  @apply text-sm font-normal hover:underline hover:decoration-primary-main hover:underline-offset-2
+}
+
+.breadcrumb__separator {
+  @apply text-sm font-normal mt-1
+}
+
+.breadcrumb__list__item {
+  @apply mx-4 !important
 }

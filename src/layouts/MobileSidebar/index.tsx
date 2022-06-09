@@ -34,7 +34,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
         className="fixed inset-y-0 left-0 z-20 w-full bg-white lg:hidden"
       >
         <Navbar showClose={true} onCloseClick={onClose} />
-        <MenuItem />
+        <MenuItem onClose={onClose} />
       </Transition.Child>
     </Transition>
   );

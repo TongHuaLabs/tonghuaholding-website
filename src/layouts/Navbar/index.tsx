@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
+import DropdownMenu from './DropdownMenu';
 
 type NavbarProps = {
   showClose: boolean;
@@ -9,13 +11,44 @@ type NavbarProps = {
   onCloseClick?: () => void;
 };
 
-const menuList = [
-  'หน้าแรก',
-  'เกี่ยวกับบริษัท',
-  'ธุรกิจในเครือ',
-  'นักลงทุนสัมพันธ์',
-  'ข่าวและกิจกรรม',
-  'ติดต่อเรา',
+export const menuList = [
+  { title: 'หน้าแรก', href: '/' },
+  {
+    title: 'เกี่ยวกับบริษัท',
+    menu: [
+      { title: 'Company Info', href: '/about' },
+      { title: 'Milestones', href: '/about/milestone' },
+      { title: 'Vision', href: '/about/vision' },
+      { title: 'BOD', href: '/about/bod' },
+      { title: 'CSR', href: '/about/csr' },
+    ],
+  },
+  {
+    title: 'ธุรกิจในเครือ',
+    menu: [
+      { title: 'THL', href: '/business/thl' },
+      { title: 'THML', href: '/business/thml' },
+      { title: 'THAM', href: '/business/tham' },
+      { title: 'THA', href: '/business/tha' },
+      { title: 'THC', href: '/business/thc' },
+    ],
+  },
+  {
+    title: 'นักลงทุนสัมพันธ์',
+    href: '/investor',
+  },
+  {
+    title: 'ข่าวและกิจกรรม',
+    href: '/newsroom',
+  },
+  {
+    title: 'สมัครงาน',
+    href: '/career',
+  },
+  {
+    title: 'ติดต่อเรา',
+    href: '/contact',
+  },
 ];
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -31,12 +64,16 @@ const Navbar: React.FC<NavbarProps> = ({
         className,
       )}
     >
-      <div>THH LOGO</div>
+      <Link to="/">THH LOGO</Link>
       <ul className="flex items-center h-full space-x-4">
-        {menuList.map((menu, key) => (
-          <li key={key} className="hidden text-sm lg:block text-neutral-700">
-            {menu}
-          </li>
+        {menuList.map(({ title, href, menu }, key) => (
+          <DropdownMenu
+            key={key}
+            title={title}
+            href={href}
+            menu={menu}
+            className="hidden lg:block"
+          />
         ))}
         <li className="hidden w-0.5 lg:block h-full bg-neutral-200" />
         <li className="text-sm text-neutral-700">EN</li>

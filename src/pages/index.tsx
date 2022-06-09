@@ -29,7 +29,7 @@ const IndexPage: React.FC<{}> = () => {
           Ea reprehenderit fugiat voluptate minim tempor consectetur excepteur
           deserunt. Nisi quis consectetur nisi deserunt amet nisi. Do tempor
         </h3>
-        <div className="flex businesses relative z-20 md:pr-0 md:pl-4 md:max-w-3xl lg:max-w-4xl lg:justify-center mx-auto pl-4 items-center space-x-1.5 overflow-x-scroll">
+        <div className="flex hide-scrollbar relative z-20 md:pr-0 md:pl-4 md:max-w-3xl lg:max-w-4xl lg:justify-center mx-auto pl-4 items-center space-x-1.5 overflow-x-scroll">
           {[...Array(6)].map((_, key) => (
             <SquareImage
               className="min-w-[160px]"

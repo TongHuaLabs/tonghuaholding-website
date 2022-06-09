@@ -7,9 +7,9 @@ type LandingProps = {
 
 const Landing: React.FC<LandingProps> = ({ className }) => {
   return (
-    <div
+    <section
       className={classNames(
-        'relative landing bg-primary-main bg-opacity-20',
+        'relative full-page bg-primary-main bg-opacity-20',
         className,
       )}
     >
@@ -20,7 +20,7 @@ const Landing: React.FC<LandingProps> = ({ className }) => {
           pariatur ipsum veniam. Aliquip esse cupidatat laborum ut nisi id
         </h2>
       </div>
-    </div>
+    </section>
   );
 };
 

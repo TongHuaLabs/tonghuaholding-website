@@ -41,7 +41,7 @@ const IndexPage: React.FC<{}> = () => {
         <div className="absolute bottom-0 z-10 w-full h-40 bg-neutral-200 lg:h-56" />
       </section>
       {/* News */}
-      <section className="px-4 py-20 space-y-4 md:px-6 lg:p-36">
+      <section className="px-4 pt-20 space-y-4 md:px-6 lg:px-36 lg:pt-36">
         <h2 className="text-3xl font-medium">ข่าวสาร TH</h2>
         <hr className="h-0.5 border-0 bg-neutral-200" />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">

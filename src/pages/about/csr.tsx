@@ -9,7 +9,7 @@ const CSRPage: React.FC<CSRPageProps> = () => {
       <section className="flex items-center px-4 lg:px-36 oblique-lined bg-primary-main bg-opacity-20 h-72">
         <h1 className="text-4xl font-medium">การพัฒนาอย่างยั่งยืน</h1>
       </section>
-      <section className="px-4 py-20 md:px-6 lg:p-36">
+      <section className="px-4 pt-20 md:px-6 lg:px-36 lg:pt-36">
         <h2 className="text-3xl font-medium">Roles and Responsibilities</h2>
         <hr className="h-0.5 border-0 mt-4 bg-neutral-200" />
         <h3 className="mt-10 text-lg font-medium">

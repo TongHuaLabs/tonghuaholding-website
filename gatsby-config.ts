@@ -44,4 +44,10 @@ export const plugins = [
   `gatsby-plugin-offline`,
   `gatsby-plugin-typescript`,
   `gatsby-plugin-postcss`,
+  {
+    resolve: `gatsby-plugin-breadcrumb`,
+    options: {
+      useAutoGen: true,
+    },
+  },
 ];

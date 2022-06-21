@@ -50,4 +50,17 @@ export const plugins = [
       useAutoGen: true,
     },
   },
+  {
+    resolve: `gatsby-plugin-intl`,
+    options: {
+      // language JSON resource path
+      path: `${__dirname}/src/intl`,
+      // supported language
+      languages: [`en`, `th`],
+      // language file path
+      defaultLanguage: `th`,
+      // option to redirect to `/en` when connecting `/`
+      redirect: false,
+    },
+  },
 ];

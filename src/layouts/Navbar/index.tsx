@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
 import DropdownMenu from './DropdownMenu';
+import { changeLocale } from 'gatsby-plugin-intl';
 
 type NavbarProps = {
   showClose: boolean;
@@ -76,9 +77,19 @@ const Navbar: React.FC<NavbarProps> = ({
           />
         ))}
         <li className="hidden w-0.5 lg:block h-full bg-neutral-200" />
-        <li className="text-sm text-neutral-700">EN</li>
+        <li
+          className="text-sm cursor-pointer text-neutral-700"
+          onClick={() => changeLocale('en')}
+        >
+          EN
+        </li>
         <li className="text-sm text-neutral-700">|</li>
-        <li className="text-sm text-neutral-700">TH</li>
+        <li
+          className="text-sm cursor-pointer text-neutral-700"
+          onClick={() => changeLocale('th')}
+        >
+          TH
+        </li>
         <li className="w-0.5 lg:hidden h-full bg-neutral-200" />
         <li className="block lg:hidden">
           {showClose ? (

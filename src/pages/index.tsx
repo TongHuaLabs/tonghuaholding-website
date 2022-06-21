@@ -4,13 +4,10 @@ import CircleImage from '../components/CircleImage';
 import SquareImage from '../components/SquareImage';
 import NewsCard from '../components/cards/NewsCard';
 import CSRCard from '../components/cards/CSRCard';
-import { useIntl } from 'gatsby-plugin-intl';
 
 const IndexPage: React.FC<{}> = () => {
-  const intl = useIntl();
   return (
     <>
-      {intl.formatMessage({ id: 'hello' })}
       <Landing />
       {/* Our Vision */}
       <section className="px-4 py-20 space-y-6 text-center md:px-0 lg:p-36 bg-neutral-200">

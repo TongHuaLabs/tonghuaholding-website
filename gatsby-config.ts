@@ -24,6 +24,13 @@ export const plugins = [
       path: `${__dirname}/src/images`,
     },
   },
+  `gatsby-transformer-json`,
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `./src/data/`,
+    },
+  },
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
@@ -45,9 +52,12 @@ export const plugins = [
   `gatsby-plugin-typescript`,
   `gatsby-plugin-postcss`,
   {
-    resolve: `gatsby-plugin-breadcrumb`,
+    resolve: `gatsby-plugin-typegen`,
     options: {
-      useAutoGen: true,
+      emitSchema: {
+        'src/__generated__/gatsby-introspection.json': true,
+        'src/__generated__/gatsby-schema.graphql': true,
+      },
     },
   },
   {

@@ -1,3 +1,18 @@
 {
-  "hello": "HELLO"
+  "career": {
+    "firstSection": {
+      "header": "LIFE @TONG HUA"
+    },
+    "secondSection": {
+      "header": "นวัตกรรม\nอยู่ใน DNA ของเรา",
+      "description": "เราให้ความสำคัญกับความคิดเห็นขอทุกคนในทีม รวมไปถึงการสนับสนุนให้ ทีมมีความคิดเห็นที่ หลากหลายเพื่อ สร้างความท้าทายในงานและ ช่วยพัฒนาโซลูชันใหม่ ๆ ในการแก้ไขปัญหา ของ เทคโนโลยีในยุคปัจจุบัน"
+    },
+    "thirdSection": {
+      "header": "Thoughts From Our Team"
+    },
+    "fourthSection": {
+      "header": "Career Opportunity"
+    }
+  },
+  "readmore": "Read more"
 }

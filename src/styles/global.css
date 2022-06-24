@@ -13,13 +13,16 @@
 
 @layer components {
   .full-page {
-    min-height: calc(100vh - 64px)
+    min-height: calc(100vh - 64px);
   }
   .hide-scrollbar::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
   }
   .oblique-lined {
     clip-path: polygon(0 0 ,100% 0%, 100% 84%, 0 100%);
+  }
+  .ellipse {
+    height: calc(120% - 48px);
   }
 }
 
@@ -37,4 +40,28 @@
 
 .breadcrumb__list__item {
   @apply mx-4 !important
+}
+
+/* Swiper */
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+ @apply bottom-0 !important
+}
+
+.swiper-pagination-bullet-active {
+ @apply bg-primary-main !important;
+}
+
+.swiper-wrapper {
+@apply items-center pb-12;
+}
+
+.swiper-button-next,.swiper-button-prev {
+@apply text-primary-main !important;
+}
+
+
+@media only screen and (min-width: 1280px) {
+  .ellipse {
+    height: calc(140% - 48px);
+  }
 }

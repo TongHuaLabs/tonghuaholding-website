@@ -31,6 +31,21 @@ export const plugins = [
       path: `./src/data/`,
     },
   },
+  'gatsby-transformer-remark',
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `markdown-en`,
+      path: `${__dirname}/markdown-en`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `markdown-th`,
+      path: `${__dirname}/markdown-th`,
+    },
+  },
   {
     resolve: `gatsby-plugin-manifest`,
     options: {

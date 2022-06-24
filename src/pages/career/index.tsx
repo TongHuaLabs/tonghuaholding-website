@@ -1,67 +1,132 @@
 import React from 'react';
-import Gallery from '../../components/Gallery';
+import CareerOffice from '@images/career-office.png';
+import CoreValue from '@images/core-value.svg';
+import DotPattern from '@images/dot-pattern.inline.svg';
+import TestimonialCard from '@components/cards/TestimonialCard';
+import { graphql, PageProps } from 'gatsby';
+import { useSm, useLg } from '@/hooks/responsive';
+import Gallery from '@/components/Gallery';
+import EllipseSvg from '@/icons/ellipse.inline.svg';
+import { useIntl } from 'gatsby-plugin-intl';
+import DNA from '@/components/DNA';
+import OpportunityCard from '@/components/cards/OpportunityCard';
+import { filter } from 'lodash';
 
-type CareerPageProps = {};
+type CareerPageProps = PageProps<GatsbyTypes.CareerPageQuery>;
 
-const CareerPage: React.FC<CareerPageProps> = () => {
+const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
+  const intl = useIntl();
+  const sm = useSm();
+  const lg = useLg();
+
+  const { locale } = intl;
+
+  const { allDnaJson, allTeamJson, allFile } = data;
+  const teams = allTeamJson.edges;
+  const dnas = allDnaJson.edges;
+
+  // select the first 3 elements after filtered
+  const markdown = filter(allFile.edges, {
+    node: {
+      sourceInstanceName: locale === 'th' ? 'markdown-th' : 'markdown-en',
+    },
+  }).slice(0, 3);
+
   return (
     <>
-      <section className="flex items-center px-4 md:px-6 lg:px-56 lg:py-20 oblique-lined bg-primary-main bg-opacity-20 h-72">
-        <h1 className="text-4xl font-medium">ร่วมงานกับเรา</h1>
-      </section>
-      {/* LIFE AT TONG HUA HOLDING */}
-      <section className="flex flex-col px-4 py-20 md:items-center md:flex-row md:px-6 lg:px-56">
-        <h2 className="text-3xl font-medium whitespace-pre-line md:w-1/2 md:pr-2">
-          {`LIFE AT\nTONG HUA HOLDING`}
+      {/* LIFE  @TONG HUA */}
+      <section
+        style={{
+          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${CareerOffice})`,
+          backgroundSize: 'cover',
+        }}
+        className="flex justify-center h-[75vh] lg:h-[60vh] items-center px-4"
+      >
+        <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
+          {intl.formatMessage({ id: 'career.firstSection.header' })}
         </h2>
-        <p className="mt-10 md:mt-0 md:w-1/2 md:pl-2">
-          Consequat culpa exercitation non exercitation. Dolor eu amet fugiat do
-          est reprehenderit dolor Lorem voluptate et eu sunt dolore quis. Id
-          esse irure anim culpa ut nulla cupidatat consectetur anim nostrud non
-          magna do. Ad exercitation nostrud duis officia et. Culpa incididunt
-          duis pariatur adipisicing adipisicing.
-        </p>
       </section>
       {/* Core Value */}
-      <section className="px-4 py-20 space-y-6 md:px-6 lg:p-36 bg-neutral-200">
-        <h2 className="text-3xl font-medium text-center">CORE VALUE</h2>
-        <p className="mt-10">
-          Consequat culpa exercitation non exercitation. Dolor eu amet fugiat do
-          est reprehenderit dolor Lorem voluptate et eu sunt dolore quis. Id
-          esse irure anim culpa ut nulla cupidatat consectetur anim nostrud non
-          magna do. Ad exercitation nostrud duis officia et. Culpa incididunt
-          duis pariatur adipisicing adipisicing.
+      <section
+        style={{
+          background: `url(${CoreValue})`,
+          backgroundSize: 'contain',
+        }}
+        className="flex flex-col items-center justify-center px-4 md:px-6 py-20 lg:py-28 lg:px-36"
+      >
+        <h2 className="text-4xl whitespace-pre-line md:whitespace-normal font-medium text-center text-neutral-50">
+          {intl.formatMessage({ id: 'career.secondSection.header' })}
+        </h2>
+        <p className="mt-10 max-w-3xl mx-auto text-center text-neutral-50">
+          {intl.formatMessage({ id: 'career.secondSection.description' })}
         </p>
+        <div className="mt-10 flex items-center space-x-10 md:space-x-20">
+          {dnas.map(({ node }, key) => (
+            <DNA text={node.dna} key={key} />
+          ))}
+        </div>
       </section>
-      {/* Gallery */}
-      <section className="px-4 pt-20 space-y-6 md:px-6 lg:px-36">
-        <h2 className="text-3xl font-medium">Gallery</h2>
-        <Gallery
-          gallery={[
-            { src: 'https://picsum.photos/500/500' },
-            { src: 'https://picsum.photos/500/500' },
-            { src: 'https://picsum.photos/500/500' },
-            { src: 'https://picsum.photos/500/500' },
-            { src: 'https://picsum.photos/500/500' },
-          ]}
-        />
+      {/* Thoughts From Our Team */}
+      <section className="overflow-hidden py-20 space-y-6">
+        <h2 className="text-2xl font-bold text-center">
+          {intl.formatMessage({ id: 'career.thirdSection.header' })}
+          <hr className="w-16 h-1 mx-auto mt-2 bg-primary-main" />
+        </h2>
+        <div className="px-4 md:px-6 lg:px-16 2xl:px-0 max-w-7xl mx-auto relative">
+          <TestimonialCard
+            showNavigation={lg}
+            slidesPerView={lg ? 3 : sm ? 2 : 1}
+            data={teams}
+          />
+          <EllipseSvg className="absolute ellipse lg:-top-14 xl:-top-24 -top-7 -right-48" />
+        </div>
+      </section>
+      {/* Performace Slide */}
+      <section className="pb-20 relative flex flex-col">
+        <div className="w-28 h-56 bg-primary-main absolute" />
+        <div className="px-4 md:px-16 mt-28">
+          <Gallery
+            showNavigation={lg}
+            slidesPerView={1}
+            data={[
+              'https://picsum.photos/500/500',
+              'https://picsum.photos/600/600',
+              'https://picsum.photos/700/700',
+              'https://picsum.photos/800/800',
+              'https://picsum.photos/900/900',
+              'https://picsum.photos/1000/1000',
+            ]}
+          />
+        </div>
+        <div className="w-28 absolute bottom-0 h-56 bg-primary-main self-end" />
       </section>
       {/* Career Opportunity */}
-      <section className="px-4 py-20 space-y-4 md:px-6 lg:px-36">
-        <h2 className="text-3xl font-medium">Career Opportunity</h2>
-        <hr className="h-0.5 border-0 bg-neutral-200" />
-        <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
-          {[...Array(5)].map((_, key) => (
-            <article key={key} className="md:w-1/2 lg:w-1/3 md:p-2">
-              <h3 className="text-lg font-medium">Ipsum et do minim nisi.</h3>
-              <p className="mt-2.5 line-clamp-3">
-                Dolor ad duis non et est cupidatat excepteur veniam duis nostrud
-                cupidatat cupidatat. Laborum aute do nulla culpa mollit aliquip
-                eiusmod commodo nostrud eu duis. Labore sint pariatur veniam
-                cupidatat tempor laborum aliqua
-              </p>
-            </article>
-          ))}
+      <section className="mt-8 pb-12 relative px-4 md:px-6 xl:px-36 2xl:px-0 xl:max-w-7xl mx-auto">
+        <DotPattern className="absolute left-0" />
+        <h2 className="text-3xl font-medium pt-12">
+          {intl.formatMessage({ id: 'career.fourthSection.header' })}
+        </h2>
+        <hr className="h-0.5 mt-2 border-0 bg-neutral-900" />
+        <div className="flex flex-col mt-10 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
+          {markdown.map(({ node }, key) => {
+            const { frontmatter } = node.childMarkdownRemark || {};
+            if (!frontmatter) {
+              return null;
+            }
+            const { title, location, contract, description, slug } =
+              frontmatter;
+            return (
+              <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2">
+                <OpportunityCard
+                  description={description}
+                  occupation={title}
+                  location={location}
+                  contract={contract}
+                  href={slug}
+                />
+              </div>
+            );
+          })}
         </div>
       </section>
     </>
@@ -69,3 +134,46 @@ const CareerPage: React.FC<CareerPageProps> = () => {
 };
 
 export default CareerPage;
+
+export const query = graphql`
+  query CareerPage {
+    allTeamJson {
+      edges {
+        node {
+          profileImage
+          name
+          occupation
+          comment
+        }
+      }
+    }
+    allDnaJson {
+      edges {
+        node {
+          dna
+        }
+      }
+    }
+    allFile(
+      filter: { relativeDirectory: { eq: "career" } }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              lang
+              slug
+              title
+              date(formatString: "DD/MM/YYYY")
+              location
+              description
+              contract
+            }
+          }
+          sourceInstanceName
+        }
+      }
+    }
+  }
+`;

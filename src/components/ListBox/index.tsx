@@ -1,78 +1,83 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-import { SelectorIcon, CheckIcon } from '@heroicons/react/outline';
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid';
 import classNames from 'classnames';
 
+export type ListProps = {
+  title: string;
+  value: number | string;
+};
+
 type ListBoxProps = {
+  list: ListProps[];
+  selected: ListProps;
+  onSelected: (value: ListProps['value']) => void;
   className?: string;
-  items: {
-    title: string;
-    value: number;
-  }[];
-  selected: {
-    title: string;
-    value: number;
-  };
-  onSelect: (value: number) => void;
 };
 
 const ListBox: React.FC<ListBoxProps> = ({
-  items,
+  list,
   selected,
-  onSelect,
+  onSelected,
   className,
 }) => {
   return (
-    <div className={classNames('min-w-full', className)}>
-      <Listbox value={selected.value} onChange={onSelect}>
-        <div className="relative mt-1">
-          <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-            <span className="block truncate">{selected.title}</span>
-            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-              <SelectorIcon
-                className="w-5 h-5 text-gray-400"
-                aria-hidden="true"
-              />
-            </span>
-          </Listbox.Button>
-          <Transition
-            as={React.Fragment}
-            leave="transition ease-in duration-100"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {items.map(({ title, value }, key) => (
-                <Listbox.Option
-                  key={key}
-                  className={({ active }) =>
-                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
-                    }`
-                  }
-                  value={value}
-                >
-                  {({ selected }) => (
-                    <>
+    <div className={classNames(`relative`, className)}>
+      <Listbox value={selected.value} onChange={(value) => onSelected(value)}>
+        <Listbox.Button
+          className={`w-full relative rounded-lg py-2 pl-3 pr-10 text-left shadow-md`}
+        >
+          <span className="block truncate">{selected.title}</span>
+          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+            <ChevronDownIcon
+              className="h-5 w-5 text-gray-400"
+              aria-hidden="true"
+            />
+          </span>
+        </Listbox.Button>
+        <Transition
+          as={Fragment}
+          leave="transition ease-in duration-100"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <Listbox.Options className="list absolute w-full py-1 shadow-lg bg-white">
+            {list.map(({ title, value }, key) => (
+              <Listbox.Option
+                key={key}
+                className={({ active }) =>
+                  `relative select-none cursor-pointer py-2 pl-10 ${
+                    active
+                      ? 'bg-primary-main text-neutral-50'
+                      : 'text-neutral-900'
+                  }`
+                }
+                value={value}
+              >
+                {({ selected }) => (
+                  <>
+                    <span
+                      className={`block truncate ${
+                        selected ? 'font-medium' : 'font-normal'
+                      }`}
+                    >
+                      {title}
+                    </span>
+                    {selected ? (
                       <span
-                        className={`block truncate ${
-                          selected ? 'font-medium' : 'font-normal'
+                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                          selected ? 'text-neutral-50' : 'text-neutral-900'
                         }`}
                       >
-                        {title}
+                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
                       </span>
-                      {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                        </span>
-                      ) : null}
-                    </>
-                  )}
-                </Listbox.Option>
-              ))}
-            </Listbox.Options>
-          </Transition>
-        </div>
+                    ) : null}
+                  </>
+                )}
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Transition>
       </Listbox>
     </div>
   );

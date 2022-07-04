@@ -1,67 +1,194 @@
 import React from 'react';
-import NewsCard from '../../components/cards/NewsCard';
-import DocumentCard from '../../components/cards/DocumentCard';
+import {
+  NewsCard,
+  SetAnnouncementCard,
+  DocumentCard,
+} from '@/components/cards';
+import ObliqueLineSection from '@/components/ObliqueLineSection';
+import { useIntl } from 'gatsby-plugin-intl';
+import UnderlineHeader from '@/components/UnderlineHeader';
+import { graphql, PageProps } from 'gatsby';
+import { useLg, useMd } from '@/hooks/responsive';
+import SeeAll from '@/components/SeeAll';
+import { filter } from 'lodash';
 
-type NewsRoomPageProps = {};
+type NewsRoomPageProps = PageProps<GatsbyTypes.NewsRoomPageQuery>;
 
-const NewsRoomPage: React.FC<NewsRoomPageProps> = () => {
+const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
+  const intl = useIntl();
+  const md = useMd();
+  const lg = useLg();
+
+  const { locale } = intl;
+
+  const {
+    allFile,
+    allSetAnnouncementEnJson,
+    allSetAnnouncementThJson,
+    allDocumentEnJson,
+    allDocumentThJson,
+  } = data;
+  const setEn = allSetAnnouncementEnJson.edges;
+  const setTh = allSetAnnouncementThJson.edges;
+  const DocEn = allDocumentEnJson.edges;
+  const DocTh = allDocumentThJson.edges;
+
+  // select the first 6 elements after filtered
+  const markdown = filter(allFile.edges, {
+    node: {
+      sourceInstanceName: locale === 'th' ? 'markdown-th' : 'markdown-en',
+    },
+  }).slice(0, 6);
+
+  const setAnnouncement = (locale === 'th' ? setTh : setEn).slice(
+    0,
+    lg ? 9 : md ? 6 : 3,
+  );
+
+  const document = (locale === 'th' ? DocTh : DocEn).slice(0, 4);
+
   return (
     <>
-      <section className="flex items-center px-4 md:px-6 lg:px-56 lg:py-20 oblique-lined bg-primary-main bg-opacity-20 h-72">
-        <h1 className="text-4xl font-medium">ข้อมูลข่าวสาร</h1>
-      </section>
+      <ObliqueLineSection
+        title={intl.formatMessage({ id: 'newsRoom.firstSection.header' })}
+      />
       {/* News */}
-      <section className="px-4 pt-20 space-y-4 md:px-6 lg:px-56">
-        <h2 className="text-3xl font-medium">ข่าวสาร TH</h2>
-        <hr className="h-0.5 border-0 bg-neutral-200" />
+      <section className="px-4 pt-10 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
+        <UnderlineHeader
+          title={intl.formatMessage({ id: 'newsRoom.secondSection.header' })}
+        />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
-          {[...Array(5)].map((_, key) => (
-            <NewsCard
-              title="Lorem"
-              className="md:w-1/2 lg:w-1/3 md:p-2"
-              description="Esse consequat nulla laborum id reprehenderit ut qui dolor. Est adipisicing ut quis elit elit excepteur magna irure dolore pariatur duis ex ullamco. Nulla laborum sunt id voluptate."
-              coverImage="https://picsum.photos/500/500"
-              key={key}
-            />
-          ))}
+          {markdown.map(({ node }, key) => {
+            const { title, description, date, coverImage } =
+              node.childMarkdownRemark?.frontmatter || {};
+            return (
+              <NewsCard
+                title={title}
+                className="md:w-1/2 lg:w-1/3 md:p-2"
+                description={description}
+                coverImage={coverImage}
+                createdAt={date}
+                key={key}
+              />
+            );
+          })}
         </div>
+        <SeeAll to="/newsroom/all-news" />
       </section>
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
-      <section className="px-4 py-20 space-y-4 md:px-6 lg:px-56">
-        <h2 className="text-3xl font-medium">ข่าวแจ้งตลาดหลักทรัพย์</h2>
-        <hr className="h-0.5 border-0 bg-neutral-200" />
+      <section className="px-4 pt-20 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
+        <UnderlineHeader
+          title={intl.formatMessage({ id: 'newsRoom.thirdSection.header' })}
+        />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
-          {[...Array(5)].map((_, key) => (
-            <article key={key} className="md:w-1/2 lg:w-1/3 md:p-2">
-              <h3 className="text-lg font-medium">Ipsum et do minim nisi.</h3>
-              <p className="mt-2.5 line-clamp-3">
-                Dolor ad duis non et est cupidatat excepteur veniam duis nostrud
-                cupidatat cupidatat. Laborum aute do nulla culpa mollit aliquip
-                eiusmod commodo nostrud eu duis. Labore sint pariatur veniam
-                cupidatat tempor laborum aliqua
-              </p>
-            </article>
-          ))}
+          {setAnnouncement.map(({ node }, key) => {
+            const { title, createdAt, pdf } = node;
+            return (
+              <div className="md:p-2 md:w-1/2 lg:w-1/3" key={key}>
+                <SetAnnouncementCard
+                  title={title}
+                  createAt={createdAt}
+                  readMore={`/pdf/${pdf}`}
+                />
+              </div>
+            );
+          })}
         </div>
+        <SeeAll to="/newsroom/all-set-announcement" />
       </section>
       {/* เอกสารเผยแพร่ */}
-      <section className="px-4 py-16 md:px-6 md:py-20 lg:px-56 lg:py-20">
-        <h2 className="text-3xl font-medium">เอกสารเผยแพร่</h2>
-        <hr className="h-0.5 mt-2 border-0 bg-neutral-200" />
+      <section className="px-4 py-20 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
+        <UnderlineHeader
+          title={intl.formatMessage({ id: 'newsRoom.fourthSection.header' })}
+        />
         <div className="flex flex-wrap mt-10">
-          {[...Array(4)].map((_, key) => (
-            <DocumentCard
-              key={key}
-              title="Lorem"
-              className="w-1/2 p-2 md:p-4 md:w-1/3 lg:w-1/4"
-              description="Esse consequat nulla laborum id reprehenderit ut qui dolor"
-              coverImage="https://picsum.photos/300/300"
-            />
-          ))}
+          {document.map(({ node }, key) => {
+            const { title, createdAt, pdf, coverImage } = node;
+            return (
+              <DocumentCard
+                key={key}
+                title={title}
+                className="w-1/2 md:w-1/4 p-2"
+                coverImage={coverImage}
+                createdAt={createdAt}
+                toFile={pdf}
+              />
+            );
+          })}
         </div>
+        <SeeAll to="/newsroom/all-document" />
       </section>
     </>
   );
 };
 
 export default NewsRoomPage;
+
+export const query = graphql`
+  query NewsRoomPage {
+    allFile(
+      filter: { relativeDirectory: { eq: "newsroom-markdown/all-news/news" } }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              lang
+              slug
+              title
+              date(formatString: "DD/MM/YYYY")
+              description
+              coverImage
+            }
+          }
+          sourceInstanceName
+        }
+      }
+    }
+    allSetAnnouncementEnJson(
+      sort: { fields: createdAt, order: DESC }
+      limit: 9
+    ) {
+      edges {
+        node {
+          title
+          createdAt
+          pdf
+        }
+      }
+    }
+    allSetAnnouncementThJson(
+      sort: { fields: createdAt, order: DESC }
+      limit: 9
+    ) {
+      edges {
+        node {
+          title
+          createdAt
+          pdf
+        }
+      }
+    }
+    allDocumentEnJson(sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          createdAt
+          title
+          pdf
+          coverImage
+        }
+      }
+    }
+    allDocumentThJson(sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          createdAt
+          title
+          pdf
+          coverImage
+        }
+      }
+    }
+  }
+`;

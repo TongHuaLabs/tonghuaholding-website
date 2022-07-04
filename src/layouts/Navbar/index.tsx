@@ -40,7 +40,15 @@ export const menuList = [
   },
   {
     title: 'ข่าวและกิจกรรม',
-    href: '/newsroom',
+    menu: [
+      { title: 'ข่าวสารและกิจกรรม', href: '/newsroom' },
+      { title: 'ข่าวสาร TH', href: '/newsroom/all-news' },
+      {
+        title: 'ข่าวแจ้งตลาดหลักทรัพย์',
+        href: '/newsroom/all-set-announcement',
+      },
+      { title: 'เอกสารเผยแพร่', href: '/newsroom/all-document' },
+    ],
   },
   {
     title: 'สมัครงาน',
@@ -61,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <nav
       className={classNames(
-        'flex items-center justify-between px-4 py-3.5 h-16',
+        'flex items-center justify-between px-4 py-3.5 h-16 shadow-md',
         className,
       )}
     >

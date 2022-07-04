@@ -1,4 +1,4 @@
-import DocumentCard from '../../components/cards/DocumentCard';
+// import DocumentCard from '../../components/cards/DocumentCard';
 import React from 'react';
 
 type InvestorPageProps = {};
@@ -39,7 +39,7 @@ const InvestorPage: React.FC<InvestorPageProps> = () => {
         </div>
       </section>
       {/* เอกสารเผยแพร่ */}
-      <section className="px-4 pt-16 md:px-6 md:pt-20 lg:px-56 lg:pt-20">
+      {/* <section className="px-4 pt-16 md:px-6 md:pt-20 lg:px-56 lg:pt-20">
         <h2 className="text-3xl font-medium">เอกสารเผยแพร่</h2>
         <hr className="h-0.5 mt-2 border-0 bg-neutral-200" />
         <div className="flex flex-wrap mt-10">
@@ -53,7 +53,7 @@ const InvestorPage: React.FC<InvestorPageProps> = () => {
             />
           ))}
         </div>
-      </section>
+      </section> */}
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 py-16 md:px-6 md:py-20 lg:px-56 lg:py-20">
         <h2 className="text-3xl font-medium">ข่าวแจ้งตลาดหลักทรัพย์</h2>

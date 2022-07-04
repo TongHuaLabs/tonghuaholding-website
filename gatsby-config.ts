@@ -47,6 +47,15 @@ export const plugins = [
     },
   },
   {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `images`,
+      path: `${__dirname}/src/images`,
+    },
+  },
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`,
+  {
     resolve: `gatsby-plugin-manifest`,
     options: {
       name: `Tong Hua Holding`,
@@ -88,4 +97,11 @@ export const plugins = [
       redirect: false,
     },
   },
+  // {
+  //   resolve: `gatsby-plugin-breadcrumb`,
+  //   options: {
+  //     useAutoGen: true,
+  //     AutoGenCrumb: 'home',
+  //   },
+  // },
 ];

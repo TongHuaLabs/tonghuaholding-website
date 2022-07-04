@@ -40,6 +40,11 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 //   graphql,
 //   actions,
 // }) => {
+//   actions.createRedirect({
+//     fromPath: `/career`,
+//     toPath: `/en/career`,
+//   });
+
 //   const markdownCareerEn = await graphql<GatsbyNodeQuery>(`
 //     query {
 //       allFile(

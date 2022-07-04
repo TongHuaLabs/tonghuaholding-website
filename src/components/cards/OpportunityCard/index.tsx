@@ -1,15 +1,16 @@
 import classNames from 'classnames';
 import React from 'react';
-import { useIntl, Link } from 'gatsby-plugin-intl';
-import { LocationMarkerIcon, ChevronRightIcon } from '@heroicons/react/outline';
+import { Link } from 'gatsby-plugin-intl';
+import { LocationMarkerIcon } from '@heroicons/react/outline';
+import { ReadMoreButton } from '@/components/buttons';
 
 type OpportunityCardProps = {
-  occupation: string | GatsbyTypes.Maybe<string>;
-  description: string | GatsbyTypes.Maybe<string>;
-  location: string | GatsbyTypes.Maybe<string>;
-  contract: string | GatsbyTypes.Maybe<string>;
-  href: string | GatsbyTypes.Maybe<string>;
-  className?: string | GatsbyTypes.Maybe<string>;
+  occupation?: string;
+  description?: string;
+  location?: string;
+  contract?: string;
+  href?: string;
+  className?: string;
 };
 
 const OpportunityCard: React.FC<OpportunityCardProps> = ({
@@ -20,7 +21,6 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
   href,
   className,
 }) => {
-  const intl = useIntl();
   return (
     <Link to={href || ''}>
       <article
@@ -42,12 +42,7 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
             <span className="w-0.5 bg-neutral-200 h-4" />
             <span className="text-neutral-500 text-xs">{contract}</span>
           </div>
-          <div className="flex items-center">
-            <span className="text-brand-red font-medium text-xs">
-              {intl.formatMessage({ id: 'readmore' })}
-            </span>
-            <ChevronRightIcon className="w-4 h-4 text-brand-red" />
-          </div>
+          <ReadMoreButton />
         </div>
       </article>
     </Link>

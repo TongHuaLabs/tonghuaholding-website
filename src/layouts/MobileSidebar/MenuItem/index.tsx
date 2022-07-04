@@ -23,22 +23,28 @@ const MenuItem: React.FC<MenuItemProps> = ({ className, onClose }) => {
       {menuList.map(({ title, href, menu }, key) => (
         <React.Fragment key={key}>
           <Disclosure>
-            <Disclosure.Button
-              className="w-full flex items-center justify-between py-2.5 px-3"
-              onClickCapture={() => handleNavigate(href)}
-            >
-              {title}
-              {menu && <ChevronDownIcon className="w-6 h-6 text-black" />}
-            </Disclosure.Button>
-            {menu?.map(({ title, href }, key) => (
-              <Disclosure.Panel
-                className="px-3 py-2 text-sm text-gray-500"
-                key={key}
-                onClickCapture={() => handleNavigate(href)}
-              >
-                {title}
-              </Disclosure.Panel>
-            ))}
+            {({ open }) => (
+              <>
+                <Disclosure.Button
+                  className={`w-full flex items-center justify-between py-2.5 px-3 ${
+                    open ? 'text-primary-main font-medium' : 'text-neutral-900'
+                  }`}
+                  onClickCapture={() => handleNavigate(href)}
+                >
+                  {title}
+                  {menu && <ChevronDownIcon className="w-6 h-6 text-black" />}
+                </Disclosure.Button>
+                {menu?.map(({ title, href }, key) => (
+                  <Disclosure.Panel
+                    className="px-3 py-2 text-sm text-gray-500"
+                    key={key}
+                    onClickCapture={() => handleNavigate(href)}
+                  >
+                    {title}
+                  </Disclosure.Panel>
+                ))}
+              </>
+            )}
           </Disclosure>
           <hr className="h-0.5 border-0 bg-neutral-300" />
         </React.Fragment>

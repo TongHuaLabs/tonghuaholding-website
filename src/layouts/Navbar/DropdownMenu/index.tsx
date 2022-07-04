@@ -44,7 +44,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 z-50 flex flex-col mt-6 bg-white w-36">
+          <Menu.Items className="absolute right-0 z-50 flex flex-col mt-6 bg-white min-w-[150px]">
             {menu.map(({ title, href }, key) => (
               <Menu.Item key={key}>
                 <Link

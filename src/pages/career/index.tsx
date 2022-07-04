@@ -2,21 +2,20 @@ import React from 'react';
 import CareerOffice from '@images/career-office.png';
 import CoreValue from '@images/core-value.svg';
 import DotPattern from '@images/dot-pattern.inline.svg';
-import TestimonialCard from '@components/cards/TestimonialCard';
 import { graphql, PageProps } from 'gatsby';
-import { useSm, useLg } from '@/hooks/responsive';
+import { useMd, useLg } from '@/hooks/responsive';
 import Gallery from '@/components/Gallery';
 import EllipseSvg from '@/icons/ellipse.inline.svg';
 import { useIntl } from 'gatsby-plugin-intl';
 import DNA from '@/components/DNA';
-import OpportunityCard from '@/components/cards/OpportunityCard';
+import { TestimonialCard, OpportunityCard } from '@/components/cards';
 import { filter } from 'lodash';
 
 type CareerPageProps = PageProps<GatsbyTypes.CareerPageQuery>;
 
 const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
   const intl = useIntl();
-  const sm = useSm();
+  const md = useMd();
   const lg = useLg();
 
   const { locale } = intl;
@@ -75,7 +74,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         <div className="px-4 md:px-6 lg:px-16 2xl:px-0 max-w-7xl mx-auto relative">
           <TestimonialCard
             showNavigation={lg}
-            slidesPerView={lg ? 3 : sm ? 2 : 1}
+            slidesPerView={lg ? 3 : md ? 2 : 1}
             data={teams}
           />
           <EllipseSvg className="absolute ellipse lg:-top-14 xl:-top-24 -top-7 -right-48" />
@@ -155,7 +154,7 @@ export const query = graphql`
       }
     }
     allFile(
-      filter: { relativeDirectory: { eq: "career" } }
+      filter: { relativeDirectory: { eq: "career-markdown" } }
       sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
     ) {
       edges {

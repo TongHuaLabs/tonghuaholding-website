@@ -26,24 +26,6 @@
   }
 }
 
-/*
-.breadcrumb__list {
-  @apply items-center
-}
-
-.breadcrumb__link {
-  @apply text-sm font-normal hover:underline hover:decoration-primary-main hover:underline-offset-2
-}
-
-.breadcrumb__separator {
-  @apply text-sm font-normal mt-1
-}
-
-.breadcrumb__list__item {
-  @apply mx-4 !important
-}
-*/
-
 /* Swiper */
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
  @apply bottom-0 !important

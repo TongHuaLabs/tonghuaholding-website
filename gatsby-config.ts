@@ -97,11 +97,4 @@ export const plugins = [
       redirect: false,
     },
   },
-  // {
-  //   resolve: `gatsby-plugin-breadcrumb`,
-  //   options: {
-  //     useAutoGen: true,
-  //     AutoGenCrumb: 'home',
-  //   },
-  // },
 ];

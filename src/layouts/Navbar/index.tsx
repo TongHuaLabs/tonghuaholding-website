@@ -27,11 +27,13 @@ export const menuList = [
   {
     title: 'ธุรกิจในเครือ',
     menu: [
-      { title: 'THL', href: '/business/thl' },
-      { title: 'THML', href: '/business/thml' },
-      { title: 'THAM', href: '/business/tham' },
-      { title: 'THA', href: '/business/tha' },
-      { title: 'THC', href: '/business/thc' },
+      { title: 'TONG HUA ASSET', href: '/businesses/tonghua-asset' },
+      {
+        title: 'TONG HUA ASSET MANAGEMENT',
+        href: '/businesses/tonghua-asset-management',
+      },
+      { title: 'TONG HUA CAPITAL', href: '/businesses/tonghua-capital' },
+      { title: 'TONG HUA MEDIA LAB', href: '/businesses/tonghua-media-lab' },
     ],
   },
   {

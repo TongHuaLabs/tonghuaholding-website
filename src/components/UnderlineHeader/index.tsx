@@ -16,12 +16,7 @@ const UnderlineHeader: React.FC<UnderlineHeaderProps> = ({
 }) => {
   return (
     <div className={classNames('flex flex-col space-y-2', className)}>
-      <h2
-        className={classNames(
-          `text-2xl whitespace-pre-line md:whitespace-normal font-bold`,
-          textClassName,
-        )}
-      >
+      <h2 className={classNames(`text-2xl font-bold`, textClassName)}>
         {title}
       </h2>
       <hr

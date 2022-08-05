@@ -35,12 +35,12 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
         </p>
         <div className="flex justify-between items-center mt-8">
           <div className="flex items-center space-x-4">
-            <div className="flex items-center">
-              <LocationMarkerIcon className="w-4 h-4" />
+            <div className="flex items-center space-x-0.5">
+              <LocationMarkerIcon className="w-4 h-4 text-neutral-500" />
               <span className="text-neutral-500 text-xs">{location}</span>
             </div>
-            <span className="w-0.5 bg-neutral-200 h-4" />
-            <span className="text-neutral-500 text-xs">{contract}</span>
+            <span className="w-px bg-neutral-200 h-4" />
+            <span className="text-neutral-900 text-xs">{contract}</span>
           </div>
           <ReadMoreButton />
         </div>

@@ -17,9 +17,9 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
     <>
       <ObliqueLineSection title="ติดต่อเรา" />
       {/* ติดต่อส่วนกลาง & ติดต่อฝ่ายบัญชี */}
-      <section className="px-4 md:flex-row py-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
+      <section className="px-4 md:flex-row py-10 md:px-6 lg:px-16 max-w-7xl mx-auto">
         <UnderlineHeader
-          title={`กรุณาติดต่อเรา\nหากท่านต้องการสอบถามข้อมูลเพิ่มเติม`}
+          title="กรุณาติดต่อเรา หากท่านต้องการสอบถามข้อมูลเพิ่มเติม"
           underlineClassName="w-12 bg-primary-main"
         />
         <div className="mt-10 space-y-10 md:space-y-16">
@@ -30,18 +30,18 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
               <PhoneCall
                 phone="(+66) 2236-9171-6"
                 tel="+66223691716"
-                className="mt-4"
+                className="mt-4 hover:underline hover:decoration-primary-main"
                 textClassName="text-primary-main"
               />
               <PhoneCall
                 phone="(+66) 2236-0143-44"
                 tel="+662236014344"
-                className="mt-2"
+                className="mt-2 hover:underline hover:decoration-primary-main"
                 textClassName="text-primary-main"
               />
               <MailTo
                 mail="contactus@tonghuagroup.com"
-                className="mt-2"
+                className="mt-2 hover:underline hover:decoration-primary-main"
                 textClassName="text-primary-main"
               />
             </div>
@@ -51,18 +51,18 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
               <PhoneCall
                 phone="(+66) 2236-9171-6"
                 tel="+66223691716"
-                className="mt-4"
+                className="mt-4 hover:underline hover:decoration-primary-main"
                 textClassName="text-primary-main"
               />
               <PhoneCall
                 phone="(+66) 2236-0143-44"
                 tel="+662236014344"
-                className="mt-2"
+                className="mt-2 hover:underline hover:decoration-primary-main"
                 textClassName="text-primary-main"
               />
               <MailTo
                 mail="contactus@tonghuagroup.com"
-                className="mt-2"
+                className="mt-2 hover:underline hover:decoration-primary-main"
                 textClassName="text-primary-main"
               />
             </div>
@@ -103,7 +103,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
           background: `url(${MapSvg}) no-repeat center center / cover`,
         }}
       >
-        <div className="px-4 relative z-20 md:flex-row py-20 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
+        <div className="px-4 py-10 relative z-20 md:flex-row lg:py-20 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
           <DotPattern className="absolute top-0 left-0 lg:left-auto text-primary-main opacity-50" />
           <div className="flex items-center space-x-3 relative z-10">
             <MapIcon className="h-6 w-6" />
@@ -147,7 +147,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
           />
           <Link
             to="/investor"
-            className="border border-neutral-50 py-1.5 rounded-lg text-neutral-50 px-4 hover:bg-primary-main hover:border-primary-main"
+            className="border border-neutral-50 py-1.5 rounded-lg text-neutral-50 px-4 hover:bg-white hover:text-neutral-600"
           >
             ข้อมูลการลงทุน
           </Link>

@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import SwiperCarousel, { SwiperCarouselProps } from '../SwiperCarousel';
 import { SwiperSlide } from 'swiper/react';
 
@@ -26,12 +25,8 @@ const Gallery: React.FC<GalleryProps> = ({
       {data.map((slide, key) => {
         return (
           <SwiperSlide key={key} className={className}>
-            <div
-              className={classNames(
-                'w-full md:w-10/12 lg:w-3/5 xl:w-1/2 mx-auto',
-              )}
-            >
-              <div className="aspect-w-16 aspect-h-9">
+            <div className="max-w-5xl mx-auto">
+              <div className="aspect-w-3 aspect-h-2 md:aspect-w-16 md:aspect-h-9">
                 <img
                   src={slide}
                   className="w-full h-full rounded-lg object-cover"

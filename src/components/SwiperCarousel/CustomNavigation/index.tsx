@@ -16,13 +16,13 @@ const CustomNavigation: React.FC<CustomNavigationProps> = ({
         className="p-0.5 cursor-pointer rounded-full bg-primary-main"
         ref={(node) => onPrevClick(node)}
       >
-        <ChevronLeftIcon className="w-8 h-8 text-white" />
+        <ChevronLeftIcon className="w-7 h-7 text-white" />
       </div>
       <div
         className="p-0.5 cursor-pointer rounded-full bg-primary-main"
         ref={(node) => onNextClick(node)}
       >
-        <ChevronRightIcon className="w-8 h-8 text-white" />
+        <ChevronRightIcon className="w-7 h-7 text-white" />
       </div>
     </div>
   );

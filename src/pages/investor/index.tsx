@@ -23,7 +23,7 @@ const InvestorPage: React.FC<InvestorPageProps> = () => {
       {/* ข้อมูลสำคัญทางการเงิน */}
       <section className="px-4 pt-16 md:px-6 md:pt-20 lg:px-56 lg:pt-20">
         <h2 className="text-3xl font-medium">ข้อมูลสำคัญทางการเงิน</h2>
-        <hr className="h-0.5 mt-2 border-0 bg-neutral-200" />
+        <hr className="h-px mt-2 border-0 bg-neutral-200" />
         <div className="flex flex-col mt-10 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {[...Array(5)].map((_, key) => (
             <article key={key} className="md:w-1/2 lg:w-1/3 md:p-2">
@@ -41,7 +41,7 @@ const InvestorPage: React.FC<InvestorPageProps> = () => {
       {/* เอกสารเผยแพร่ */}
       {/* <section className="px-4 pt-16 md:px-6 md:pt-20 lg:px-56 lg:pt-20">
         <h2 className="text-3xl font-medium">เอกสารเผยแพร่</h2>
-        <hr className="h-0.5 mt-2 border-0 bg-neutral-200" />
+        <hr className="h-px mt-2 border-0 bg-neutral-200" />
         <div className="flex flex-wrap mt-10">
           {[...Array(4)].map((_, key) => (
             <DocumentCard
@@ -57,7 +57,7 @@ const InvestorPage: React.FC<InvestorPageProps> = () => {
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 py-16 md:px-6 md:py-20 lg:px-56 lg:py-20">
         <h2 className="text-3xl font-medium">ข่าวแจ้งตลาดหลักทรัพย์</h2>
-        <hr className="h-0.5 mt-2 border-0 bg-neutral-200" />
+        <hr className="h-px mt-2 border-0 bg-neutral-200" />
         <div className="flex flex-col mt-10 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {[...Array(5)].map((_, key) => (
             <article key={key} className="md:w-1/2 lg:w-1/3 md:p-2">

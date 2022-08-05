@@ -11,7 +11,7 @@ const CSRPage: React.FC<CSRPageProps> = () => {
       </section>
       <section className="px-4 pt-20 md:px-6 lg:px-36 lg:pt-36">
         <h2 className="text-3xl font-medium">Roles and Responsibilities</h2>
-        <hr className="h-0.5 border-0 mt-4 bg-neutral-200" />
+        <hr className="h-px border-0 mt-4 bg-neutral-200" />
         <h3 className="mt-10 text-lg font-medium">
           Esse ullamco veniam magna velit minim esse nulla aliquip qui occaecat
           reprehenderit.
@@ -41,7 +41,7 @@ const CSRPage: React.FC<CSRPageProps> = () => {
       </section>
       <section className="px-4 py-20 space-y-4 md:px-6 lg:p-36">
         <h2 className="text-3xl font-medium">CSR Events</h2>
-        <hr className="h-0.5 border-0 bg-neutral-200" />
+        <hr className="h-px border-0 bg-neutral-200" />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {[...Array(5)].map((_, key) => (
             <NewsCard

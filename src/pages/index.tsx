@@ -43,7 +43,7 @@ const IndexPage: React.FC<{}> = () => {
       {/* News */}
       <section className="px-4 pt-20 space-y-4 md:px-6 lg:px-36 lg:pt-36">
         <h2 className="text-3xl font-medium">ข่าวสาร TH</h2>
-        <hr className="h-0.5 border-0 bg-neutral-200" />
+        <hr className="h-px border-0 bg-neutral-200" />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {[...Array(5)].map((_, key) => (
             <NewsCard
@@ -59,7 +59,7 @@ const IndexPage: React.FC<{}> = () => {
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 py-20 space-y-4 md:px-6 lg:p-36">
         <h2 className="text-3xl font-medium">ข่าวแจ้งตลาดหลักทรัพย์</h2>
-        <hr className="h-0.5 border-0 bg-neutral-200" />
+        <hr className="h-px border-0 bg-neutral-200" />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {[...Array(5)].map((_, key) => (
             <article key={key} className="md:w-1/2 lg:w-1/3 md:p-2">

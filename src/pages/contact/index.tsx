@@ -6,7 +6,8 @@ import MapSvg from '@/images/map.svg';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import Circles from '@/images/circles.inline.svg';
 import MapIcon from '@/icons/map.inline.svg';
-import { PhoneCall, MailTo } from '@/components/info';
+import PhoneCall from '@/components/PhoneCall';
+import MailTo from '@/components/MailTo';
 import { Link } from 'gatsby';
 
 type ContactUsPageProps = {};

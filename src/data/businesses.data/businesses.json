@@ -1,0 +1,30 @@
+[
+  {
+    "image": "/images/tonghua-group.svg",
+    "title": "TONG HUA ASSET",
+    "to": "/businesses/tonghua-asset",
+    "description": "ดำเนินธุรกิจผลิต\nและจำหน่ายสิ่งพิมพ์",
+    "key": "tha"
+  },
+  {
+    "image": "/images/tonghua-asset-management.svg",
+    "title": "TONG HUA ASSET MANAGEMENT",
+    "to": "/businesses/tonghua-asset-management",
+    "description": "ดำเนินธุรกิจผลิต\nและจำหน่ายสิ่งพิมพ์",
+    "key": "tham"
+  },
+  {
+    "image": "/images/tonghua-capital.svg",
+    "title": "TONG HUA CAPITAL",
+    "to": "/businesses/tonghua-capital",
+    "description": "ดำเนินธุรกิจผลิต\nและจำหน่ายสิ่งพิมพ์",
+    "key": "thc"
+  },
+  {
+    "image": "/images/tonghua-media-lab.svg",
+    "title": "TONG HUA MEDIA LAB",
+    "to": "/businesses/tonghua-media-lab",
+    "description": "ดำเนินธุรกิจผลิต\nและจำหน่ายสิ่งพิมพ์",
+    "key": "thl"
+  }
+]

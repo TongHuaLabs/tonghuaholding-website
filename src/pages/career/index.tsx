@@ -101,7 +101,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
       </section>
       {/* Career Opportunity */}
       <section className="mt-8 pb-12 relative px-4 md:px-6 xl:px-36 2xl:px-0 xl:max-w-7xl mx-auto">
-        <DotPattern className="absolute left-0" />
+        <DotPattern className="absolute left-0 text-primary-main" />
         <h2 className="text-3xl font-medium pt-12">
           {intl.formatMessage({ id: 'career.fourthSection.header' })}
         </h2>

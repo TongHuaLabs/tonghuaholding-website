@@ -39,7 +39,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${CareerOffice})`,
           backgroundSize: 'cover',
         }}
-        className="flex justify-center h-[75vh] lg:h-[60vh] items-center px-4"
+        className="flex justify-center h-[75vh] items-center px-4"
       >
         <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
           {intl.formatMessage({ id: 'career.firstSection.header' })}
@@ -56,7 +56,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         <h2 className="text-4xl whitespace-pre-line md:whitespace-normal font-medium text-center text-neutral-50">
           {intl.formatMessage({ id: 'career.secondSection.header' })}
         </h2>
-        <p className="mt-10 max-w-3xl mx-auto text-center text-neutral-50">
+        <p className="mt-6 max-w-3xl mx-auto text-center text-neutral-50">
           {intl.formatMessage({ id: 'career.secondSection.description' })}
         </p>
         <div className="mt-10 flex items-center space-x-10 md:space-x-20">
@@ -66,7 +66,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         </div>
       </section>
       {/* Thoughts From Our Team */}
-      <section className="overflow-hidden py-20 space-y-6">
+      <section className="overflow-hidden py-20 lg:py-28 space-y-6">
         <h2 className="text-2xl font-bold text-center">
           {intl.formatMessage({ id: 'career.thirdSection.header' })}
           <hr className="w-16 h-1 mx-auto mt-2 bg-primary-main" />
@@ -83,7 +83,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
       {/* Performace Slide */}
       <section className="pb-20 relative flex flex-col">
         <div className="w-28 h-56 bg-primary-main absolute" />
-        <div className="px-4 md:px-16 mt-28">
+        <div className="px-4 md:px-16 mt-20">
           <Gallery
             showNavigation={lg}
             slidesPerView={1}
@@ -100,13 +100,13 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         <div className="w-28 absolute bottom-0 h-56 bg-primary-main self-end" />
       </section>
       {/* Career Opportunity */}
-      <section className="mt-8 pb-12 relative px-4 md:px-6 xl:px-36 2xl:px-0 xl:max-w-7xl mx-auto">
+      <section className="py-20 relative px-4 md:px-6 xl:px-36 2xl:px-0 xl:max-w-7xl mx-auto">
         <DotPattern className="absolute left-0 text-primary-main" />
-        <h2 className="text-3xl font-medium pt-12">
+        <h2 className="text-3xl relative font-medium pt-12">
           {intl.formatMessage({ id: 'career.fourthSection.header' })}
         </h2>
-        <hr className="h-0.5 mt-2 border-0 bg-neutral-900" />
-        <div className="flex flex-col mt-10 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
+        <hr className="h-px mt-2 border-0 bg-neutral-900" />
+        <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
           {markdown.map(({ node }, key) => {
             const { frontmatter } = node.childMarkdownRemark || {};
             if (!frontmatter) {
@@ -115,7 +115,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
             const { title, location, contract, description, slug } =
               frontmatter;
             return (
-              <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2">
+              <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2 lg:p-3">
                 <OpportunityCard
                   description={description}
                   occupation={title}

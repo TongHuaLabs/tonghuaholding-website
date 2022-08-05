@@ -65,7 +65,7 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
         <div className="rounded-3xl border border-neutral-400 py-10 px-5 flex md:px-10 flex-col space-y-11 lg:space-y-0 lg:flex-row lg:items-center">
           <div className="flex flex-col items-center space-y-2 lg:whitespace-pre lg:border-r-2 lg:border-primary-main lg:pr-10 lg:h-32 lg:justify-center">
             <h2 className="text-2xl lg:text-3xl font-medium">{`รางวัล และ\nความสำเร็จ`}</h2>
-            <hr className="h-0.5 border-0 bg-primary-main w-12 lg:hidden" />
+            <hr className="h-px border-0 bg-primary-main w-12 lg:hidden" />
           </div>
           <div className="flex flex-col md:flex-row space-y-11 md:space-y-0 lg:flex-grow">
             <Info

@@ -46,7 +46,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ className, onClose }) => {
               </>
             )}
           </Disclosure>
-          <hr className="h-0.5 border-0 bg-neutral-300" />
+          <hr className="h-px border-0 bg-neutral-300" />
         </React.Fragment>
       ))}
     </div>

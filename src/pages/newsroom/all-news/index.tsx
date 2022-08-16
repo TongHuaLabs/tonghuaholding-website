@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useIntl } from 'gatsby-plugin-intl';
 import { graphql, PageProps } from 'gatsby';
-import { filter } from 'lodash';
 import { NewsCard } from '@/components/cards';
 import ListBox, { ListProps } from '@/components/ListBox';
 import UnderlineHeader from '@/components/UnderlineHeader';
@@ -9,16 +7,13 @@ import UnderlineHeader from '@/components/UnderlineHeader';
 type NewsRoomAllNewsProps = PageProps<GatsbyTypes.NewsRoomAllNewsQuery>;
 
 const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
-  const intl = useIntl();
-  const { locale } = intl;
-
   const newsType: ListProps[] = [
     {
-      title: intl.formatMessage({ id: 'newsRoom.allNews.list.first' }),
+      title: 'ข่าวสาร TH ทั้งหมด',
       value: 0,
     },
     {
-      title: intl.formatMessage({ id: 'newsRoom.allNews.list.second' }),
+      title: 'ข่าวสาร CSR ทั้งหมด',
       value: 1,
     },
   ];
@@ -27,14 +22,8 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
 
   const { news, csr } = data;
 
-  const content = selected.value === 0 ? news : csr;
-
-  // select the first 12 elements after filtered
-  const markdown = filter(content.edges, {
-    node: {
-      sourceInstanceName: locale === 'th' ? 'markdown-th' : 'markdown-en',
-    },
-  }).slice(0, 12);
+  // select the first 12 elements
+  const markdown = (selected.value === 0 ? news : csr).edges.slice(0, 12);
 
   const handleSelected = (value: ListProps['value']) => {
     if (typeof value === 'number') {
@@ -52,12 +41,9 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
           onSelected={(value) => handleSelected(value)}
         />
         <UnderlineHeader
-          title={intl.formatMessage({
-            id:
-              selected.value === 0
-                ? 'newsRoom.allNews.firstSection.news'
-                : 'newsRoom.allNews.firstSection.csr',
-          })}
+          title={
+            selected.value === 0 ? 'ข่าวสาร TH ทั้งหมด' : 'ข่าวสาร CSR ทั้งหมด'
+          }
         />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {markdown.map(({ node }, key) => {
@@ -85,7 +71,7 @@ export default NewsRoomAllNews;
 export const query = graphql`
   query NewsRoomAllNews {
     news: allFile(
-      filter: { relativeDirectory: { eq: "newsroom-markdown/all-news/news" } }
+      filter: { relativeDirectory: { eq: "newsroom/all-news/news" } }
       sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
     ) {
       edges {
@@ -105,7 +91,7 @@ export const query = graphql`
       }
     }
     csr: allFile(
-      filter: { relativeDirectory: { eq: "newsroom-markdown/all-news/csr" } }
+      filter: { relativeDirectory: { eq: "newsroom/all-news/csr" } }
       sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
     ) {
       edges {

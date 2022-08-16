@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useIntl } from 'gatsby-plugin-intl';
 import { graphql, PageProps } from 'gatsby';
 import { SetAnnouncementCard } from '@/components/cards';
 import ListBox, { ListProps } from '@/components/ListBox';
@@ -11,25 +10,16 @@ type NewsRoomAllSetAnnouncementProps =
 const NewsRoomAllSetAnnouncement: React.FC<NewsRoomAllSetAnnouncementProps> = ({
   data,
 }) => {
-  const intl = useIntl();
-  const { locale } = intl;
   const setType: ListProps[] = [
     {
-      title: intl.formatMessage({
-        id: 'newsRoom.allSetAnnouncement.list.first',
-      }),
+      title: 'ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด',
       value: 0,
     },
   ];
 
   const [selected, setSelected] = useState<ListProps>(setType[0]);
 
-  const { allSetAnnouncementEnJson, allSetAnnouncementThJson } = data;
-
-  const announcement =
-    locale === 'th'
-      ? allSetAnnouncementThJson.edges
-      : allSetAnnouncementEnJson.edges;
+  const { allSetAnnouncementJson } = data;
 
   const handleSelected = (value: ListProps['value']) => {
     if (typeof value === 'number') {
@@ -46,13 +36,9 @@ const NewsRoomAllSetAnnouncement: React.FC<NewsRoomAllSetAnnouncementProps> = ({
           selected={selected}
           onSelected={(value) => handleSelected(value)}
         />
-        <UnderlineHeader
-          title={intl.formatMessage({
-            id: 'newsRoom.allSetAnnouncement.firstSection.header',
-          })}
-        />
+        <UnderlineHeader title="ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด" />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
-          {announcement.map(({ node }, key) => {
+          {allSetAnnouncementJson.edges.map(({ node }, key) => {
             const { title, createdAt, pdf } = node || {};
             return (
               <div className="md:p-2 md:w-1/2 lg:w-1/3" key={key}>
@@ -74,16 +60,7 @@ export default NewsRoomAllSetAnnouncement;
 
 export const query = graphql`
   query NewsRoomAllSetAnnouncement {
-    allSetAnnouncementEnJson(sort: { fields: createdAt, order: DESC }) {
-      edges {
-        node {
-          title
-          createdAt
-          pdf
-        }
-      }
-    }
-    allSetAnnouncementThJson(sort: { fields: createdAt, order: DESC }) {
+    allSetAnnouncementJson(sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
           title

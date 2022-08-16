@@ -1,5 +1,4 @@
 import React from 'react';
-import { useIntl } from 'gatsby-plugin-intl';
 import classNames from 'classnames';
 
 type SeeAllButtonProps = {
@@ -7,7 +6,6 @@ type SeeAllButtonProps = {
 };
 
 const SeeAllButton: React.FC<SeeAllButtonProps> = ({ className }) => {
-  const intl = useIntl();
   return (
     <button
       className={classNames(
@@ -15,7 +13,7 @@ const SeeAllButton: React.FC<SeeAllButtonProps> = ({ className }) => {
         className,
       )}
     >
-      {intl.formatMessage({ id: 'seeAll' })}
+      อ่านทั้งหมด
     </button>
   );
 };

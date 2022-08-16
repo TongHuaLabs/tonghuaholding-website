@@ -136,7 +136,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
               className="underline underline-offset-1 text-neutral-50"
             />
             <PhoneCall
-              phone=" (+66) 2236-0143-44"
+              phone="(+66) 2236-0143-44"
               tel="+662236014344"
               className="underline underline-offset-1 text-neutral-50"
             />

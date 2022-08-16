@@ -26,6 +26,11 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
     allBusinessesJson.edges,
     (x) => x.node.key !== 'thc',
   );
+
+  const thcSlides: string[] = filter(
+    allBusinessesJson.edges,
+    (x) => x.node.key === 'thc',
+  )[0].node.slides as any;
   return (
     <>
       {/* บริษัท ตงฮั้ว แคปิตอล จำกัด */}
@@ -125,11 +130,7 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
               className="mt-10"
               showNavigation={true}
               slidesPerView={1}
-              data={[
-                'https://picsum.photos/500/500',
-                'https://picsum.photos/500/500',
-                'https://picsum.photos/500/500',
-              ]}
+              images={thcSlides}
             />
             <RedCircle className="absolute -left-32 -top-20 md:w-80 md:h-80 md:-left-40 lg:left-0" />
           </div>
@@ -205,6 +206,7 @@ export const query = graphql`
           image
           to
           key
+          slides
         }
       }
     }

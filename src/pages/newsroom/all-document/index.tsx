@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
-import { useIntl } from 'gatsby-plugin-intl';
-import { graphql, PageProps } from 'gatsby';
-import { DocumentCard } from '@/components/cards';
 import ListBox, { ListProps } from '@/components/ListBox';
 import UnderlineHeader from '@/components/UnderlineHeader';
+import { graphql, PageProps } from 'gatsby';
+import { DocumentCard } from '@/components/cards';
 
 type NewsRoomAllDocumentProps = PageProps<GatsbyTypes.NewsRoomAllDocumentQuery>;
 
 const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
-  const intl = useIntl();
-  const { locale } = intl;
   const newsType: ListProps[] = [
     {
-      title: intl.formatMessage({ id: 'newsRoom.allDocument.list.first' }),
+      title: 'เอกสารเผยแพร่ทั้งหมด',
       value: 0,
     },
   ];
 
   const [selected, setSelected] = useState<ListProps>(newsType[0]);
 
-  const { allDocumentEnJson, allDocumentThJson } = data;
+  const { allDocumentJson } = data;
 
-  // select the first 12 elements after filtered
-  const document =
-    locale === 'th' ? allDocumentThJson.edges : allDocumentEnJson.edges;
+  const document = allDocumentJson.edges;
 
   const handleSelected = (value: ListProps['value']) => {
     if (typeof value === 'number') {
@@ -40,11 +35,7 @@ const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
           selected={selected}
           onSelected={(value) => handleSelected(value)}
         />
-        <UnderlineHeader
-          title={intl.formatMessage({
-            id: 'newsRoom.allDocument.firstSection.header',
-          })}
-        />
+        <UnderlineHeader title="เอกสารเผยแพร่ทั้งหมด" />
         <div className="flex flex-wrap mt-10">
           {document.map(({ node }, key) => {
             const { title, createdAt, pdf, coverImage } = node;
@@ -69,17 +60,7 @@ export default NewsRoomAllDocument;
 
 export const query = graphql`
   query NewsRoomAllDocument {
-    allDocumentEnJson(sort: { fields: createdAt, order: DESC }) {
-      edges {
-        node {
-          createdAt
-          title
-          pdf
-          coverImage
-        }
-      }
-    }
-    allDocumentThJson(sort: { fields: createdAt, order: DESC }) {
+    allDocumentJson(sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
           createdAt

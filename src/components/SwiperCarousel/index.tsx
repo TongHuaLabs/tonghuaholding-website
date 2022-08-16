@@ -16,6 +16,7 @@ const SwiperCarousel: React.FC<SwiperCarouselProps> = ({
   pagination,
   autoplay,
   showNavigation,
+  loop,
 }) => {
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
@@ -28,7 +29,7 @@ const SwiperCarousel: React.FC<SwiperCarouselProps> = ({
         slidesPerView={slidesPerView || 1}
         spaceBetween={spaceBetween || 24}
         autoplay={autoplay}
-        loop
+        loop={loop}
         className={className}
         onBeforeResize={(swiper) => {
           swiper.navigation.init();

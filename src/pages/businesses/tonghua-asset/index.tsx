@@ -22,10 +22,17 @@ type TongHuaAssetProps = PageProps<GatsbyTypes.TongHuaAssetPageQueryQuery>;
 
 const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
   const { allBusinessesJson } = data;
+
   const businesses = filter(
     allBusinessesJson.edges,
     (x) => x.node.key !== 'tha',
   );
+
+  const thaSlides: string[] = filter(
+    allBusinessesJson.edges,
+    (x) => x.node.key === 'tha',
+  )[0].node.slides as any;
+
   return (
     <>
       <BrandingSection
@@ -124,11 +131,7 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
               className="mt-10"
               showNavigation={true}
               slidesPerView={1}
-              data={[
-                'https://picsum.photos/500/500',
-                'https://picsum.photos/500/500',
-                'https://picsum.photos/500/500',
-              ]}
+              images={thaSlides}
             />
             <RedCircle className="absolute -left-32 -top-20 md:w-80 md:h-80 md:-left-40 lg:left-0" />
           </div>
@@ -199,11 +202,12 @@ export const query = graphql`
     allBusinessesJson {
       edges {
         node {
+          key
           title
           description
           image
           to
-          key
+          slides
         }
       }
     }

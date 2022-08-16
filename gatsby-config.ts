@@ -35,15 +35,8 @@ export const plugins = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      name: `markdown-en`,
-      path: `${__dirname}/markdown-en`,
-    },
-  },
-  {
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      name: `markdown-th`,
-      path: `${__dirname}/markdown-th`,
+      name: `markdown`,
+      path: `${__dirname}/src/markdown`,
     },
   },
   {
@@ -82,19 +75,6 @@ export const plugins = [
         'src/__generated__/gatsby-introspection.json': true,
         'src/__generated__/gatsby-schema.graphql': true,
       },
-    },
-  },
-  {
-    resolve: `gatsby-plugin-intl`,
-    options: {
-      // language JSON resource path
-      path: `${__dirname}/src/intl`,
-      // supported language
-      languages: [`en`, `th`],
-      // language file path
-      defaultLanguage: `th`,
-      // option to redirect to `/en` when connecting `/`
-      redirect: false,
     },
   },
 ];

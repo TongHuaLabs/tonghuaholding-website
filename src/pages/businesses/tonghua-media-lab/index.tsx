@@ -27,6 +27,10 @@ const TongHuaMediaLab: React.FC<TongHuaMediaLabProps> = ({ data }) => {
     allBusinessesJson.edges,
     (x) => x.node.key !== 'thl',
   );
+  const thlSlides: string[] = filter(
+    allBusinessesJson.edges,
+    (x) => x.node.key === 'thl',
+  )[0].node.slides as any;
   return (
     <>
       <BrandingSection
@@ -125,11 +129,7 @@ const TongHuaMediaLab: React.FC<TongHuaMediaLabProps> = ({ data }) => {
               className="mt-10"
               showNavigation={true}
               slidesPerView={1}
-              data={[
-                'https://picsum.photos/500/500',
-                'https://picsum.photos/500/500',
-                'https://picsum.photos/500/500',
-              ]}
+              images={thlSlides}
             />
             <RedCircle className="absolute -left-32 -top-20 md:w-80 md:h-80 md:-left-40 lg:left-0" />
           </div>
@@ -205,6 +205,7 @@ export const query = graphql`
           image
           to
           key
+          slides
         }
       }
     }

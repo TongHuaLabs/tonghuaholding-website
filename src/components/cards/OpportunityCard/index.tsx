@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Link } from 'gatsby-plugin-intl';
+import { Link } from 'gatsby';
 import { LocationMarkerIcon } from '@heroicons/react/outline';
 import { ReadMoreButton } from '@/components/buttons';
 

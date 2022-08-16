@@ -3,26 +3,31 @@ import SwiperCarousel, { SwiperCarouselProps } from '../SwiperCarousel';
 import { SwiperSlide } from 'swiper/react';
 
 interface GalleryProps extends SwiperCarouselProps {
-  data: string[];
+  images: string[];
   className?: string;
 }
 
 const Gallery: React.FC<GalleryProps> = ({
-  data,
+  images,
   className,
   slidesPerView,
   spaceBetween,
   showNavigation,
+  autoplay,
+  pagination,
 }) => {
+  if (!images) {
+    return <div />;
+  }
   return (
     <SwiperCarousel
       showNavigation={showNavigation}
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 1500, disableOnInteraction: false }}
+      pagination={pagination || { clickable: true }}
+      autoplay={autoplay || { delay: 1500, disableOnInteraction: false }}
       slidesPerView={slidesPerView}
       spaceBetween={spaceBetween}
     >
-      {data.map((slide, key) => {
+      {images.map((slide, key) => {
         return (
           <SwiperSlide key={key} className={className}>
             <div className="max-w-5xl mx-auto">

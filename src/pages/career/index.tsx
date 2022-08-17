@@ -4,7 +4,7 @@ import CoreValue from '@images/core-value.svg';
 import DotPattern from '@images/dot-pattern.inline.svg';
 import Gallery from '@/components/Gallery';
 import EllipseSvg from '@/icons/ellipse.inline.svg';
-import DNA from '@/components/DNA';
+import DNA from '@/components/information/DNA';
 import SwiperCarousel from '@/components/SwiperCarousel';
 import { graphql, PageProps } from 'gatsby';
 import { useMd, useLg } from '@/hooks/responsive';

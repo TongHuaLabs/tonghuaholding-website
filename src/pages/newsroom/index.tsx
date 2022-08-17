@@ -4,7 +4,7 @@ import {
   SetAnnouncementCard,
   DocumentCard,
 } from '@/components/cards';
-import ObliqueLineSection from '@/components/ObliqueLineSection';
+import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import { graphql, PageProps } from 'gatsby';
 import { useLg, useMd } from '@/hooks/responsive';

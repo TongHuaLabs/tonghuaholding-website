@@ -24,6 +24,10 @@
   .list {
     @apply mt-4 !important
   }
+  .timeline-card-arrow {
+   @apply self-center border-transparent border-r-primary-main relative -right-0.5;
+   border-width: 15px;
+  }
 }
 
 /* Swiper */

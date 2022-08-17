@@ -1,14 +1,9 @@
 import React from 'react';
-import Landing from '../components/Landing';
-import CircleImage from '../components/CircleImage';
-import SquareImage from '../components/SquareImage';
-import NewsCard from '../components/cards/NewsCard';
-import CSRCard from '../components/cards/CSRCard';
+import { NewsCard, CSRCard } from '@/components/cards';
 
 const IndexPage: React.FC<{}> = () => {
   return (
     <>
-      <Landing />
       {/* Our Vision */}
       <section className="px-4 py-20 space-y-6 text-center md:px-0 lg:p-36 bg-neutral-200">
         <h2 className="text-3xl font-medium">Our Vision</h2>
@@ -16,11 +11,7 @@ const IndexPage: React.FC<{}> = () => {
           Ea reprehenderit fugiat voluptate minim tempor consectetur excepteur
           deserunt. Nisi quis consectetur nisi deserunt amet nisi. Do tempor
         </h3>
-        <div className="flex items-center justify-center space-x-5">
-          {[...Array(3)].map((_, key) => (
-            <CircleImage src="https://picsum.photos/200/300" key={key} />
-          ))}
-        </div>
+        <div className="flex items-center justify-center space-x-5">AAAAA</div>
       </section>
       {/* Businesses */}
       <section className="relative py-20 space-y-6 text-center lg:py-36">
@@ -30,13 +21,7 @@ const IndexPage: React.FC<{}> = () => {
           deserunt. Nisi quis consectetur nisi deserunt amet nisi. Do tempor
         </h3>
         <div className="flex hide-scrollbar relative z-20 md:pr-0 md:pl-4 md:max-w-3xl lg:max-w-4xl lg:justify-center mx-auto pl-4 items-center space-x-1.5 overflow-x-scroll">
-          {[...Array(6)].map((_, key) => (
-            <SquareImage
-              className="min-w-[160px]"
-              src="https://picsum.photos/200/300"
-              key={key}
-            />
-          ))}
+          BBBB
         </div>
         <div className="absolute bottom-0 z-10 w-full h-40 bg-neutral-200 lg:h-56" />
       </section>

@@ -5,14 +5,14 @@ import {
   ChartBarIcon,
 } from '@heroicons/react/solid';
 import { LightBulbIcon } from '@heroicons/react/solid';
-import Blockqoute from '@/components/Blockquote';
-import Info from '@/components/Info';
+import Blockqoute from '@/components/information/Blockquote';
+import Info from '@/components/information/Info';
 import UnderlineHeader from '@/components/UnderlineHeader';
-import RedCircle from '@/components/RedCircle';
+import RedCircle from '@/components/information/RedCircle';
 import Gallery from '@/components/Gallery';
 import BrandingSection from '@/components/sections/BrandingSection';
-import PhoneCall from '@/components/PhoneCall';
-import MailTo from '@/components/MailTo';
+import PhoneCall from '@/components/information/PhoneCall';
+import MailTo from '@/components/information/MailTo';
 import { BusinessCard } from '@/components/cards';
 import Circles from '@/images/circles.inline.svg';
 import { graphql, PageProps } from 'gatsby';
@@ -78,16 +78,19 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
               icon={<BadgeCheckIcon className="w-12 h-12 text-primary-main" />}
               title="Lorem ipsum dolor"
               className="md:w-1/3"
+              textClassName="font-bold"
             />
             <Info
               icon={<ChartPieIcon className="w-12 h-12 text-primary-main" />}
               title="Lorem ipsum dolor"
               className="md:w-1/3"
+              textClassName="font-bold"
             />
             <Info
               icon={<ChartBarIcon className="w-12 h-12 text-primary-main" />}
               title="Lorem ipsum dolor"
               className="md:w-1/3"
+              textClassName="font-bold"
             />
           </div>
         </div>

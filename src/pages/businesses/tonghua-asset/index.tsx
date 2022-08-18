@@ -17,6 +17,7 @@ import { BusinessCard } from '@/components/cards';
 import Circles from '@/images/circles.inline.svg';
 import { graphql, PageProps } from 'gatsby';
 import filter from 'lodash/filter';
+import Badge from '@/components/information/Badge';
 
 type TongHuaAssetProps = PageProps<GatsbyTypes.TongHuaAssetPageQueryQuery>;
 
@@ -42,9 +43,10 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
       />
       {/* วิสัยทัศน์ และพันธกิจ */}
       <section className="flex flex-col space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto px-4">
-        <h2 className="px-4 py-1 text-xl font-medium bg-neutral-600 rounded-lg w-max text-neutral-50">
-          วิสัยทัศน์ และพันธกิจ
-        </h2>
+        <Badge
+          title="วิสัยทัศน์ และพันธกิจ"
+          className="bg-neutral-600 text-xl text-neutral-50 font-medium"
+        />
         <Blockqoute
           icon={
             <div className="flex space-x-2">
@@ -66,6 +68,7 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
           title="สร้างสรรค์มูลค่าที่ยั่งยืนให้กับผู้ที่มีส่วนได้เสียผ่านการลงทุนใน Synergy และเทคโนโลยี"
         />
       </section>
+
       {/* รางวัล และความสำเร็จ */}
       <section className="pt-10 lg:pt-16 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto px-4">
         <div className="rounded-3xl border border-neutral-400 py-10 px-5 flex md:px-10 flex-col space-y-11 lg:space-y-0 lg:flex-row lg:items-center">
@@ -95,10 +98,12 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
           </div>
         </div>
       </section>
+
       {/* เกี่ยวกับบริษัท */}
       <section className="py-10 lg:py-16 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto px-4">
         <UnderlineHeader
-          title={`เกี่ยวกับบริษัท`}
+          title="เกี่ยวกับบริษัท"
+          textClassName="text-2xl"
           underlineClassName="w-12 bg-primary-main"
         />
         <article className="mt-10 space-y-5">
@@ -123,6 +128,7 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
           </p>
         </article>
       </section>
+
       {/* Image Gallery */}
       <section className="md:px-6 lg:px-16 px-4">
         <div className="py-10">
@@ -140,6 +146,7 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
           </div>
         </div>
       </section>
+
       {/* Map & Contact Info */}
       <section className="flex flex-col md:flex-row-reverse mt-10">
         <iframe
@@ -152,7 +159,7 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
         <div className="flex flex-col h-80 bg-primary-main md:w-1/2 px-6 lg:px-24 xl:px-32 md:px-8 md:h-96 justify-center">
           <UnderlineHeader
             title="ข้อมูลการติดต่อ"
-            textClassName="text-neutral-50"
+            textClassName="text-neutral-50 text-2xl"
             underlineClassName="w-12"
           />
           <PhoneCall
@@ -174,6 +181,7 @@ const TongHuaAsset: React.FC<TongHuaAssetProps> = ({ data }) => {
           />
         </div>
       </section>
+
       {/* Businesses */}
       <section className="py-20 relative bg-neutral-600 overflow-hidden">
         <div className="flex relative z-10 overflow-x-scroll hide-scrollbar md:px-6 px-4 max-w-7xl mx-auto lg:px-0 lg:justify-around">

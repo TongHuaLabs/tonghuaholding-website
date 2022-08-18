@@ -6,6 +6,7 @@ import Info from '@/components/information/Info';
 import LightningSVG from '@/icons/lightning.inline.svg';
 import MissionQuoteSVG from '@/icons/mission-quote.inline.svg';
 import { graphql, PageProps } from 'gatsby';
+import UnderlineHeader from '@/components/UnderlineHeader';
 
 type AboutPageProps = PageProps<GatsbyTypes.AboutPageQuery>;
 
@@ -14,6 +15,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   return (
     <>
       <ObliqueLineSection title="ข้อมูลบริษัท" />
+
       <section className="flex flex-wrap px-4 2xl:max-w-7xl 2xl:px-0 mx-auto">
         {allInformationJson.edges.map(({ node }, key) => {
           const { title, description } = node;
@@ -27,6 +29,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
           );
         })}
       </section>
+
       <section className="px-4 pt-10 lg:pt-20 flex flex-col 2xl:px-0 lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10 2xl:max-w-7xl mx-auto">
         <img
           src="/images/tonghua-company.png"
@@ -44,6 +47,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
           เป็นต้น
         </p>
       </section>
+
       {/* เหตุการณ์สำคัญ */}
       <section className="px-4 pt-16 md:pt-20 2xl:max-w-7xl mx-auto 2xl:px-0">
         <h2 className="font-bold text-3xl text-center md:text-left mb-5">
@@ -58,10 +62,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       {/* วิสัยทัศน์ */}
       <section className="my-16 md:my-20 space-y-16 md:space-y-20 px-4 md:px-32 2xl:px-0 2xl:max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold text-center">
-            วิสัยทัศน์
-            <hr className="w-16 h-1 mx-auto mt-2 bg-primary-main" />
-          </h2>
+          <UnderlineHeader
+            title="วิสัยทัศน์"
+            className="items-center"
+            textClassName="text-3xl"
+            underlineClassName="bg-primary-main w-16"
+          />
           <MissionQuoteSVG className="w-12 h-12 mt-5 text-primary-surface" />
           <h3 className="text-2xl font-bold text-primary-main mt-6 text-center">
             TH เติมเต็มโอกาส เพื่อทุกการเติบโต ร่วมกัน
@@ -69,10 +75,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
         </div>
 
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold text-center">
-            พันธกิจ
-            <hr className="w-16 h-1 mx-auto mt-2 bg-primary-main" />
-          </h2>
+          <UnderlineHeader
+            title="พันธกิจ"
+            className="items-center"
+            textClassName="text-3xl"
+            underlineClassName="bg-primary-main w-14"
+          />
           <div className="flex flex-col lg:flex-row mt-11 space-y-16 lg:space-y-0">
             {allMissionJson.edges.map(({ node }, key) => {
               const { title } = node;

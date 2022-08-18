@@ -16,10 +16,12 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
   return (
     <>
       <ObliqueLineSection title="ติดต่อเรา" />
+
       {/* ติดต่อส่วนกลาง & ติดต่อฝ่ายบัญชี */}
       <section className="px-4 md:flex-row py-10 md:px-6 lg:px-16 max-w-7xl mx-auto">
         <UnderlineHeader
           title="กรุณาติดต่อเรา หากท่านต้องการสอบถามข้อมูลเพิ่มเติม"
+          textClassName="text-2xl"
           underlineClassName="w-12 bg-primary-main"
         />
         <div className="mt-10 space-y-10 md:space-y-16">
@@ -72,6 +74,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
             <div className="flex flex-col md:w-1/2">
               <UnderlineHeader
                 title="วันเวลาทำการ"
+                textClassName="text-2xl"
                 underlineClassName="w-12 bg-primary-main"
               />
               <p className="text-neutral-600 font-medium mt-4">
@@ -85,6 +88,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
             <div className="flex flex-col md:w-1/2">
               <UnderlineHeader
                 title="ที่อยู่บริษัท"
+                textClassName="text-2xl"
                 underlineClassName="w-12 bg-primary-main"
               />
               <p className="text-neutral-600 font-medium mt-4">

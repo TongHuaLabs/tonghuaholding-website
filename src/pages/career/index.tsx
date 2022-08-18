@@ -8,7 +8,7 @@ import DNA from '@/components/information/DNA';
 import SwiperCarousel from '@/components/SwiperCarousel';
 import { graphql, PageProps } from 'gatsby';
 import { useMd, useLg } from '@/hooks/responsive';
-import { TestimonialCard } from '@/components/cards';
+import { OpportunityCard, TestimonialCard } from '@/components/cards';
 import { SwiperSlide } from 'swiper/react';
 
 type CareerPageProps = PageProps<GatsbyTypes.CareerPageQuery>;
@@ -17,7 +17,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
   const md = useMd();
   const lg = useLg();
 
-  const { allDnaJson, allTeamJson, allShowcaseJson } = data;
+  const { allDnaJson, allTeamJson, allShowcaseJson, allFile } = data;
   const team = allTeamJson.edges;
   const dna = allDnaJson.edges;
 
@@ -29,11 +29,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
   });
 
   // select the first 3 elements after filtered
-  // const markdown = filter(allFile.edges, {
-  //   node: {
-  //     sourceInstanceName: locale === 'th' ? 'markdown-th' : 'markdown-en',
-  //   },
-  // }).slice(0, 3);
+  const markdown = allFile.edges.slice(0, 3);
 
   return (
     <>
@@ -113,7 +109,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
           Career Opportunity
         </h2>
         <hr className="h-px mt-2 border-0 bg-neutral-900" />
-        {/* <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
+        <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
           {markdown.map(({ node }, key) => {
             const { frontmatter } = node.childMarkdownRemark || {};
             if (!frontmatter) {
@@ -133,7 +129,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
               </div>
             );
           })}
-        </div> */}
+        </div>
       </section>
     </>
   );
@@ -167,27 +163,26 @@ export const query = graphql`
         }
       }
     }
+    allFile(
+      filter: { relativeDirectory: { eq: "career-markdown" } }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              lang
+              slug
+              title
+              date(formatString: "DD/MM/YYYY")
+              location
+              description
+              contract
+            }
+          }
+          sourceInstanceName
+        }
+      }
+    }
   }
 `;
-// // Markdown
-// allFile(
-//   filter: { relativeDirectory: { eq: "career-markdown" } }
-//   sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
-// ) {
-//   edges {
-//     node {
-//       childMarkdownRemark {
-//         frontmatter {
-//           lang
-//           slug
-//           title
-//           date(formatString: "DD/MM/YYYY")
-//           location
-//           description
-//           contract
-//         }
-//       }
-//       sourceInstanceName
-//     }
-//   }
-// }

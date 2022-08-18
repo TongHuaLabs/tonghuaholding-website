@@ -6,9 +6,9 @@ import {
 } from '@/components/cards';
 import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
 import UnderlineHeader from '@/components/UnderlineHeader';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 import { useLg, useMd } from '@/hooks/responsive';
-import SeeAll from '@/components/SeeAll';
+import { SeeAllButton } from '@/components/buttons';
 
 type NewsRoomPageProps = PageProps<GatsbyTypes.NewsRoomPageQuery>;
 
@@ -31,9 +31,14 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
   return (
     <>
       <ObliqueLineSection title="ข่าวและกิจกรรม" />
+
       {/* News */}
       <section className="px-4 pt-10 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
-        <UnderlineHeader title="ข่าวสาร TH" />
+        <UnderlineHeader
+          title="ข่าวสาร TH"
+          textClassName="text-2xl"
+          underlineClassName="bg-primary-main"
+        />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {markdown.map(({ node }, key) => {
             const { title, description, date, coverImage } =
@@ -50,12 +55,18 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
             );
           })}
         </div>
-        <SeeAll to="/newsroom/all-news" />
+        <Link to="/newsroom/all-news" className="flex w-max mx-auto">
+          <SeeAllButton />
+        </Link>
       </section>
 
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 pt-20 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
-        <UnderlineHeader title="ข่าวแจ้งตลาดหลักทรัพย์" />
+        <UnderlineHeader
+          title="ข่าวแจ้งตลาดหลักทรัพย์"
+          textClassName="text-2xl"
+          underlineClassName="bg-primary-main"
+        />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {setAnnouncement.map(({ node }, key) => {
             const { title, createdAt, pdf } = node;
@@ -70,12 +81,21 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
             );
           })}
         </div>
-        <SeeAll to="/newsroom/all-set-announcement" />
+        <Link
+          to="/newsroom/all-set-announcement"
+          className="flex w-max mx-auto"
+        >
+          <SeeAllButton />
+        </Link>
       </section>
 
       {/* เอกสารเผยแพร่ */}
       <section className="px-4 py-20 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
-        <UnderlineHeader title="เอกสารเผยแพร่" />
+        <UnderlineHeader
+          title="เอกสารเผยแพร่"
+          textClassName="text-2xl"
+          underlineClassName="bg-primary-main"
+        />
         <div className="flex flex-wrap mt-10">
           {document.map(({ node }, key) => {
             const { title, createdAt, pdf, coverImage } = node;
@@ -91,7 +111,9 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
             );
           })}
         </div>
-        <SeeAll to="/newsroom/all-document" />
+        <Link to="/newsroom/all-document" className="flex w-max mx-auto">
+          <SeeAllButton />
+        </Link>
       </section>
     </>
   );

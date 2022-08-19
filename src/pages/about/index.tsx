@@ -7,6 +7,7 @@ import LightningSVG from '@/icons/lightning.inline.svg';
 import MissionQuoteSVG from '@/icons/mission-quote.inline.svg';
 import { graphql, PageProps } from 'gatsby';
 import UnderlineHeader from '@/components/UnderlineHeader';
+import TongHuaCompanyPNG from '@/images/tonghua-company.png';
 
 type AboutPageProps = PageProps<GatsbyTypes.AboutPageQuery>;
 
@@ -31,10 +32,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       </section>
 
       <section className="px-4 pt-10 lg:pt-20 flex flex-col 2xl:px-0 lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10 2xl:max-w-7xl mx-auto">
-        <img
-          src="/images/tonghua-company.png"
-          className="lg:w-96 lg:h-96 object-cover"
-        />
+        <img src={TongHuaCompanyPNG} className="lg:w-96 lg:h-96 object-cover" />
         <p className="text-base 2xl:text-lg">
           ภายใต้การบริหารของ คุณ สมนึก กยาวัฒนกิจ บุตร ชาย คุณสาคร – คุณกัลยาณี
           กยาวัฒนกิจ บริษัทต่าง ๆ ได้ถูกก่อตั้ง เพื่อขยายงานไปสู่ธุรกิจยุคใหม่

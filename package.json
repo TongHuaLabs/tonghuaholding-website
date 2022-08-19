@@ -24,6 +24,7 @@
     "gatsby-transformer-json": "^4.16.0",
     "gatsby-transformer-remark": "^5.17.0",
     "gatsby-transformer-sharp": "^4.17.0",
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -73,7 +74,8 @@
     "type-check:watch": "tsc --noEmit --watch",
     "lint": "eslint --ignore-path .gitignore . --ext ts,tsx,js,jsx",
     "lint:fix": "eslint --ignore-path .gitignore . --ext ts,tsx,js,jsx --fix",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
     "type": "git",

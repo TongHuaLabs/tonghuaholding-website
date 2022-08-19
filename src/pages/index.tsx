@@ -21,7 +21,7 @@ const IndexPage: React.FC<{}> = () => {
           deserunt. Nisi quis consectetur nisi deserunt amet nisi. Do tempor
         </h3>
         <div className="flex hide-scrollbar relative z-20 md:pr-0 md:pl-4 md:max-w-3xl lg:max-w-4xl lg:justify-center mx-auto pl-4 items-center space-x-1.5 overflow-x-scroll">
-          BBBB
+          Hi! TOngHu@
         </div>
         <div className="absolute bottom-0 z-10 w-full h-40 bg-neutral-200 lg:h-56" />
       </section>

@@ -18,6 +18,7 @@ import Circles from '@/images/circles.inline.svg';
 import { graphql, PageProps } from 'gatsby';
 import filter from 'lodash/filter';
 import Badge from '@/components/information/Badge';
+import ThcSVG from '@/images/tonghua-asset-management.svg';
 
 type TongHuaCapitalProps = PageProps<GatsbyTypes.TongHuaCapitalPageQueryQuery>;
 
@@ -38,7 +39,7 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
       <BrandingSection
         title="บริษัท ตงฮั้ว แคปิตอล จำกัด"
         description="ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ"
-        image={`/images/tonghua-capital.svg`}
+        image={String(ThcSVG)}
       />
       {/* วิสัยทัศน์ และพันธกิจ */}
       <section className="flex flex-col space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto px-4">

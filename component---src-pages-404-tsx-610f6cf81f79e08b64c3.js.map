@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-tsx-610f6cf81f79e08b64c3.js","mappings":"0JAMA,UAJmC,WACjC,OAAO","sources":["webpack://tonghuaholding-website/./src/pages/404.tsx"],"sourcesContent":["import React from 'react';\n\nconst NotFoundPage: React.FC<{}> = () => {\n  return <main>NOT FOUND</main>;\n};\n\nexport default NotFoundPage;\n"],"names":[],"sourceRoot":""}

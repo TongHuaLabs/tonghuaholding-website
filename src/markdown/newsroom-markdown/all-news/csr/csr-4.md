@@ -1,9 +1,9 @@
 ---
 lang: th
-title: "CSR 4"
-description: "Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit."
-slug: "/newsroom/csr-4"
-coverImage: "https://picsum.photos/500/500"
+title: CSR 4
+description: Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit.
+slug: /newsroom/blog/csr-4
+cover: /images/document.jpeg
 date: 2022-06-16
 ---
 

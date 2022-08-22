@@ -6,9 +6,9 @@
     "to": "/businesses/tonghua-asset",
     "description": "ดำเนินธุรกิจผลิต\nและจำหน่ายสิ่งพิมพ์",
     "slides": [
-      "https://picsum.photos/500/500",
-      "https://picsum.photos/500/500",
-      "https://picsum.photos/500/500"
+      "/images/document.jpeg",
+      "/images/document.jpeg",
+      "/images/document.jpeg"
     ]
   },
   {
@@ -18,9 +18,9 @@
     "to": "/businesses/tonghua-asset-management",
     "description": "ดำเนินธุรกิจผลิต\nและจำหน่ายสิ่งพิมพ์",
     "slides": [
-      "https://picsum.photos/500/500",
-      "https://picsum.photos/500/500",
-      "https://picsum.photos/500/500"
+      "/images/document.jpeg",
+      "/images/document.jpeg",
+      "/images/document.jpeg"
     ]
   },
   {
@@ -30,9 +30,9 @@
     "to": "/businesses/tonghua-capital",
     "description": "ดำเนินธุรกิจผลิต\nและจำหน่ายสิ่งพิมพ์",
     "slides": [
-      "https://picsum.photos/500/500",
-      "https://picsum.photos/500/500",
-      "https://picsum.photos/500/500"
+      "/images/document.jpeg",
+      "/images/document.jpeg",
+      "/images/document.jpeg"
     ]
   },
   {
@@ -42,9 +42,9 @@
     "to": "/businesses/tonghua-media-lab",
     "description": "ดำเนินธุรกิจผลิต\nและจำหน่ายสิ่งพิมพ์",
     "slides": [
-      "https://picsum.photos/500/500",
-      "https://picsum.photos/500/500",
-      "https://picsum.photos/500/500"
+      "/images/document.jpeg",
+      "/images/document.jpeg",
+      "/images/document.jpeg"
     ]
   }
 ]

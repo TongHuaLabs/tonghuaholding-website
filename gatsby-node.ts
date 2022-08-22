@@ -18,126 +18,53 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   });
 };
 
-// type GatsbyNodeQuery = {
-//   allFile: {
-//     edges: Array<{
-//       node: {
-//         childMarkdownRemark: {
-//           id: string;
-//           html: string;
-//           frontmatter: {
-//             title: string;
-//             slug: string;
-//             lang: string;
-//           };
-//         };
-//       };
-//     }>;
-//   };
-// };
+type GatsbyNodeQuery = {
+  allMarkdownRemark: {
+    edges: Array<{
+      node: {
+        id: string;
+        frontmatter: {
+          slug: string;
+        };
+      };
+    }>;
+  };
+};
 
-// export const createPages: GatsbyNode['createPages'] = async ({
-//   graphql,
-//   actions,
-// }) => {
-//   actions.createRedirect({
-//     fromPath: `/career`,
-//     toPath: `/en/career`,
-//   });
+export const createPages: GatsbyNode['createPages'] = async ({
+  graphql,
+  actions,
+}) => {
+  const { data, errors } = await graphql<GatsbyNodeQuery>(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            id
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
 
-//   const markdownCareerEn = await graphql<GatsbyNodeQuery>(`
-//     query {
-//       allFile(
-//         filter: {
-//           sourceInstanceName: { eq: "markdown-en" }
-//           relativeDirectory: { eq: "career" }
-//         }
-//         sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
-//       ) {
-//         edges {
-//           node {
-//             childMarkdownRemark {
-//               id
-//               html
-//               frontmatter {
-//                 title
-//                 slug
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
+  if (errors) {
+    return Promise.reject(errors);
+  }
 
-//   const markdownCareerTh = await graphql<GatsbyNodeQuery>(`
-//     query {
-//       allFile(
-//         filter: {
-//           sourceInstanceName: { eq: "markdown-th" }
-//           relativeDirectory: { eq: "career" }
-//         }
-//         sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
-//       ) {
-//         edges {
-//           node {
-//             childMarkdownRemark {
-//               id
-//               html
-//               frontmatter {
-//                 title
-//                 slug
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
+  const { allMarkdownRemark } = data || {};
 
-//   if (markdownCareerEn.errors || markdownCareerTh.errors) {
-//     return Promise.reject(markdownCareerEn.errors || markdownCareerTh.errors);
-//   }
-
-//   const { allFile: allMarkdownCareerEn } = markdownCareerEn.data || {};
-//   const { allFile: allMarkdownCareerTh } = markdownCareerTh.data || {};
-
-//   allMarkdownCareerEn?.edges.forEach(({ node }) => {
-//     const { html, frontmatter } = node.childMarkdownRemark;
-//     const { slug, title } = frontmatter;
-//     actions.createPage({
-//       path: `/en${slug}`,
-//       component: path.resolve('src', 'templates', 'MarkdownTemplate.tsx'),
-//       context: {
-//         title,
-//         html,
-//       },
-//     });
-//   });
-
-//   allMarkdownCareerTh?.edges.forEach(({ node }) => {
-//     const { html, frontmatter } = node.childMarkdownRemark;
-//     const { slug, title } = frontmatter;
-//     actions.createPage({
-//       path: `/th${slug}`,
-//       component: path.resolve('src', 'templates', 'MarkdownTemplate.tsx'),
-//       context: {
-//         title,
-//         html,
-//       },
-//     });
-//   });
-// };
-
-// export const onCreatePage = ({ page, actions }: any) => {
-//   const { deletePage } = actions;
-//   console.log(page.path);
-//   if (
-//     page.path.includes('/en/th/') ||
-//     page.path.includes('/en/en/') ||
-//     page.path.includes('/th/en/') ||
-//     page.path.includes('/th/th/')
-//   ) {
-//     deletePage(page);
-//   }
-// };
+  allMarkdownRemark?.edges.forEach(({ node }) => {
+    const { id, frontmatter } = node;
+    const { slug } = frontmatter;
+    actions.createPage({
+      path: slug,
+      component: path.resolve('src', 'templates', 'MarkdownTemplate.tsx'),
+      context: {
+        id,
+      },
+    });
+  });
+};

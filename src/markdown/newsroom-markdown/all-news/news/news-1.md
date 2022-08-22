@@ -1,9 +1,9 @@
 ---
 lang: th
-title: "News 1"
-description: "Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit."
-slug: "/newsroom/news-1"
-coverImage: "https://picsum.photos/500/500"
+title: News 1
+description: Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit.
+slug: /newsroom/blog/news-1
+cover: /images/document.jpeg
 date: 2022-06-13
 ---
 

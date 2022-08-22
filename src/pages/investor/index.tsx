@@ -14,7 +14,7 @@ const InvestorPage: React.FC<InvestorPageProps> = () => {
         <div className="w-full md:-mr-8 lg:mr-0 md:w-1/2 mt-7 md:mt-0">
           <div className="aspect-w-16 aspect-h-9">
             <img
-              src="https://picsum.photos/500/500"
+              src="/images/document.jpeg"
               className="object-cover w-full h-full rounded-2xl"
             />
           </div>

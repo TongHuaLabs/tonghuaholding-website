@@ -1,10 +1,11 @@
 ---
 lang: en
-title: "Software Development"
-description: "Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit."
-location: "ChangMai"
-contract: "Permanent"
-slug: "/career/software-development"
+title: Software Development
+description: Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit.
+location: ChangMai
+contract: Permanent
+slug: /career/blog/software-development
+cover: /images/document.jpeg
 date: 2022-06-22
 ---
 

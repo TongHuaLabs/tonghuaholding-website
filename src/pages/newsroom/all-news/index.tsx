@@ -48,15 +48,16 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
       />
       <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
         {markdown.map(({ node }, key) => {
-          const { title, description, date, coverImage } =
+          const { title, description, date, cover, slug } =
             node.childMarkdownRemark?.frontmatter || {};
           return (
             <NewsCard
               title={title}
               className="md:w-1/2 lg:w-1/3 md:p-2"
               description={description}
-              coverImage={coverImage}
+              coverImage={cover}
               createdAt={date}
+              href={slug}
               key={key}
             />
           );
@@ -83,7 +84,7 @@ export const query = graphql`
               title
               date(formatString: "DD/MM/YYYY")
               description
-              coverImage
+              cover
             }
           }
           sourceInstanceName
@@ -103,7 +104,7 @@ export const query = graphql`
               title
               date(formatString: "DD/MM/YYYY")
               description
-              coverImage
+              cover
             }
           }
           sourceInstanceName

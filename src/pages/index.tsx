@@ -35,7 +35,7 @@ const IndexPage: React.FC<{}> = () => {
               title="Lorem"
               className="md:w-1/2 lg:w-1/3 md:p-2"
               description="Esse consequat nulla laborum id reprehenderit ut qui dolor. Est adipisicing ut quis elit elit excepteur magna irure dolore pariatur duis ex ullamco. Nulla laborum sunt id voluptate."
-              coverImage="https://picsum.photos/500/500"
+              coverImage="/images/document.jpeg"
               key={key}
             />
           ))}
@@ -67,7 +67,7 @@ const IndexPage: React.FC<{}> = () => {
         <CSRCard
           title="Lorem"
           description="Esse consequat nulla laborum id reprehenderit ut qui dolor. Est adipisicing ut quis elit elit excepteur magna irure dolore pariatur duis ex ullamco. Nulla laborum sunt id voluptate."
-          coverImage="https://picsum.photos/500/500"
+          cover="/images/document.jpeg"
         />
       </section>
       {/* Contact */}

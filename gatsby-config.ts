@@ -1,8 +1,9 @@
 export const siteMetadata = {
   title: `Tong Hua Holding`,
   description: ``,
+  twitter: `@tonghuaholding`,
   siteUrl: `https://tonghuaholding.com`, // No trailing slash allowed!
-  // defaultMetaImage: '/images/meta-default.png', // Path to the image placed in the 'static' folder
+  defaultMetaImage: '/images/meta-default.png', // Path to the image placed in the 'static' folder
 };
 
 export const pathPrefix = '/tonghuaholding-website';
@@ -19,18 +20,11 @@ export const plugins = [
       },
     },
   },
-  {
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      name: `images`,
-      path: `${__dirname}/src/images`,
-    },
-  },
   `gatsby-transformer-json`,
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      path: `${__dirname}/src/data/`,
+      path: `${__dirname}/src/data`,
     },
   },
   'gatsby-transformer-remark',
@@ -50,6 +44,7 @@ export const plugins = [
   },
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
+  'gatsby-remark-images',
   // {
   //   resolve: `gatsby-plugin-manifest`,
   //   options: {

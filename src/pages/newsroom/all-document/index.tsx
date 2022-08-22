@@ -41,13 +41,13 @@ const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
       />
       <div className="flex flex-wrap mt-10">
         {document.map(({ node }, key) => {
-          const { title, createdAt, pdf, coverImage } = node;
+          const { title, createdAt, pdf, cover } = node;
           return (
             <DocumentCard
               key={key}
               title={title}
               className="w-1/2 md:w-1/4 p-2"
-              coverImage={coverImage}
+              coverImage={cover}
               createdAt={createdAt}
               toFile={pdf}
             />
@@ -68,7 +68,7 @@ export const query = graphql`
           createdAt
           title
           pdf
-          coverImage
+          cover
         }
       }
     }

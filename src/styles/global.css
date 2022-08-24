@@ -28,6 +28,12 @@
    @apply self-center border-transparent border-r-primary-main relative -right-0.5;
    border-width: 15px;
   }
+  .navbar-active {
+    @apply text-primary-main !important;
+  }
+  .navbar-active-popover {
+    @apply text-primary-main hover:text-white !important;
+  }
 }
 
 /* Swiper */

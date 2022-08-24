@@ -21,7 +21,7 @@ const BrandingSection: React.FC<BrandingSectionProps> = ({
         backgroundSize: 'contain',
       }}
     >
-      <div className="flex relative z-20 flex-col items-center">
+      <div className="flex relative z-20 px-4 text-center flex-col items-center">
         <h1 className="text-2xl md:text-3xl font-bold text-neutral-50">
           {title}
         </h1>

@@ -18,7 +18,6 @@ const Footer: React.FC<FooterProps> = () => {
           {`customerservice@tonghuagroup.com\n+66 2236-9171-6`}
         </p>
       </div>
-      {/* <DisclosureNavigation className="mt-10 md:w-2/5 lg:w-1/3 md:mt-0" /> */}
       <div className="flex flex-wrap justify-between mt-10 md:w-2/5 lg:w-1/3 md:mt-0">
         {route.map(({ title, href, menu }, key) => (
           <DisclosureNavigation
@@ -30,9 +29,11 @@ const Footer: React.FC<FooterProps> = () => {
           />
         ))}
       </div>
-      <Social className="hidden space-y-3 lg:block" />
       <div className="flex flex-col justify-between w-full mt-1 md:items-center md:flex-row lg:mt-0 lg:hidden">
-        <Social className="space-x-3" />
+        <Social
+          className="space-x-3 text-white"
+          backgroundClassName="bg-primary-main"
+        />
         <div className="flex flex-col mt-7 space-y-4 text-left md:text-right md:mt-0">
           <p className="text-sm text-neutral-900">
             สงวนลิขสิทธิ์ พ.ศ. 2565 บริษัท ตงฮั้วโฮลดิ้ง จำกัด (มหาชน)

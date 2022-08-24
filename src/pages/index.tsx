@@ -1,18 +1,34 @@
 import React from 'react';
+import TongHuaBuildingSVG from '@/images/tonghua-building.svg';
+import Social from '@/components/Social';
+import DotPattern from '@/images/dot-pattern.inline.svg';
 import { NewsCard, CSRCard } from '@/components/cards';
 
 const IndexPage: React.FC<{}> = () => {
   return (
     <>
-      {/* Our Vision */}
-      <section className="px-4 py-20 space-y-6 text-center md:px-0 lg:p-36 bg-neutral-200">
-        <h2 className="text-3xl font-medium">Our Vision</h2>
-        <h3 className="w-3/4 mx-auto md:w-2/4">
-          Ea reprehenderit fugiat voluptate minim tempor consectetur excepteur
-          deserunt. Nisi quis consectetur nisi deserunt amet nisi. Do tempor
-        </h3>
-        <div className="flex items-center justify-center space-x-5">AAAAA</div>
+      {/* TONG HUA HOLDING PLC. */}
+      <section
+        style={{
+          background: `linear-gradient(0deg, rgba(203, 57, 57, 0.8), rgba(203, 57, 57, 0.8)), url(${TongHuaBuildingSVG})`,
+          backgroundSize: 'cover',
+        }}
+        className="relative flex flex-col items-start justify-center h-[75vh] space-y-6 md:items-center px-6"
+      >
+        <h1 className="text-4xl whitespace-pre leading-9 font-bold md:text-center md:leading-[99px] md:text-6xl lg:whitespace-normal text-neutral-50">
+          {`TONG HUA\nHOLDING PLC.`}
+        </h1>
+        <h2 className="text-lg md:text-2xl text-neutral-50 text-bold">
+          SOME MOTTO HERE...
+        </h2>
+        <Social
+          className="space-x-4 text-primary-main"
+          backgroundClassName="bg-white"
+        />
+        <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
+        <DotPattern className="text-neutral-50 z-10 absolute bottom-2.5 right-3 opacity-80 md:hidden" />
       </section>
+
       {/* Businesses */}
       <section className="relative py-20 space-y-6 text-center lg:py-36">
         <h2 className="text-3xl font-medium">ธุรกิจในเครือ</h2>
@@ -25,6 +41,7 @@ const IndexPage: React.FC<{}> = () => {
         </div>
         <div className="absolute bottom-0 z-10 w-full h-40 bg-neutral-200 lg:h-56" />
       </section>
+
       {/* News */}
       <section className="px-4 pt-20 space-y-4 md:px-6 lg:px-36 lg:pt-36">
         <h2 className="text-3xl font-medium">ข่าวสาร TH</h2>
@@ -41,6 +58,7 @@ const IndexPage: React.FC<{}> = () => {
           ))}
         </div>
       </section>
+
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 py-20 space-y-4 md:px-6 lg:p-36">
         <h2 className="text-3xl font-medium">ข่าวแจ้งตลาดหลักทรัพย์</h2>
@@ -59,6 +77,7 @@ const IndexPage: React.FC<{}> = () => {
           ))}
         </div>
       </section>
+
       {/* CSR */}
       <section className="px-4 py-20 space-y-6 lg:p-36 bg-neutral-200">
         <h2 className="text-3xl font-medium text-center">
@@ -70,6 +89,7 @@ const IndexPage: React.FC<{}> = () => {
           cover="/images/document.jpeg"
         />
       </section>
+
       {/* Contact */}
       <section className="px-4 py-20 space-y-6 lg:p-36">
         <h2 className="text-3xl font-medium text-center">ติดต่อเรา</h2>

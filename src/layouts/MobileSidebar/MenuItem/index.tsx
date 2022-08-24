@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { navigate } from 'gatsby';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { Disclosure } from '@headlessui/react';
-import { menuList } from '../../Navbar';
+import { route } from '@/layouts/navigation/route';
 
 type MenuItemProps = {
   className?: string;
@@ -20,7 +20,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ className, onClose }) => {
 
   return (
     <div className={classNames('p-5', className)}>
-      {menuList.map(({ title, href, menu }, key) => (
+      {route.map(({ title, href, menu }, key) => (
         <React.Fragment key={key}>
           <Disclosure>
             {({ open }) => (

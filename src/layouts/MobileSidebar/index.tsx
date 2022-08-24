@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Transition } from '@headlessui/react';
 import MenuItem from './MenuItem';
-import Navbar from '../Navbar';
+import Navbar from '@/layouts/Navbar';
 
 type MobileSidebarProps = {
   isShowing: boolean;
@@ -18,7 +18,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
   return (
     <Transition
       show={isShowing}
-      className={classNames(className)}
+      className={classNames('', className)}
       unmount={false}
       as="aside"
     >
@@ -31,7 +31,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
         leaveTo="-translate-x-full"
         unmount={false}
         as="div"
-        className="fixed inset-y-0 left-0 z-20 w-full bg-white lg:hidden"
+        className="fixed inset-y-0 left-0 z-20 w-full bg-neutral-50 lg:hidden"
       >
         <Navbar showClose={true} onCloseClick={onClose} />
         <MenuItem onClose={onClose} />

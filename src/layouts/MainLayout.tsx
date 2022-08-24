@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import MobileSidebar from './MobileSidebar';
+import Navbar from '@/layouts/Navbar';
+import Footer from '@/layouts/Footer';
+import MobileSidebar from '@/layouts/MobileSidebar';
 
 type MainLayoutProps = {};
 

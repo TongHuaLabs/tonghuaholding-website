@@ -15,10 +15,9 @@ import PhoneCall from '@/components/information/PhoneCall';
 import MailTo from '@/components/information/MailTo';
 import { BusinessCard } from '@/components/cards';
 import Circles from '@/images/circles.inline.svg';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, PageProps, withPrefix } from 'gatsby';
 import filter from 'lodash/filter';
 import Badge from '@/components/information/Badge';
-import ThamSVG from '@/images/tonghua-asset-management.svg';
 
 type TongHuaAssetManagementProps =
   PageProps<GatsbyTypes.TongHuaAssetManagementPageQueryQuery>;
@@ -42,7 +41,7 @@ const TongHuaAssetManagement: React.FC<TongHuaAssetManagementProps> = ({
       <BrandingSection
         title="บริษัท TONG HUA ASSET MANAGEMENT"
         description="ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ"
-        image={String(ThamSVG)}
+        image={withPrefix('/images/tonghua-asset-management.svg')}
       />
       {/* วิสัยทัศน์ และพันธกิจ */}
       <section className="flex flex-col space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto px-4">
@@ -75,7 +74,7 @@ const TongHuaAssetManagement: React.FC<TongHuaAssetManagementProps> = ({
       {/* รางวัล และความสำเร็จ */}
       <section className="pt-10 lg:pt-16 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto px-4">
         <div className="rounded-3xl border border-neutral-400 py-10 px-5 flex md:px-10 flex-col space-y-11 lg:space-y-0 lg:flex-row lg:items-center">
-          <div className="flex flex-col items-center space-y-2 lg:whitespace-pre lg:border-r-2 lg:border-primary-main lg:pr-10 lg:h-32 lg:justify-center">
+          <div className="flex flex-col items-center space-y-2 lg:whitespace-pre-line lg:border-r-2 lg:border-primary-main lg:pr-10 lg:h-32 lg:justify-center">
             <h2 className="text-2xl lg:text-3xl font-medium">{`รางวัล และ\nความสำเร็จ`}</h2>
             <hr className="h-px border-0 bg-primary-main w-12 lg:hidden" />
           </div>
@@ -163,7 +162,7 @@ const TongHuaAssetManagement: React.FC<TongHuaAssetManagementProps> = ({
           <UnderlineHeader
             title="ข้อมูลการติดต่อ"
             textClassName="text-neutral-50 text-2xl"
-            underlineClassName="w-12"
+            underlineClassName="w-12 bg-neutral-200"
           />
           <PhoneCall
             phone="(+66) 2236-9171-6"
@@ -193,7 +192,7 @@ const TongHuaAssetManagement: React.FC<TongHuaAssetManagementProps> = ({
             return (
               <div key={key} className="px-4 lg:px-0">
                 <BusinessCard
-                  image={image}
+                  image={withPrefix(image || '')}
                   title={title}
                   description={description}
                   to={to}

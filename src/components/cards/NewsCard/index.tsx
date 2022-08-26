@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Link } from 'gatsby';
 
 type NewsCardProps = {
@@ -20,8 +19,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
   className,
 }) => {
   return (
-    <Link to={href || ''} className={classNames('space-y-2.5', className)}>
-      <article>
+    <Link to={href || ''} className={className}>
+      <article className="space-y-2.5">
         <div className="aspect-w-16 aspect-h-9">
           <img
             alt={title}

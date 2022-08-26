@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, PageProps, withPrefix } from 'gatsby';
 import { NewsCard } from '@/components/cards';
 import ListBox, { ListProps } from '@/components/ListBox';
 import UnderlineHeader from '@/components/UnderlineHeader';
@@ -55,7 +55,7 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
               title={title}
               className="md:w-1/2 lg:w-1/3 md:p-2"
               description={description}
-              coverImage={cover}
+              coverImage={withPrefix(cover || '')}
               createdAt={date}
               href={slug}
               key={key}

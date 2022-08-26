@@ -1,6 +1,7 @@
 import React from 'react';
 import QouteSvg from '@/icons/qoute.inline.svg';
 import classNames from 'classnames';
+import { withPrefix } from 'gatsby';
 
 interface TestimonialCardProps {
   name?: string;
@@ -27,7 +28,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <div className="flex items-center justify-between">
         <div className="flex">
           <img
-            src={profileImage}
+            src={withPrefix(profileImage || '')}
             className="w-12 h-12 rounded-full border border-primary-main bg-white p-0.5 mr-2"
           />
           <div className="flex flex-col">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { PrimaryButton } from '@/components/buttons';
 import classNames from 'classnames';
 
 type SeeAllButtonProps = {
@@ -7,14 +8,10 @@ type SeeAllButtonProps = {
 
 const SeeAllButton: React.FC<SeeAllButtonProps> = ({ className }) => {
   return (
-    <button
-      className={classNames(
-        `bg-primary-main h-8 px-3 text-white text-sm font-medium rounded-lg`,
-        className,
-      )}
-    >
-      อ่านทั้งหมด
-    </button>
+    <PrimaryButton
+      title="อ่านทั้งหมด"
+      className={classNames('text-sm font-medium', className)}
+    />
   );
 };
 

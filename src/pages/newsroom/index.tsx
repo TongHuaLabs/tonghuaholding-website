@@ -17,16 +17,13 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
   const lg = useLg();
 
   const { allFile, allSetAnnouncementJson, allDocumentJson } = data;
-
-  // select the first 6 elements after filtered
-  const markdown = allFile.edges.slice(0, 6);
+  const news = allFile.edges;
+  const document = allDocumentJson.edges;
 
   const setAnnouncement = allSetAnnouncementJson.edges.slice(
     0,
     lg ? 9 : md ? 6 : 3,
   );
-
-  const document = allDocumentJson.edges.slice(0, 4);
 
   return (
     <>
@@ -40,7 +37,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
           underlineClassName="bg-primary-main"
         />
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
-          {markdown.map(({ node }, key) => {
+          {news.map(({ node }, key) => {
             const { title, description, date, cover, slug } =
               node.childMarkdownRemark?.frontmatter || {};
             return (
@@ -127,6 +124,7 @@ export const query = graphql`
     allFile(
       filter: { relativeDirectory: { eq: "newsroom-markdown/all-news/news" } }
       sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+      limit: 6
     ) {
       edges {
         node {
@@ -153,7 +151,7 @@ export const query = graphql`
         }
       }
     }
-    allDocumentJson(sort: { fields: createdAt, order: DESC }) {
+    allDocumentJson(sort: { fields: createdAt, order: DESC }, limit: 4) {
       edges {
         node {
           createdAt

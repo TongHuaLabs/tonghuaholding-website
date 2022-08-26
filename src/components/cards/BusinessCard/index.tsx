@@ -27,7 +27,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
     >
       <img src={image} className="w-36 h-36" />
       <span className="text-sm block font-medium mt-4">{title}</span>
-      <span className="text-xs block line-clamp-2 whitespace-pre mt-3">
+      <span className="text-xs block line-clamp-2 whitespace-pre-line mt-3">
         {description}
       </span>
       <ReadMoreButton className="mt-4" />

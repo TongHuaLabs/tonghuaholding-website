@@ -14,7 +14,7 @@ const Footer: React.FC<FooterProps> = () => {
         <p className="text-sm font-medium text-neutral-900">
           877-881 เจริญกรุง ตลาดน้อย สัมพันธวงศ์ กรุงเทพฯ 10100
         </p>
-        <p className="text-sm font-medium text-neutral-900 whitespace-pre">
+        <p className="text-sm font-medium text-neutral-900 whitespace-pre-line">
           {`customerservice@tonghuagroup.com\n+66 2236-9171-6`}
         </p>
       </div>

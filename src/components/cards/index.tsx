@@ -6,3 +6,4 @@ export { default as DocumentCard } from '@/components/cards/DocumentCard';
 export { default as BusinessCard } from '@/components/cards/BusinessCard';
 export { default as CSRCard } from '@/components/cards/CSRCard';
 export { default as MemberCard } from '@/components/cards/MemberCard';
+export { default as LatestNewsCard } from '@/components/cards/LatestNewsCard';

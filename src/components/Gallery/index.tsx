@@ -1,6 +1,7 @@
 import React from 'react';
 import SwiperCarousel, { SwiperCarouselProps } from '../SwiperCarousel';
 import { SwiperSlide } from 'swiper/react';
+import { withPrefix } from 'gatsby';
 
 interface GalleryProps extends SwiperCarouselProps {
   images: string[];
@@ -33,7 +34,7 @@ const Gallery: React.FC<GalleryProps> = ({
             <div className="max-w-5xl mx-auto">
               <div className="aspect-w-3 aspect-h-2 md:aspect-w-16 md:aspect-h-9">
                 <img
-                  src={slide}
+                  src={withPrefix(slide || '')}
                   className="w-full h-full rounded-lg object-cover"
                 />
               </div>

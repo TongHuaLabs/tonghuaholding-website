@@ -15,7 +15,7 @@ import PhoneCall from '@/components/information/PhoneCall';
 import MailTo from '@/components/information/MailTo';
 import { BusinessCard } from '@/components/cards';
 import Circles from '@/images/circles.inline.svg';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, PageProps, withPrefix } from 'gatsby';
 import filter from 'lodash/filter';
 import Badge from '@/components/information/Badge';
 
@@ -38,7 +38,7 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
       <BrandingSection
         title="บริษัท ตงฮั้ว แคปิตอล จำกัด"
         description="ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ"
-        image="/images/tonghua-asset-management.svg"
+        image={withPrefix('/images/tonghua-asset-management.svg')}
       />
       {/* วิสัยทัศน์ และพันธกิจ */}
       <section className="flex flex-col space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto px-4">
@@ -189,7 +189,7 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
             return (
               <div key={key} className="px-4 lg:px-0">
                 <BusinessCard
-                  image={image}
+                  image={withPrefix(image || '')}
                   title={title}
                   description={description}
                   to={to}

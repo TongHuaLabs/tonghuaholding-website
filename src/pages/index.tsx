@@ -17,7 +17,7 @@ import {
   BusinessCard,
   SetAnnouncementCard,
 } from '@/components/cards';
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, Link, PageProps, withPrefix } from 'gatsby';
 
 type IndexPageProps = PageProps<GatsbyTypes.IndexPageQuery>;
 
@@ -57,7 +57,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <OurBusiness
           title={title}
           description={description}
-          cover={cover}
+          cover={withPrefix(cover || '')}
           className="mt-10"
         />
       ),
@@ -182,7 +182,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               return (
                 <div key={key} className="px-4 lg:px-0">
                   <BusinessCard
-                    image={image}
+                    image={withPrefix(image || '')}
                     title={title}
                     description={description}
                     to={to}
@@ -214,7 +214,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                 title={title}
                 className="md:w-1/2 lg:w-1/3 md:p-2"
                 description={description}
-                coverImage={cover}
+                coverImage={withPrefix(cover || '')}
                 createdAt={date}
                 href={slug}
                 key={key}

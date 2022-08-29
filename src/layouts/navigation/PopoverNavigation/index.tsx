@@ -37,10 +37,8 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
               onMouseEnter={() => setIsShowing(true)}
               onMouseLeave={() => setIsShowing(false)}
               className={`flex items-center text-sm ${
-                isShowing ? 'text-primary-main' : 'text-neutral-900'
-              }
-              ${active && 'text-primary-main'}
-        `}
+                isShowing || active ? 'text-primary-main' : 'text-neutral-900'
+              }`}
             >
               {title}
               <ChevronDownIcon className="w-4 h-4 ml-2" />

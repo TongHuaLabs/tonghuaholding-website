@@ -4,7 +4,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
 import THHLogoSvg from '@images/tonghua-holding.inline.svg';
 import PopoverNavigation from '@/layouts/navigation/PopoverNavigation';
-import ChangeLocale from '@/components/ChangeLocale';
+// import ChangeLocale from '@/components/ChangeLocale';
 import { route } from '@/layouts/navigation/route';
 
 type NavbarProps = {
@@ -40,9 +40,9 @@ const Navbar: React.FC<NavbarProps> = ({
             className="hidden lg:block"
           />
         ))}
-        <li className="hidden w-px lg:block h-8 bg-neutral-200" />
-        <ChangeLocale />
-        <li className="w-px lg:hidden h-8 bg-neutral-200" />
+        {/* <li className="hidden w-px lg:block h-8 bg-neutral-200" /> */}
+        {/* <ChangeLocale /> */}
+        {/* <li className="w-px lg:hidden h-8 bg-neutral-200" /> */}
         <li className="block lg:hidden">
           {showClose ? (
             <XIcon

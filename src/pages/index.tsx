@@ -38,32 +38,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
   const businesses = allBusinessesJson.edges;
 
-  const ourBusiness = allOurBusinessJson.edges.map(({ node }) => {
-    const { title } = node;
-    return {
-      tab: (
-        <PrimaryButton
-          title={title}
-          className="text-base md:text-xl w-28 my-2 md:w-32"
-        />
-      ),
-    };
-  });
-
-  const ourBusinessComponents = allOurBusinessJson.edges.map(({ node }) => {
-    const { title, description, cover } = node;
-    return {
-      child: (
-        <OurBusiness
-          title={title}
-          description={description}
-          cover={withPrefix(cover || '')}
-          className="mt-10"
-        />
-      ),
-    };
-  });
-
   const latestNews = news.edges.slice(0, !isLg ? 4 : 3);
 
   const setNews = allSetAnnouncementJson.edges.slice(0, !isLg ? 4 : 3);
@@ -162,8 +136,24 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <Tabs
           className="px-4 md:px-6 mt-10 max-w-7xl mx-auto"
-          tabs={ourBusiness}
-          components={ourBusinessComponents}
+          tabClassName="w-28 md:w-32"
+          tabs={allOurBusinessJson.edges.map(({ node }) => {
+            const { title } = node;
+            return { title };
+          })}
+          components={allOurBusinessJson.edges.map(({ node }) => {
+            const { title, description, cover } = node;
+            return {
+              child: (
+                <OurBusiness
+                  title={title}
+                  description={description}
+                  cover={withPrefix(cover || '')}
+                  className="mt-10"
+                />
+              ),
+            };
+          })}
         />
       </section>
 

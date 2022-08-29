@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, PageProps, withPrefix } from 'gatsby';
 import { ShareButton } from '@/components/buttons';
 
 type MarkdownTemplateProps = PageProps<GatsbyTypes.MarkdownTemplateQuery>;
@@ -21,7 +21,10 @@ const MarkdownTemplate = ({
         {cover && (
           <div className="max-w-4xl mt-10">
             <div className="aspect-w-16 aspect-h-9">
-              <img src={cover} className="w-full h-full object-cover" />
+              <img
+                src={withPrefix(cover || '')}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         )}

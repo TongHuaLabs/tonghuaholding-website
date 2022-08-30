@@ -48,7 +48,7 @@ const NewsRoomAllSetAnnouncement: React.FC<NewsRoomAllSetAnnouncementProps> = ({
               <SetAnnouncementCard
                 title={title}
                 createAt={createdAt}
-                readMore={`/pdf/${pdf}`}
+                pdf={pdf}
               />
             </div>
           );

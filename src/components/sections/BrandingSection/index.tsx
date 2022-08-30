@@ -1,6 +1,7 @@
 import React from 'react';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import CoreValue from '@images/core-value.svg';
+import { withPrefix } from 'gatsby';
 
 type BrandingSectionProps = {
   title: string;
@@ -29,7 +30,10 @@ const BrandingSection: React.FC<BrandingSectionProps> = ({
           {description}
         </h2>
         <div className="relative mt-8 md:mt-10">
-          <img src={image} className="w-40 h-40 relative z-20" />
+          <img
+            src={withPrefix(image || '')}
+            className="w-40 h-40 relative z-20"
+          />
           <DotPattern className="text-primary-main z-10 absolute top-8 left-9 opacity-50" />
         </div>
       </div>

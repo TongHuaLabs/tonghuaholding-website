@@ -1,17 +1,21 @@
+import classNames from 'classnames';
 import React from 'react';
 
 type BlockqouteProps = {
-  icon?: React.ReactNode;
-  title: string;
+  title?: string;
+  description?: string;
+  className?: string;
 };
 
-const Blockqoute: React.FC<BlockqouteProps> = ({ icon, title }) => {
+const Blockqoute: React.FC<BlockqouteProps> = ({
+  title,
+  description,
+  className,
+}) => {
   return (
-    <div className="flex flex-col space-y-5">
-      {icon}
-      <div className="border-l-2 border-primary-main pl-5">
-        <span className="text-lg font-medium">{title}</span>
-      </div>
+    <div className={classNames('border-l-4 border-primary-main', className)}>
+      <span className="block text-lg text-primary-main font-bold">{title}</span>
+      <span className="block text-neutral-900 font-bold">{description}</span>
     </div>
   );
 };

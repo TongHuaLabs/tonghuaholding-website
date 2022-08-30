@@ -1,18 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
 import { ReadMoreButton } from '@/components/buttons';
+import { withPrefix } from 'gatsby';
 
 type SetAnnouncementCardProps = {
   title: string | GatsbyTypes.Maybe<string>;
   createAt: string | GatsbyTypes.Maybe<string>;
-  readMore: string | GatsbyTypes.Maybe<string>;
+  pdf: string | GatsbyTypes.Maybe<string>;
   className?: string | GatsbyTypes.Maybe<string>;
 };
 
 const SetAnnouncementCard: React.FC<SetAnnouncementCardProps> = ({
   title,
   createAt,
-  readMore,
+  pdf,
   className,
 }) => {
   return (
@@ -27,7 +28,7 @@ const SetAnnouncementCard: React.FC<SetAnnouncementCardProps> = ({
         <p className="font-medium text-neutral-900 line-clamp-3">{title}</p>
       </div>
       <a
-        href={readMore}
+        href={withPrefix(`/pdf/${pdf}`)}
         target="__blank"
         className={classNames(`flex items-center`, className)}
       >

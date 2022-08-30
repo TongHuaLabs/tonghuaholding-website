@@ -4,14 +4,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          main: '#CB3939',
+          main: '#D9231D',
           surface: '#F5D7D7',
           border: '#EEBDBD',
           hover: '#A93030',
           pressed: '#89232B',
         },
         brand: {
-          red: '#CB3939',
+          red: '#D9231D',
           white: '#FFFFFF',
           grey: '#5E6061',
         },

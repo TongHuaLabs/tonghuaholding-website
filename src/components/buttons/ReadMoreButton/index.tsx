@@ -9,8 +9,10 @@ type ReadMoreButtonProps = {
 const ReadMoreButton: React.FC<ReadMoreButtonProps> = ({ className }) => {
   return (
     <button className={classNames(`flex justify-center`, className)}>
-      <span className="text-brand-red font-medium text-xs">อ่านเพิ่มเติม</span>
-      <ChevronRightIcon className="w-4 h-4 text-brand-red" />
+      <span className="text-primary-main font-medium text-xs">
+        อ่านเพิ่มเติม
+      </span>
+      <ChevronRightIcon className="w-4 h-4 text-primary-main" />
     </button>
   );
 };

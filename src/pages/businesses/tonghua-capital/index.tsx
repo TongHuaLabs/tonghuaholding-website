@@ -5,7 +5,7 @@ import {
   ChartBarIcon,
 } from '@heroicons/react/solid';
 import { LightBulbIcon } from '@heroicons/react/solid';
-import Blockqoute from '@/components/information/Blockquote';
+import BlockquoteWithIcon from '@/components/information/BlockquoteWithIcon';
 import Info from '@/components/information/Info';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import RedCircle from '@/components/information/RedCircle';
@@ -15,7 +15,7 @@ import PhoneCall from '@/components/information/PhoneCall';
 import MailTo from '@/components/information/MailTo';
 import { BusinessCard } from '@/components/cards';
 import Circles from '@/images/circles.inline.svg';
-import { graphql, PageProps, withPrefix } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import filter from 'lodash/filter';
 import Badge from '@/components/information/Badge';
 
@@ -38,7 +38,7 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
       <BrandingSection
         title="บริษัท ตงฮั้ว แคปิตอล จำกัด"
         description="ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ"
-        image={withPrefix('/images/tonghua-asset-management.svg')}
+        image="/images/tonghua-asset-management.svg"
       />
       {/* วิสัยทัศน์ และพันธกิจ */}
       <section className="flex flex-col space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto px-4">
@@ -46,7 +46,7 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
           title="วิสัยทัศน์ และพันธกิจ"
           className="bg-neutral-600 text-xl text-neutral-50 font-medium"
         />
-        <Blockqoute
+        <BlockquoteWithIcon
           icon={
             <div className="flex space-x-2">
               <LightBulbIcon className="h-6 w-6 text-primary-main" />
@@ -55,16 +55,16 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
               </h3>
             </div>
           }
-          title="สร้างสรรค์มูลค่าที่ยั่งยืนให้กับผู้ที่มีส่วนได้เสียผ่านการลงทุนใน Synergy และเทคโนโลยี"
+          description="สร้างสรรค์มูลค่าที่ยั่งยืนให้กับผู้ที่มีส่วนได้เสียผ่านการลงทุนใน Synergy และเทคโนโลยี"
         />
-        <Blockqoute
+        <BlockquoteWithIcon
           icon={
             <div className="flex space-x-2">
               <LightBulbIcon className="h-6 w-6 text-primary-main" />
               <h3 className="text-xl font-medium text-primary-main">พันธกิจ</h3>
             </div>
           }
-          title="สร้างสรรค์มูลค่าที่ยั่งยืนให้กับผู้ที่มีส่วนได้เสียผ่านการลงทุนใน Synergy และเทคโนโลยี"
+          description="สร้างสรรค์มูลค่าที่ยั่งยืนให้กับผู้ที่มีส่วนได้เสียผ่านการลงทุนใน Synergy และเทคโนโลยี"
         />
       </section>
 
@@ -189,7 +189,7 @@ const TongHuaCapital: React.FC<TongHuaCapitalProps> = ({ data }) => {
             return (
               <div key={key} className="px-4 lg:px-0">
                 <BusinessCard
-                  image={withPrefix(image || '')}
+                  image={image}
                   title={title}
                   description={description}
                   to={to}

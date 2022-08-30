@@ -7,3 +7,5 @@ export { default as BusinessCard } from '@/components/cards/BusinessCard';
 export { default as CSRCard } from '@/components/cards/CSRCard';
 export { default as MemberCard } from '@/components/cards/MemberCard';
 export { default as LatestNewsCard } from '@/components/cards/LatestNewsCard';
+export { default as StockPriceCard } from '@/components/cards/StockPriceCard';
+export { default as RedCircleStockCard } from '@/components/cards/RedCircleStockCard';

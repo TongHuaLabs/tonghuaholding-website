@@ -6,7 +6,7 @@ import {
 } from '@/components/cards';
 import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
 import UnderlineHeader from '@/components/UnderlineHeader';
-import { graphql, Link, PageProps, withPrefix } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 import { useLg, useMd } from '@/hooks/responsive';
 import { SeeAllButton } from '@/components/buttons';
 
@@ -45,7 +45,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
                 title={title}
                 className="md:w-1/2 lg:w-1/3 md:p-2"
                 description={description}
-                coverImage={withPrefix(cover || '')}
+                coverImage={cover}
                 createdAt={date}
                 href={slug}
                 key={key}
@@ -73,7 +73,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
                 <SetAnnouncementCard
                   title={title}
                   createAt={createdAt}
-                  readMore={`/pdf/${pdf}`}
+                  pdf={pdf}
                 />
               </div>
             );
@@ -101,8 +101,8 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
               <DocumentCard
                 key={key}
                 title={title}
-                className="w-1/2 md:w-1/4 p-2"
-                coverImage={withPrefix(cover || '')}
+                className="w-1/2 md:w-1/4 p-2 text-neutral-900"
+                coverImage={cover}
                 createdAt={createdAt}
                 toFile={pdf}
               />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ListBox, { ListProps } from '@/components/ListBox';
 import UnderlineHeader from '@/components/UnderlineHeader';
-import { graphql, PageProps, withPrefix } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { DocumentCard } from '@/components/cards';
 
 type NewsRoomAllDocumentProps = PageProps<GatsbyTypes.NewsRoomAllDocumentQuery>;
@@ -46,8 +46,8 @@ const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
             <DocumentCard
               key={key}
               title={title}
-              className="w-1/2 md:w-1/4 p-2"
-              coverImage={withPrefix(cover || '')}
+              className="w-1/2 md:w-1/4 p-2 text-neutral-900"
+              coverImage={cover}
               createdAt={createdAt}
               toFile={pdf}
             />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 
 type NewsCardProps = {
   coverImage?: string;
@@ -24,7 +24,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
         <div className="aspect-w-16 aspect-h-9">
           <img
             alt={title}
-            src={coverImage}
+            src={withPrefix(coverImage || '')}
             className="object-cover w-full h-full rounded-lg"
           />
         </div>

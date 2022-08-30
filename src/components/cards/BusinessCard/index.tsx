@@ -1,6 +1,6 @@
 import { ReadMoreButton } from '@/components/buttons';
 import classNames from 'classnames';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import React from 'react';
 
 type BusinessCardProps = {
@@ -25,7 +25,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
         className,
       )}
     >
-      <img src={image} className="w-36 h-36" />
+      <img src={withPrefix(image || '')} className="w-36 h-36" />
       <span className="text-sm block font-medium mt-4">{title}</span>
       <span className="text-xs block line-clamp-2 whitespace-pre-line mt-3">
         {description}

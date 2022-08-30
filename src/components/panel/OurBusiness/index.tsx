@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { withPrefix } from 'gatsby';
 import React from 'react';
 
 type OurBusinessProps = {
@@ -27,7 +28,7 @@ const OurBusiness: React.FC<OurBusinessProps> = ({
       </div>
       <div className="relative z-10 w-full md:w-1/2">
         <div className="aspect-w-3 aspect-h-2 sm:aspect-w-16 sm:aspect-h-9">
-          <img src={cover} className="w-full object-cover" />
+          <img src={withPrefix(cover || '')} className="w-full object-cover" />
         </div>
       </div>
     </div>

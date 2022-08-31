@@ -3,7 +3,6 @@ import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
 import Badge from '@/components/information/Badge';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import MapSvg from '@/images/map.svg';
-import DotPattern from '@/images/dot-pattern.inline.svg';
 import MapIcon from '@/icons/map.inline.svg';
 import PhoneCall from '@/components/information/PhoneCall';
 import MailTo from '@/components/information/MailTo';

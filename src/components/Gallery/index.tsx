@@ -31,13 +31,11 @@ const Gallery: React.FC<GalleryProps> = ({
       {images.map((slide, key) => {
         return (
           <SwiperSlide key={key} className={className}>
-            <div className="max-w-5xl mx-auto">
-              <div className="aspect-w-3 aspect-h-2 md:aspect-w-16 md:aspect-h-9">
-                <img
-                  src={withPrefix(slide || '')}
-                  className="w-full h-full rounded-lg object-cover"
-                />
-              </div>
+            <div className="aspect-w-16 aspect-h-9">
+              <img
+                src={withPrefix(slide || '')}
+                className="w-full h-full rounded-lg object-cover"
+              />
             </div>
           </SwiperSlide>
         );

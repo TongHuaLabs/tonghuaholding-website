@@ -51,7 +51,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
   return (
     <>
-      {/* TONG HUA HOLDING PLC. */}
+      {/* TONG HUA HOLDING PCL. */}
       <section
         style={{
           background: `linear-gradient(0deg, rgba(217, 35, 29, 0.8), rgba(217, 35, 29, 0.8)), url(${TongHuaBuildingSVG})`,
@@ -61,7 +61,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       >
         <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
           <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
-            {`TONG HUA\nHOLDING PLC.`}
+            {`TONG HUA\nHOLDING PCL.`}
           </h1>
           <h2 className="text-lg whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
             {`62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยืน`}

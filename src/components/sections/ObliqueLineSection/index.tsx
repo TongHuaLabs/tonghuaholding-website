@@ -1,5 +1,4 @@
 import React from 'react';
-import CoreValue from '@images/core-value.svg';
 import DotPattern from '@images/dot-pattern.inline.svg';
 import classNames from 'classnames';
 
@@ -14,20 +13,18 @@ const ObliqueLineSection: React.FC<ObliqueLineSectionProps> = ({
 }) => {
   return (
     <section
-      style={{
-        background: `url(${CoreValue})`,
-        backgroundSize: 'contain',
-      }}
-      className={classNames(`relative`, className)}
+      className={classNames(
+        `relative flex flex-col justify-center bg-primary-main h-72`,
+        className,
+      )}
     >
-      <div className="px-4 relative h-72 flex items-center md:px-6 lg:px-16 2xl:max-w-7xl mx-auto 2xl:px-0">
+      <div className="px-4 md:px-6 lg:px-16 max-w-7xl mx-auto w-full">
         <div className="flex flex-col">
           <h1 className="text-4xl font-medium text-neutral-50">{title}</h1>
           <div className="h-1 bg-neutral-50 w-7 mt-4 rounded-md" />
         </div>
-        <DotPattern className="hidden 2xl:block absolute -left-24 bottom-2 opacity-50 text-neutral-50" />
       </div>
-      <DotPattern className="absolute -left-10 2xl:left-0 top-16 opacity-50 text-neutral-50 2xl:hidden" />
+      <DotPattern className="absolute 2xl:hidden left-0 opacity-50 text-neutral-50" />
     </section>
   );
 };

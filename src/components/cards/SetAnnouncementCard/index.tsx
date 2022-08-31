@@ -24,7 +24,7 @@ const SetAnnouncementCard: React.FC<SetAnnouncementCardProps> = ({
       )}
     >
       <div className="flex flex-col space-y-2">
-        <span className="text-xs text-neutral-600">{createAt}</span>
+        <span className="text-sm text-neutral-500">{createAt}</span>
         <p className="font-medium text-neutral-900 line-clamp-3">{title}</p>
       </div>
       <a

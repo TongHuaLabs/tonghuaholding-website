@@ -25,9 +25,11 @@ const ListBox: React.FC<ListBoxProps> = ({
     <div className={classNames(`relative`, className)}>
       <Listbox value={selected.value} onChange={(value) => onSelected(value)}>
         <Listbox.Button
-          className={`w-full relative rounded-lg py-2 pl-3 pr-10 text-left shadow-md`}
+          className={`w-full relative rounded-lg py-2 pl-3 pr-10 text-left border border-neutral-200`}
         >
-          <span className="block truncate">{selected.title}</span>
+          <span className="block truncate font-bold text-neutral-900">
+            {selected.title}
+          </span>
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
             <ChevronDownIcon
               className="h-5 w-5 text-gray-400"
@@ -41,7 +43,7 @@ const ListBox: React.FC<ListBoxProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="list absolute w-full py-1 shadow-lg bg-white">
+          <Listbox.Options className="list absolute w-full shadow-lg bg-white rounded-lg overflow-hidden">
             {list.map(({ title, value }, key) => (
               <Listbox.Option
                 key={key}

@@ -22,7 +22,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
 
   const setAnnouncement = allSetAnnouncementJson.edges.slice(
     0,
-    lg ? 9 : md ? 6 : 3,
+    lg || md ? 6 : 3,
   );
 
   return (
@@ -30,20 +30,20 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
       <ObliqueLineSection title="ข่าวและกิจกรรม" />
 
       {/* News */}
-      <section className="px-4 pt-10 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
+      <section className="px-4 pt-10 md:px-6 lg:px-16 lg:pt-20 max-w-7xl mx-auto">
         <UnderlineHeader
           title="ข่าวสาร TH"
           textClassName="text-2xl"
-          underlineClassName="bg-primary-main"
+          underlineClassName="bg-neutral-900"
         />
-        <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
+        <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {news.map(({ node }, key) => {
             const { title, description, date, cover, slug } =
               node.childMarkdownRemark?.frontmatter || {};
             return (
               <NewsCard
                 title={title}
-                className="md:w-1/2 lg:w-1/3 md:p-2"
+                className="md:w-1/2 lg:w-1/3 md:px-4 md:py-6"
                 description={description}
                 coverImage={cover}
                 createdAt={date}
@@ -53,23 +53,26 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
             );
           })}
         </div>
-        <Link to="/newsroom/all-news" className="flex w-max mx-auto">
+        <Link
+          to="/newsroom/all-news"
+          className="flex w-max mx-auto mt-10 md:mt-4"
+        >
           <SeeAllButton />
         </Link>
       </section>
 
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
-      <section className="px-4 pt-20 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
+      <section className="px-4 pt-20 md:px-6 lg:px-16 lg:pt-28 max-w-7xl mx-auto">
         <UnderlineHeader
           title="ข่าวแจ้งตลาดหลักทรัพย์"
           textClassName="text-2xl"
-          underlineClassName="bg-primary-main"
+          underlineClassName="bg-neutral-900"
         />
-        <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
+        <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {setAnnouncement.map(({ node }, key) => {
             const { title, createdAt, pdf } = node;
             return (
-              <div className="md:p-2 md:w-1/2 lg:w-1/3" key={key}>
+              <div className="md:px-4 md:py-6 md:w-1/2 lg:w-1/3" key={key}>
                 <SetAnnouncementCard
                   title={title}
                   createAt={createdAt}
@@ -81,27 +84,27 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
         </div>
         <Link
           to="/newsroom/all-set-announcement"
-          className="flex w-max mx-auto"
+          className="flex w-max mx-auto mt-10 md:mt-4"
         >
           <SeeAllButton />
         </Link>
       </section>
 
       {/* เอกสารเผยแพร่ */}
-      <section className="px-4 py-20 space-y-10 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
+      <section className="px-4 py-20 md:px-6 lg:px-16 lg:py-28 max-w-7xl mx-auto">
         <UnderlineHeader
           title="เอกสารเผยแพร่"
           textClassName="text-2xl"
-          underlineClassName="bg-primary-main"
+          underlineClassName="bg-neutral-900"
         />
-        <div className="flex flex-wrap mt-10">
+        <div className="flex flex-wrap mt-6">
           {document.map(({ node }, key) => {
             const { title, createdAt, pdf, cover } = node;
             return (
               <DocumentCard
                 key={key}
                 title={title}
-                className="w-1/2 md:w-1/4 p-2 text-neutral-900"
+                className="w-1/2 md:w-1/4 px-2 py-4 lg:px-4 text-neutral-900"
                 coverImage={cover}
                 createdAt={createdAt}
                 toFile={pdf}
@@ -109,7 +112,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
             );
           })}
         </div>
-        <Link to="/newsroom/all-document" className="flex w-max mx-auto">
+        <Link to="/newsroom/all-document" className="flex w-max mx-auto mt-10">
           <SeeAllButton />
         </Link>
       </section>

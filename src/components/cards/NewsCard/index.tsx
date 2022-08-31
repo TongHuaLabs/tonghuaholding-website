@@ -20,7 +20,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
 }) => {
   return (
     <Link to={href || ''} className={className}>
-      <article className="space-y-2.5">
+      <article className="space-y-2">
         <div className="aspect-w-16 aspect-h-9">
           <img
             alt={title}
@@ -35,7 +35,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
         <h3 className="text-lg font-medium text-neutral-900 line-clamp-2">
           {title}
         </h3>
-        <span className="line-clamp-2 text-neutral-600">{description}</span>
+        <span className="line-clamp-2 text-sm text-neutral-600">
+          {description}
+        </span>
       </article>
     </Link>
   );

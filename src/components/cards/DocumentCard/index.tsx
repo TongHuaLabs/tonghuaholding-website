@@ -33,7 +33,7 @@ const DocumentCard: React.FC<DocumentCardProps> = ({
         <div className="border-l-2 border-l-primary-main rounded-md h-6" />
         <span className="text-sm">{createdAt}</span>
       </div>
-      <p className="text-lg mt-2 font-medium line-clamp-2">{title}</p>
+      <p className="mt-2 font-medium line-clamp-2">{title}</p>
     </a>
   );
 };

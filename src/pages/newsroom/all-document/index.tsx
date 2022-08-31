@@ -27,26 +27,26 @@ const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
   };
 
   return (
-    <section className="px-4 md:px-6 space-y-10 pb-10 lg:px-16 2xl:max-w-7xl mx-auto">
+    <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
       <ListBox
-        className="mt-10 max-w-xl"
+        className="w-full md:max-w-xs md:ml-auto"
         list={newsType}
         selected={selected}
         onSelected={(value) => handleSelected(value)}
       />
       <UnderlineHeader
         title="เอกสารเผยแพร่ทั้งหมด"
-        textClassName="text-2xl"
-        underlineClassName="bg-primary-main"
+        textClassName="text-2xl mt-10"
+        underlineClassName="bg-neutral-900"
       />
-      <div className="flex flex-wrap mt-10">
+      <div className="flex flex-wrap mt-10 md:mt-4 md:space-y-0">
         {document.map(({ node }, key) => {
           const { title, createdAt, pdf, cover } = node;
           return (
             <DocumentCard
               key={key}
               title={title}
-              className="w-1/2 md:w-1/4 p-2 text-neutral-900"
+              className="w-1/2 md:w-1/4 px-2 py-4 lg:px-4 text-neutral-900"
               coverImage={cover}
               createdAt={createdAt}
               toFile={pdf}

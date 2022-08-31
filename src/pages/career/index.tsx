@@ -1,7 +1,5 @@
 import React from 'react';
-import CareerOffice from '@images/career-office.png';
-import CoreValue from '@images/core-value.svg';
-import DotPattern from '@images/dot-pattern.inline.svg';
+import workingSVG from '@images/working.svg';
 import Gallery from '@/components/Gallery';
 import EllipseSvg from '@/icons/ellipse.inline.svg';
 import DNA from '@/components/information/DNA';
@@ -36,31 +34,27 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
       {/* LIFE  @TONG HUA */}
       <section
         style={{
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${CareerOffice})`,
+          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${workingSVG})`,
           backgroundSize: 'cover',
         }}
-        className="flex justify-center h-[75vh] items-center px-4"
+        className="flex flex-col text-center justify-center h-[75vh] items-center space-y-4"
       >
         <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
           LIFE @TONG HUA
         </h2>
+        <p className="text-xl md:text-2xl font-medium text-neutral-50">
+          Let’s start something new with Powerful energy.
+        </p>
       </section>
 
       {/* Core Value */}
-      <section
-        style={{
-          background: `url(${CoreValue})`,
-          backgroundSize: 'contain',
-        }}
-        className="flex flex-col items-center justify-center px-4 md:px-6 py-20 lg:py-28 lg:px-36"
-      >
+      <section className="flex flex-col items-center justify-center px-4 md:px-6 py-20 lg:py-28 lg:px-36 bg-primary-main">
         <h2 className="text-4xl whitespace-pre-line md:whitespace-normal font-medium text-center text-neutral-50">
           {`นวัตกรรม\nอยู่ใน DNA ของเรา`}
         </h2>
-        <p className="mt-6 max-w-3xl mx-auto text-center text-neutral-50">
-          เราให้ความสำคัญกับความคิดเห็นขอทุกคนในทีม รวมไปถึงการสนับสนุนให้
-          ทีมมีความคิดเห็นที่ หลากหลายเพื่อ สร้างความท้าทายในงานและ
-          ช่วยพัฒนาโซลูชันใหม่ ๆ ในการแก้ไขปัญหา ของ เทคโนโลยีในยุคปัจจุบัน
+        <p className="mt-6 text-xl max-w-3xl mx-auto text-center text-neutral-50">
+          พร้อมเริ่มสิ่งใหม่ด้วยพลังงาน และ minsdet ที่พร้อมก้าวหน้าตลอดเวลา
+          พัฒนาโซลูชันใหม่ ๆ ในการแก้ไขปัญหาของเทคโนโลยีในยุคปัจจุบัน
         </p>
         <div className="mt-10 flex items-center space-x-10 md:space-x-20">
           {dna.map(({ node }, key) => (
@@ -89,22 +83,21 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
               );
             })}
           </SwiperCarousel>
-          <EllipseSvg className="absolute ellipse lg:-top-14 xl:-top-24 -top-7 -right-48" />
+          <EllipseSvg className="absolute ellipse lg:-top-14 xl:-top-24 -top-7 -right-48 text-primary-border" />
         </div>
       </section>
 
       {/* Performace Slide */}
       <section className="pb-20 relative flex flex-col">
         <div className="w-28 h-56 bg-primary-main absolute" />
-        <div className="px-4 md:px-16 mt-20">
+        <div className="px-4 md:px-16 mt-20 w-full max-w-5xl mx-auto">
           <Gallery showNavigation={lg} slidesPerView={1} images={showcase} />
         </div>
         <div className="w-28 absolute bottom-0 h-56 bg-primary-main self-end" />
       </section>
 
       {/* Career Opportunity */}
-      <section className="py-20 relative px-4 md:px-6 xl:px-36 2xl:px-0 xl:max-w-7xl mx-auto">
-        <DotPattern className="absolute left-0 text-primary-main" />
+      <section className="py-20 px-4 md:px-6 lg:px-16 max-w-7xl mx-auto">
         <h2 className="text-3xl relative font-medium pt-12">
           Career Opportunity
         </h2>

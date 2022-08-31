@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-markdown-template-tsx",
-    "path": "/newsroom/blog/news-13",
-    "result": {"data":{"site":{"siteMetadata":{"siteUrl":"https://tonghuaholding.com"}},"markdownRemark":{"html":"<h1>ข่าว-13</h1>\n<p>Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit.</p>\n<p>Dolore commodo enim sint proident incididunt officia laboris sunt nulla voluptate cupidatat. Nisi et ipsum consectetur excepteur. Eiusmod quis adipisicing dolore dolore anim quis cupidatat. Fugiat culpa Lorem ad dolor.</p>","frontmatter":{"cover":"/images/document.jpeg","title":"News 13","slug":"/newsroom/blog/news-13","date":"June 25, 2022"}}},"pageContext":{"id":"41cb260e-b8ea-5e47-8488-c65e127aeb57"}},
-    "staticQueryHashes": []}

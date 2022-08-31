@@ -28,13 +28,13 @@ const LatestNewsCard: React.FC<LatestNewsCardProps> = ({
             className="object-cover w-full h-full rounded-lg"
           />
         </div>
-        <div className="absolute z-0 w-full h-full rounded-lg bg-primary-main -right-2 top-2" />
+        <div className="absolute z-0 w-full h-full rounded-lg bg-primary-main -right-1.5 top-1.5" />
       </div>
-      <p className="mt-6 text-sm text-neutral-900">{createdAt}</p>
-      <h3 className="text-lg font-medium text-neutral-900 line-clamp-2 mt-2.5">
+      <p className="mt-5 text-sm text-neutral-900">{createdAt}</p>
+      <h3 className="text-lg font-medium text-neutral-900 line-clamp-2 mt-2">
         {title}
       </h3>
-      <span className="line-clamp-2 text-neutral-600 mt-2.5">
+      <span className="line-clamp-2 text-sm text-neutral-600 mt-2">
         {description}
       </span>
     </Link>

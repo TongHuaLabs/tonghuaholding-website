@@ -10,9 +10,18 @@ type SocialProps = {
 };
 
 const socials = [
-  { icon: <FacebookSVG className="w-4 h-4" />, href: '' },
-  { icon: <InstagramSVG className="w-4 h-4" />, href: '' },
-  { icon: <LinkedinSVG className="w-4 h-4" />, href: '' },
+  {
+    icon: <FacebookSVG className="w-5 h-5" />,
+    href: 'https://www.facebook.com/TongHuaLabs/',
+  },
+  {
+    icon: <InstagramSVG className="w-5 h-5" />,
+    href: 'https://www.instagram.com/tonghualabs/',
+  },
+  {
+    icon: <LinkedinSVG className="w-5 h-5" />,
+    href: 'https://www.linkedin.com/company/tonghuaholding',
+  },
 ];
 
 const Social: React.FC<SocialProps> = ({ className, backgroundClassName }) => {
@@ -23,7 +32,7 @@ const Social: React.FC<SocialProps> = ({ className, backgroundClassName }) => {
           href={href}
           target="__blank"
           className={classNames(
-            'h-8 w-8 rounded-full  flex justify-center items-center',
+            'h-10 w-10 rounded-full  flex justify-center items-center',
             backgroundClassName,
           )}
           key={key}

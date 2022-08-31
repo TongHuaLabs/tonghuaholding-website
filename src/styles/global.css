@@ -34,6 +34,9 @@
   .navbar-active-popover {
     @apply text-primary-main hover:text-white !important;
   }
+  .landing {
+    height: calc(100vh - 64px);
+  }
 }
 
 /* Swiper */

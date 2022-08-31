@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-markdown-template-tsx",
+    "path": "/career/blog/data-engineer",
+    "result": {"data":{"site":{"siteMetadata":{"siteUrl":"https://tonghuaholding.com"}},"markdownRemark":{"html":"<p>We are looking for a trustworthy, curious, sharp, and proactive full-time Data Engineer to join our team. You'll have the opportunity to design innovative data solutions and solve challenging problems</p>","frontmatter":{"cover":null,"title":"Data Engineer","slug":"/career/blog/data-engineer","date":"August 29, 2022"}}},"pageContext":{"id":"d17c5ac3-973f-50bf-92bf-e445e0349226"}},
+    "staticQueryHashes": []}

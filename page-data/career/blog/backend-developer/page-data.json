@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-markdown-template-tsx",
+    "path": "/career/blog/backend-developer",
+    "result": {"data":{"site":{"siteMetadata":{"siteUrl":"https://tonghuaholding.com"}},"markdownRemark":{"html":"<p>We are looking for a trustworthy, curious, sharp, and proactive full-time Mid/Senior Backend Engineer (Node.js &#x26; TypeScript) to join our team. You'll\nthe opportunity to design and develop innovative solutions to solve challenging problems related to Finance and/or Web3</p>","frontmatter":{"cover":null,"title":"Mid/Senior Backend Engineer (Node.js & TypeScript)","slug":"/career/blog/backend-developer","date":"August 28, 2022"}}},"pageContext":{"id":"663ba502-6fe1-5ce7-96b1-59b76459c8e9"}},
+    "staticQueryHashes": []}

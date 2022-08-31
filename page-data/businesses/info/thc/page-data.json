@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-markdown-template-tsx",
+    "path": "/businesses/info/thc",
+    "result": {"data":{"site":{"siteMetadata":{"siteUrl":"https://tonghuaholding.com"}},"markdownRemark":{"html":"<p>ดำเนินธุรกิจสินเชื่อแฟคตอริ่ง ให้บริการวงเงินกู้หมุนเวียนระยะสั้น (แฟคตอริ่ง) ลักษณะธุรกิจเป็นธุรกิจที่ให้บริการเงินกู้หมุนเวียนระยะสั้นโดยรับซื้อหนี้การค้าในรูปของใบวางบิล ใบรับวางบิล หรือ invoice โดยการรับโอนสิทธิการรับเงินจากลูกค้า เพื่อจัดเก็บเงินจากลูกหนี้ (หน่วยงานราชการ) และให้วงเงินกู้ล่วงหน้าโดยมีหลักประกันเป็นที่ดินและสิ่งปลูกสร้าง โดยการให้วงเงินกู้รวมไม่เกินร้อยละ 60 ของราคาประเมินหลักประกัน</p>","frontmatter":{"cover":null,"title":"THC","slug":"/businesses/info/thc","date":"August 31, 2022"}}},"pageContext":{"id":"ddb25e4b-62fe-571c-893a-6afa4ea7800c"}},
+    "staticQueryHashes": []}

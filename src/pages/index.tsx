@@ -3,7 +3,7 @@ import TongHuaBuildingSVG from '@/images/tonghua-building.svg';
 import Social from '@/components/Social';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import UnderlineHeader from '@/components/UnderlineHeader';
-import BuildingSVG from '@/images/building.svg';
+import BuildingPNG from '@/images/building.png';
 import RedCircle from '@/components/information/RedCircle';
 import Topic from '@/components/information/Topic';
 import Tabs from '@/components/Tabs';
@@ -17,7 +17,7 @@ import {
   BusinessCard,
   SetAnnouncementCard,
 } from '@/components/cards';
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, Link, PageProps, withPrefix } from 'gatsby';
 
 type IndexPageProps = PageProps<GatsbyTypes.IndexPageQuery>;
 
@@ -43,10 +43,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const setNews = allSetAnnouncementJson.edges.slice(0, !isLg ? 4 : 3);
 
   const images = [
-    'https://picsum.photos/500/500',
-    'https://picsum.photos/600/600',
-    'https://picsum.photos/700/700',
-    'https://picsum.photos/800/800',
+    '/images/image_1.png',
+    '/images/image_2.png',
+    '/images/image_3.png',
+    '/images/image_4.png',
   ];
 
   return (
@@ -54,19 +54,21 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       {/* TONG HUA HOLDING PLC. */}
       <section
         style={{
-          background: `linear-gradient(0deg, rgba(203, 57, 57, 0.8), rgba(203, 57, 57, 0.8)), url(${TongHuaBuildingSVG})`,
+          background: `linear-gradient(0deg, rgba(217, 35, 29, 0.8), rgba(217, 35, 29, 0.8)), url(${TongHuaBuildingSVG})`,
           backgroundSize: 'cover',
         }}
-        className="relative flex flex-col items-start justify-center h-[75vh] space-y-6 md:items-center px-6"
+        className="flex flex-col items-left md:items-center justify-center relative landing px-6"
       >
-        <h1 className="text-4xl whitespace-pre-line leading-9 font-bold md:text-center md:leading-[99px] md:text-6xl lg:whitespace-normal text-neutral-50">
-          {`TONG HUA\nHOLDING PLC.`}
-        </h1>
-        <h2 className="text-lg md:text-2xl text-neutral-50 text-bold">
-          SOME MOTTO HERE...
-        </h2>
+        <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
+          <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
+            {`TONG HUA\nHOLDING PLC.`}
+          </h1>
+          <h2 className="text-lg whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
+            {`62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยืน`}
+          </h2>
+        </div>
         <Social
-          className="space-x-4 text-primary-main"
+          className="space-x-10 mt-10 text-primary-main"
           backgroundClassName="bg-white"
         />
         <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
@@ -74,14 +76,14 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </section>
 
       {/* xx Years of Stability & Integrity */}
-      <section className="relative px-4 md:px-6 py-20 2xl:max-w-7xl 2xl:px-0 mx-auto overflow-hidden 2xl:overflow-visible">
+      <section className="relative px-4 md:px-6 lg:px-16 py-20 lg:py-28 2xl:max-w-7xl 2xl:px-0 mx-auto overflow-hidden 2xl:overflow-visible">
         <UnderlineHeader
           title={`${companyAge} Years of\nStability & Integrity `}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl whitespace-pre-line"
           underlineClassName="bg-primary-main w-16"
         />
-        <div className="relative z-10 flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mt-20">
+        <div className="relative z-10 flex flex-col lg:flex-row lg:justify-center lg:items-center lg:mt-10">
           <div className="flex flex-wrap lg:items-center lg:flex-grow lg:h-64 xl:max-w-lg">
             {allInformationJson.edges.map(({ node }, key) => {
               const { title, description } = node;
@@ -89,7 +91,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                 <Topic
                   title={title}
                   description={description}
-                  className="w-1/2 md:w-1/4 pt-10 md:pt-16 lg:w-1/2"
+                  className="w-1/2 md:w-1/4 pt-10 md:pt-10 lg:w-1/2 text-neutral-900"
                   key={key}
                 />
               );
@@ -110,21 +112,21 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                       ? 'w-3/4 min-w-[96px] max-w-[128px] sm:max-w-[164px] md:max-w-[176px]'
                       : 'w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32',
                   )}
-                  src={image}
+                  src={withPrefix(image)}
                 />
               </div>
             ))}
           </div>
         </div>
-        <DotPattern className="text-primary-main z-0 absolute bottom-36 sm:bottom-44 md:bottom-48 lg:bottom-32 left-0 xl:hidden" />
+        <DotPattern className="text-primary-main z-0 absolute bottom-36 sm:bottom-44 md:bottom-48 lg:bottom-32 left-0" />
         <RedCircle className="absolute bottom-24 md:bottom-36 md:right-6 -right-28 lg:-right-14 xl:-right-8 z-0" />
       </section>
 
       {/* ประเภทธุรกิจของเรา */}
       <section
-        className="py-10"
+        className="py-20 lg:py-28"
         style={{
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${BuildingSVG})`,
+          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${BuildingPNG})`,
           backgroundSize: 'cover',
         }}
       >
@@ -135,8 +137,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           underlineClassName="bg-primary-main w-16"
         />
         <Tabs
-          className="px-4 md:px-6 mt-10 max-w-7xl mx-auto"
-          tabClassName="w-28 md:w-32"
+          className="px-4 md:px-6 lg:px-16 mt-10 max-w-7xl mx-auto"
+          tabClassName="w-1/3 lg:w-[32%]"
           tabs={allOurBusinessJson.edges.map(({ node }) => {
             const { title } = node;
             return { title };
@@ -158,7 +160,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </section>
 
       {/* บริษัทย่อยในเครือ */}
-      <section className="pt-20">
+      <section className="pt-20 lg:pt-28">
         <UnderlineHeader
           title="บริษัทย่อยในเครือ"
           className="items-center"
@@ -166,17 +168,17 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           underlineClassName="bg-primary-main w-16"
         />
         <div className="relative max-w-7xl mx-auto">
-          <div className="flex relative z-10 px-4 py-10 md:px-6 lg:px-0 overflow-x-scroll hide-scrollbar lg:justify-around">
+          <div className="flex relative z-10 px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 overflow-x-scroll hide-scrollbar lg:justify-around">
             {businesses.map(({ node }, key) => {
               const { title, image, description, to } = node;
               return (
-                <div key={key} className="px-4 lg:px-0">
+                <div key={key} className="px-3 lg:px-0">
                   <BusinessCard
                     image={image}
                     title={title}
                     description={description}
                     to={to}
-                    className="h-80 w-56 shadow"
+                    className="h-80 w-56 shadow-lg"
                   />
                 </div>
               );
@@ -188,7 +190,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </section>
 
       {/* ข่าวสาร TH */}
-      <section className="px-4 md:px-6 lg:px-0 pt-20 max-w-7xl mx-auto space-y-10">
+      <section className="pl-4 pr-5 md:px-6 lg:px-16 pt-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
           title="ข่าวสาร TH"
           className="items-center"
@@ -202,7 +204,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
             return (
               <LatestNewsCard
                 title={title}
-                className="md:w-1/2 lg:w-1/3 md:p-2"
+                className="md:w-1/2 lg:w-1/3 md:p-4"
                 description={description}
                 coverImage={cover}
                 createdAt={date}
@@ -218,7 +220,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </section>
 
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
-      <section className="px-4 md:px-6 lg:px-0 py-20 max-w-7xl mx-auto space-y-10">
+      <section className="px-4 md:px-6 lg:px-16 pt-20 pb-20 lg:pt-28 lg:pb-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
           title="ข่าวแจ้งตลาดหลักทรัพย์"
           className="items-center"
@@ -229,7 +231,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           {setNews.map(({ node }, key) => {
             const { title, createdAt, pdf } = node || {};
             return (
-              <div className="md:p-2 md:w-1/2 lg:w-1/3" key={key}>
+              <div className="md:p-4 md:w-1/2 lg:w-1/3" key={key}>
                 <SetAnnouncementCard
                   title={title}
                   createAt={createdAt}

@@ -10,7 +10,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({ title, className }) => {
   return (
     <button
       className={classNames(
-        'bg-primary-main text-neutral-50 font-bold px-2 py-1 rounded-lg',
+        'bg-primary-main text-neutral-50 font-bold px-4 py-1.5 rounded-lg',
         className,
       )}
     >

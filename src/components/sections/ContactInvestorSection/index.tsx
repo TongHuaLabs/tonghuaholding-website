@@ -15,22 +15,22 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
 }) => {
   return (
     <section
-      className={classNames('bg-neutral-600 overflow-hidden', className)}
+      className={classNames('bg-neutral-700 overflow-hidden', className)}
     >
       <div className="flex relative z-10 flex-col space-y-6 py-20 items-center px-4 md:px-6 lg:px-16 2xl:max-w-7xl mx-auto">
         <DotPattern className="absolute top-4 left-4 text-neutral-200 md:left-auto md:right-14 opacity-50" />
-        <h2 className="text-neutral-50 relative text-3xl font-bold">
+        <h2 className="text-neutral-50 relative text-3xl font-bold text-center">
           ติดต่อนักลงทุนสัมพันธ์
         </h2>
-        <div className="flex flex-col space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
+        <div className="space-x-0 flex flex-col items-center space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
           <PhoneCall
-            phone="(+66) 2236-9171-6"
-            tel="+66223691716"
+            phone="02-236-9171-4"
+            tel="+66223691714"
             className="underline underline-offset-1 text-neutral-50"
           />
           <PhoneCall
-            phone="(+66) 2236-0143-44"
-            tel="+662236014344"
+            phone="02-238-9286 (Fax)"
+            tel="+6622389286"
             className="underline underline-offset-1 text-neutral-50"
           />
         </div>
@@ -40,7 +40,7 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
         />
         <Link
           to="/investor"
-          className="border border-neutral-50 py-1.5 rounded-lg text-neutral-50 px-4 hover:bg-white hover:text-neutral-600"
+          className="border text-sm border-neutral-50 py-1.5 rounded-lg text-neutral-50 px-4 hover:bg-white hover:text-neutral-600"
         >
           ข้อมูลการลงทุน
         </Link>

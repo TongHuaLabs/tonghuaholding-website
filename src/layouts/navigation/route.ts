@@ -2,7 +2,20 @@ export const route = [
   { title: 'หน้าหลัก', href: '/' },
   {
     title: 'เกี่ยวกับบริษัท',
-    href: '/about/',
+    menu: [
+      {
+        title: 'ข้อมูลบริษัท',
+        href: '/about/',
+      },
+      {
+        title: 'โครงสร้างองค์กร',
+        href: '/about/organization-chart/',
+      },
+      {
+        title: 'คณะกรรมการบริษัท',
+        href: '/about/board-of-directors/',
+      },
+    ],
   },
   {
     title: 'ธุรกิจในเครือ',

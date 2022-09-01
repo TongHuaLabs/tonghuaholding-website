@@ -54,7 +54,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
           })}
         </div>
         <Link
-          to="/newsroom/all-news"
+          to="/newsroom/all-news/"
           className="flex w-max mx-auto mt-10 md:mt-4"
         >
           <SeeAllButton />
@@ -83,7 +83,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
           })}
         </div>
         <Link
-          to="/newsroom/all-set-announcement"
+          to="/newsroom/all-set-announcement/"
           className="flex w-max mx-auto mt-10 md:mt-4"
         >
           <SeeAllButton />
@@ -112,7 +112,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
             );
           })}
         </div>
-        <Link to="/newsroom/all-document" className="flex w-max mx-auto mt-10">
+        <Link to="/newsroom/all-document/" className="flex w-max mx-auto mt-10">
           <SeeAllButton />
         </Link>
       </section>

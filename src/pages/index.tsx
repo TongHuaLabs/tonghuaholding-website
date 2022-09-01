@@ -68,8 +68,9 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           </h2>
         </div>
         <Social
-          className="space-x-10 mt-10 text-primary-main"
-          backgroundClassName="bg-white"
+          className="space-x-4 mt-10"
+          backgroundClassName="bg-white w-10 h-10"
+          iconClassName="w-5 h-5 text-primary-main"
         />
         <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
         <DotPattern className="text-neutral-50 z-10 absolute bottom-2.5 right-3 opacity-80 md:hidden" />

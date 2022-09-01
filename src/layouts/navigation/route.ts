@@ -1,5 +1,5 @@
 export const route = [
-  { title: 'หน้าแรก', href: '/' },
+  { title: 'หน้าหลัก', href: '/' },
   {
     title: 'เกี่ยวกับบริษัท',
     href: '/about/',
@@ -7,13 +7,22 @@ export const route = [
   {
     title: 'ธุรกิจในเครือ',
     menu: [
-      { title: 'TONG HUA ASSET', href: '/businesses/tonghua-asset/' },
       {
-        title: 'TONG HUA ASSET MANAGEMENT',
+        title: 'บริษัท ตงฮั้ว แคปปิตอล จำกัด',
+        href: '/businesses/tonghua-capital/',
+      },
+      {
+        title: 'บริหารสินทรัพย์ตงฮั้ว จำกัด',
         href: '/businesses/tonghua-asset-management/',
       },
-      { title: 'TONG HUA CAPITAL', href: '/businesses/tonghua-capital/' },
-      { title: 'TONG HUA MEDIA LAB', href: '/businesses/tonghua-media-lab/' },
+      {
+        title: 'บริษัท ตงฮั้ว แอสเซท จำกัด',
+        href: '/businesses/tonghua-asset/',
+      },
+      {
+        title: 'บริษัท ตงฮั้ว มิเดีย แล็บ จำกัด',
+        href: '/businesses/tonghua-media-lab/',
+      },
     ],
   },
   {
@@ -23,8 +32,8 @@ export const route = [
   {
     title: 'ข่าวและกิจกรรม',
     menu: [
-      { title: 'ข่าวสารและกิจกรรม', href: '/newsroom/' },
-      { title: 'ข่าวสาร TH', href: '/newsroom/all-news/' },
+      { title: 'หน้าหลักข่าว TH', href: '/newsroom/' },
+      { title: 'ข่าวประชาสัมพันธ์บริษัท', href: '/newsroom/all-news/' },
       {
         title: 'ข่าวแจ้งตลาดหลักทรัพย์',
         href: '/newsroom/all-set-announcement/',
@@ -33,7 +42,7 @@ export const route = [
     ],
   },
   {
-    title: 'สมัครงาน',
+    title: 'ร่วมงานกับเรา',
     href: '/career/',
   },
   {

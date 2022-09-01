@@ -1,7 +1,7 @@
 [
   {
     "key": "thc",
-    "image": "/images/tonghua-capital.svg",
+    "image": "/images/tonghua-capital.png",
     "title": "บริษัท ตงฮั้ว แคปปิตอล จำกัด",
     "to": "/businesses/tonghua-capital",
     "description": "ดำเนินธุรกิจสินเชื่อแฟคตอริ่งบริการวงเงินกู้หมุนเวียนระยะสั้น",
@@ -13,7 +13,7 @@
   },
   {
     "key": "tham",
-    "image": "/images/tonghua-asset-management.svg",
+    "image": "/images/tonghua-asset-management.png",
     "title": "บริหารสินทรัพย์ตงฮั้ว จำกัด",
     "to": "/businesses/tonghua-asset-management",
     "description": "ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ",
@@ -25,7 +25,7 @@
   },
   {
     "key": "tha",
-    "image": "/images/tonghua-group.svg",
+    "image": "/images/tonghua-group.png",
     "title": "บริษัท ตงฮั้ว แอสเซท จำกัด",
     "to": "/businesses/tonghua-asset",
     "description": "ดำเนินธุรกิจให้เช่าพื้นที่เพื่อจำหน่ายสินค้าและบริการ",
@@ -37,7 +37,7 @@
   },
   {
     "key": "thml",
-    "image": "/images/tonghua-media-lab.svg",
+    "image": "/images/tonghua-media-lab.png",
     "title": "บริษัท ตงฮั้ว มีเดีย แล็บ จำกัด ",
     "to": "/businesses/tonghua-media-lab",
     "description": "ดำเนินธุรกิจผลิตสื่อและจำหน่ายสิ่งพิมพ์",

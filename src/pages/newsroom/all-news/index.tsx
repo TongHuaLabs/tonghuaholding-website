@@ -40,9 +40,7 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
         onSelected={(value) => handleSelected(value)}
       />
       <UnderlineHeader
-        title={
-          selected.value === 0 ? 'ข่าวสาร TH ทั้งหมด' : 'ข่าวสาร CSR ทั้งหมด'
-        }
+        title={selected.title}
         textClassName="text-2xl mt-10"
         underlineClassName="bg-neutral-900"
       />

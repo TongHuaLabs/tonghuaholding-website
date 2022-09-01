@@ -18,17 +18,20 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   });
 };
 
-type GatsbyNodeQuery = {
-  allMarkdownRemark: {
-    edges: Array<{
-      node: {
-        id: string;
-        frontmatter: {
-          slug: string;
-        };
+type AllMarkdownRemark = {
+  edges: Array<{
+    node: {
+      id: string;
+      frontmatter: {
+        slug: string;
       };
-    }>;
-  };
+    };
+  }>;
+};
+
+type GatsbyNodeQuery = {
+  allMarkdownRemark: AllMarkdownRemark;
+  bod: AllMarkdownRemark;
 };
 
 export const createPages: GatsbyNode['createPages'] = async ({
@@ -47,6 +50,20 @@ export const createPages: GatsbyNode['createPages'] = async ({
           }
         }
       }
+      bod: allMarkdownRemark(
+        filter: {
+          frontmatter: { slug: { regex: "/about/board-of-directors/" } }
+        }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -54,7 +71,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     return Promise.reject(errors);
   }
 
-  const { allMarkdownRemark } = data || {};
+  const { allMarkdownRemark, bod } = data || {};
 
   allMarkdownRemark?.edges.forEach(({ node }) => {
     const { id, frontmatter } = node;
@@ -62,6 +79,18 @@ export const createPages: GatsbyNode['createPages'] = async ({
     actions.createPage({
       path: slug,
       component: path.resolve('src', 'templates', 'MarkdownTemplate.tsx'),
+      context: {
+        id,
+      },
+    });
+  });
+
+  bod?.edges.forEach(({ node }) => {
+    const { id, frontmatter } = node;
+    const { slug } = frontmatter;
+    actions.createPage({
+      path: slug,
+      component: path.resolve('src', 'templates', 'BodMarkdownTemplate.tsx'),
       context: {
         id,
       },

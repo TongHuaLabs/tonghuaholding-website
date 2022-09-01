@@ -23,15 +23,15 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
       as="aside"
     >
       <Transition.Child
-        enter="transition ease-in-out duration-150 transform"
-        enterFrom="-translate-x-full"
-        enterTo="translate-x-0"
-        leave="transition ease-in-out duration-150 transform"
-        leaveFrom="translate-x-0"
-        leaveTo="-translate-x-full"
         unmount={false}
         as="div"
-        className="fixed inset-y-0 left-0 z-20 w-full bg-neutral-50 lg:hidden"
+        enter="transition-opacity duration-100"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-100"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+        className="fixed inset-y-0 left-0 z-50 w-full bg-white lg:hidden"
       >
         <Navbar showClose={true} onCloseClick={onClose} />
         <MenuItem onClose={onClose} />

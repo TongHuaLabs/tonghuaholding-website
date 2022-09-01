@@ -1,8 +1,7 @@
 import React from 'react';
-import { useActiveMenu } from '@/hooks/useActiveMenu';
 import { Disclosure, Transition } from '@headlessui/react';
 import { Link } from 'gatsby';
-import { ChevronDownIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
 
 type DisclosureNavigationProps = {
@@ -22,7 +21,6 @@ const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
   className,
 }) => {
   const hasChild = menu && menu.length > 0;
-  const active = useActiveMenu(title);
 
   return (
     <>
@@ -32,13 +30,15 @@ const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
             {({ open, close }) => (
               <>
                 <Disclosure.Button
-                  className={`text-left flex items-center hover:text-primary-main
-                    ${open ? 'pb-2 text-primary-main' : 'pb-6'}
-                    ${active && 'text-primary-main'}
-                    `}
+                  className={`text-left text-sm flex items-center text-neutral-900 font-medium lg:hover:text-primary-main
+                    ${open ? 'pb-2' : 'pb-4'}`}
                 >
                   {title}
-                  <ChevronDownIcon className="w-4 h-4 ml-2" />
+                  {open ? (
+                    <ChevronUpIcon className="w-4 h-4 ml-2" />
+                  ) : (
+                    <ChevronDownIcon className="w-4 h-4 ml-2" />
+                  )}
                 </Disclosure.Button>
                 <Transition
                   enter="transition ease duration-300 transform"
@@ -48,12 +48,12 @@ const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <Disclosure.Panel className="text-gray-500 pb-6 ml-2 space-y-2">
-                    <ul className="list-disc">
+                  <Disclosure.Panel className="text-neutral-500 pb-6 ml-2 space-y-2">
+                    <ul className="list-disc space-y-1">
                       {menu.map(({ title, href }, key) => (
                         <li className="ml-3" key={key}>
                           <Link
-                            className="text-sm hover:text-primary-main"
+                            className="text-sm lg:hover:text-primary-main"
                             activeClassName="navbar-active"
                             onClick={() => close()}
                             to={href}
@@ -72,7 +72,7 @@ const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
       ) : (
         <Link
           to={href || ''}
-          className="w-1/2 pb-6 hover:text-primary-main"
+          className="w-1/2 pb-4 lg:hover:text-primary-main text-sm text-neutral-900 font-medium"
           activeClassName="navbar-active"
         >
           {title}

@@ -36,7 +36,7 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
             <Popover.Button
               onMouseEnter={() => setIsShowing(true)}
               onMouseLeave={() => setIsShowing(false)}
-              className={`flex items-center text-sm ${
+              className={`flex font-medium items-center text-sm ${
                 isShowing || active ? 'text-primary-main' : 'text-neutral-900'
               }`}
             >
@@ -46,7 +46,7 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
           ) : (
             <Link
               to={href || ''}
-              className={`flex items-center text-sm ${
+              className={`flex items-center text-sm font-medium hover:text-primary-main ${
                 open ? 'text-primary-main' : 'text-neutral-900'
               }
           `}
@@ -66,7 +66,7 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute right-0 z-50 flex rounded-lg flex-col mt-6 bg-white min-w-[150px] overflow-hidden">
+              <Popover.Panel className="absolute py-2 right-0 z-50 flex rounded-lg flex-col mt-6 bg-white w-max overflow-hidden shadow-lg">
                 {menu.map(({ title, href }, key) => (
                   <Link
                     key={key}
@@ -78,7 +78,7 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
                       e.stopPropagation();
                       setIsShowing(false);
                     }}
-                    className="px-4 py-2 text-sm text-left text-neutral-900 hover:bg-primary-main hover:text-white"
+                    className="px-4 py-2.5 text-sm text-left text-neutral-900 hover:bg-primary-main hover:text-white"
                     activeClassName="navbar-active-popover"
                   >
                     {title}

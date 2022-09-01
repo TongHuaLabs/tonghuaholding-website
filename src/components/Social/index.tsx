@@ -6,25 +6,30 @@ import classNames from 'classnames';
 
 type SocialProps = {
   className?: string;
+  iconClassName?: string;
   backgroundClassName?: string;
 };
 
-const socials = [
-  {
-    icon: <FacebookSVG className="w-5 h-5" />,
-    href: 'https://www.facebook.com/TongHuaLabs/',
-  },
-  {
-    icon: <InstagramSVG className="w-5 h-5" />,
-    href: 'https://www.instagram.com/tonghualabs/',
-  },
-  {
-    icon: <LinkedinSVG className="w-5 h-5" />,
-    href: 'https://www.linkedin.com/company/tonghuaholding',
-  },
-];
+const Social: React.FC<SocialProps> = ({
+  className,
+  iconClassName,
+  backgroundClassName,
+}) => {
+  const socials = [
+    {
+      icon: <FacebookSVG className={iconClassName} />,
+      href: 'https://www.facebook.com/TongHuaLabs/',
+    },
+    {
+      icon: <InstagramSVG className={iconClassName} />,
+      href: 'https://www.instagram.com/tonghualabs/',
+    },
+    {
+      icon: <LinkedinSVG className={iconClassName} />,
+      href: 'https://www.linkedin.com/company/tonghuaholding',
+    },
+  ];
 
-const Social: React.FC<SocialProps> = ({ className, backgroundClassName }) => {
   return (
     <div className={classNames('flex items-center', className)}>
       {socials.map(({ icon, href }, key) => (
@@ -32,7 +37,7 @@ const Social: React.FC<SocialProps> = ({ className, backgroundClassName }) => {
           href={href}
           target="__blank"
           className={classNames(
-            'h-10 w-10 rounded-full  flex justify-center items-center',
+            'rounded-full  flex justify-center items-center',
             backgroundClassName,
           )}
           key={key}

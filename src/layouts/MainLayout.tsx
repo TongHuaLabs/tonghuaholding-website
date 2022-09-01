@@ -19,7 +19,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <div className="flex flex-col justify-between min-h-screen">
-      <Navbar showClose={false} onMenuClick={() => setMobileSidebar(true)} />
+      <Navbar
+        showClose={false}
+        onMenuClick={() => setMobileSidebar(true)}
+        className="sticky top-0 z-40"
+      />
       <main className="flex-grow">{children}</main>
       <Footer />
       <MobileSidebar

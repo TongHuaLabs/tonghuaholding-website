@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
-import THHLogoSvg from '@images/tonghua-holding.inline.svg';
+import THHLogo from '@images/tonghua-holding.png';
 import PopoverNavigation from '@/layouts/navigation/PopoverNavigation';
-// import ChangeLocale from '@/components/ChangeLocale';
 import { route } from '@/layouts/navigation/route';
+import MenuIcon from '@/icons/hamburger-menu.inline.svg';
+import CloseIcon from '@/icons/close.inline.svg';
 
 type NavbarProps = {
   showClose: boolean;
@@ -23,12 +23,14 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <nav
       className={classNames(
-        'flex items-center justify-between px-4 py-2 h-16 bg-neutral-50 lg:bg-white shadow-none lg:shadow-md',
+        `flex items-center justify-between px-4 h-16 bg-white lg:bg-white ${
+          !showClose && 'shadow-md'
+        }`,
         className,
       )}
     >
       <Link to="/">
-        <THHLogoSvg className="w-32 h-auto" />
+        <img src={THHLogo} className="w-32" />
       </Link>
       <ul className="flex items-center h-full space-x-6">
         {route.map(({ title, href, menu }, key) => (
@@ -40,19 +42,16 @@ const Navbar: React.FC<NavbarProps> = ({
             className="hidden lg:block"
           />
         ))}
-        {/* <li className="hidden w-px lg:block h-8 bg-neutral-200" /> */}
-        {/* <ChangeLocale /> */}
-        {/* <li className="w-px lg:hidden h-8 bg-neutral-200" /> */}
         <li className="block lg:hidden">
           {showClose ? (
-            <XIcon
+            <CloseIcon
               onClick={onCloseClick}
-              className="cursor-pointer w-9 h-9 text-neutral-700"
+              className="cursor-pointer w-9 h-9 text-neutral-900"
             />
           ) : (
             <MenuIcon
               onClick={onMenuClick}
-              className="cursor-pointer w-9 h-9 text-neutral-700"
+              className="cursor-pointer w-9 h-9 text-neutral-900"
             />
           )}
         </li>

@@ -2,10 +2,10 @@ import classNames from 'classnames';
 import React from 'react';
 
 type StockPriceCardProps = {
-  price: string;
-  change: string;
-  total: string;
-  updatedAt: string;
+  price?: string;
+  change?: string;
+  total?: string;
+  updatedAt?: string;
   className?: string;
 };
 
@@ -19,7 +19,7 @@ const StockPriceCard: React.FC<StockPriceCardProps> = ({
   return (
     <div
       className={classNames(
-        'flex flex-col p-10 rounded-lg bg-neutral-50 border border-neutral-50 space-y-6 opacity-80',
+        'flex flex-col p-10 rounded-lg bg-neutral-50 border border-neutral-50 space-y-6 opacity-90',
         className,
       )}
     >

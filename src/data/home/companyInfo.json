@@ -1,0 +1,36 @@
+[
+  {
+    "info": [
+      {
+        "title": "62",
+        "description": "Years"
+      },
+      {
+        "title": "1991",
+        "description": "IPO"
+      },
+      {
+        "title": "4",
+        "description": "Companies"
+      },
+      {
+        "title": "3",
+        "description": "Industries"
+      }
+    ],
+    "images": [
+      {
+        "url": "/images/document.jpeg"
+      },
+      {
+        "url": "/images/document.jpeg"
+      },
+      {
+        "url": "/images/document.jpeg"
+      },
+      {
+        "url": "/images/document.jpeg"
+      }
+    ]
+  }
+]

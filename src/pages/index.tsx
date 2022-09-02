@@ -29,25 +29,18 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const companyAge = currentYear - established;
 
   const {
-    allInformationJson,
+    allCompanyInfoJson,
     allOurBusinessJson,
     allBusinessesJson,
     allSetAnnouncementJson,
     news,
   } = data;
 
-  const businesses = allBusinessesJson.edges;
-
   const latestNews = news.edges.slice(0, !isLg ? 4 : 3);
 
   const setNews = allSetAnnouncementJson.edges.slice(0, !isLg ? 4 : 3);
 
-  const images = [
-    '/images/image_1.png',
-    '/images/image_2.png',
-    '/images/image_3.png',
-    '/images/image_4.png',
-  ];
+  const companyInfo = allCompanyInfoJson.edges[0];
 
   return (
     <>
@@ -77,7 +70,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </section>
 
       {/* xx Years of Stability & Integrity */}
-      <section className="relative px-4 md:px-6 lg:px-16 py-20 lg:py-28 2xl:max-w-7xl 2xl:px-0 mx-auto overflow-hidden 2xl:overflow-visible">
+      <section className="relative px-4 md:px-6 lg:px-16 py-20 lg:py-28 max-w-7xl mx-auto overflow-hidden xl:overflow-visible">
         <UnderlineHeader
           title={`${companyAge} Years of\nStability & Integrity `}
           className="items-center"
@@ -86,8 +79,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <div className="relative z-10 flex flex-col lg:flex-row lg:justify-center lg:items-center lg:mt-10">
           <div className="flex flex-wrap lg:items-center lg:flex-grow lg:h-64 xl:max-w-lg">
-            {allInformationJson.edges.map(({ node }, key) => {
-              const { title, description } = node;
+            {companyInfo.node.info?.map((info, key) => {
+              const { title, description } = info || {};
               return (
                 <Topic
                   title={title}
@@ -98,29 +91,32 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               );
             })}
           </div>
-          <div className="flex justify-center flex-wrap mt-20 rotate-45">
-            {images.map((image, key) => (
-              <div
-                className={`w-1/2 flex p-1.5 ${
-                  key % 2 === 0 ? 'justify-end' : 'justify-start'
-                }`}
-                key={key}
-              >
-                <img
-                  className={classNames(
-                    'object-cover',
-                    key === 2
-                      ? 'w-3/4 min-w-[96px] max-w-[128px] sm:max-w-[164px] md:max-w-[176px]'
-                      : 'w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32',
-                  )}
-                  src={withPrefix(image)}
-                />
-              </div>
-            ))}
+          <div className="flex justify-center flex-wrap mt-20 rotate-45 min-w-[320px]">
+            {companyInfo.node.images?.map((image, key) => {
+              const { url } = image || {};
+              return (
+                <div
+                  className={`w-1/2 flex p-1.5 ${
+                    key % 2 === 0 ? 'justify-end' : 'justify-start'
+                  }`}
+                  key={key}
+                >
+                  <img
+                    className={classNames(
+                      'object-cover',
+                      key === 2
+                        ? 'w-32 h-32 sm:h-40 sm:w-40'
+                        : 'w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32',
+                    )}
+                    src={withPrefix(url || '')}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
-        <DotPattern className="text-primary-main z-0 absolute bottom-36 sm:bottom-44 md:bottom-48 lg:bottom-32 left-0" />
-        <RedCircle className="absolute bottom-24 md:bottom-36 md:right-6 -right-28 lg:-right-14 xl:-right-8 z-0" />
+        <DotPattern className="text-primary-main z-0 absolute bottom-36 sm:bottom-44 lg:bottom-32 left-0" />
+        <RedCircle className="absolute bottom-24 sm:bottom-32 sm:-right-12 -right-28 lg:bottom-40 lg:right-4  z-0" />
       </section>
 
       {/* ประเภทธุรกิจของเรา */}
@@ -170,7 +166,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="flex relative z-10 px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 overflow-x-scroll hide-scrollbar lg:justify-around">
-            {businesses.map(({ node }, key) => {
+            {allBusinessesJson.edges.map(({ node }, key) => {
               const { title, image, description, to } = node;
               return (
                 <div key={key} className="px-3 lg:px-0">
@@ -260,11 +256,16 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexPage {
-    allInformationJson {
+    allCompanyInfoJson {
       edges {
         node {
-          title
-          description
+          info {
+            title
+            description
+          }
+          images {
+            url
+          }
         }
       }
     }

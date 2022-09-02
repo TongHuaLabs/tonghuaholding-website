@@ -9,31 +9,10 @@ type NewsRoomAllSetAnnouncementProps =
 const NewsRoomAllSetAnnouncement: React.FC<NewsRoomAllSetAnnouncementProps> = ({
   data,
 }) => {
-  // const setType: ListProps[] = [
-  //   {
-  //     title: 'ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด',
-  //     value: 0,
-  //   },
-  // ];
-
-  // const [selected, setSelected] = useState<ListProps>(setType[0]);
-
   const { allSetAnnouncementJson } = data;
-
-  // const handleSelected = (value: ListProps['value']) => {
-  //   if (typeof value === 'number') {
-  //     setSelected(setType[value]);
-  //   }
-  // };
 
   return (
     <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
-      {/* <ListBox
-        className="w-full md:max-w-xs md:ml-auto"
-        list={setType}
-        selected={selected}
-        onSelected={(value) => handleSelected(value)}
-      /> */}
       <UnderlineHeader
         title="ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด"
         textClassName="text-2xl"

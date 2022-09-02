@@ -27,6 +27,7 @@ const Gallery: React.FC<GalleryProps> = ({
       autoplay={autoplay || { delay: 1500, disableOnInteraction: false }}
       slidesPerView={slidesPerView}
       spaceBetween={spaceBetween}
+      loop
     >
       {images.map((slide, key) => {
         return (

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-bod-markdown-template-tsx",
+    "path": "/about/board-of-directors/tayathorn-kyavatanakij",
+    "result": {"data":{"markdownRemark":{"html":"<h1>นาย ทายธร กยาวัฒนกิจ</h1>\n<p>ตำแหน่ง รองผู้จัดการ บริษัทสินทรัพย์ ตงฮั้ว จำกัด\nวันเดือนปีเกิด : 20 กันยนยน 2537\nคุณวุฒิทางการศึกษา : มหาวิทยาลัยปักกิ่ง\nระดับการศึกษา : ปริญญาตรี\nสาขาวิชาชีพ : การเงิน บริหาร เศรษศาสตร์\nประสบการณ์ทำงาน : บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)\nตำแหน่ง : ผู้ถือหุ้น ผู้ช่วยฝ่ายบัญชี การเงิน\nปี 2562 - ปัจจุบัน</p>","frontmatter":{"name":"นายทายธร กยาวัฒนกิจ","occupation":"ผู้อำนวยการฝ่ายบัญชีและการเงิน","profileImage":"/images/somnuk-kayavatanakij.png"}}},"pageContext":{"id":"ab710048-710b-5d29-b7cb-fceaa934a3a5"}},
+    "staticQueryHashes": []}

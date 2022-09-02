@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-bod-markdown-template-tsx",
+    "path": "/about/board-of-directors/anakorn-kyavatanakij",
+    "result": {"data":{"markdownRemark":{"html":"<p>ตำแหน่ง รองผู้จัดการ บริษัทสินทรัพย์ ตงฮั้ว จำกัด\nวันเดือนปีเกิด : 18 กรกฎาคม 2539\nคุณวุฒิทางการศึกษา : มหาวิทยาลัยปักกิ่ง\nระดับการศึกษา : ปริญญาตรี\nสาขาวิชาชีพ : คอมพิวเตอร์และเทคโนโลยี\nประสบการณ์ทำงาน : บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)\nตำแหน่ง : ฝ่ายคอมพิวเตอร์\nปี 2563 - ปัจจุบัน</p>","frontmatter":{"name":"นายอาณกร กยาวัฒนกิจ","occupation":"ผู้อำนวยการฝ่ายคอมพิวเตอร์ และสารสนเทศ","profileImage":"/images/somnuk-kayavatanakij.png"}}},"pageContext":{"id":"eecb32de-30c0-5971-acf5-7d7ca120e566"}},
+    "staticQueryHashes": []}

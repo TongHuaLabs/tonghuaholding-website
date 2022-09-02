@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-bod-markdown-template-tsx",
+    "path": "/about/board-of-directors/veera-aurwilaichitr",
+    "result": {"data":{"markdownRemark":{"html":"<h1>นาย วีระ เอื้อวิไลจิตร</h1>\n<p>ตำแหน่ง รองผู้จัดการ บริษัทสินทรัพย์ ตงฮั้ว จำกัด\nวันเดือนปีเกิด :  5 มิถุนายน 2511\nคุณวุฒิทางการศึกษา และระดับการศึกษา :<br>\nมหาวิทยาลัยรามคำแหง ปริญญาโท สาขา การเงิน บริหาร เศรษศาสตร์\nมหาวิทยาลัยเชียงใหม่ ปริญญาตรี สาขา วิศวกรรม\nประสบการณ์ทำงาน :\nบริษัท ตงฮั้ว แคปปิตอล จำกัด ตำแหน่ง สินเชื่อ 2561 - ปัจจุบัน</p>","frontmatter":{"name":"นายวีระ เอื้อวิไลจิตร","occupation":"รองผู้จัดการ บริษัทสินทรัพย์ ตงฮั้ว จำกัด","profileImage":"/images/somnuk-kayavatanakij.png"}}},"pageContext":{"id":"e3570fa3-8280-5478-ba72-109a1232ccba"}},
+    "staticQueryHashes": []}

@@ -37,7 +37,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${workingSVG})`,
           backgroundSize: 'cover',
         }}
-        className="flex flex-col text-center justify-center h-[75vh] items-center space-y-4"
+        className="flex px-4 flex-col text-center justify-center h-[75vh] items-center space-y-4"
       >
         <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
           LIFE @TONG HUA

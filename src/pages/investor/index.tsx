@@ -30,25 +30,6 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
 
   const turnover = allAnnualTurnoverJson.edges[0].node;
 
-  const bars = {
-    labels:
-      turnover.data?.map((turnover) => {
-        const { year } = turnover || {};
-        return `${year}`;
-      }) || [],
-    datasets: [
-      {
-        backgroundColor: 'rgb(250,250,250)',
-        borderColor: 'rgb(250,250,250)',
-        data:
-          turnover.data?.map((turnover) => {
-            const { value } = turnover || {};
-            return Number(value);
-          }) || [],
-      },
-    ],
-  };
-
   const setAnnouncement = allSetAnnouncementJson.edges.slice(0, lg ? 6 : 4);
 
   const { price, change, total, updatedAt } = stockJson || {};
@@ -143,7 +124,24 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
               </h3>
               <BarChart
                 className="mt-10 md:mt-3"
-                data={bars}
+                data={{
+                  labels:
+                    turnover.data?.map((turnover) => {
+                      const { year } = turnover || {};
+                      return `${year}`;
+                    }) || [],
+                  datasets: [
+                    {
+                      backgroundColor: 'rgb(250,250,250)',
+                      borderColor: 'rgb(250,250,250)',
+                      data:
+                        turnover.data?.map((turnover) => {
+                          const { value } = turnover || {};
+                          return Number(value);
+                        }) || [],
+                    },
+                  ],
+                }}
                 options={{
                   scales: {
                     y: {

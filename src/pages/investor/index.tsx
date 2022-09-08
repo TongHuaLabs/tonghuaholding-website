@@ -1,5 +1,4 @@
 import React from 'react';
-import CareerOffice from '@images/career-office.png';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import { graphql, Link, PageProps } from 'gatsby';
 import {
@@ -14,6 +13,7 @@ import ContactInvestorSection from '@/components/sections/ContactInvestorSection
 import { PrimaryButton } from '@/components/buttons';
 import { useLg } from '@/hooks/responsive';
 import OutlineButton from '@/components/buttons/OutlineButton';
+import { StaticImage } from 'gatsby-plugin-image';
 
 type InvestorPageProps = PageProps<GatsbyTypes.InvestorPageQuery>;
 
@@ -37,14 +37,16 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
   return (
     <>
       {/* Welcome to Investor Relations */}
-      <section
-        style={{
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${CareerOffice})`,
-          backgroundSize: 'cover',
-        }}
-        className="h-[75vh]"
-      >
-        <div className="h-full flex flex-col justify-center items-center space-y-10 px-4 md:px-28 lg:px-16 lg:flex-row lg:space-y-0 max-w-7xl mx-auto">
+      <section className="h-[75vh] relative">
+        <div className="relative z-0 h-full w-full">
+          <div className="absolute w-full h-full bg-black/80" />
+          <StaticImage
+            src="../../images/career-office.png"
+            alt="Tong Hua Holding Investor"
+            className="w-full h-full opacity-10"
+          />
+        </div>
+        <div className="absolute top-0 w-full h-full flex flex-col justify-center items-center space-y-10 px-4 md:px-28 lg:px-16 lg:flex-row lg:space-y-0 max-w-7xl mx-auto">
           <div className="w-full flex flex-col items-center lg:items-start space-y-10 lg:w-3/5">
             <h2 className="text-4xl font-bold md:text-6xl whitespace-pre-line text-center lg:text-left text-neutral-50">
               {`Welcome to\nInvestor Relations`}

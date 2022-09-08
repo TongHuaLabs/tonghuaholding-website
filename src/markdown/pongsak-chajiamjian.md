@@ -1,8 +1,8 @@
 ---
 name: นายพงษ์ศักดิ์ ชาเจียมเจน
 occupation: กรรมการผู้จัดการ
-profileImage: /images/pongsak-chajiamjian.jpeg
 slug: /about/board-of-directors/pongsak-chajiamjian
+cover: ../images/pongsak-chajiamjian.jpeg
 order: 6
 ---
 

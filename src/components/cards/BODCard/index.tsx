@@ -1,11 +1,12 @@
-import classNames from 'classnames';
-import { Link, withPrefix } from 'gatsby';
 import React from 'react';
+import classNames from 'classnames';
+import { Link } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 type BODCardProps = {
   name?: string;
   occupation?: string;
-  profileImage?: string;
+  profileImage?: IGatsbyImageData;
   href?: string;
   className?: string;
 };
@@ -19,12 +20,15 @@ const BODCard: React.FC<BODCardProps> = ({
 }) => {
   return (
     <Link to={href || ''} className={classNames('flex flex-col', className)}>
-      <div className="aspect-w-3 aspect-h-4">
-        <img
-          src={withPrefix(profileImage || '')}
-          className="object-cover w-full h-full rounded-lg"
-        />
-      </div>
+      {profileImage && (
+        <div className="aspect-w-3 aspect-h-4">
+          <GatsbyImage
+            alt={name || ''}
+            image={profileImage}
+            className="object-cover w-full h-full rounded-lg"
+          />
+        </div>
+      )}
       <span className="text-neutral-900 text-lg font-bold mt-5">{name}</span>
       <p className="mt-2 text-neutral-900">{occupation}</p>
     </Link>

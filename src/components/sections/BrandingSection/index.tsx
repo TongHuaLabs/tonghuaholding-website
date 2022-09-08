@@ -1,11 +1,11 @@
 import React from 'react';
 import DotPattern from '@/images/dot-pattern.inline.svg';
-import { withPrefix } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 type BrandingSectionProps = {
   title?: string;
   description?: string;
-  image?: string;
+  image?: IGatsbyImageData;
 };
 
 const BrandingSection: React.FC<BrandingSectionProps> = ({
@@ -24,13 +24,16 @@ const BrandingSection: React.FC<BrandingSectionProps> = ({
             {description}
           </h2>
         </div>
-        <div className="relative">
-          <img
-            src={withPrefix(image || '')}
-            className="w-44 h-44 md:w-52 md:h-52 relative z-20 shadow rounded-lg"
-          />
-          <DotPattern className="text-primary-main z-10 absolute top-12 left-12 md:top-20 md:left-20 opacity-50" />
-        </div>
+        {image && (
+          <div className="relative">
+            <GatsbyImage
+              alt={title || ''}
+              image={image}
+              className="w-44 h-44 md:w-52 md:h-52 relative z-20 shadow rounded-lg"
+            />
+            <DotPattern className="text-primary-main z-10 absolute top-12 left-12 md:top-20 md:left-20 opacity-50" />
+          </div>
+        )}
       </div>
       <div className="h-28 z-10 w-full bg-white absolute bottom-0" />
     </section>

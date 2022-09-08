@@ -1,8 +1,8 @@
 ---
 name: นายสมนึก กยาวัฒนกิจ
 occupation: ประธานกรรมการ
-profileImage: /images/somnuk-kayavatanakij.png
 slug: /about/board-of-directors/somnuk-kayavatanakij
+cover: ../images/somnuk-kayavatanakij.png
 order: 1
 ---
 

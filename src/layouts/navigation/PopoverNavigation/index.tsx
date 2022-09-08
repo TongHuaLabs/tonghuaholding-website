@@ -35,7 +35,9 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
           {hasChild ? (
             <Popover.Button
               onMouseEnter={() => setIsShowing(true)}
-              onMouseLeave={() => setIsShowing(false)}
+              onMouseLeave={() => {
+                setTimeout(() => setIsShowing(false));
+              }}
               className={`flex font-medium items-center text-sm ${
                 isShowing || active ? 'text-primary-main' : 'text-neutral-900'
               }`}

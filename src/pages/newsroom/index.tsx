@@ -16,8 +16,8 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
   const md = useMd();
   const lg = useLg();
 
-  const { allFile, allSetAnnouncementJson, allDocumentJson } = data;
-  const news = allFile.edges;
+  const { allMarkdownRemark, allSetAnnouncementJson, allDocumentJson } = data;
+  const news = allMarkdownRemark.edges;
   const document = allDocumentJson.edges;
 
   const setAnnouncement = allSetAnnouncementJson.edges.slice(
@@ -39,13 +39,13 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
         <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {news.map(({ node }, key) => {
             const { title, description, date, cover, slug } =
-              node.childMarkdownRemark?.frontmatter || {};
+              node.frontmatter || {};
             return (
               <NewsCard
                 title={title}
                 className="md:w-1/2 lg:w-1/3 md:px-4 md:py-6"
                 description={description}
-                coverImage={cover}
+                coverImage={cover?.childImageSharp?.gatsbyImageData}
                 createdAt={date}
                 href={slug}
                 key={key}
@@ -105,7 +105,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
                 key={key}
                 title={title}
                 className="w-1/2 md:w-1/4 px-2 py-4 lg:px-4 text-neutral-900"
-                coverImage={cover}
+                coverImage={cover?.childImageSharp?.gatsbyImageData}
                 createdAt={createdAt}
                 toFile={pdf}
               />
@@ -124,24 +124,25 @@ export default NewsRoomPage;
 
 export const query = graphql`
   query NewsRoomPage {
-    allFile(
-      filter: { relativeDirectory: { eq: "newsroom-markdown/all-news/news" } }
-      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    allMarkdownRemark(
+      filter: { frontmatter: { slug: { regex: "/newsroom/news/" } } }
+      sort: { fields: frontmatter___date, order: DESC }
       limit: 6
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            frontmatter {
-              lang
-              slug
-              title
-              date(formatString: "DD/MM/YYYY")
-              description
-              cover
+          frontmatter {
+            lang
+            slug
+            title
+            date(formatString: "DD/MM/YYYY")
+            description
+            cover {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-          sourceInstanceName
         }
       }
     }
@@ -160,7 +161,11 @@ export const query = graphql`
           createdAt
           title
           pdf
-          cover
+          cover {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }

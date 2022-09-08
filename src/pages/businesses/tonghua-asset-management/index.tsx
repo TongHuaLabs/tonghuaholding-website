@@ -6,6 +6,7 @@ import { graphql, PageProps } from 'gatsby';
 import filter from 'lodash/filter';
 import BusinessesSection from '@/components/sections/BusinessesSection';
 import ContactInfoSection from '@/components/sections/ContactInfoSection';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 type TongHuaAssetManagementProps =
   PageProps<GatsbyTypes.TongHuaAssetManagementPageQueryQuery>;
@@ -18,12 +19,25 @@ const TongHuaAssetManagement: React.FC<TongHuaAssetManagementProps> = ({
   const info = filter(allBusinessesJson.edges, (x) => x.node.key === 'tham')[0]
     .node;
 
-  const { title, description, image } = info;
+  const { title, description, image, slides } = info;
   const { html } = markdownRemark || {};
+
+  const showcase: IGatsbyImageData[] = [];
+
+  slides &&
+    slides.forEach((image) => {
+      if (image?.childImageSharp) {
+        showcase.push(image?.childImageSharp?.gatsbyImageData);
+      }
+    });
 
   return (
     <>
-      <BrandingSection title={title} description={description} image={image} />
+      <BrandingSection
+        title={title}
+        description={description}
+        image={image?.childImageSharp?.gatsbyImageData}
+      />
 
       {/* เกี่ยวกับบริษัท */}
       <section className="pb-10 lg:pb-16 px-4 md:px-6 lg:px-16 max-w-5xl mx-auto">
@@ -40,11 +54,7 @@ const TongHuaAssetManagement: React.FC<TongHuaAssetManagementProps> = ({
 
       {/* Image Gallery */}
       <section className="pb-10 lg:pb-20 px-4 md:px-6 lg:px-16 max-w-5xl mx-auto">
-        <Gallery
-          showNavigation={true}
-          slidesPerView={1}
-          images={info.slides as string[]}
-        />
+        <Gallery showNavigation={true} slidesPerView={1} images={showcase} />
       </section>
 
       {/* Map & Contact Info */}
@@ -73,9 +83,17 @@ export const query = graphql`
           key
           title
           description
-          image
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           to
-          slides
+          slides {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }

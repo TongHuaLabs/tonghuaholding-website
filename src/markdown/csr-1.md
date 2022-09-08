@@ -1,13 +1,13 @@
 ---
 lang: th
-title: CSR 5
+title: CSR 1
 description: Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit.
-slug: /newsroom/blog/csr-5
-cover: /images/document.jpeg
-date: 2022-06-17
+slug: /newsroom/csr/blog/csr-1
+cover: ../images/document.jpeg
+date: 2022-06-13
 ---
 
-# CSR-5
+# CSR-1
 
 Sint duis enim deserunt sunt magna consequat Lorem proident deserunt culpa voluptate est. Labore consequat ipsum cupidatat voluptate veniam laborum occaecat elit ullamco. Deserunt commodo dolor ad excepteur ad cupidatat laboris eu aliquip veniam et non velit.
 

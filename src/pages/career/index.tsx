@@ -1,5 +1,4 @@
 import React from 'react';
-import workingSVG from '@images/working.svg';
 import Gallery from '@/components/Gallery';
 import EllipseSvg from '@/icons/ellipse.inline.svg';
 import DNA from '@/components/information/DNA';
@@ -8,6 +7,7 @@ import { graphql, PageProps } from 'gatsby';
 import { useMd, useLg } from '@/hooks/responsive';
 import { OpportunityCard, TestimonialCard } from '@/components/cards';
 import { SwiperSlide } from 'swiper/react';
+import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
 
 type CareerPageProps = PageProps<GatsbyTypes.CareerPageQuery>;
 
@@ -15,36 +15,39 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
   const md = useMd();
   const lg = useLg();
 
-  const { allDnaJson, allTeamJson, allShowcaseJson, allFile } = data;
+  const { allDnaJson, allTeamJson, allShowcaseJson, allMarkdownRemark } = data;
   const team = allTeamJson.edges;
   const dna = allDnaJson.edges;
 
-  const showcase: string[] = [];
+  const showcase: IGatsbyImageData[] = [];
 
   allShowcaseJson.edges.forEach((x) => {
     const { image } = x.node;
-    showcase.push(image || '');
+    if (image?.childImageSharp) {
+      showcase.push(image?.childImageSharp?.gatsbyImageData);
+    }
   });
-
-  // select the first 3 elements after filtered
-  const markdown = allFile.edges.slice(0, 3);
 
   return (
     <>
       {/* LIFE  @TONG HUA */}
-      <section
-        style={{
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${workingSVG})`,
-          backgroundSize: 'cover',
-        }}
-        className="flex px-4 flex-col text-center justify-center h-[75vh] items-center space-y-4"
-      >
-        <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
-          LIFE @TONG HUA
-        </h2>
-        <p className="text-xl md:text-2xl font-medium text-neutral-50">
-          Let’s start something new with Powerful energy.
-        </p>
+      <section className="h-[75vh] relative">
+        <div className="relative z-0 h-full w-full">
+          <div className="absolute w-full h-full bg-black/80" />
+          <StaticImage
+            src="../../images/working.svg"
+            alt="Tong Hua Holding Career"
+            className="w-full h-full opacity-10"
+          />
+        </div>
+        <div className="absolute top-0 w-full h-full flex flex-col text-center justify-center space-y-4">
+          <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
+            LIFE @TONG HUA
+          </h2>
+          <p className="text-xl md:text-2xl font-medium text-neutral-50">
+            Let’s start something new with Powerful energy.
+          </p>
+        </div>
       </section>
 
       {/* Core Value */}
@@ -76,9 +79,15 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
             slidesPerView={lg ? 3 : md ? 2 : 1}
           >
             {team.map(({ node }, key) => {
+              const { profileImage } = node;
               return (
                 <SwiperSlide key={key}>
-                  <TestimonialCard {...node} />
+                  <TestimonialCard
+                    {...node}
+                    profileImage={
+                      profileImage?.childImageSharp?.gatsbyImageData
+                    }
+                  />
                 </SwiperSlide>
               );
             })}
@@ -103,13 +112,9 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         </h2>
         <hr className="h-px mt-2 border-0 bg-neutral-900" />
         <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
-          {markdown.map(({ node }, key) => {
-            const { frontmatter } = node.childMarkdownRemark || {};
-            if (!frontmatter) {
-              return null;
-            }
+          {allMarkdownRemark.edges.map(({ node }, key) => {
             const { title, location, contract, description, slug } =
-              frontmatter;
+              node.frontmatter || {};
             return (
               <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2 lg:p-3">
                 <OpportunityCard
@@ -135,7 +140,11 @@ export const query = graphql`
     allTeamJson {
       edges {
         node {
-          profileImage
+          profileImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           name
           occupation
           comment
@@ -152,28 +161,30 @@ export const query = graphql`
     allShowcaseJson {
       edges {
         node {
-          image
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
-    allFile(
-      filter: { relativeDirectory: { eq: "career-markdown" } }
-      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    allMarkdownRemark(
+      filter: { frontmatter: { slug: { regex: "/career/blog/" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 3
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            frontmatter {
-              lang
-              slug
-              title
-              date(formatString: "DD/MM/YYYY")
-              location
-              description
-              contract
-            }
+          frontmatter {
+            lang
+            slug
+            title
+            date(formatString: "DD/MM/YYYY")
+            location
+            description
+            contract
           }
-          sourceInstanceName
         }
       }
     }

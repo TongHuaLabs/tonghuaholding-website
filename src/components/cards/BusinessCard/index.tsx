@@ -1,10 +1,11 @@
 import { ReadMoreButton } from '@/components/buttons';
 import classNames from 'classnames';
-import { Link, withPrefix } from 'gatsby';
+import { Link } from 'gatsby';
 import React from 'react';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 type BusinessCardProps = {
-  image?: string;
+  image?: IGatsbyImageData;
   title?: string;
   description?: string;
   to?: string;
@@ -25,7 +26,9 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
         className,
       )}
     >
-      <img src={withPrefix(image || '')} className="w-36 h-36" />
+      {image && (
+        <GatsbyImage alt={title || ''} image={image} className="w-36 h-36" />
+      )}
       <span className="text-sm block font-medium mt-4">{title}</span>
       <span className="text-xs block line-clamp-2 whitespace-pre-line mt-3">
         {description}

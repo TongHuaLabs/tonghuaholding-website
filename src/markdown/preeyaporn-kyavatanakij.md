@@ -1,8 +1,8 @@
 ---
 name: นางปรียาพร กยาวัฒนกิจ
 occupation: ผู้จัดการ บริษัทสินทรัพย์ ตงฮั้ว จำกัด
-profileImage: /images/preeyaporn-kyavatanakij.jpeg
 slug: /about/board-of-directors/preeyaporn-kyavatanakij
+cover: ../images/preeyaporn-kyavatanakij.jpeg
 order: 2
 ---
 ### ตำแหน่ง 

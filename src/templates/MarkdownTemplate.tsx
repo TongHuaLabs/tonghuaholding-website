@@ -1,6 +1,7 @@
 import React from 'react';
-import { graphql, PageProps, withPrefix } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { ShareButton } from '@/components/buttons';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 type MarkdownTemplateProps = PageProps<GatsbyTypes.MarkdownTemplateQuery>;
 
@@ -19,12 +20,13 @@ const MarkdownTemplate = ({
       </h1>
       <h2 className="text-sm text-neutral-600 mt-2">{date}</h2>
       <ShareButton url={`${siteUrl}${slug}`} className="mt-7" />
-      {cover && (
+      {cover?.childImageSharp && (
         <div className="mt-10">
           <div className="aspect-w-16 aspect-h-9">
-            <img
-              src={withPrefix(cover || '')}
-              className="w-full h-full object-cover"
+            <GatsbyImage
+              alt={title || ''}
+              image={cover.childImageSharp.gatsbyImageData}
+              className="object-cover w-full h-full rounded-lg"
             />
           </div>
         </div>
@@ -51,10 +53,14 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        cover
         title
         slug
         date(formatString: "MMMM DD, YYYY")
+        cover {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     }
   }

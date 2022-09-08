@@ -1,5 +1,4 @@
 import React from 'react';
-import TongHuaBuildingSVG from '@/images/tonghua-building.svg';
 import Social from '@/components/Social';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import UnderlineHeader from '@/components/UnderlineHeader';
@@ -12,12 +11,13 @@ import OurBusiness from '@/components/panel/OurBusiness';
 import classNames from 'classnames';
 import ContactInvestorSection from '@/components/sections/ContactInvestorSection';
 import { useLg } from '@/hooks/responsive';
+import { graphql, Link, PageProps } from 'gatsby';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import {
   LatestNewsCard,
   BusinessCard,
   SetAnnouncementCard,
 } from '@/components/cards';
-import { graphql, Link, PageProps, withPrefix } from 'gatsby';
 
 type IndexPageProps = PageProps<GatsbyTypes.IndexPageQuery>;
 
@@ -33,10 +33,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     allOurBusinessJson,
     allBusinessesJson,
     allSetAnnouncementJson,
-    news,
+    allMarkdownRemark,
   } = data;
 
-  const latestNews = news.edges.slice(0, !isLg ? 4 : 3);
+  const latestNews = allMarkdownRemark.edges.slice(0, !isLg ? 4 : 3);
 
   const setNews = allSetAnnouncementJson.edges.slice(0, !isLg ? 4 : 3);
 
@@ -45,28 +45,32 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   return (
     <>
       {/* TONG HUA HOLDING PCL. */}
-      <section
-        style={{
-          background: `linear-gradient(0deg, rgba(217, 35, 29, 0.8), rgba(217, 35, 29, 0.8)), url(${TongHuaBuildingSVG})`,
-          backgroundSize: 'cover',
-        }}
-        className="flex flex-col items-left md:items-center justify-center relative landing px-6"
-      >
-        <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
-          <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
-            {`TONG HUA\nHOLDING PCL.`}
-          </h1>
-          <h2 className="text-lg whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
-            {`62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยืน`}
-          </h2>
+      <section className="landing relative">
+        <div className="relative z-0 h-full w-full">
+          <div className="absolute w-full h-full bg-primary-main/80" />
+          <StaticImage
+            src="../images/tonghua-company.png"
+            alt="Tong Hua Building"
+            className="w-full h-full opacity-10"
+          />
         </div>
-        <Social
-          className="space-x-4 mt-10"
-          backgroundClassName="bg-white w-10 h-10"
-          iconClassName="w-5 h-5 text-primary-main"
-        />
-        <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
-        <DotPattern className="text-neutral-50 z-10 absolute bottom-2.5 right-3 opacity-80 md:hidden" />
+        <div className="h-full w-full absolute top-0 px-6 flex flex-col items-left md:items-center justify-center">
+          <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
+            <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
+              {`TONG HUA\nHOLDING PCL.`}
+            </h1>
+            <h2 className="text-lg whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
+              {`62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยืน`}
+            </h2>
+          </div>
+          <Social
+            className="space-x-4 mt-10"
+            backgroundClassName="bg-white w-10 h-10"
+            iconClassName="w-5 h-5 text-primary-main"
+          />
+          <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
+          <DotPattern className="text-neutral-50 z-10 absolute bottom-2.5 right-3 opacity-80 md:hidden" />
+        </div>
       </section>
 
       {/* xx Years of Stability & Integrity */}
@@ -101,15 +105,18 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                   }`}
                   key={key}
                 >
-                  <img
-                    className={classNames(
-                      'object-cover',
-                      key === 2
-                        ? 'w-32 h-32 sm:h-40 sm:w-40'
-                        : 'w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32',
-                    )}
-                    src={withPrefix(url || '')}
-                  />
+                  {url?.childImageSharp && (
+                    <GatsbyImage
+                      alt=""
+                      image={url?.childImageSharp?.gatsbyImageData}
+                      className={classNames(
+                        'object-cover',
+                        key === 2
+                          ? 'w-32 h-32 sm:h-40 sm:w-40'
+                          : 'w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32',
+                      )}
+                    />
+                  )}
                 </div>
               );
             })}
@@ -147,7 +154,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                 <OurBusiness
                   title={title}
                   description={description}
-                  cover={cover}
+                  cover={cover?.childImageSharp?.gatsbyImageData}
                   className="mt-10"
                 />
               ),
@@ -171,7 +178,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               return (
                 <div key={key} className="px-3 lg:px-0">
                   <BusinessCard
-                    image={image}
+                    image={image?.childImageSharp?.gatsbyImageData}
                     title={title}
                     description={description}
                     to={to}
@@ -197,13 +204,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {latestNews.map(({ node }, key) => {
             const { title, description, date, cover, slug } =
-              node.childMarkdownRemark?.frontmatter || {};
+              node.frontmatter || {};
             return (
               <LatestNewsCard
                 title={title}
                 className="md:w-1/2 lg:w-1/3 md:p-4"
                 description={description}
-                coverImage={cover}
+                coverImage={cover?.childImageSharp?.gatsbyImageData}
                 createdAt={date}
                 href={slug}
                 key={key}
@@ -264,7 +271,11 @@ export const query = graphql`
             description
           }
           images {
-            url
+            url {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
         }
       }
@@ -274,7 +285,11 @@ export const query = graphql`
         node {
           title
           description
-          cover
+          cover {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
@@ -284,9 +299,17 @@ export const query = graphql`
           key
           title
           description
-          image
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           to
-          slides
+          slides {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
@@ -299,24 +322,25 @@ export const query = graphql`
         }
       }
     }
-    news: allFile(
-      filter: { relativeDirectory: { eq: "newsroom-markdown/all-news/news" } }
-      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    allMarkdownRemark(
+      filter: { frontmatter: { slug: { regex: "/newsroom/news/" } } }
+      sort: { fields: frontmatter___date, order: DESC }
       limit: 4
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            frontmatter {
-              lang
-              slug
-              title
-              date(formatString: "DD/MM/YYYY")
-              description
-              cover
+          frontmatter {
+            lang
+            slug
+            title
+            date(formatString: "DD/MM/YYYY")
+            description
+            cover {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-          sourceInstanceName
         }
       }
     }

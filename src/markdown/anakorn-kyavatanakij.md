@@ -1,8 +1,8 @@
 ---
 name: นายอาณกร กยาวัฒนกิจ
 occupation: ผู้อำนวยการฝ่ายคอมพิวเตอร์ และสารสนเทศ
-profileImage: /images/anakorn-kyavatanakij.jpeg
 slug: /about/board-of-directors/anakorn-kyavatanakij
+cover: ../images/anakorn-kyavatanakij.jpeg
 order: 4
 ---
 ## ตำแหน่ง 

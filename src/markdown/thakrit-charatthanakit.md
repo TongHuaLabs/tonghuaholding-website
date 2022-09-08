@@ -1,8 +1,8 @@
 ---
 name: นายธกฤษณ์ จรัสธนกิจ
 occupation: รองผู้จัดการ บริษัทสินทรัพย์ ตงฮั้ว จำกัด
-profileImage: /images/tonghua-capital.png
 slug: /about/board-of-directors/thakrit-charatthanakit
+cover: ../images/tonghua-capital.png
 order: 5
 ---
 ## ตำแหน่ง 

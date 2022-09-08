@@ -10,8 +10,15 @@ type BusinessesSectionProps = {
     readonly edges: readonly {
       readonly node: Pick<
         GatsbyTypes.BusinessesJson,
-        'title' | 'image' | 'description' | 'key' | 'to' | 'slides'
-      >;
+        'title' | 'description' | 'to' | 'key'
+      > & {
+        readonly image: GatsbyTypes.Maybe<{
+          readonly childImageSharp: GatsbyTypes.Maybe<
+            Pick<GatsbyTypes.ImageSharp, 'gatsbyImageData'>
+          >;
+        }>;
+        readonly slides: any;
+      };
     }[];
   };
   className?: string;
@@ -40,7 +47,7 @@ const BusinessesSection: React.FC<BusinessesSectionProps> = ({
           return (
             <div key={key} className="px-4 lg:px-0">
               <BusinessCard
-                image={image}
+                image={image?.childImageSharp?.gatsbyImageData}
                 title={title}
                 description={description}
                 to={to}

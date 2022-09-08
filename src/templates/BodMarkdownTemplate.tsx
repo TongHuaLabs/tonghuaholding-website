@@ -1,6 +1,7 @@
 import React from 'react';
-import { graphql, PageProps, withPrefix } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 type BodMarkdownTemplateProps = PageProps<GatsbyTypes.BodMarkdownTemplateQuery>;
 
@@ -8,17 +9,18 @@ const BodMarkdownTemplate = ({
   data: { markdownRemark },
 }: BodMarkdownTemplateProps) => {
   const { html, frontmatter } = markdownRemark || {};
-  const { name, occupation, profileImage } = frontmatter || {};
+  const { name, occupation, cover } = frontmatter || {};
 
   return (
     <>
       <ObliqueLineSection title="คณะกรรมการบริษัท" />
       <section className="flex flex-col sm:flex-row px-4 sm:px-6 lg:px-16 pt-4 pb-10 max-w-7xl mx-auto">
         <div className="flex pt-6 flex-col sm:w-1/3 sm:pr-5 lg:pr-10">
-          {profileImage && (
+          {cover?.childImageSharp && (
             <div className="aspect-w-3 aspect-h-4 overflow-hidden">
-              <img
-                src={withPrefix(profileImage || '')}
+              <GatsbyImage
+                alt={name || ''}
+                image={cover.childImageSharp.gatsbyImageData}
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
@@ -48,7 +50,11 @@ export const pageQuery = graphql`
       frontmatter {
         name
         occupation
-        profileImage
+        cover {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     }
   }

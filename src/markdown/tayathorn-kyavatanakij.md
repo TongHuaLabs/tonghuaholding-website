@@ -1,8 +1,8 @@
 ---
 name: นายทายธร กยาวัฒนกิจ
 occupation: ผู้อำนวยการฝ่ายบัญชีและการเงิน
-profileImage: /images/tayathorn-kyavatanakij.JPG
 slug: /about/board-of-directors/tayathorn-kyavatanakij
+cover: ../images/tayathorn-kyavatanakij.JPG
 order: 3
 ---
 

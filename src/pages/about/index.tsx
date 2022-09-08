@@ -3,10 +3,11 @@ import React from 'react';
 import Timeline from '@/components/information/Timeline';
 import Info from '@/components/information/Info';
 import MissionQuoteSVG from '@/icons/mission-quote.inline.svg';
-import { graphql, PageProps, withPrefix } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { LightBulbIcon } from '@heroicons/react/outline';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import BusinessesSection from '@/components/sections/BusinessesSection';
+import { StaticImage } from 'gatsby-plugin-image';
 
 type AboutPageProps = PageProps<GatsbyTypes.AboutPageQuery>;
 
@@ -17,11 +18,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
     <>
       <ObliqueLineSection title="ข้อมูลบริษัท" />
       <section className="px-4 pt-10 lg:pt-20 lg:px-16 flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10 max-w-7xl mx-auto">
-        <img
-          src={withPrefix('/images/tonghua-company.png')}
-          className="w-full h-full lg:h-96 object-cover"
+        <StaticImage
+          src="../../images/tonghua-company.png"
+          alt="about of tonghuaholding"
+          className="w-full lg:w-1/2 object-cover"
         />
-        <div className="space-y-4">
+        <div className="space-y-4 w-full lg:w-1/2">
           <p className="text-lg">
             บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) เริ่มต้นทำหนังสือ พิมพ์จีนรายวัน
             ในนาม “หนังสือพิมพ์ตงฮั้ว” ตลอด เวลาบริษัทพัฒนา
@@ -44,6 +46,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
           </p>
         </div>
       </section>
+
       {/* เหตุการณ์สำคัญ */}
       <section className="px-4 pt-16 lg:px-16 md:pt-20 max-w-5xl mx-auto">
         <h2 className="font-bold text-3xl mb-5">เหตุการณ์สำคัญ</h2>
@@ -52,6 +55,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
           return <Timeline title={title} description={description} key={key} />;
         })}
       </section>
+
       {/* วิสัยทัศน์ */}
       <section className="pt-16 pb-20 md:py-20 space-y-16 md:space-y-20 px-4 sm:px-28 lg:pb-28 max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center">
@@ -95,6 +99,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
           </div>
         </div>
       </section>
+
       {/* บริษัทย่อยในเครือ */}
       <BusinessesSection allBusinessesJson={allBusinessesJson} />
     </>
@@ -127,9 +132,17 @@ export const query = graphql`
           key
           title
           description
-          image
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           to
-          slides
+          slides {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }

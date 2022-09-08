@@ -7,7 +7,7 @@ import { graphql, PageProps } from 'gatsby';
 type BoardOfDirectorsPageProps = PageProps<GatsbyTypes.BoardOfDirectorsQuery>;
 
 const BoardOfDirectors: React.FC<BoardOfDirectorsPageProps> = ({ data }) => {
-  const { bod } = data;
+  const { allMarkdownRemark } = data;
 
   return (
     <>
@@ -19,14 +19,13 @@ const BoardOfDirectors: React.FC<BoardOfDirectorsPageProps> = ({ data }) => {
           underlineClassName="bg-neutral-900"
         />
         <div className="flex flex-col sm:flex-row sm:flex-wrap mt-6 space-y-6 sm:space-y-0">
-          {bod.edges.map(({ node }, key) => {
-            const { name, occupation, profileImage, slug } =
-              node.childMarkdownRemark?.frontmatter || {};
+          {allMarkdownRemark.edges.map(({ node }, key) => {
+            const { name, occupation, cover, slug } = node.frontmatter || {};
             return (
               <BODCard
                 name={name}
                 occupation={occupation}
-                profileImage={profileImage}
+                profileImage={cover?.childImageSharp?.gatsbyImageData}
                 href={slug}
                 className="w-4/5 mx-auto sm:mx-0 sm:w-1/2 md:w-1/4 px-2 py-4 lg:px-4"
                 key={key}
@@ -43,18 +42,20 @@ export default BoardOfDirectors;
 
 export const query = graphql`
   query BoardOfDirectors {
-    bod: allFile(
-      filter: { relativeDirectory: { eq: "about-markdown/bod" } }
-      sort: { fields: childrenMarkdownRemark___frontmatter___order, order: ASC }
+    allMarkdownRemark(
+      filter: { frontmatter: { slug: { regex: "/about/board-of-directors/" } } }
+      sort: { fields: frontmatter___order, order: ASC }
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            frontmatter {
-              name
-              occupation
-              profileImage
-              slug
+          frontmatter {
+            name
+            occupation
+            slug
+            cover {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }

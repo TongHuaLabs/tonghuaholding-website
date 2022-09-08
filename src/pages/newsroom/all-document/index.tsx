@@ -17,8 +17,6 @@ const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
 
   const { allDocumentJson } = data;
 
-  const document = allDocumentJson.edges;
-
   // const handleSelected = (value: ListProps['value']) => {
   //   if (typeof value === 'number') {
   //     setSelected(newsType[value]);
@@ -39,14 +37,14 @@ const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
         underlineClassName="bg-neutral-900"
       />
       <div className="flex flex-wrap mt-10 md:mt-4 md:space-y-0">
-        {document.map(({ node }, key) => {
+        {allDocumentJson.edges.map(({ node }, key) => {
           const { title, createdAt, pdf, cover } = node;
           return (
             <DocumentCard
               key={key}
               title={title}
               className="w-1/2 md:w-1/4 px-2 py-4 lg:px-4 text-neutral-900"
-              coverImage={cover}
+              coverImage={cover?.childImageSharp?.gatsbyImageData}
               createdAt={createdAt}
               toFile={pdf}
             />
@@ -67,7 +65,11 @@ export const query = graphql`
           createdAt
           title
           pdf
-          cover
+          cover {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }

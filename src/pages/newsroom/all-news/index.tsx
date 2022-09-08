@@ -22,8 +22,7 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
 
   const { news, csr } = data;
 
-  // select the first 12 elements
-  const markdown = (selected.value === 0 ? news : csr).edges.slice(0, 12);
+  const markdown = (selected.value === 0 ? news : csr).edges;
 
   const handleSelected = (value: ListProps['value']) => {
     if (typeof value === 'number') {
@@ -47,13 +46,13 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
       <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
         {markdown.map(({ node }, key) => {
           const { title, description, date, cover, slug } =
-            node.childMarkdownRemark?.frontmatter || {};
+            node?.frontmatter || {};
           return (
             <NewsCard
               title={title}
               className="md:w-1/2 lg:w-1/3 md:px-4 md:py-6"
               description={description}
-              coverImage={cover}
+              coverImage={cover?.childImageSharp?.gatsbyImageData}
               createdAt={date}
               href={slug}
               key={key}
@@ -69,43 +68,47 @@ export default NewsRoomAllNews;
 
 export const query = graphql`
   query NewsRoomAllNews {
-    news: allFile(
-      filter: { relativeDirectory: { eq: "newsroom-markdown/all-news/news" } }
-      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    news: allMarkdownRemark(
+      filter: { frontmatter: { slug: { regex: "/newsroom/news/" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 12
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            frontmatter {
-              lang
-              slug
-              title
-              date(formatString: "DD/MM/YYYY")
-              description
-              cover
+          frontmatter {
+            lang
+            slug
+            title
+            date(formatString: "DD/MM/YYYY")
+            description
+            cover {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-          sourceInstanceName
         }
       }
     }
-    csr: allFile(
-      filter: { relativeDirectory: { eq: "newsroom-markdown/all-news/csr" } }
-      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    csr: allMarkdownRemark(
+      filter: { frontmatter: { slug: { regex: "/newsroom/csr/" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 12
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            frontmatter {
-              lang
-              slug
-              title
-              date(formatString: "DD/MM/YYYY")
-              description
-              cover
+          frontmatter {
+            lang
+            slug
+            title
+            date(formatString: "DD/MM/YYYY")
+            description
+            cover {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-          sourceInstanceName
         }
       }
     }

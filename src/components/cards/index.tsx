@@ -4,7 +4,6 @@ export { default as TestimonialCard } from '@/components/cards/TestimonialCard';
 export { default as OpportunityCard } from '@/components/cards/OpportunityCard';
 export { default as DocumentCard } from '@/components/cards/DocumentCard';
 export { default as BusinessCard } from '@/components/cards/BusinessCard';
-export { default as MemberCard } from '@/components/cards/MemberCard';
 export { default as LatestNewsCard } from '@/components/cards/LatestNewsCard';
 export { default as StockPriceCard } from '@/components/cards/StockPriceCard';
 export { default as RedCircleStockCard } from '@/components/cards/RedCircleStockCard';

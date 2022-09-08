@@ -5,7 +5,6 @@ description: We are looking for a trustworthy, curious, sharp, and proactive ful
 location: Bangkok
 contract: Permanent
 slug: /career/blog/front-end-developer
-cover: 
 date: 2022-08-30
 ---
 

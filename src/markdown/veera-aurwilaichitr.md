@@ -1,8 +1,8 @@
 ---
 name: นายวีระ เอื้อวิไลจิตร
 occupation: รองผู้จัดการ บริษัทสินทรัพย์ ตงฮั้ว จำกัด
-profileImage: /images/veera-aurwilaichitr.png
 slug: /about/board-of-directors/veera-aurwilaichitr
+cover: ../images/veera-aurwilaichitr.png
 order: 7
 ---
 

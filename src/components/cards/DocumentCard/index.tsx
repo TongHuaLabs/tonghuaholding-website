@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 import { withPrefix } from 'gatsby';
 import React from 'react';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 type DocumentCardProps = {
   title?: string;
-  coverImage?: string;
+  coverImage?: IGatsbyImageData;
   createdAt?: string;
   toFile?: string;
   className?: string;
@@ -23,12 +24,15 @@ const DocumentCard: React.FC<DocumentCardProps> = ({
       target="__blank"
       className={classNames('flex flex-col', className)}
     >
-      <div className="aspect-w-3 aspect-h-4">
-        <img
-          src={withPrefix(coverImage || '')}
-          className="object-cover w-full h-full rounded-lg"
-        />
-      </div>
+      {coverImage && (
+        <div className="aspect-w-3 aspect-h-4">
+          <GatsbyImage
+            alt={title || ''}
+            image={coverImage}
+            className="object-cover w-full h-full rounded-lg"
+          />
+        </div>
+      )}
       <div className="flex items-center space-x-2 mt-4">
         <div className="border-l-2 border-l-primary-main rounded-md h-6" />
         <span className="text-sm">{createdAt}</span>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, withPrefix } from 'gatsby';
+import { Link } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 type NewsCardProps = {
-  coverImage?: string;
+  coverImage?: IGatsbyImageData;
   title?: string;
   description?: string;
   createdAt?: string;
@@ -22,11 +23,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
     <Link to={href || ''} className={className}>
       <article className="space-y-2">
         <div className="aspect-w-16 aspect-h-9">
-          <img
-            alt={title}
-            src={withPrefix(coverImage || '')}
-            className="object-cover w-full h-full rounded-lg"
-          />
+          {coverImage && (
+            <GatsbyImage
+              alt={title || ''}
+              image={coverImage}
+              className="object-cover w-full h-full rounded-lg"
+            />
+          )}
         </div>
         <div className="flex items-center space-x-2">
           <div className="border-l-2 border-l-primary-main rounded-md h-6" />

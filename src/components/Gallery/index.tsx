@@ -32,7 +32,7 @@ const Gallery: React.FC<GalleryProps> = ({
       {images.map((slide, key) => {
         return (
           <SwiperSlide key={key} className={className}>
-            <div className="aspect-w-16 aspect-h-9">
+            <div className="!aspect-w-16 !aspect-h-9">
               <GatsbyImage
                 alt=""
                 image={slide}

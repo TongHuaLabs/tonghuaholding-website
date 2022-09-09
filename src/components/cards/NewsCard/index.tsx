@@ -22,7 +22,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   return (
     <Link to={href || ''} className={className}>
       <article className="space-y-2">
-        <div className="aspect-w-16 aspect-h-9">
+        <div className="!aspect-w-16 !aspect-h-9">
           {coverImage && (
             <GatsbyImage
               alt={title || ''}

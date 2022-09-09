@@ -22,7 +22,7 @@ const MarkdownTemplate = ({
       <ShareButton url={`${siteUrl}${slug}`} className="mt-7" />
       {cover?.childImageSharp && (
         <div className="mt-10">
-          <div className="aspect-w-16 aspect-h-9">
+          <div className="!aspect-w-16 !aspect-h-9">
             <GatsbyImage
               alt={title || ''}
               image={cover.childImageSharp.gatsbyImageData}

@@ -90,7 +90,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
               Google Map
             </h2>
           </div>
-          <div className="aspect-w-16 aspect-h-9 mt-5 lg:mt-10">
+          <div className="!aspect-w-16 !aspect-h-9 mt-5 lg:mt-10">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.748859222239!2d100.51239781483024!3d13.733648990359175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2999cb642394d%3A0x30bc126296234b83!2sTONG%20HUA%20HOLDING%20PCL!5e0!3m2!1sen!2sth!4v1657095822723!5m2!1sen!2sth"
               className="w-full h-full border-0 rounded-2xl"

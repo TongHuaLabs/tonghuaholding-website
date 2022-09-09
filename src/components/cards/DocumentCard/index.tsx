@@ -25,7 +25,7 @@ const DocumentCard: React.FC<DocumentCardProps> = ({
       className={classNames('flex flex-col', className)}
     >
       {coverImage && (
-        <div className="aspect-w-3 aspect-h-4">
+        <div className="!aspect-w-3 !aspect-h-4">
           <GatsbyImage
             alt={title || ''}
             image={coverImage}

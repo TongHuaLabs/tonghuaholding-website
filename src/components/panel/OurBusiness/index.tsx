@@ -29,7 +29,7 @@ const OurBusiness: React.FC<OurBusinessProps> = ({
 
       {cover && (
         <div className="relative z-10 w-full md:w-1/2">
-          <div className="aspect-w-16 aspect-h-9 sm:aspect-w-16 sm:aspect-h-9">
+          <div className="!aspect-w-16 !aspect-h-9 sm:!aspect-w-16 sm:!aspect-h-9">
             <GatsbyImage
               alt={title || ''}
               image={cover}

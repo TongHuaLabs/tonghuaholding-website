@@ -40,7 +40,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
             className="w-full h-full opacity-10"
           />
         </div>
-        <div className="absolute top-0 w-full h-full flex flex-col text-center justify-center space-y-4">
+        <div className="absolute top-0 w-full h-full flex flex-col text-center justify-center space-y-4 px-4 md:px-28 lg:px-16">
           <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
             LIFE @TONG HUA
           </h2>

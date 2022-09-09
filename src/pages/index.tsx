@@ -49,7 +49,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <div className="relative z-0 h-full w-full">
           <div className="absolute w-full h-full bg-primary-main/80" />
           <StaticImage
-            src="../images/tonghua-company.png"
+            src="../images/tonghua-building.svg"
             alt="Tong Hua Building"
             className="w-full h-full opacity-10"
           />

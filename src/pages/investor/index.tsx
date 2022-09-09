@@ -38,28 +38,28 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
     <>
       {/* Welcome to Investor Relations */}
       <section className="h-[75vh] relative">
-        <div className="relative z-0 h-full w-full">
-          <div className="absolute w-full h-full bg-black/80" />
-          <StaticImage
-            src="../../images/career-office.png"
-            alt="Tong Hua Holding Investor"
-            className="w-full h-full opacity-10"
-          />
-        </div>
-        <div className="absolute top-0 w-full h-full flex flex-col justify-center items-center space-y-10 px-4 md:px-28 lg:px-16 lg:flex-row lg:space-y-0 max-w-7xl mx-auto">
-          <div className="w-full flex flex-col items-center lg:items-start space-y-10 lg:w-3/5">
-            <h2 className="text-4xl font-bold md:text-6xl whitespace-pre-line text-center lg:text-left text-neutral-50">
-              {`Welcome to\nInvestor Relations`}
-            </h2>
-            <OutlineButton title="ติดต่อนักลงทุนสัมพันธ์" />
+        <div className="absolute w-full h-full bg-black/70" />
+        <StaticImage
+          src="../../images/career-office.png"
+          alt="Tong Hua Holding Investor"
+          className="w-full h-full opacity-10"
+        />
+        <div className="absolute top-0 w-full h-full">
+          <div className="h-full flex flex-col justify-center items-center space-y-10 lg:flex-row lg:space-y-0 max-w-7xl mx-auto px-4 md:px-28 lg:px-16">
+            <div className="flex flex-col items-center lg:items-start space-y-10 lg:w-3/5">
+              <h2 className="text-4xl font-bold md:text-6xl whitespace-pre-line text-center lg:text-left text-neutral-50">
+                {`Welcome to\nInvestor Relations`}
+              </h2>
+              <OutlineButton title="ติดต่อนักลงทุนสัมพันธ์" />
+            </div>
+            <StockPriceCard
+              className="w-full lg:w-2/5"
+              price={price}
+              change={change}
+              total={total}
+              updatedAt={updatedAt}
+            />
           </div>
-          <StockPriceCard
-            className="w-full lg:w-2/5"
-            price={price}
-            change={change}
-            total={total}
-            updatedAt={updatedAt}
-          />
         </div>
       </section>
 

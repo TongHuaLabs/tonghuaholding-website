@@ -84,9 +84,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
                 <SwiperSlide key={key}>
                   <TestimonialCard
                     {...node}
-                    profileImage={
-                      profileImage?.childImageSharp?.gatsbyImageData
-                    }
+                    profileImage={profileImage?.childImageSharp?.original?.src}
                   />
                 </SwiperSlide>
               );
@@ -142,7 +140,9 @@ export const query = graphql`
         node {
           profileImage {
             childImageSharp {
-              gatsbyImageData
+              original {
+                src
+              }
             }
           }
           name

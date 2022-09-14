@@ -30,7 +30,7 @@ const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
             {({ open, close }) => (
               <>
                 <Disclosure.Button
-                  className={`text-left text-sm flex items-center text-neutral-900 font-medium lg:hover:text-primary-main
+                  className={`text-left text-sm flex items-center text-neutral-50 font-medium
                     ${open ? 'pb-2' : 'pb-4'}`}
                 >
                   {title}
@@ -48,13 +48,12 @@ const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <Disclosure.Panel className="text-neutral-500 pb-6 ml-2 space-y-2">
+                  <Disclosure.Panel className="text-neutral-50 pb-6 ml-2 space-y-2">
                     <ul className="list-disc space-y-1">
                       {menu.map(({ title, href }, key) => (
                         <li className="ml-3" key={key}>
                           <Link
-                            className="text-sm lg:hover:text-primary-main"
-                            activeClassName="navbar-active"
+                            className="text-sm lg:hover:text-neutral-50"
                             onClick={() => close()}
                             to={href}
                           >
@@ -72,8 +71,7 @@ const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
       ) : (
         <Link
           to={href || ''}
-          className="w-1/2 pb-4 lg:hover:text-primary-main text-sm text-neutral-900 font-medium"
-          activeClassName="navbar-active"
+          className="w-1/2 pb-4 text-sm text-neutral-50 font-medium"
         >
           {title}
         </Link>

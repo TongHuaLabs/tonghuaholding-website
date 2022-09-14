@@ -25,7 +25,7 @@ export const route = [
         href: '/businesses/tonghua-capital/',
       },
       {
-        title: 'บริหารสินทรัพย์ตงฮั้ว จำกัด',
+        title: 'บริษัท บริหารสินทรัพย์ตงฮั้ว จำกัด',
         href: '/businesses/tonghua-asset-management/',
       },
       {

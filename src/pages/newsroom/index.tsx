@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  NewsCard,
-  SetAnnouncementCard,
-  DocumentCard,
-} from '@/components/cards';
+import { NewsCard, SetAnnouncementCard } from '@/components/cards';
 import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import { graphql, Link, PageProps } from 'gatsby';
@@ -16,9 +12,8 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
   const md = useMd();
   const lg = useLg();
 
-  const { allMarkdownRemark, allSetAnnouncementJson, allDocumentJson } = data;
+  const { allMarkdownRemark, allSetAnnouncementJson } = data;
   const news = allMarkdownRemark.edges;
-  const document = allDocumentJson.edges;
 
   const setAnnouncement = allSetAnnouncementJson.edges.slice(
     0,
@@ -32,7 +27,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
       {/* News */}
       <section className="px-4 pt-10 md:px-6 lg:px-16 lg:pt-20 max-w-7xl mx-auto">
         <UnderlineHeader
-          title="ข่าวสาร TH"
+          title="ข่าวประชาสัมพันธ์ TH"
           textClassName="text-2xl"
           underlineClassName="bg-neutral-900"
         />
@@ -62,7 +57,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
       </section>
 
       {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
-      <section className="px-4 pt-20 md:px-6 lg:px-16 lg:pt-28 max-w-7xl mx-auto">
+      <section className="px-4 py-20 md:px-6 lg:px-16 lg:py-28 max-w-7xl mx-auto">
         <UnderlineHeader
           title="ข่าวแจ้งตลาดหลักทรัพย์"
           textClassName="text-2xl"
@@ -86,33 +81,6 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
           to="/newsroom/all-set-announcement/"
           className="flex w-max mx-auto mt-10 md:mt-4"
         >
-          <SeeAllButton />
-        </Link>
-      </section>
-
-      {/* เอกสารเผยแพร่ */}
-      <section className="px-4 py-20 md:px-6 lg:px-16 lg:py-28 max-w-7xl mx-auto">
-        <UnderlineHeader
-          title="เอกสารเผยแพร่"
-          textClassName="text-2xl"
-          underlineClassName="bg-neutral-900"
-        />
-        <div className="flex flex-wrap mt-6">
-          {document.map(({ node }, key) => {
-            const { title, createdAt, pdf, cover } = node;
-            return (
-              <DocumentCard
-                key={key}
-                title={title}
-                className="w-1/2 md:w-1/4 px-2 py-4 lg:px-4 text-neutral-900"
-                coverImage={cover?.childImageSharp?.gatsbyImageData}
-                createdAt={createdAt}
-                toFile={pdf}
-              />
-            );
-          })}
-        </div>
-        <Link to="/newsroom/all-document/" className="flex w-max mx-auto mt-10">
           <SeeAllButton />
         </Link>
       </section>
@@ -152,20 +120,6 @@ export const query = graphql`
           title
           createdAt
           pdf
-        }
-      }
-    }
-    allDocumentJson(sort: { fields: createdAt, order: DESC }, limit: 4) {
-      edges {
-        node {
-          createdAt
-          title
-          pdf
-          cover {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
         }
       }
     }

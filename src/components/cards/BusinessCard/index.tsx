@@ -22,18 +22,20 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
     <Link
       to={to || '/'}
       className={classNames(
-        `p-6 flex bg-white flex-col items-center rounded-2xl text-center`,
+        `py-9 px-3 flex bg-white flex-col items-center justify-between rounded-2xl text-center`,
         className,
       )}
     >
-      {image && (
-        <GatsbyImage alt={title || ''} image={image} className="w-36 h-36" />
-      )}
-      <span className="text-sm block font-medium mt-4">{title}</span>
-      <span className="text-xs block line-clamp-2 whitespace-pre-line mt-3">
-        {description}
-      </span>
-      <ReadMoreButton className="mt-4" />
+      <div className="flex flex-col items-center">
+        {image && (
+          <GatsbyImage alt={title || ''} image={image} className="w-36 h-36" />
+        )}
+        <span className="text-sm block font-medium mt-3">{title}</span>
+        <span className="text-xs block line-clamp-2 whitespace-pre-line mt-2">
+          {description}
+        </span>
+      </div>
+      <ReadMoreButton />
     </Link>
   );
 };

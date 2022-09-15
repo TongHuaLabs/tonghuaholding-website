@@ -1,6 +1,6 @@
 import React from 'react';
 import { NewsCard, SetAnnouncementCard } from '@/components/cards';
-import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
+import PrimarySection from '@/components/sections/PrimarySection';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import { graphql, Link, PageProps } from 'gatsby';
 import { useLg, useMd } from '@/hooks/responsive';
@@ -22,7 +22,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
 
   return (
     <>
-      <ObliqueLineSection title="หน้าหลักข่าวสาร TH" />
+      <PrimarySection title="หน้าหลักข่าวสาร TH" />
 
       {/* News */}
       <section className="px-4 pt-10 md:px-6 lg:px-16 lg:pt-20 max-w-7xl mx-auto">

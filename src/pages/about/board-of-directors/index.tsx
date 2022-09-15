@@ -1,4 +1,4 @@
-import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
+import PrimarySection from '@/components/sections/PrimarySection';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import React from 'react';
 import { BODCard } from '@/components/cards';
@@ -11,7 +11,7 @@ const BoardOfDirectors: React.FC<BoardOfDirectorsPageProps> = ({ data }) => {
 
   return (
     <>
-      <ObliqueLineSection title="คณะกรรมการบริษัท" />
+      <PrimarySection title="คณะกรรมการบริษัท" />
       <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
         <UnderlineHeader
           title="คณะกรรมการบริษัท"

@@ -39,7 +39,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
                 textClassName="text-primary-main lg:text-lg"
               />
               <MailTo
-                mail="contactus@tonghuagroup.com"
+                mail="contactus@tonghuaholding.com"
                 className="mt-2 hover:underline hover:decoration-primary-main max-w-max"
                 textClassName="text-primary-main lg:text-lg"
               />

@@ -36,7 +36,7 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
           />
         </div>
         <MailTo
-          mail="contactus@tonghuagroup.com"
+          mail="contactus@tonghuaholding.com"
           className="mt-2 underline underline-offset-1 text-neutral-50"
         />
         <Link to="/investor">

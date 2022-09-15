@@ -40,15 +40,18 @@ const MenuItem: React.FC<MenuItemProps> = ({ className, onClose }) => {
                     {title}
                   </Link>
                 )}
-                {menu?.map(({ title, href }, key) => (
-                  <Disclosure.Panel className="px-3 py-2 ml-4" key={key}>
+                {menu?.map(({ title, href, indent }, key) => (
+                  <Disclosure.Panel
+                    className={`px-3 py-2 ml-4 ${indent && 'list-disc pl-8'}`}
+                    key={key}
+                  >
                     <Link
                       to={href}
-                      className="text-neutral-500 font-medium"
+                      className={`text-neutral-500 font-medium`}
                       activeClassName="navbar-active"
                       onClick={onClose}
                     >
-                      {title}
+                      {!indent ? title : <li>{title}</li>}
                     </Link>
                   </Disclosure.Panel>
                 ))}

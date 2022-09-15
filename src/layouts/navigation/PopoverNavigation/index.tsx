@@ -4,16 +4,11 @@ import { Link } from 'gatsby';
 import { Transition, Popover } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
+import type { Route } from '@/layouts/navigation/route';
 
-type PopoverNavigationProps = {
-  title: string;
-  href?: string;
-  menu?: {
-    title: string;
-    href: string;
-  }[];
+interface PopoverNavigationProps extends Route {
   className?: string;
-};
+}
 
 const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
   title,
@@ -69,7 +64,7 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
               leaveTo="opacity-0 translate-y-1"
             >
               <Popover.Panel className="absolute py-2 right-0 z-50 flex rounded-lg flex-col mt-3 border border-neutral-100 bg-white w-max overflow-hidden shadow-lg">
-                {menu.map(({ title, href }, key) => (
+                {menu.map(({ title, href, indent }, key) => (
                   <Link
                     key={key}
                     to={href}
@@ -80,10 +75,12 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
                       e.stopPropagation();
                       setIsShowing(false);
                     }}
-                    className="px-4 py-2.5 text-sm text-left text-neutral-900 hover:bg-primary-main hover:text-white"
+                    className={`px-4 py-2.5 text-sm text-left text-neutral-900 hover:bg-primary-main hover:text-white ${
+                      indent && 'list-disc pl-12 pr-8'
+                    }`}
                     activeClassName="navbar-active-popover"
                   >
-                    {title}
+                    {!indent ? title : <li>{title}</li>}
                   </Link>
                 ))}
               </Popover.Panel>

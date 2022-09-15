@@ -3,6 +3,7 @@ import Gallery from '@/components/Gallery';
 import EllipseSvg from '@/icons/ellipse.inline.svg';
 import DNA from '@/components/information/DNA';
 import SwiperCarousel from '@/components/SwiperCarousel';
+import DotPattern from '@/images/dot-pattern.inline.svg';
 import { graphql, PageProps } from 'gatsby';
 import { useMd, useLg } from '@/hooks/responsive';
 import { OpportunityCard, TestimonialCard } from '@/components/cards';
@@ -104,27 +105,28 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
       </section>
 
       {/* Career Opportunity */}
-      <section className="py-20 px-4 md:px-6 lg:px-16 max-w-7xl mx-auto">
-        <h2 className="text-3xl relative font-medium pt-12">
-          Career Opportunity
-        </h2>
-        <hr className="h-px mt-2 border-0 bg-neutral-900" />
-        <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
-          {allMarkdownRemark.edges.map(({ node }, key) => {
-            const { title, location, contract, description, slug } =
-              node.frontmatter || {};
-            return (
-              <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2 lg:p-3">
-                <OpportunityCard
-                  description={description}
-                  occupation={title}
-                  location={location}
-                  contract={contract}
-                  href={slug}
-                />
-              </div>
-            );
-          })}
+      <section className="relative max-w-7xl mx-auto">
+        <DotPattern className="text-primary-main z-0 absolute top-8 opacity-70 left-0" />
+        <div className="py-20 px-4 md:px-6 lg:px-16">
+          <h2 className="text-3xl relative font-medium">โอกาสร่วมงานกับเรา</h2>
+          <hr className="h-px mt-2 border-0 bg-neutral-900" />
+          <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
+            {allMarkdownRemark.edges.map(({ node }, key) => {
+              const { title, location, contract, description, slug } =
+                node.frontmatter || {};
+              return (
+                <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2 lg:p-3">
+                  <OpportunityCard
+                    description={description}
+                    occupation={title}
+                    location={location}
+                    contract={contract}
+                    href={slug}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </>

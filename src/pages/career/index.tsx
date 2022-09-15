@@ -33,15 +33,13 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
     <>
       {/* LIFE  @TONG HUA */}
       <section className="h-[75vh] relative">
-        <div className="relative z-0 h-full w-full">
-          <div className="absolute w-full h-full bg-black/80" />
-          <StaticImage
-            src="../../images/working.svg"
-            alt="Tong Hua Holding Career"
-            className="w-full h-full opacity-10"
-          />
-        </div>
-        <div className="absolute top-0 w-full h-full flex flex-col text-center justify-center space-y-4 px-4 md:px-28 lg:px-16">
+        <div className="bg-black/40 absolute z-10 w-full h-full" />
+        <StaticImage
+          src="../../images/working.svg"
+          alt="Tong Hua Holding Career"
+          className="w-full h-full object-cover absolute z-0"
+        />
+        <div className="absolute top-0 z-20 w-full h-full flex flex-col text-center justify-center space-y-4 px-4 md:px-28 lg:px-16">
           <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
             LIFE @TONG HUA
           </h2>

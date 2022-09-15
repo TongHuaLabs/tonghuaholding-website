@@ -46,15 +46,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     <>
       {/* TONG HUA HOLDING PCL. */}
       <section className="landing relative">
-        <div className="relative z-0 h-full w-full">
-          <div className="absolute w-full h-full bg-primary-main/80" />
-          <StaticImage
-            src="../images/tonghua-building.svg"
-            alt="Tong Hua Building"
-            className="w-full h-full opacity-10"
-          />
-        </div>
-        <div className="h-full w-full absolute top-0 px-6 flex flex-col items-left md:items-center justify-center">
+        <div className="bg-primary-main/80 absolute z-10 w-full h-full" />
+        <StaticImage
+          src="../images/tonghua-building.svg"
+          alt="Tong Hua Building"
+          className="w-full h-full object-cover absolute z-0"
+        />
+        <div className="h-full w-full absolute top-0 z-20 px-6 flex flex-col items-left md:items-center justify-center">
           <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
             <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
               {`TONG HUA\nHOLDING PCL.`}

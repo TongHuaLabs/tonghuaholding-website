@@ -4,15 +4,32 @@ import Timeline from '@/components/information/Timeline';
 import Info from '@/components/information/Info';
 import MissionQuoteSVG from '@/icons/mission-quote.inline.svg';
 import { graphql, PageProps } from 'gatsby';
-import { LightBulbIcon } from '@heroicons/react/outline';
+import LightBulbIcon from '@/icons/lightbulb.inline.svg';
+import HandshakeIcon from '@/icons/handshake.inline.svg';
+import GlobeIcon from '@/icons/globe.inline.svg';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import BusinessesSection from '@/components/sections/BusinessesSection';
-import { StaticImage } from 'gatsby-plugin-image';
+import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
+import DotPattern from '@/images/dot-pattern.inline.svg';
+import Gallery from '@/components/Gallery';
 
 type AboutPageProps = PageProps<GatsbyTypes.AboutPageQuery>;
 
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   const { allTimelineJson, allMissionJson, allBusinessesJson } = data;
+
+  const { timeline } = allTimelineJson.edges[0].node;
+  const { slides } = allTimelineJson.edges[1].node;
+
+  const showcase: IGatsbyImageData[] = [];
+
+  slides &&
+    slides.forEach((x) => {
+      const { image } = x || {};
+      if (image?.childImageSharp) {
+        showcase.push(image?.childImageSharp?.gatsbyImageData);
+      }
+    });
 
   return (
     <>
@@ -48,12 +65,22 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       </section>
 
       {/* เหตุการณ์สำคัญ */}
-      <section className="px-4 pt-16 lg:px-16 md:pt-20 max-w-5xl mx-auto">
-        <h2 className="font-bold text-3xl mb-5">เหตุการณ์สำคัญ</h2>
-        {allTimelineJson.edges.map(({ node }, key) => {
-          const { title, description } = node;
-          return <Timeline title={title} description={description} key={key} />;
-        })}
+      <section className="relative flex flex-col px-4 pt-16 lg:px-16 md:pt-20 max-w-5xl mx-auto space-y-10 lg:space-y-4 xl:flex-row-reverse xl:items-center xl:max-w-7xl xl:space-y-0 xl:justify-between">
+        <DotPattern className="hidden text-primary-main z-10 absolute top-20 right-0 xl:block" />
+        <div className="flex flex-col xl:w-[48.5%]">
+          <h2 className="font-bold text-3xl mb-5">เหตุการณ์สำคัญ</h2>
+          {timeline &&
+            timeline.map((item, key) => {
+              const { title, description } = item || {};
+              return (
+                <Timeline title={title} description={description} key={key} />
+              );
+            })}
+        </div>
+        <div className="w-full xl:w-[48.5%]">
+          <Gallery showNavigation={true} slidesPerView={1} images={showcase} />
+        </div>
+        <DotPattern className="hidden text-primary-main z-10 absolute bottom-0 left-0 xl:block" />
       </section>
 
       {/* วิสัยทัศน์ */}
@@ -67,7 +94,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
           />
           <MissionQuoteSVG className="w-12 h-12 mt-5 text-primary-surface" />
           <h3 className="text-2xl font-bold text-primary-main mt-6 text-center whitespace-normal sm:whitespace-pre-line leading-relaxed">
-            {`ดำเนินธุรกิจด้วยความซื่อสัตย์และมั่นคง\nพร้อมก้าวสู่ยุคใหม่เพื่อขยายธุรกิจ\nให้เติบโตอย่างยั่งยืน`}
+            {`ดำเนินธุรกิจด้วยความซื่อสัตย์และมั่นคง\nพร้อมก้าวสู่ยุคใหม่เพื่อขยายธุรกิจให้เติบโตอย่างยั่งยืน`}
           </h3>
         </div>
 
@@ -85,7 +112,13 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
                 <Info
                   icon={
                     <div className="bg-primary-main flex justify-center items-center rounded-full h-16 w-16">
-                      <LightBulbIcon className="w-9 h-9 text-white" />
+                      {key === 0 ? (
+                        <LightBulbIcon className="w-9 h-9 text-white" />
+                      ) : key === 1 ? (
+                        <GlobeIcon className="w-9 h-9 text-white" />
+                      ) : (
+                        <HandshakeIcon className="w-9 h-9 text-white" />
+                      )}
                     </div>
                   }
                   title={title}
@@ -113,8 +146,17 @@ export const query = graphql`
     allTimelineJson {
       edges {
         node {
-          title
-          description
+          timeline {
+            title
+            description
+          }
+          slides {
+            image {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
         }
       }
     }

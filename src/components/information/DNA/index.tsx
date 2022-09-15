@@ -12,13 +12,13 @@ const DNA: React.FC<DNAProps> = ({ text, className }) => {
     <div className="flex flex-col items-center">
       <div
         className={classNames(
-          `w-14 h-14 flex rounded-full items-center justify-center bg-primary-surface`,
+          `w-14 h-14 flex rounded-full items-center justify-center bg-neutral-50`,
           className,
         )}
       >
         <DNASvg className="w-6 h-6" />
       </div>
-      <span className="text-lg text-neutral-50 mt-3">{text}</span>
+      <span className="text-lg font-bold text-neutral-50 mt-3">{text}</span>
     </div>
   );
 };

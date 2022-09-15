@@ -1,4 +1,4 @@
-import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
+import PrimarySection from '@/components/sections/PrimarySection';
 import React from 'react';
 import Timeline from '@/components/information/Timeline';
 import Info from '@/components/information/Info';
@@ -33,7 +33,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
 
   return (
     <>
-      <ObliqueLineSection title="ข้อมูลบริษัท" />
+      <PrimarySection title="ข้อมูลบริษัท" />
       <section className="px-4 pt-10 lg:pt-20 lg:px-16 flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10 max-w-7xl mx-auto">
         <StaticImage
           src="../../images/tonghua-company.png"

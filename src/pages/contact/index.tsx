@@ -1,5 +1,5 @@
 import React from 'react';
-import ObliqueLineSection from '@/components/sections/ObliqueLineSection';
+import PrimarySection from '@/components/sections/PrimarySection';
 import Badge from '@/components/information/Badge';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import MapSvg from '@/images/map.svg';
@@ -12,7 +12,7 @@ type ContactUsPageProps = {};
 const ContactUsPage: React.FC<ContactUsPageProps> = () => {
   return (
     <>
-      <ObliqueLineSection title="ติดต่อเรา" />
+      <PrimarySection title="ติดต่อเรา" />
 
       {/* ติดต่อส่วนกลาง & ติดต่อฝ่ายบัญชี */}
       <section className="px-4 md:flex-row py-10 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">

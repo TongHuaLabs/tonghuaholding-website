@@ -1,4 +1,14 @@
-export const route = [
+export type Route = {
+  title: string;
+  href?: string;
+  menu?: {
+    title: string;
+    href: string;
+    indent?: boolean;
+  }[];
+};
+
+export const route: Route[] = [
   { title: 'หน้าหลัก', href: '/' },
   {
     title: 'เกี่ยวกับบริษัท',
@@ -45,13 +55,17 @@ export const route = [
   {
     title: 'ข่าวและกิจกรรม',
     menu: [
-      { title: 'หน้าหลักข่าว TH', href: '/newsroom/' },
-      { title: 'ข่าวประชาสัมพันธ์บริษัท', href: '/newsroom/all-news/' },
+      { title: 'หน้าหลักข่าวสาร TH', href: '/newsroom/' },
+      {
+        title: 'ข่าวประชาสัมพันธ์บริษัท',
+        href: '/newsroom/all-news/',
+        indent: true,
+      },
       {
         title: 'ข่าวแจ้งตลาดหลักทรัพย์',
         href: '/newsroom/all-set-announcement/',
+        indent: true,
       },
-      { title: 'เอกสารเผยแพร่', href: '/newsroom/all-document/' },
     ],
   },
   {

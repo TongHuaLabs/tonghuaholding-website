@@ -3,16 +3,11 @@ import { Disclosure, Transition } from '@headlessui/react';
 import { Link } from 'gatsby';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
+import type { Route } from '@/layouts/navigation/route';
 
-type DisclosureNavigationProps = {
-  title: string;
-  href?: string;
-  menu?: {
-    title: string;
-    href: string;
-  }[];
+interface DisclosureNavigationProps extends Route {
   className?: string;
-};
+}
 
 const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
   title,
@@ -50,8 +45,8 @@ const DisclosureNavigation: React.FC<DisclosureNavigationProps> = ({
                 >
                   <Disclosure.Panel className="text-neutral-50 pb-6 ml-2 space-y-2">
                     <ul className="list-disc space-y-1">
-                      {menu.map(({ title, href }, key) => (
-                        <li className="ml-3" key={key}>
+                      {menu.map(({ title, href, indent }, key) => (
+                        <li className={`${indent ? 'ml-8' : 'ml-3'}`} key={key}>
                           <Link
                             className="text-sm lg:hover:text-neutral-50"
                             onClick={() => close()}

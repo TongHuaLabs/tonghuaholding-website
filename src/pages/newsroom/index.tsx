@@ -27,7 +27,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
       {/* News */}
       <section className="px-4 pt-10 md:px-6 lg:px-16 lg:pt-20 max-w-7xl mx-auto">
         <UnderlineHeader
-          title="ข่าวประชาสัมพันธ์"
+          title="ข่าวประชาสัมพันธ์บริษัท"
           textClassName="text-2xl"
           underlineClassName="bg-neutral-900"
         />

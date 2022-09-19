@@ -32,14 +32,8 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
                 className="mt-4 hover:underline hover:decoration-primary-main max-w-max"
                 textClassName="text-primary-main lg:text-lg"
               />
-              <PhoneCall
-                phone="02-238-9286 (Fax)"
-                tel="+6622389286"
-                className="mt-2 hover:underline hover:decoration-primary-main max-w-max"
-                textClassName="text-primary-main lg:text-lg"
-              />
               <MailTo
-                mail="contactus@tonghuaholding.com"
+                mail="contact@tonghuaholding"
                 className="mt-2 hover:underline hover:decoration-primary-main max-w-max"
                 textClassName="text-primary-main lg:text-lg"
               />

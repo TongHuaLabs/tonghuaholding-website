@@ -23,20 +23,13 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
         <h2 className="text-neutral-50 relative text-3xl font-bold text-center">
           ติดต่อนักลงทุนสัมพันธ์
         </h2>
-        <div className="space-x-0 flex flex-col items-center space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
-          <PhoneCall
-            phone="02-236-9171-4"
-            tel="+66223691714"
-            className="underline underline-offset-1 text-neutral-50"
-          />
-          <PhoneCall
-            phone="02-238-9286 (Fax)"
-            tel="+6622389286"
-            className="underline underline-offset-1 text-neutral-50"
-          />
-        </div>
+        <PhoneCall
+          phone="02-236-9171-4"
+          tel="+66223691714"
+          className="underline underline-offset-1 text-neutral-50"
+        />
         <MailTo
-          mail="contactus@tonghuaholding.com"
+          mail="contact@tonghuaholding"
           className="mt-2 underline underline-offset-1 text-neutral-50"
         />
         <Link to="/investor">

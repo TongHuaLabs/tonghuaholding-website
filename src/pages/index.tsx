@@ -1,5 +1,4 @@
 import React from 'react';
-import Social from '@/components/Social';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import BuildingPNG from '@/images/building.png';
@@ -57,15 +56,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
             <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
               {`TONG HUA\nHOLDING PCL.`}
             </h1>
-            <h2 className="text-lg whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
-              {`62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยืน`}
+            <h2 className="text-lg w-2/3 sm:w-full sm:whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
+              {`ตงฮั้ว โฮลดิ้ง จำกัด มหาชน 62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยั่งยืน`}
             </h2>
           </div>
-          <Social
-            className="space-x-4 mt-10"
-            backgroundClassName="bg-white w-10 h-10"
-            iconClassName="w-5 h-5 text-primary-main"
-          />
           <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
           <DotPattern className="text-neutral-50 z-10 absolute bottom-2.5 right-3 opacity-80 md:hidden" />
         </div>

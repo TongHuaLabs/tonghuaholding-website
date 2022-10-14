@@ -1,7 +1,6 @@
 import React from 'react';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import UnderlineHeader from '@/components/UnderlineHeader';
-import BuildingPNG from '@/images/building.png';
 import RedCircle from '@/components/information/RedCircle';
 import Topic from '@/components/information/Topic';
 import Tabs from '@/components/Tabs';
@@ -119,22 +118,16 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </section>
 
       {/* ประเภทธุรกิจของเรา */}
-      <section
-        className="py-20 lg:py-28"
-        style={{
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${BuildingPNG})`,
-          backgroundSize: 'cover',
-        }}
-      >
+      <section className="relative py-20 lg:py-28">
         <UnderlineHeader
           title="ประเภทธุรกิจของเรา"
           className="items-center"
-          textClassName="text-3xl text-center lg:text-4xl text-neutral-50"
+          textClassName="text-3xl text-center lg:text-4xl text-neutral-900"
           underlineClassName="bg-primary-main w-16"
         />
         <Tabs
           className="px-4 md:px-6 lg:px-16 mt-10 max-w-7xl mx-auto"
-          tabClassName="w-1/3 lg:w-[32%]"
+          tabClassName="w-[32%]"
           tabs={allOurBusinessJson.edges.map(({ node }) => {
             const { title } = node;
             return { title };

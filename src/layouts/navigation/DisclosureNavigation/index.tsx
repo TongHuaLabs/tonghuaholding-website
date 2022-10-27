@@ -1,11 +1,11 @@
 import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
-import { Link } from 'gatsby';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
+import { Link } from 'gatsby-plugin-react-i18next';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import type { Route } from '@/layouts/navigation/route';
+import type { RouteType } from '@/hooks/useRoute';
 
-interface DisclosureNavigationProps extends Route {
+interface DisclosureNavigationProps extends RouteType {
   className?: string;
 }
 

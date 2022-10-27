@@ -9,6 +9,7 @@ import { useMd, useLg } from '@/hooks/responsive';
 import { OpportunityCard, TestimonialCard } from '@/components/cards';
 import { SwiperSlide } from 'swiper/react';
 import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
+import MainLayout from '@/layouts/MainLayout';
 
 type CareerPageProps = PageProps<GatsbyTypes.CareerPageQuery>;
 
@@ -30,7 +31,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
   });
 
   return (
-    <>
+    <MainLayout>
       {/* LIFE  @TONG HUA */}
       <section className="h-[75vh] relative">
         <div className="bg-black/40 absolute z-10 w-full h-full" />
@@ -127,7 +128,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
           </div>
         </div>
       </section>
-    </>
+    </MainLayout>
   );
 };
 

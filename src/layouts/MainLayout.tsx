@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '@/layouts/Navbar';
 import Footer from '@/layouts/Footer';
 import MobileSidebar from '@/layouts/MobileSidebar';
-
-type MainLayoutProps = {};
+interface MainLayoutProps {
+  children: React.ReactNode;
+}
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [mobileSidebar, setMobileSidebar] = useState<boolean>(false);

@@ -9,22 +9,22 @@ import OurBusiness from '@/components/panel/OurBusiness';
 import classNames from 'classnames';
 import ContactInvestorSection from '@/components/sections/ContactInvestorSection';
 import { useLg } from '@/hooks/responsive';
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import {
   LatestNewsCard,
   BusinessCard,
   SetAnnouncementCard,
 } from '@/components/cards';
+import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
+import MainLayout from '@/layouts/MainLayout';
 
 type IndexPageProps = PageProps<GatsbyTypes.IndexPageQuery>;
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
-  const isLg = useLg();
+  const { t } = useTranslation();
 
-  const established = 1960;
-  const currentYear = new Date().getFullYear();
-  const companyAge = currentYear - established;
+  const isLg = useLg();
 
   const {
     allCompanyInfoJson,
@@ -41,7 +41,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const companyInfo = allCompanyInfoJson.edges[0];
 
   return (
-    <>
+    <MainLayout>
       {/* TONG HUA HOLDING PCL. */}
       <section className="landing relative">
         <div className="bg-primary-main/80 absolute z-10 w-full h-full" />
@@ -67,7 +67,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       {/* xx Years of Stability & Integrity */}
       <section className="relative px-4 md:px-6 lg:px-16 py-20 lg:py-28 max-w-7xl mx-auto overflow-hidden xl:overflow-visible">
         <UnderlineHeader
-          title={`${companyAge} Years of\nStability & Integrity `}
+          title={t('section-2-title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl whitespace-pre-line"
           underlineClassName="bg-primary-main w-16"
@@ -240,15 +240,15 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
       {/* ติดต่อนักลงทุนสัมพันธ์ */}
       <ContactInvestorSection />
-    </>
+    </MainLayout>
   );
 };
 
 export default IndexPage;
 
 export const query = graphql`
-  query IndexPage {
-    allCompanyInfoJson {
+  query IndexPage($language: String!) {
+    allCompanyInfoJson(filter: { language: { eq: $language } }) {
       edges {
         node {
           info {
@@ -326,6 +326,17 @@ export const query = graphql`
               }
             }
           }
+        }
+      }
+    }
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "home" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

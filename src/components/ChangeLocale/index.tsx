@@ -1,48 +1,76 @@
 import React, { useState } from 'react';
-import { Menu, Transition } from '@headlessui/react';
+import { Transition, Popover } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import { ChevronDownIcon } from '@heroicons/react/outline';
+import { useI18next, Link } from 'gatsby-plugin-react-i18next';
+import ThailandFlag from '@images/thailand-flag.png';
+import USAFlag from '@images/usa-flag.png';
 
-type ChangeLocaleProps = {
+interface PopoverNavigationProps {
   className?: string;
-};
+}
 
-type LocaleProps = 'EN' | 'TH';
-
-const ChangeLocale: React.FC<ChangeLocaleProps> = ({ className }) => {
-  const [selected, setSelected] = useState<LocaleProps>('TH');
-
-  const changeLocale = () => {
-    selected === 'EN' ? setSelected('TH') : setSelected('EN');
-  };
+const PopoverNavigation: React.FC<PopoverNavigationProps> = ({ className }) => {
+  const { language, languages, originalPath } = useI18next();
+  const [isShowing, setIsShowing] = useState(false);
 
   return (
-    <Menu
-      as="li"
-      className={classNames('relative inline-block text-left', className)}
+    <Popover
+      className={classNames('relative text-left', className)}
+      onClick={() => setIsShowing(true)}
     >
-      <Menu.Button className="flex items-center text-neutral-900">
-        {selected}
-        <ChevronDownIcon className="w-4 h-4 ml-2 text-neutral-900" />
-      </Menu.Button>
-      <Transition
-        as={React.Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
+      <Popover.Button
+        onMouseEnter={() => setIsShowing(true)}
+        onMouseLeave={() => {
+          setTimeout(() => setIsShowing(false));
+        }}
+        className={`flex font-medium items-center text-sm ${
+          isShowing ? 'text-primary-main' : 'text-neutral-900'
+        }`}
       >
-        <Menu.Items
-          className="absolute right-0 z-50 cursor-pointer mt-6 bg-white w-12 py-2 text-center text-neutral-900 hover:bg-primary-main hover:text-white"
-          onClick={() => changeLocale()}
-        >
-          {selected === 'EN' ? 'TH' : 'EN'}
-        </Menu.Items>
+        {language === 'en' ? (
+          <img src={USAFlag} className="w-7 h-7" />
+        ) : (
+          <img src={ThailandFlag} className="w-7 h-7" />
+        )}
+        <ChevronDownIcon className="w-4 h-4 ml-2" />
+      </Popover.Button>
+      <Transition
+        show={isShowing}
+        as={React.Fragment}
+        enter="transition ease-out duration-200"
+        enterFrom="opacity-0 translate-y-1"
+        enterTo="opacity-100 translate-y-0"
+        leave="transition ease-in duration-150"
+        leaveFrom="opacity-100 translate-y-0"
+        leaveTo="opacity-0 translate-y-1"
+      >
+        <Popover.Panel className="absolute py-2 right-0 z-50 flex rounded-lg flex-col mt-3 border border-neutral-100 bg-white w-max overflow-hidden shadow-lg">
+          {languages.map((lang, key) => (
+            <Link
+              key={key}
+              to={originalPath}
+              language={lang}
+              onMouseEnter={() => setIsShowing(true)}
+              onMouseLeave={() => setIsShowing(false)}
+              onMouseDown={() => setIsShowing(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsShowing(false);
+              }}
+              className="px-4 py-2.5 text-sm text-left text-neutral-900 hover:bg-primary-main hover:text-white"
+            >
+              {lang === 'en' ? (
+                <img src={USAFlag} className="w-7 h-7" />
+              ) : (
+                <img src={ThailandFlag} className="w-7 h-7" />
+              )}
+            </Link>
+          ))}
+        </Popover.Panel>
       </Transition>
-    </Menu>
+    </Popover>
   );
 };
 
-export default ChangeLocale;
+export default PopoverNavigation;

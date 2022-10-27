@@ -1,4 +1,7 @@
-export type Route = {
+import { useState, useEffect } from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+
+export type RouteType = {
   title: string;
   href?: string;
   menu?: {
@@ -8,7 +11,7 @@ export type Route = {
   }[];
 };
 
-export const route: Route[] = [
+const routeTH: RouteType[] = [
   { title: 'หน้าหลัก', href: '/' },
   {
     title: 'เกี่ยวกับบริษัท',
@@ -77,3 +80,84 @@ export const route: Route[] = [
     href: '/contact/',
   },
 ];
+
+const routeEN: RouteType[] = [
+  { title: 'Home', href: '/' },
+  {
+    title: 'About',
+    menu: [
+      {
+        title: 'About',
+        href: '/about/',
+      },
+      {
+        title: 'Organization Chart',
+        href: '/about/organization-chart/',
+      },
+      {
+        title: 'Board of Directors',
+        href: '/about/board-of-directors/',
+      },
+    ],
+  },
+  {
+    title: 'Businesses',
+    menu: [
+      {
+        title: 'Tong Hua Capital',
+        href: '/businesses/tonghua-capital/',
+      },
+      {
+        title: 'Tong Hua Asset Management',
+        href: '/businesses/tonghua-asset-management/',
+      },
+      {
+        title: 'Tong Hua Asset',
+        href: '/businesses/tonghua-asset/',
+      },
+      {
+        title: 'Tong Hua Media Lab',
+        href: '/businesses/tonghua-media-lab/',
+      },
+    ],
+  },
+  {
+    title: 'Invsestor',
+    href: '/investor/',
+  },
+  {
+    title: 'News Room',
+    menu: [
+      { title: 'News Room', href: '/newsroom/' },
+      {
+        title: 'All News',
+        href: '/newsroom/all-news/',
+        indent: true,
+      },
+      {
+        title: 'Set Announcement',
+        href: '/newsroom/all-set-announcement/',
+        indent: true,
+      },
+    ],
+  },
+  {
+    title: 'Career',
+    href: '/career/',
+  },
+  {
+    title: 'Contact',
+    href: '/contact/',
+  },
+];
+
+export const useRoute = () => {
+  const { language } = useI18next();
+  const [routeList, setRouteList] = useState<RouteType[]>([]);
+
+  useEffect(() => {
+    language === 'th' ? setRouteList(routeTH) : setRouteList(routeEN);
+  }, [language]);
+
+  return routeList;
+};

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { Link } from 'gatsby';
-import { LocationMarkerIcon } from '@heroicons/react/outline';
+import { MapPinIcon } from '@heroicons/react/24/outline';
 import { ReadMoreButton } from '@/components/buttons';
 
 type OpportunityCardProps = {
@@ -40,7 +40,7 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-0.5">
-              <LocationMarkerIcon className="w-4 h-4 text-neutral-900" />
+              <MapPinIcon className="w-4 h-4 text-neutral-900" />
               <span className="text-neutral-900 text-xs">{location}</span>
             </div>
             <span className="w-px bg-neutral-200 h-4" />

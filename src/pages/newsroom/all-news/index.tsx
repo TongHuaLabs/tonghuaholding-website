@@ -3,6 +3,7 @@ import { graphql, PageProps } from 'gatsby';
 import { NewsCard } from '@/components/cards';
 import ListBox, { ListProps } from '@/components/ListBox';
 import UnderlineHeader from '@/components/UnderlineHeader';
+import MainLayout from '@/layouts/MainLayout';
 
 type NewsRoomAllNewsProps = PageProps<GatsbyTypes.NewsRoomAllNewsQuery>;
 
@@ -31,36 +32,38 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
   };
 
   return (
-    <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
-      <ListBox
-        className="w-full md:max-w-xs md:ml-auto"
-        list={newsType}
-        selected={selected}
-        onSelected={(value) => handleSelected(value)}
-      />
-      <UnderlineHeader
-        title={selected.title}
-        textClassName="text-2xl mt-10"
-        underlineClassName="bg-neutral-900"
-      />
-      <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
-        {markdown.map(({ node }, key) => {
-          const { title, description, date, cover, slug } =
-            node?.frontmatter || {};
-          return (
-            <NewsCard
-              title={title}
-              className="md:w-1/2 lg:w-1/3 md:px-4 md:py-6"
-              description={description}
-              coverImage={cover?.childImageSharp?.gatsbyImageData}
-              createdAt={date}
-              href={slug}
-              key={key}
-            />
-          );
-        })}
-      </div>
-    </section>
+    <MainLayout>
+      <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
+        <ListBox
+          className="w-full md:max-w-xs md:ml-auto"
+          list={newsType}
+          selected={selected}
+          onSelected={(value) => handleSelected(value)}
+        />
+        <UnderlineHeader
+          title={selected.title}
+          textClassName="text-2xl mt-10"
+          underlineClassName="bg-neutral-900"
+        />
+        <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
+          {markdown.map(({ node }, key) => {
+            const { title, description, date, cover, slug } =
+              node?.frontmatter || {};
+            return (
+              <NewsCard
+                title={title}
+                className="md:w-1/2 lg:w-1/3 md:px-4 md:py-6"
+                description={description}
+                coverImage={cover?.childImageSharp?.gatsbyImageData}
+                createdAt={date}
+                href={slug}
+                key={key}
+              />
+            );
+          })}
+        </div>
+      </section>
+    </MainLayout>
   );
 };
 

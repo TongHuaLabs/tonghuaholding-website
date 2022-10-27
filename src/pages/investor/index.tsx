@@ -14,6 +14,7 @@ import { PrimaryButton } from '@/components/buttons';
 import { useLg } from '@/hooks/responsive';
 import OutlineButton from '@/components/buttons/OutlineButton';
 import { StaticImage } from 'gatsby-plugin-image';
+import MainLayout from '@/layouts/MainLayout';
 
 type InvestorPageProps = PageProps<GatsbyTypes.InvestorPageQuery>;
 
@@ -35,7 +36,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
   const { price, change, total, updatedAt } = stockJson || {};
 
   return (
-    <>
+    <MainLayout>
       {/* Welcome to Investor Relations */}
       <section className="h-[75vh] relative">
         <div className="bg-black/40 absolute z-10 w-full h-full" />
@@ -212,7 +213,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
       </section>
 
       <ContactInvestorSection />
-    </>
+    </MainLayout>
   );
 };
 

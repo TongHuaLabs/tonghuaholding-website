@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useActiveMenu } from '@/hooks/useActiveMenu';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-react-i18next';
 import { Transition, Popover } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import type { Route } from '@/layouts/navigation/route';
+import type { RouteType } from '@/hooks/useRoute';
 
-interface PopoverNavigationProps extends Route {
+interface PopoverNavigationProps extends RouteType {
   className?: string;
 }
 

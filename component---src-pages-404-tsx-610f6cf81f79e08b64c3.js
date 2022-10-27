@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunktonghuaholding_website=self.webpackChunktonghuaholding_website||[]).push([[218],{9786:function(e,n,t){t.r(n);var u=t(7294);n.default=function(){return u.createElement("main",null,"NOT FOUND")}}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-610f6cf81f79e08b64c3.js.map

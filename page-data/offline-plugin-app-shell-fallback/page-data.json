@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---cache-caches-gatsby-plugin-offline-app-shell-js",
-    "path": "/offline-plugin-app-shell-fallback/",
-    "result": {"pageContext":{}},
-    "staticQueryHashes": []}
+{"componentChunkName":"component---cache-caches-gatsby-plugin-offline-app-shell-js","path":"/offline-plugin-app-shell-fallback/","result":{"pageContext":{"language":"th","i18n":{"language":"th","languages":["th","en"],"defaultLanguage":"th","generateDefaultLanguagePage":true,"routed":false,"originalPath":"/offline-plugin-app-shell-fallback/","path":"/offline-plugin-app-shell-fallback/"}}},"staticQueryHashes":[]}

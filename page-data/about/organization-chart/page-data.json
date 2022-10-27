@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-pages-about-organization-chart-index-tsx",
-    "path": "/about/organization-chart/",
-    "result": {"pageContext":{}},
-    "staticQueryHashes": []}
+{"componentChunkName":"component---src-pages-about-organization-chart-index-tsx","path":"/about/organization-chart/","result":{"pageContext":{"language":"th","i18n":{"language":"th","languages":["th","en"],"defaultLanguage":"th","generateDefaultLanguagePage":true,"routed":false,"originalPath":"/about/organization-chart/","path":"/about/organization-chart/"}}},"staticQueryHashes":[]}

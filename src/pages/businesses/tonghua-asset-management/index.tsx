@@ -7,6 +7,7 @@ import filter from 'lodash/filter';
 import BusinessesSection from '@/components/sections/BusinessesSection';
 import ContactInfoSection from '@/components/sections/ContactInfoSection';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import MainLayout from '@/layouts/MainLayout';
 
 type TongHuaAssetManagementProps =
   PageProps<GatsbyTypes.TongHuaAssetManagementPageQueryQuery>;
@@ -32,7 +33,7 @@ const TongHuaAssetManagement: React.FC<TongHuaAssetManagementProps> = ({
     });
 
   return (
-    <>
+    <MainLayout>
       <BrandingSection
         title={title}
         description={description}
@@ -69,7 +70,7 @@ const TongHuaAssetManagement: React.FC<TongHuaAssetManagementProps> = ({
 
       {/* Businesses */}
       <BusinessesSection allBusinessesJson={allBusinessesJson} />
-    </>
+    </MainLayout>
   );
 };
 

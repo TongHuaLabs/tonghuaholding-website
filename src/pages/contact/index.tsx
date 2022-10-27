@@ -6,12 +6,13 @@ import MapSvg from '@/images/map.svg';
 import PhoneCall from '@/components/information/PhoneCall';
 import MailTo from '@/components/information/MailTo';
 import DotPattern from '@/images/dot-pattern.inline.svg';
+import MainLayout from '@/layouts/MainLayout';
 
 type ContactUsPageProps = {};
 
 const ContactUsPage: React.FC<ContactUsPageProps> = () => {
   return (
-    <>
+    <MainLayout>
       <PrimarySection title="ติดต่อเรา" />
 
       {/* ติดต่อส่วนกลาง & ติดต่อฝ่ายบัญชี */}
@@ -90,7 +91,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
           <DotPattern className="text-primary-main absolute top-0 left-0 z-0 lg:hidden" />
         </div>
       </section>
-    </>
+    </MainLayout>
   );
 };
 

@@ -2,11 +2,12 @@ import React from 'react';
 import THHLogo from '@images/tonghua-logo-white.png';
 import Social from '@/components/Social';
 import DisclosureNavigation from '@/layouts/navigation/DisclosureNavigation';
-import { route } from '@/layouts/navigation/route';
+import { useRoute } from '@/hooks/useRoute';
 
 type FooterProps = {};
 
 const Footer: React.FC<FooterProps> = () => {
+  const route = useRoute();
   return (
     <footer className="bg-primary-main">
       <div className="flex flex-col flex-wrap px-4 py-16 md:px-6 md:justify-between md:flex-row max-w-7xl mx-auto">

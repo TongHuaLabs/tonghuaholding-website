@@ -5,6 +5,7 @@ import UnderlineHeader from '@/components/UnderlineHeader';
 import { graphql, Link, PageProps } from 'gatsby';
 import { useLg, useMd } from '@/hooks/responsive';
 import { SeeAllButton } from '@/components/buttons';
+import MainLayout from '@/layouts/MainLayout';
 
 type NewsRoomPageProps = PageProps<GatsbyTypes.NewsRoomPageQuery>;
 
@@ -21,7 +22,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
   );
 
   return (
-    <>
+    <MainLayout>
       <PrimarySection title="หน้าหลักข่าวสาร TH" />
 
       {/* News */}
@@ -84,7 +85,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
           <SeeAllButton />
         </Link>
       </section>
-    </>
+    </MainLayout>
   );
 };
 

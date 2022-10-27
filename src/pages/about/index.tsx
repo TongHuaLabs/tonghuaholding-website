@@ -12,6 +12,7 @@ import BusinessesSection from '@/components/sections/BusinessesSection';
 import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import Gallery from '@/components/Gallery';
+import MainLayout from '@/layouts/MainLayout';
 
 type AboutPageProps = PageProps<GatsbyTypes.AboutPageQuery>;
 
@@ -32,7 +33,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
     });
 
   return (
-    <>
+    <MainLayout>
       <PrimarySection title="ข้อมูลบริษัท" />
       <section className="px-4 pt-10 lg:pt-20 lg:px-16 flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10 max-w-7xl mx-auto">
         <StaticImage
@@ -135,14 +136,14 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
 
       {/* บริษัทย่อยในเครือ */}
       <BusinessesSection allBusinessesJson={allBusinessesJson} />
-    </>
+    </MainLayout>
   );
 };
 
 export default AboutPage;
 
 export const query = graphql`
-  query AboutPage {
+  query AboutPage($language: String!) {
     allTimelineJson {
       edges {
         node {
@@ -185,6 +186,17 @@ export const query = graphql`
               gatsbyImageData
             }
           }
+        }
+      }
+    }
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "about" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

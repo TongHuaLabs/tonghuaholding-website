@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Link } from 'gatsby';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { Disclosure } from '@headlessui/react';
-import { route } from '@/layouts/navigation/route';
+import { useRoute } from '@/hooks/useRoute';
 
 type MenuItemProps = {
   className?: string;
@@ -11,6 +11,7 @@ type MenuItemProps = {
 };
 
 const MenuItem: React.FC<MenuItemProps> = ({ className, onClose }) => {
+  const route = useRoute();
   return (
     <div className={classNames('p-4 space-y-4', className)}>
       {route.map(({ title, href, menu }, key) => {

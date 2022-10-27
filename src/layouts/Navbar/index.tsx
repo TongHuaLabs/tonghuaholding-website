@@ -3,9 +3,10 @@ import { Link } from 'gatsby';
 import classNames from 'classnames';
 import THHLogo from '@images/tonghua-holding.png';
 import PopoverNavigation from '@/layouts/navigation/PopoverNavigation';
-import { route } from '@/layouts/navigation/route';
+import { useRoute } from '@/hooks/useRoute';
 import MenuIcon from '@/icons/hamburger-menu.inline.svg';
 import CloseIcon from '@/icons/close.inline.svg';
+import ChangeLocale from '@/components/ChangeLocale';
 
 type NavbarProps = {
   showClose: boolean;
@@ -20,6 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({
   onMenuClick,
   onCloseClick,
 }) => {
+  const route = useRoute();
   return (
     <nav
       className={classNames(
@@ -55,6 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({
             />
           )}
         </li>
+        <ChangeLocale />
       </ul>
     </nav>
   );

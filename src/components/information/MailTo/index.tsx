@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { MailIcon } from '@heroicons/react/solid';
+import { EnvelopeIcon } from '@heroicons/react/24/solid';
 
 type MailToProps = {
   mail: string;
@@ -20,7 +20,7 @@ const MailTo: React.FC<MailToProps> = ({
       className={classNames(`flex items-center space-x-2.5`, className)}
       href={`mailto:${mail}`}
     >
-      <MailIcon className={classNames(`w-6 h-6`, iconClassName)} />
+      <EnvelopeIcon className={classNames(`w-6 h-6`, iconClassName)} />
       <span className={classNames(`font-medium`, textClassName)}>{mail}</span>
     </a>
   );

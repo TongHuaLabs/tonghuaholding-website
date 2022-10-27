@@ -74,4 +74,42 @@ export const plugins = [
       },
     },
   },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${__dirname}/locales`,
+      name: `locale`,
+    },
+  },
+  {
+    resolve: `gatsby-plugin-react-i18next`,
+    options: {
+      localeJsonSourceName: `locale`,
+      languages: [`th`, `en`],
+      defaultLanguage: `th`,
+      siteUrl: siteMetadata.siteUrl,
+      // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
+      // trailingSlash: 'always',
+      i18nextOptions: {
+        interpolation: {
+          escapeValue: false,
+        },
+        keySeparator: false,
+        nsSeparator: false,
+      },
+      generateDefaultLanguagePage: true,
+      redirect: false,
+      // pages: [
+      //   {
+      //     matchPath: '/:lang?/blog/:uid',
+      //     getLanguageFromPath: true,
+      //     excludeLanguages: ['es'],
+      //   },
+      //   {
+      //     matchPath: '/preview',
+      //     languages: ['en'],
+      //   },
+      // ],
+    },
+  },
 ];

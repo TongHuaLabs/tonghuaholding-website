@@ -244,7 +244,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         </Link>
       </section>
 
-      {/* ติดต่อนักลงทุนสัมพันธ์ */}
+      {/* Section 7: ติดต่อนักลงทุนสัมพันธ์ */}
       <ContactInvestorSection />
     </MainLayout>
   );

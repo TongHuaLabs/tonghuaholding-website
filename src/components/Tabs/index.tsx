@@ -28,7 +28,7 @@ const Tabs: React.FC<TabsProps> = ({
               {({ selected }) => (
                 <button
                   className={classNames(
-                    `px-2 py-2 rounded-lg font-bold hover:bg-primary-main hover:text-neutral-50 ${
+                    `px-2 py-2 rounded-lg font-bold hover:bg-primary-main hover:text-neutral-50 outline-none ${
                       selected
                         ? 'bg-primary-main font-bold text-neutral-50'
                         : 'text-neutral-900'

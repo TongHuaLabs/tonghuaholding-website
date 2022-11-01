@@ -7,16 +7,16 @@
         "description": "Years"
       },
       {
-        "title": "1991",
-        "description": "IPO"
-      },
-      {
         "title": "4",
-        "description": "Companies"
+        "description": "Affiliates"
       },
       {
         "title": "3",
         "description": "Industries"
+      },
+      {
+        "title": "3.4B",
+        "description": "Wealth"
       }
     ],
     "images": [
@@ -39,19 +39,19 @@
     "info": [
       {
         "title": "62",
-        "description": "ปี"
-      },
-      {
-        "title": "1991",
-        "description": "ไอพีโอ"
+        "description": "Years"
       },
       {
         "title": "4",
-        "description": "บริษัท"
+        "description": "Affiliates"
       },
       {
         "title": "3",
-        "description": "อุตสาหกรรม"
+        "description": "Industries"
+      },
+      {
+        "title": "3.4B",
+        "description": "Wealth"
       }
     ],
     "images": [

@@ -10,16 +10,18 @@ import { OpportunityCard, TestimonialCard } from '@/components/cards';
 import { SwiperSlide } from 'swiper/react';
 import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
 import MainLayout from '@/layouts/MainLayout';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type CareerPageProps = PageProps<GatsbyTypes.CareerPageQuery>;
 
 const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
   const md = useMd();
   const lg = useLg();
+  const { t } = useTranslation();
 
   const { allDnaJson, allTeamJson, allShowcaseJson, allMarkdownRemark } = data;
-  const team = allTeamJson.edges;
-  const dna = allDnaJson.edges;
+  const { data: team } = allTeamJson.edges[0].node;
+  const { data: dna } = allDnaJson.edges[0].node;
 
   const showcase: IGatsbyImageData[] = [];
 
@@ -32,7 +34,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
 
   return (
     <MainLayout>
-      {/* LIFE  @TONG HUA */}
+      {/* Section 1: LIFE  @TONG HUA */}
       <section className="h-[75vh] relative">
         <div className="bg-black/40 absolute z-10 w-full h-full" />
         <StaticImage
@@ -42,34 +44,40 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         />
         <div className="absolute top-0 z-20 w-full h-full flex flex-col text-center justify-center space-y-4 px-4 md:px-28 lg:px-16">
           <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
-            LIFE @TONG HUA
+            {t('section-1-title')}
           </h2>
           <p className="text-xl md:text-2xl font-medium text-neutral-50">
-            Let’s start something new with Powerful energy.
+            {t('section-1-excerpt')}
           </p>
         </div>
       </section>
 
-      {/* Core Value */}
+      {/* Section 2: Core Value */}
       <section className="flex flex-col items-center justify-center px-4 md:px-6 py-20 lg:py-28 lg:px-36 bg-primary-main">
         <h2 className="text-4xl whitespace-pre-line md:whitespace-normal font-medium text-center text-neutral-50">
-          {`นวัตกรรม\nอยู่ใน DNA ของเรา`}
+          {t('section-2-title')}
         </h2>
         <p className="mt-6 text-xl max-w-3xl mx-auto text-center text-neutral-50">
-          พร้อมเริ่มสิ่งใหม่ด้วยพลังงาน และ minsdet ที่พร้อมก้าวหน้าตลอดเวลา
-          พัฒนาโซลูชันใหม่ ๆ ในการแก้ไขปัญหาของเทคโนโลยีในยุคปัจจุบัน
+          {t('section-2-excerpt')}
         </p>
-        <div className="mt-10 flex items-center space-x-10 md:space-x-20">
-          {dna.map(({ node }, key) => (
-            <DNA text={node.dna} key={key} />
-          ))}
+        <div className="mt-10 w-full flex flex-col sm:flex-row sm:flex-wrap max-w-5xl mx-auto">
+          {dna?.map((item, key) => {
+            const { dna } = item || {};
+            return (
+              <DNA
+                text={dna}
+                key={key}
+                className="w-full sm:w-1/2 md:w-1/3 py-6"
+              />
+            );
+          })}
         </div>
       </section>
 
-      {/* Thoughts From Our Team */}
+      {/* Section 3: Thoughts From Our Team */}
       <section className="overflow-hidden py-20 lg:py-28 space-y-6">
         <h2 className="text-2xl font-bold text-center">
-          Thoughts From Our Team
+          {t('section-3-title')}
           <hr className="w-16 h-1 mx-auto mt-2 bg-primary-main" />
         </h2>
         <div className="px-4 md:px-6 lg:px-16 2xl:px-0 max-w-7xl mx-auto relative">
@@ -78,12 +86,12 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
             pagination={{ clickable: true }}
             slidesPerView={lg ? 3 : md ? 2 : 1}
           >
-            {team.map(({ node }, key) => {
-              const { profileImage } = node;
+            {team?.map((item, key) => {
+              const { profileImage } = item || {};
               return (
                 <SwiperSlide key={key}>
                   <TestimonialCard
-                    {...node}
+                    {...item}
                     profileImage={profileImage?.childImageSharp?.original?.src}
                   />
                 </SwiperSlide>
@@ -94,7 +102,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         </div>
       </section>
 
-      {/* Performace Slide */}
+      {/* Section 4: Performace Slide */}
       <section className="pb-20 relative flex flex-col">
         <div className="w-28 h-56 bg-primary-main absolute" />
         <div className="px-4 md:px-16 mt-20 w-full max-w-5xl mx-auto">
@@ -103,11 +111,13 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         <div className="w-28 absolute bottom-0 h-56 bg-primary-main self-end" />
       </section>
 
-      {/* Career Opportunity */}
+      {/* Section 5: Career Opportunity */}
       <section className="relative max-w-7xl mx-auto">
         <DotPattern className="text-primary-main z-0 absolute top-8 opacity-70 left-0" />
         <div className="py-20 px-4 md:px-6 lg:px-16">
-          <h2 className="text-3xl relative font-medium">โอกาสร่วมงานกับเรา</h2>
+          <h2 className="text-3xl relative font-medium">
+            {t('section-5-title')}
+          </h2>
           <hr className="h-px mt-2 border-0 bg-neutral-900" />
           <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
             {allMarkdownRemark.edges.map(({ node }, key) => {
@@ -135,27 +145,31 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
 export default CareerPage;
 
 export const query = graphql`
-  query CareerPage {
-    allTeamJson {
+  query CareerPage($language: String!) {
+    allTeamJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          profileImage {
-            childImageSharp {
-              original {
-                src
+          data {
+            profileImage {
+              childImageSharp {
+                original {
+                  src
+                }
               }
             }
+            name
+            occupation
+            comment
           }
-          name
-          occupation
-          comment
         }
       }
     }
-    allDnaJson {
+    allDnaJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          dna
+          data {
+            dna
+          }
         }
       }
     }
@@ -186,6 +200,17 @@ export const query = graphql`
             description
             contract
           }
+        }
+      }
+    }
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "career" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

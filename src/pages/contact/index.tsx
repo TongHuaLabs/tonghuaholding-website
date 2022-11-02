@@ -7,70 +7,83 @@ import PhoneCall from '@/components/information/PhoneCall';
 import MailTo from '@/components/information/MailTo';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import MainLayout from '@/layouts/MainLayout';
+import { graphql, PageProps } from 'gatsby';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-type ContactUsPageProps = {};
+type ContactUsPageProps = PageProps<GatsbyTypes.ContactUsPageQuery>;
 
 const ContactUsPage: React.FC<ContactUsPageProps> = () => {
+  const { t } = useTranslation();
   return (
     <MainLayout>
-      <PrimarySection title="ติดต่อเรา" />
+      {/* Section 1: ติดต่อเรา */}
+      <PrimarySection title={t('section-1-title')} />
 
-      {/* ติดต่อส่วนกลาง & ติดต่อฝ่ายบัญชี */}
+      {/* Section 2: ติดต่อส่วนกลาง & ติดต่อฝ่ายบัญชี */}
       <section className="px-4 md:flex-row py-10 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
         <UnderlineHeader
-          title="กรุณาติดต่อเรา หากท่านต้องการสอบถามข้อมูลเพิ่มเติม"
+          title={t('section-2-title')}
           textClassName="text-2xl"
           underlineClassName="w-12 bg-primary-main"
         />
         <div className="mt-10 space-y-10 md:space-y-16">
           <div className="flex flex-col md:flex-row space-y-10 md:space-y-0">
-            {/* ติดต่อส่วนกลาง */}
+            {/* Section 2.1: ติดต่อส่วนกลาง */}
             <div className="flex flex-col md:w-1/2">
-              <Badge title="ติดต่อส่วนกลาง" />
+              <Badge title={t('section-2-1-title')} />
               <PhoneCall
-                phone="02-236-9171-4"
-                tel="+66223691714"
+                phone="02-236-9171"
+                tel="+66223691711"
+                className="mt-4 hover:underline hover:decoration-primary-main max-w-max"
+                textClassName="text-primary-main lg:text-lg"
+              />
+              <PhoneCall
+                phone="02-236-9172"
+                tel="+66223691712"
                 className="mt-4 hover:underline hover:decoration-primary-main max-w-max"
                 textClassName="text-primary-main lg:text-lg"
               />
               <MailTo
-                mail="contact@tonghuaholding.com"
+                mail="contactus@tonghuagroup.com"
                 className="mt-2 hover:underline hover:decoration-primary-main max-w-max"
                 textClassName="text-primary-main lg:text-lg"
               />
             </div>
           </div>
           <div className="flex flex-col md:flex-row space-y-10 md:space-y-0">
-            {/* วันเวลาทำการ */}
+            {/* Section 2.2: วันเวลาทำการ */}
             <div className="flex flex-col md:w-1/2">
               <UnderlineHeader
-                title="วันเวลาทำการ"
+                title={t('section-2-2-title')}
                 textClassName="text-2xl"
                 underlineClassName="w-12 bg-primary-main"
               />
               <p className="text-neutral-600 font-medium lg:text-lg mt-4">
-                วันทำการ: วัน จันทร์ - ศุกร์
+                {/* Section 2.2.1: วันทำการ: วัน จันทร์ - ศุกร์ */}
+                {t('section-2-2-1-title')}
               </p>
               <p className="text-neutral-600 font-medium lg:text-lg">
-                เวลาทำการ: 08.30 น. - 17.30 น.
+                {/* Section 2.2.2: เวลาทำการ: 08.30 น. - 17.30 น. */}
+                {t('section-2-2-2-title')}
               </p>
             </div>
-            {/* ที่อยู่บริษัท */}
+            {/* Section 2.3: ที่อยู่บริษัท */}
             <div className="flex flex-col md:w-1/2">
               <UnderlineHeader
-                title="ที่อยู่บริษัท"
+                title={t('section-2-3-title')}
                 textClassName="text-2xl"
                 underlineClassName="w-12 bg-primary-main"
               />
               <p className="text-neutral-600 whitespace-pre-line font-medium lg:text-lg mt-4">
-                {`877-881 เจริญกรุง ตลาดน้อย สัมพันธวงศ์\nกรุงเทพมหานคร 10100`}
+                {/* Section 2.3.1: 877-881 เจริญกรุง ตลาดน้อย สัมพันธวงศ์ กรุงเทพมหานคร 10100 */}
+                {t('section-2-3-1-title')}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact & Address & Maps */}
+      {/* Section 3: Maps */}
       <section
         className="relative"
         style={{
@@ -96,3 +109,19 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
 };
 
 export default ContactUsPage;
+
+export const query = graphql`
+  query ContactUsPage($language: String!) {
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "contact" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

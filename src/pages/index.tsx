@@ -35,12 +35,15 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   } = data;
 
   const latestNews = allMarkdownRemark.edges.slice(0, !isLg ? 4 : 3);
-
   const setNews = allSetAnnouncementJson.edges.slice(0, !isLg ? 4 : 3);
-
   const companyInfo = allCompanyInfoJson.edges[0];
-
   const ourBusiness = allOurBusinessJson.edges[0];
+  const { data: businessesList } = allBusinessesJson.edges[0].node;
+
+  const businesses = businessesList?.map((item) => {
+    const { title, description, image, to } = item || {};
+    return { title, description, image, to };
+  });
 
   return (
     <MainLayout>
@@ -164,8 +167,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="flex relative z-10 px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 overflow-x-scroll hide-scrollbar lg:justify-around">
-            {allBusinessesJson.edges.map(({ node }, key) => {
-              const { title, image, description, to } = node;
+            {businesses?.map((item, key) => {
+              const { title, image, description, to } = item;
               return (
                 <div key={key} className="px-3 lg:px-0">
                   <BusinessCard
@@ -286,21 +289,22 @@ export const query = graphql`
         }
       }
     }
-    allBusinessesJson {
+    allBusinessesJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          key
-          title
-          description
-          image {
-            childImageSharp {
-              gatsbyImageData
+          data {
+            title
+            description
+            to
+            image {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
-          }
-          to
-          slides {
-            childImageSharp {
-              gatsbyImageData
+            slides {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }

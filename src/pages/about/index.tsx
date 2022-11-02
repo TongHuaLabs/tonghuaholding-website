@@ -23,6 +23,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   const isLg = useLg();
   const { allAboutJson, allTimelineJson, allMissionJson, allBusinessesJson } =
     data;
+  const { data: businessesList } = allBusinessesJson.edges[0].node;
   const { data: timeline, slides } = allTimelineJson.edges[0].node;
   const { data: about } = allAboutJson.edges[0].node;
   const { data: mission } = allMissionJson.edges[0].node;
@@ -34,6 +35,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
     if (image?.childImageSharp) {
       showcase.push(image?.childImageSharp?.gatsbyImageData);
     }
+  });
+
+  const businesses = businessesList?.map((item) => {
+    const { title, description, image, to } = item || {};
+    return { title, description, image, to };
   });
 
   return (
@@ -142,7 +148,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       </section>
 
       {/* Section 4: บริษัทย่อยในเครือ */}
-      <BusinessesSection allBusinessesJson={allBusinessesJson} />
+      <BusinessesSection businesses={businesses} />
     </MainLayout>
   );
 };
@@ -187,21 +193,22 @@ export const query = graphql`
         }
       }
     }
-    allBusinessesJson {
+    allBusinessesJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          key
-          title
-          description
-          image {
-            childImageSharp {
-              gatsbyImageData
+          data {
+            title
+            description
+            to
+            image {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
-          }
-          to
-          slides {
-            childImageSharp {
-              gatsbyImageData
+            slides {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }

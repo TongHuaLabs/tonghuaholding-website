@@ -47,7 +47,7 @@ const routeTH: RouteType[] = [
       },
       {
         title: 'บริษัท ตงฮั้ว มิเดีย แล็บ จำกัด',
-        href: '/businesses/tonghua-media-lab/',
+        href: '/businesses/tonghua-media-labs/',
       },
     ],
   },
@@ -117,7 +117,7 @@ const routeEN: RouteType[] = [
       },
       {
         title: 'Tong Hua Media Lab',
-        href: '/businesses/tonghua-media-lab/',
+        href: '/businesses/tonghua-media-labs/',
       },
     ],
   },

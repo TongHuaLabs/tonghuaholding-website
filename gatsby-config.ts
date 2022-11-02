@@ -105,10 +105,6 @@ export const plugins = [
       //     getLanguageFromPath: true,
       //     excludeLanguages: ['es'],
       //   },
-      //   {
-      //     matchPath: '/preview',
-      //     languages: ['en'],
-      //   },
       // ],
     },
   },

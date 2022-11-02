@@ -6,26 +6,17 @@ import Circles from '@/images/circles.inline.svg';
 import classNames from 'classnames';
 
 type BusinessesSectionProps = {
-  allBusinessesJson: {
-    readonly edges: readonly {
-      readonly node: Pick<
-        GatsbyTypes.BusinessesJson,
-        'title' | 'description' | 'to' | 'key'
-      > & {
-        readonly image: GatsbyTypes.Maybe<{
-          readonly childImageSharp: GatsbyTypes.Maybe<
-            Pick<GatsbyTypes.ImageSharp, 'gatsbyImageData'>
-          >;
-        }>;
-        readonly slides: any;
-      };
-    }[];
-  };
+  businesses?: {
+    title?: string;
+    image?: GatsbyTypes.ImageSharp['gatsbyImageData'];
+    description?: string;
+    to?: string;
+  }[];
   className?: string;
 };
 
 const BusinessesSection: React.FC<BusinessesSectionProps> = ({
-  allBusinessesJson,
+  businesses,
   className,
 }) => {
   return (
@@ -42,8 +33,8 @@ const BusinessesSection: React.FC<BusinessesSectionProps> = ({
         underlineClassName="bg-primary-main w-16"
       />
       <div className="flex relative z-10 overflow-x-scroll hide-scrollbar md:px-6 px-4 max-w-7xl mx-auto lg:px-0 lg:justify-around">
-        {allBusinessesJson.edges.map(({ node }, key) => {
-          const { title, image, description, to } = node;
+        {businesses?.map((item, key) => {
+          const { title, image, description, to } = item;
           return (
             <div key={key} className="px-4 lg:px-0">
               <BusinessCard

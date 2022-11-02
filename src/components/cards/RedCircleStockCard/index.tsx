@@ -29,7 +29,7 @@ const RedCircleStockCard: React.FC<RedCircleStockCardProps> = ({
           {title}
         </span>
       </div>
-      <p className="text-neutral-900 text-center">{description}</p>
+      <p className="text-neutral-900 text-center self-start">{description}</p>
     </div>
   );
 };

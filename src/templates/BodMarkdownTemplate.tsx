@@ -10,7 +10,7 @@ const BodMarkdownTemplate = ({
   data: { markdownRemark },
 }: BodMarkdownTemplateProps) => {
   const { html, frontmatter } = markdownRemark || {};
-  const { name, occupation, cover } = frontmatter || {};
+  const { name, cover } = frontmatter || {};
 
   return (
     <MainLayout>
@@ -26,12 +26,12 @@ const BodMarkdownTemplate = ({
               />
             </div>
           )}
-          <div className="flex flex-col items-start mt-5">
+          {/* <div className="flex flex-col items-start mt-5">
             <span className="text-xl text-neutral-900 font-bold">{name}</span>
             <p className="mt-2 text-sm text-neutral-400 line-clamp-2">
               {occupation}
             </p>
-          </div>
+          </div> */}
         </div>
         <div
           dangerouslySetInnerHTML={{ __html: html || '<div />' }}
@@ -50,7 +50,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         name
-        occupation
         cover {
           childImageSharp {
             gatsbyImageData

@@ -50,28 +50,29 @@ export const createPages: GatsbyNode['createPages'] = async ({
           }
         }
       }
-      bod: allMarkdownRemark(
-        filter: {
-          frontmatter: { slug: { regex: "/about/board-of-directors/" } }
-        }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              slug
-            }
-          }
-        }
-      }
     }
   `);
+
+  //   bod: allMarkdownRemark(
+  //   filter: {
+  //     frontmatter: { slug: { regex: "/about/board-of-directors/" } }
+  //   }
+  // ) {
+  //   edges {
+  //     node {
+  //       id
+  //       frontmatter {
+  //         slug
+  //       }
+  //     }
+  //   }
+  // }
 
   if (errors) {
     return Promise.reject(errors);
   }
 
-  const { allMarkdownRemark, bod } = data || {};
+  const { allMarkdownRemark } = data || {};
 
   allMarkdownRemark?.edges.forEach(({ node }) => {
     const { id, frontmatter } = node;
@@ -85,15 +86,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
     });
   });
 
-  bod?.edges.forEach(({ node }) => {
-    const { id, frontmatter } = node;
-    const { slug } = frontmatter;
-    actions.createPage({
-      path: slug,
-      component: path.resolve('src', 'templates', 'BodMarkdownTemplate.tsx'),
-      context: {
-        id,
-      },
-    });
-  });
+  // bod?.edges.forEach(({ node }) => {
+  //   const { id, frontmatter } = node;
+  //   const { slug } = frontmatter;
+  //   actions.createPage({
+  //     path: slug,
+  //     component: path.resolve('src', 'templates', 'BodMarkdownTemplate.tsx'),
+  //     context: {
+  //       id,
+  //     },
+  //   });
+  // });
 };

@@ -22,7 +22,7 @@ const RedCircleStockCard: React.FC<RedCircleStockCardProps> = ({
       )}
     >
       <div className="absolute px-6 -top-20 h-40 w-40 flex flex-col items-center justify-center text-center bg-primary-main rounded-full border-4 border-primary-surface">
-        <span className="block text-neutral-50 text-2xl font-medium whitespace-pre-line">
+        <span className="block text-neutral-50 text-xl font-medium whitespace-pre-line">
           {roi}
         </span>
         <span className="block text-neutral-50 text-xs font-bold text-center whitespace-pre-line">

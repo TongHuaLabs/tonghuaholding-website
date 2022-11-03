@@ -4,6 +4,7 @@ import { BusinessCard } from '@/components/cards';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import Circles from '@/images/circles.inline.svg';
 import classNames from 'classnames';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type BusinessesSectionProps = {
   businesses?: {
@@ -19,6 +20,7 @@ const BusinessesSection: React.FC<BusinessesSectionProps> = ({
   businesses,
   className,
 }) => {
+  const { t } = useTranslation();
   return (
     <section
       className={classNames(
@@ -27,7 +29,7 @@ const BusinessesSection: React.FC<BusinessesSectionProps> = ({
       )}
     >
       <UnderlineHeader
-        title="บริษัทย่อยในเครือ"
+        title={t('Components.BusinessesSection.Title')}
         className="items-center"
         textClassName="text-3xl text-center lg:text-4xl text-neutral-50"
         underlineClassName="bg-primary-main w-16"

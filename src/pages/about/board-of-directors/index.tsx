@@ -15,11 +15,11 @@ const BoardOfDirectors: React.FC<BoardOfDirectorsPageProps> = ({ data }) => {
   return (
     <MainLayout>
       {/* Section 1: คณะกรรมการบริษัท */}
-      <PrimarySection title={t('section-1-title')} />
+      <PrimarySection title={t('Pages.About.BodPage.Section-1.Title')} />
       <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
         {/* Section 1.1: คณะกรรมการบริษัท */}
         <UnderlineHeader
-          title={t('section-1-1-title')}
+          title={t('Pages.About.BodPage.Section-1-1.Title')}
           textClassName="text-2xl"
           underlineClassName="bg-neutral-900"
         />
@@ -63,7 +63,7 @@ export const query = graphql`
       }
     }
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "bod" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

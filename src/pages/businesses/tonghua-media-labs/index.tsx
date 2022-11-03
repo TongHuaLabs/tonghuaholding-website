@@ -43,7 +43,7 @@ const TonghuaMediaLabs: React.FC<TonghuaMediaLabsProps> = ({ data }) => {
       {/* Section 2: เกี่ยวกับบริษัท */}
       <section className="pb-10 lg:pb-16 px-4 md:px-6 lg:px-16 max-w-5xl mx-auto">
         <UnderlineHeader
-          title={t('section-2-title')}
+          title={t('Pages.Businesses.Section-2.Title')}
           textClassName="text-2xl"
           underlineClassName="w-12 bg-primary-main"
         />
@@ -108,7 +108,7 @@ export const query = graphql`
       html
     }
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "businesses" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

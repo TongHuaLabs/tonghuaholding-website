@@ -3,6 +3,7 @@ import { graphql, PageProps } from 'gatsby';
 import { SetAnnouncementCard } from '@/components/cards';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import MainLayout from '@/layouts/MainLayout';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type NewsRoomAllSetAnnouncementProps =
   PageProps<GatsbyTypes.NewsRoomAllSetAnnouncementQuery>;
@@ -10,13 +11,16 @@ type NewsRoomAllSetAnnouncementProps =
 const NewsRoomAllSetAnnouncement: React.FC<NewsRoomAllSetAnnouncementProps> = ({
   data,
 }) => {
+  const { t } = useTranslation();
   const { allSetAnnouncementJson } = data;
 
   return (
     <MainLayout>
+      {/* Section 1: ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด */}
       <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
+        {/* ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด */}
         <UnderlineHeader
-          title="ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด"
+          title={t('Pages.NewsRoom.AllSetAnnouncementPage.Section-1.Title')}
           textClassName="text-2xl"
           underlineClassName="bg-neutral-900"
         />
@@ -42,13 +46,24 @@ const NewsRoomAllSetAnnouncement: React.FC<NewsRoomAllSetAnnouncementProps> = ({
 export default NewsRoomAllSetAnnouncement;
 
 export const query = graphql`
-  query NewsRoomAllSetAnnouncement {
+  query NewsRoomAllSetAnnouncement($language: String!) {
     allSetAnnouncementJson(sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
           title
           createdAt
           pdf
+        }
+      }
+    }
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

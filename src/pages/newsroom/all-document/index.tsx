@@ -3,10 +3,12 @@ import UnderlineHeader from '@/components/UnderlineHeader';
 import { graphql, PageProps } from 'gatsby';
 import { DocumentCard } from '@/components/cards';
 import MainLayout from '@/layouts/MainLayout';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type NewsRoomAllDocumentProps = PageProps<GatsbyTypes.NewsRoomAllDocumentQuery>;
 
 const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
+  const { t } = useTranslation();
   // const newsType: ListProps[] = [
   //   {
   //     title: 'เอกสารเผยแพร่ทั้งหมด',
@@ -33,8 +35,9 @@ const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
         selected={selected}
         onSelected={(value) => handleSelected(value)}
       /> */}
+        {/* เอกสารเผยแพร่ทั้งหมด */}
         <UnderlineHeader
-          title="เอกสารเผยแพร่ทั้งหมด"
+          title={t('Pages.NewsRoom.AllDocumentPage.Section-1.Title')}
           textClassName="text-2xl"
           underlineClassName="bg-neutral-900"
         />
@@ -61,7 +64,7 @@ const NewsRoomAllDocument: React.FC<NewsRoomAllDocumentProps> = ({ data }) => {
 export default NewsRoomAllDocument;
 
 export const query = graphql`
-  query NewsRoomAllDocument {
+  query NewsRoomAllDocument($language: String!) {
     allDocumentJson(sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
@@ -73,6 +76,17 @@ export const query = graphql`
               gatsbyImageData
             }
           }
+        }
+      }
+    }
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

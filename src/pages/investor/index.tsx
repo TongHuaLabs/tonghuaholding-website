@@ -58,10 +58,12 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
             <div className="flex flex-col items-center lg:items-start space-y-10 lg:w-3/5">
               <h2 className="text-4xl font-bold md:text-6xl whitespace-pre-line text-center lg:text-left text-neutral-50">
                 {/* Welcome to\nInvestor Relations */}
-                {t('section-1-title')}
+                {t('Pages.Investor.Section-1.Title')}
               </h2>
               {/* ติดต่อนักลงทุนสัมพันธ์ */}
-              <OutlineButton title={t('section-1-button')} />
+              <OutlineButton
+                title={t('Pages.Investor.Section-1.ContactButton')}
+              />
             </div>
             <StockPriceCard className="w-full lg:w-2/5" {...stockProps} />
           </div>
@@ -71,7 +73,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
       {/* Section 2: จุดเด่นหุ้น TH */}
       <section className="relative px-4 py-20 lg:px-16 lg:py-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
-          title={t('section-2-title')}
+          title={t('Pages.Investor.Section-2.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl"
           underlineClassName="bg-primary-main w-16"
@@ -104,7 +106,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
         <section className="bg-primary-main">
           <div className="relative px-4 py-20 md:px-6 lg:px-20 lg:py-28 max-w-7xl mx-auto">
             <UnderlineHeader
-              title={t('section-3-title')}
+              title={t('Pages.Investor.Section-3.Title')}
               className="items-center"
               textClassName="text-3xl text-center lg:text-4xl text-neutral-50"
               underlineClassName="bg-neutral-50 w-16"
@@ -189,7 +191,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
       {/* Section 4: ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 py-20 lg:px-16 lg:py-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
-          title={t('section-4-title')}
+          title={t('Pages.Investor.Section-4.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl"
           underlineClassName="bg-primary-main w-16"
@@ -214,7 +216,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
         >
           {/* ดูเพิ่มเติม */}
           <PrimaryButton
-            title={t('section-4-button')}
+            title={t('Pages.Investor.Section-4.ReadMoreButton')}
             className="text-sm font-medium"
           />
         </Link>
@@ -223,7 +225,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
       {/* Section 5: เอกสารเผยแพร่ทั้งหมด */}
       <section className="px-4 pb-20 lg:pb-28 md:px-6 lg:px-16 max-w-7xl mx-auto">
         <UnderlineHeader
-          title={t('section-5-title')}
+          title={t('Pages.Investor.Section-5.Title')}
           textClassName="text-2xl"
           underlineClassName="bg-neutral-900"
         />
@@ -337,7 +339,7 @@ export const query = graphql`
       }
     }
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "investor" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

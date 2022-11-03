@@ -6,12 +6,14 @@ import { graphql, Link, PageProps } from 'gatsby';
 import { useLg, useMd } from '@/hooks/responsive';
 import { SeeAllButton } from '@/components/buttons';
 import MainLayout from '@/layouts/MainLayout';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type NewsRoomPageProps = PageProps<GatsbyTypes.NewsRoomPageQuery>;
 
 const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
   const md = useMd();
   const lg = useLg();
+  const { t } = useTranslation();
 
   const { allMarkdownRemark, allSetAnnouncementJson } = data;
   const news = allMarkdownRemark.edges;
@@ -23,12 +25,13 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
 
   return (
     <MainLayout>
-      <PrimarySection title="หน้าหลักข่าวสาร TH" />
+      {/* Section 1: หน้าหลักข่าวสาร TH */}
+      <PrimarySection title={t('Pages.NewsRoom.MainPage.Section-1.Title')} />
 
-      {/* News */}
+      {/* Section 2: ข่าวประชาสัมพันธ์บริษัท */}
       <section className="px-4 pt-10 md:px-6 lg:px-16 lg:pt-20 max-w-7xl mx-auto">
         <UnderlineHeader
-          title="ข่าวประชาสัมพันธ์บริษัท"
+          title={t('Pages.NewsRoom.MainPage.Section-2.Title')}
           textClassName="text-2xl"
           underlineClassName="bg-neutral-900"
         />
@@ -57,10 +60,10 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
         </Link>
       </section>
 
-      {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
+      {/* Section 3: ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 py-20 md:px-6 lg:px-16 lg:py-28 max-w-7xl mx-auto">
         <UnderlineHeader
-          title="ข่าวแจ้งตลาดหลักทรัพย์"
+          title={t('Pages.NewsRoom.MainPage.Section-3.Title')}
           textClassName="text-2xl"
           underlineClassName="bg-neutral-900"
         />
@@ -92,7 +95,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
 export default NewsRoomPage;
 
 export const query = graphql`
-  query NewsRoomPage {
+  query NewsRoomPage($language: String!) {
     allMarkdownRemark(
       filter: { frontmatter: { slug: { regex: "/newsroom/news/" } } }
       sort: { fields: frontmatter___date, order: DESC }
@@ -121,6 +124,17 @@ export const query = graphql`
           title
           createdAt
           pdf
+        }
+      }
+    }
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

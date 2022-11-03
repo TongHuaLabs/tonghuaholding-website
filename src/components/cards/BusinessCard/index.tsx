@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Link } from 'gatsby';
 import React from 'react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type BusinessCardProps = {
   image?: IGatsbyImageData;
@@ -18,6 +19,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
   to,
   className,
 }) => {
+  const { t } = useTranslation();
   return (
     <Link
       to={to || '/'}
@@ -35,7 +37,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
           {description}
         </span>
       </div>
-      <ReadMoreButton />
+      <ReadMoreButton title={t('Components.ReadMoreButton.Title')} />
     </Link>
   );
 };

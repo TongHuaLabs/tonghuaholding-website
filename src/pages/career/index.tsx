@@ -44,10 +44,12 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         />
         <div className="absolute top-0 z-20 w-full h-full flex flex-col text-center justify-center space-y-4 px-4 md:px-28 lg:px-16">
           <h2 className="text-4xl font-bold md:text-5xl text-neutral-50">
-            {t('section-1-title')}
+            {/* LIFE @TONG HUA */}
+            {t('Pages.Career.Section-1.Title')}
           </h2>
           <p className="text-xl md:text-2xl font-medium text-neutral-50">
-            {t('section-1-excerpt')}
+            {/* Let’s start something new with Powerful energy. */}
+            {t('Pages.Career.Section-1.Desc')}
           </p>
         </div>
       </section>
@@ -55,10 +57,12 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
       {/* Section 2: Core Value */}
       <section className="flex flex-col items-center justify-center px-4 md:px-6 py-20 lg:py-28 lg:px-36 bg-primary-main">
         <h2 className="text-4xl whitespace-pre-line md:whitespace-normal font-medium text-center text-neutral-50">
-          {t('section-2-title')}
+          {/* Our Core Values */}
+          {t('Pages.Career.Section-2.Title')}
         </h2>
         <p className="mt-6 text-xl max-w-3xl mx-auto text-center text-neutral-50">
-          {t('section-2-excerpt')}
+          {/* เราปรับตัวเข้ากับเทรนด์ในทุกยุคทุกสมัยด้วยการพัฒนานวัตกรรมในการสร้างสรรค์โซลูชันใหม่ */}
+          {t('Pages.Career.Section-2.Desc')}
         </p>
         <div className="mt-10 w-full flex flex-col sm:flex-row sm:flex-wrap max-w-5xl mx-auto">
           {dna?.map((item, key) => {
@@ -77,7 +81,8 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
       {/* Section 3: Thoughts From Our Team */}
       <section className="overflow-hidden py-20 lg:py-28 space-y-6">
         <h2 className="text-2xl font-bold text-center">
-          {t('section-3-title')}
+          {/* Thoughts From Our Team */}
+          {t('Pages.Career.Section-3.Title')}
           <hr className="w-16 h-1 mx-auto mt-2 bg-primary-main" />
         </h2>
         <div className="px-4 md:px-6 lg:px-16 2xl:px-0 max-w-7xl mx-auto relative">
@@ -116,7 +121,8 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         <DotPattern className="text-primary-main z-0 absolute top-8 opacity-70 left-0" />
         <div className="py-20 px-4 md:px-6 lg:px-16">
           <h2 className="text-3xl relative font-medium">
-            {t('section-5-title')}
+            {/* โอกาสร่วมงานกับเรา */}
+            {t('Pages.Career.Section-5.Title')}
           </h2>
           <hr className="h-px mt-2 border-0 bg-neutral-900" />
           <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
@@ -204,7 +210,7 @@ export const query = graphql`
       }
     }
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "career" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

@@ -6,6 +6,7 @@ import DotPattern from '@/images/dot-pattern.inline.svg';
 import Circles from '@/images/circles.inline.svg';
 import classNames from 'classnames';
 import OutlineButton from '@/components/buttons/OutlineButton';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type ContactInvestorSectionProps = {
   className?: string;
@@ -14,6 +15,7 @@ type ContactInvestorSectionProps = {
 const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
   className,
 }) => {
+  const { t } = useTranslation();
   return (
     <section
       className={classNames('bg-neutral-700 overflow-hidden', className)}
@@ -21,7 +23,8 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
       <div className="flex relative z-10 flex-col space-y-6 py-20 items-center px-4 md:px-6 lg:px-16 max-w-7xl mx-auto">
         <DotPattern className="absolute top-4 left-4 text-neutral-200 md:left-auto md:right-14 opacity-50" />
         <h2 className="text-neutral-50 relative text-3xl font-bold text-center">
-          ติดต่อนักลงทุนสัมพันธ์
+          {/* ติดต่อนักลงทุนสัมพันธ์ */}
+          {t('Components.ContactInvestorSection.Title')}
         </h2>
         <PhoneCall
           phone="02-236-9171"
@@ -38,7 +41,10 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
           className="mt-2 underline underline-offset-1 text-neutral-50"
         />
         <Link to="/investor">
-          <OutlineButton title="ข้อมูลการลงทุน" />
+          {/* ข้อมูลการลงทุน */}
+          <OutlineButton
+            title={t('Components.ContactInvestorSection.ReadMoreButton')}
+          />
         </Link>
         <Circles className="absolute -bottom-4 md:left-14 md:bottom-0" />
       </div>

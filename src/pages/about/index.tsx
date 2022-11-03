@@ -45,7 +45,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   return (
     <MainLayout>
       {/* Section 1: ข้อมูลบริษัท */}
-      <PrimarySection title={t('section-1-title')} />
+      <PrimarySection title={t('Pages.About.MainPage.Section-1.Title')} />
       <section className="px-4 pt-10 lg:pt-20 lg:px-16 flex flex-col items-center max-w-7xl mx-auto space-y-10">
         {about && (
           <>
@@ -82,7 +82,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       <section className="relative flex flex-col px-4 pt-16 lg:px-16 md:pt-20 max-w-5xl mx-auto space-y-10 lg:space-y-4 xl:flex-row-reverse xl:items-center xl:max-w-7xl xl:space-y-0 xl:justify-between">
         <DotPattern className="hidden text-primary-main z-10 absolute top-20 right-0 xl:block" />
         <div className="flex flex-col xl:w-[48.5%]">
-          <h2 className="font-bold text-3xl mb-5">{t('section-2-title')}</h2>
+          <h2 className="font-bold text-3xl mb-5">
+            {t('Pages.About.MainPage.Section-2.Title')}
+          </h2>
           {timeline &&
             timeline.map((item, key) => {
               const { title, description } = item || {};
@@ -101,20 +103,20 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       <section className="pt-16 pb-20 md:py-20 space-y-16 md:space-y-20 px-4 sm:px-28 lg:pb-28 max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center">
           <UnderlineHeader
-            title={t('section-3-title')}
+            title={t('Pages.About.MainPage.Section-3.Title')}
             className="items-center"
             textClassName="text-3xl"
             underlineClassName="bg-primary-main w-16"
           />
           <MissionQuoteSVG className="w-12 h-12 mt-5 text-primary-surface" />
           <h3 className="text-2xl font-bold text-primary-main mt-6 text-center whitespace-normal sm:whitespace-pre-line leading-relaxed">
-            {t('section-3-excerpt')}
+            {t('Pages.About.MainPage.Section-3.Desc')}
           </h3>
         </div>
 
         <div className="flex flex-col items-center justify-center">
           <UnderlineHeader
-            title={t('section-3.1-title')}
+            title={t('Pages.About.MainPage.Section-3-1.Title')}
             className="items-center"
             textClassName="text-3xl"
             underlineClassName="bg-primary-main w-14"
@@ -215,7 +217,7 @@ export const query = graphql`
       }
     }
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "about" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

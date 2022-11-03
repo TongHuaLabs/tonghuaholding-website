@@ -1,0 +1,174 @@
+{
+  "Pages": {
+    "Home": {
+      "Section-1": {
+        "Title": "TONG HUA\nHOLDING PCL.",
+        "Desc": "ตงฮั้ว โฮลดิ้ง จำกัด มหาชน 62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยั่งยืน"
+      },
+      "Section-2": {
+        "Title": "62 Years of\nStability & Integrity"
+      },
+      "Section-3": {
+        "Title": "ประเภทธุรกิจของเรา"
+      },
+      "Section-4": {
+        "Title": "บริษัทย่อยในเครือ"
+      },
+      "Section-5": {
+        "Title": "ข่าวสาร TH",
+        "ReadMoreButton": "ดูเพิ่มเติม"
+      },
+      "Section-6": {
+        "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
+        "ReadMoreButton": "ดูเพิ่มเติม"
+      }
+    },
+    "About": {
+      "MainPage": {
+        "Section-1": {
+          "Title": "ข้อมูลบริษัท"
+        },
+        "Section-2": {
+          "Title": "เหตุการณ์สำคัญ"
+        },
+        "Section-3": {
+          "Title": "วิสัยทัศน์",
+          "Desc": "ดำเนินธุรกิจด้วยความซื่อสัตย์และมั่นคง\nพร้อมก้าวสู่ยุคใหม่เพื่อขยายธุรกิจให้เติบโตอย่างยั่งยืน"
+        },
+        "Section-3-1": {
+          "Title": "วิสัยทัศน์"
+        }
+      },
+      "OrgChartPage": {
+        "Section-1": {
+          "Title": "โครงสร้างองค์กร"
+        },
+        "Section-2": {
+          "Title": "ณ เดือนกันยายน 2565"
+        }
+      },
+      "BodPage": {
+        "Section-1": {
+          "Title": "คณะกรรมการบริษัท"
+        },
+        "Section-1-1": {
+          "Title": "คณะกรรมการบริษัท"
+        }
+      }
+    },
+    "Businesses": {
+      "Section-2": {
+        "Title": "เกี่ยวกับบริษัท"
+      }
+    },
+    "Career": {
+      "Section-1": {
+        "Title": "LIFE @TONG HUA",
+        "Desc": "Let’s start something new with Powerful energy."
+      },
+      "Section-2": {
+        "Title": "Our Core Values",
+        "Desc": "เราปรับตัวเข้ากับเทรนด์ในทุกยุคทุกสมัยด้วยการพัฒนานวัตกรรมในการสร้างสรรค์โซลูชันใหม่ ๆ พร้อมด้วยการร่วมมือกันของทีมที่กระตือรือร้นที่จะเรียนรู้และเติบโต เสริมด้วยวัฒนธรรมองค์กรที่เปิดกว้างในการรับฟังทุกความคิดเห็นของทุกคน"
+      },
+      "Section-3": {
+        "Title": "Thoughts From Our Team"
+      },
+      "Section-5": {
+        "Title": "โอกาสร่วมงานกับเรา"
+      }
+    },
+    "Contact": {
+      "Section-1": {
+        "Title": "ติดต่อเรา"
+      },
+      "Section-2": {
+        "Title": "กรุณาติดต่อเรา หากท่านต้องการสอบถามข้อมูลเพิ่มเติม"
+      },
+      "Section-2-1": {
+        "Title": "ติดต่อส่วนกลาง"
+      },
+      "Section-2-2": {
+        "Title": "วันเวลาทำการ"
+      },
+      "Section-2-2-1": {
+        "Title": "วันทำการ: วัน จันทร์ - ศุกร์"
+      },
+      "Section-2-2-2": {
+        "Title": "เวลาทำการ: 09.00 น. - 17.30 น."
+      },
+      "Section-2-3": {
+        "Title": "ที่อยู่บริษัท"
+      },
+      "Section-2-3-1": {
+        "Title": "877-881 เจริญกรุง ตลาดน้อย สัมพันธวงศ์\nกรุงเทพมหานคร 10100"
+      }
+    },
+    "Investor": {
+      "Section-1": {
+        "Title": "Welcome to\nInvestor Relations",
+        "ContactButton": "ติดต่อนักลงทุนสัมพันธ์"
+      },
+      "Section-2": {
+        "Title": "จุดเด่นหุ้น TH"
+      },
+      "Section-3": {
+        "Title": "ผลประกอบการ"
+      },
+      "Section-4": {
+        "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
+        "ReadMoreButton": "ดูเพิ่มเติม"
+      },
+      "Section-5": {
+        "Title": "เอกสารเผยแพร่ทั้งหมด"
+      }
+    },
+    "NewsRoom": {
+      "MainPage": {
+        "Section-1": {
+          "Title": "หน้าหลักข่าวสาร TH"
+        },
+        "Section-2": {
+          "Title": "ข่าวประชาสัมพันธ์บริษัท"
+        },
+        "Section-3": {
+          "Title": "ข่าวแจ้งตลาดหลักทรัพย์"
+        }
+      },
+      "AllDocumentPage": {
+        "Section-1": {
+          "Title": "เอกสารเผยแพร่ทั้งหมด"
+        }
+      },
+      "AllNewsPage": {
+        "Section-1": {
+          "List-1": "ข่าวสาร TH ทั้งหมด",
+          "List-2": "ข่าวสาร CSR ทั้งหมด"
+        }
+      },
+      "AllSetAnnouncementPage": {
+        "Section-1": {
+          "Title": "ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด"
+        }
+      }
+    },
+    "NOTFOUND": {}
+  },
+  "Components": {
+    "ContactInfoSection": {
+      "Title": "ข้อมูลการติดต่อ"
+    },
+    "ContactInvestorSection": {
+      "Title": "ติดต่อนักลงทุนสัมพันธ์",
+      "ReadMoreButton": "ข้อมูลการลงทุน"
+    },
+    "BusinessesSection": {
+      "Title": "บริษัทย่อยในเครือ"
+    },
+    "SeeAllButton": {
+      "Title": "อ่านทั้งหมด"
+    },
+    "ReadMoreButton": {
+      "Title": "อ่านเพิ่มเติม"
+    }
+  }
+}

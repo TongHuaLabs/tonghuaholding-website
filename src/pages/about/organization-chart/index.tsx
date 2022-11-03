@@ -12,10 +12,12 @@ const OrganizationChart: React.FC<OrganizationChartProps> = () => {
   return (
     <MainLayout>
       {/* Section 1: โครงสร้างองค์กร */}
-      <PrimarySection title={t('section-1-title')} />
+      <PrimarySection title={t('Pages.About.OrgChartPage.Section-1.Title')} />
       {/* Section 2: ณ เดือนกันยายน 2565 */}
       <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto space-y-10">
-        <h2 className="text-neutral-900 font-bold">{t('section-2-title')}</h2>
+        <h2 className="text-neutral-900 font-bold">
+          {t('Pages.About.OrgChartPage.Section-2.Title')}
+        </h2>
         <StaticImage
           src="../../../images/organization-chart.jpeg"
           alt="tonghuaholding organization chart"
@@ -31,7 +33,7 @@ export default OrganizationChart;
 export const query = graphql`
   query OrganizationChartPage($language: String!) {
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "org-chart" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

@@ -17,12 +17,12 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
   return (
     <MainLayout>
       {/* Section 1: ติดต่อเรา */}
-      <PrimarySection title={t('section-1-title')} />
+      <PrimarySection title={t('Pages.Contact.Section-1.Title')} />
 
       {/* Section 2: ติดต่อส่วนกลาง & ติดต่อฝ่ายบัญชี */}
       <section className="px-4 md:flex-row py-10 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
         <UnderlineHeader
-          title={t('section-2-title')}
+          title={t('Pages.Contact.Section-2.Title')}
           textClassName="text-2xl"
           underlineClassName="w-12 bg-primary-main"
         />
@@ -30,7 +30,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
           <div className="flex flex-col md:flex-row space-y-10 md:space-y-0">
             {/* Section 2.1: ติดต่อส่วนกลาง */}
             <div className="flex flex-col md:w-1/2">
-              <Badge title={t('section-2-1-title')} />
+              <Badge title={t('Pages.Contact.Section-2-1.Title')} />
               <PhoneCall
                 phone="02-236-9171"
                 tel="+66223691711"
@@ -54,29 +54,29 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
             {/* Section 2.2: วันเวลาทำการ */}
             <div className="flex flex-col md:w-1/2">
               <UnderlineHeader
-                title={t('section-2-2-title')}
+                title={t('Pages.Contact.Section-2-2.Title')}
                 textClassName="text-2xl"
                 underlineClassName="w-12 bg-primary-main"
               />
               <p className="text-neutral-600 font-medium lg:text-lg mt-4">
                 {/* Section 2.2.1: วันทำการ: วัน จันทร์ - ศุกร์ */}
-                {t('section-2-2-1-title')}
+                {t('Pages.Contact.Section-2-2-1.Title')}
               </p>
               <p className="text-neutral-600 font-medium lg:text-lg">
                 {/* Section 2.2.2: เวลาทำการ: 08.30 น. - 17.30 น. */}
-                {t('section-2-2-2-title')}
+                {t('Pages.Contact.Section-2-2-2.Title')}
               </p>
             </div>
             {/* Section 2.3: ที่อยู่บริษัท */}
             <div className="flex flex-col md:w-1/2">
               <UnderlineHeader
-                title={t('section-2-3-title')}
+                title={t('Pages.Contact.Section-2-3.Title')}
                 textClassName="text-2xl"
                 underlineClassName="w-12 bg-primary-main"
               />
               <p className="text-neutral-600 whitespace-pre-line font-medium lg:text-lg mt-4">
                 {/* Section 2.3.1: 877-881 เจริญกรุง ตลาดน้อย สัมพันธวงศ์ กรุงเทพมหานคร 10100 */}
-                {t('section-2-3-1-title')}
+                {t('Pages.Contact.Section-2-3-1.Title')}
               </p>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default ContactUsPage;
 export const query = graphql`
   query ContactUsPage($language: String!) {
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "contact" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

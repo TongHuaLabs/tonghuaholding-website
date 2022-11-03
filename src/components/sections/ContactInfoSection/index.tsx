@@ -3,6 +3,7 @@ import UnderlineHeader from '@/components/UnderlineHeader';
 import PhoneCall from '@/components/information/PhoneCall';
 import MailTo from '@/components/information/MailTo';
 import classNames from 'classnames';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type ContactInfoSectionProps = {
   iframeUrl: string;
@@ -20,6 +21,7 @@ const ContactInfoSection: React.FC<ContactInfoSectionProps> = ({
   mail,
   className,
 }) => {
+  const { t } = useTranslation();
   return (
     <section
       className={classNames('flex flex-col md:flex-row-reverse', className)}
@@ -32,8 +34,9 @@ const ContactInfoSection: React.FC<ContactInfoSectionProps> = ({
         referrerPolicy="no-referrer-when-downgrade"
       />
       <div className="flex flex-col h-80 bg-primary-main md:w-1/2 px-6 lg:px-24 xl:px-32 md:px-8 md:h-96 justify-center">
+        {/* ข้อมูลการติดต่อ */}
         <UnderlineHeader
-          title="ข้อมูลการติดต่อ"
+          title={t('Components.ContactInfoSection.Title')}
           textClassName="text-neutral-50 text-2xl"
           underlineClassName="w-12 bg-neutral-200"
         />

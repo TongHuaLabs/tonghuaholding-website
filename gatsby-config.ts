@@ -94,7 +94,7 @@ export const plugins = [
         interpolation: {
           escapeValue: false,
         },
-        keySeparator: false,
+        keySeparator: '.',
         nsSeparator: false,
       },
       generateDefaultLanguagePage: true,

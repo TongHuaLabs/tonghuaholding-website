@@ -58,10 +58,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <div className="h-full w-full absolute top-0 z-20 px-6 flex flex-col items-left md:items-center justify-center">
           <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
             <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
-              {t('section-1-title')}
+              {t('Pages.Home.Section-1.Title')}
             </h1>
             <h2 className="text-lg w-2/3 sm:w-full sm:whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
-              {t('section-1-excerpt')}
+              {t('Pages.Home.Section-1.Desc')}
             </h2>
           </div>
           <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
@@ -72,7 +72,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       {/* Section 2: 62 Years of Stability & Integrity */}
       <section className="relative px-4 md:px-6 lg:px-16 py-20 lg:py-28 max-w-7xl mx-auto overflow-hidden xl:overflow-visible">
         <UnderlineHeader
-          title={t('section-2-title')}
+          title={t('Pages.Home.Section-2.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl whitespace-pre-line"
           underlineClassName="bg-primary-main w-16"
@@ -125,7 +125,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       {/* Section 3: ประเภทธุรกิจของเรา */}
       <section className="relative py-20 lg:py-28">
         <UnderlineHeader
-          title={t('section-3-title')}
+          title={t('Pages.Home.Section-3.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl text-neutral-900"
           underlineClassName="bg-primary-main w-16"
@@ -160,7 +160,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       {/* Section 4: บริษัทย่อยในเครือ */}
       <section className="pt-20 lg:pt-28">
         <UnderlineHeader
-          title={t('section-4-title')}
+          title={t('Pages.Home.Section-4.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl"
           underlineClassName="bg-primary-main w-16"
@@ -190,7 +190,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       {/* Section 5: ข่าวสาร TH */}
       <section className="pl-4 pr-5 md:px-6 lg:px-16 pt-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
-          title={t('section-5-title')}
+          title={t('Pages.Home.Section-5.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl"
           underlineClassName="bg-primary-main w-16"
@@ -213,14 +213,17 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           })}
         </div>
         <Link to="/newsroom/all-news" className="flex w-max mx-auto">
-          <PrimaryButton title="ดูเพิ่มเติม" className="text-sm font-medium" />
+          <PrimaryButton
+            title={t('Pages.Home.Section-5.ReadMoreButton')}
+            className="text-sm font-medium"
+          />
         </Link>
       </section>
 
       {/* Section 6: ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 md:px-6 lg:px-16 pt-20 pb-20 lg:pt-28 lg:pb-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
-          title={t('section-6-title')}
+          title={t('Pages.Home.Section-6.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl"
           underlineClassName="bg-primary-main w-16"
@@ -243,7 +246,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           to="/newsroom/all-set-announcement"
           className="flex w-max mx-auto"
         >
-          <PrimaryButton title="ดูเพิ่มเติม" className="text-sm font-medium" />
+          <PrimaryButton
+            title={t('Pages.Home.Section-6.ReadMoreButton')}
+            className="text-sm font-medium"
+          />
         </Link>
       </section>
 
@@ -342,7 +348,7 @@ export const query = graphql`
       }
     }
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "home" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

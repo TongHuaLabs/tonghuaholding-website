@@ -1,8 +1,26 @@
 [
   {
-    "createdAt": "2022-06-01",
-    "title": "TH 56-1 One Report",
-    "pdf": "TH_56-1_One_Final.pdf",
-    "cover": "../../images/THAM-annual-report-cover-f.png"
+    "createdAt": "2018",
+    "title": "รายงานประจำปี 2561",
+    "pdf": "THT1_2018.pdf",
+    "cover": "../../images/THT1-cover-2018.png"
+  },
+  {
+    "createdAt": "2019",
+    "title": "รายงานประจำปี 2562",
+    "pdf": "THT1_2019.pdf",
+    "cover": "../../images/THT1-cover-2019.png"
+  },
+  {
+    "createdAt": "2020",
+    "title": "รายงานประจำปี 2563",
+    "pdf": "THT1_2020.pdf",
+    "cover": "../../images/THT1-cover-2020.png"
+  },
+  {
+    "createdAt": "2021",
+    "title": "56-1 One Report ประจำปี 2564",
+    "pdf": "THT1_2021.pdf",
+    "cover": "../../images/THT1-cover-2021.png"
   }
 ]

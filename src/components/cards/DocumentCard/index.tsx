@@ -29,7 +29,7 @@ const DocumentCard: React.FC<DocumentCardProps> = ({
           <GatsbyImage
             alt={title || ''}
             image={coverImage}
-            className="object-cover w-full h-full rounded-lg"
+            className="object-cover w-full h-full rounded-lg border border-primary-main"
           />
         </div>
       )}

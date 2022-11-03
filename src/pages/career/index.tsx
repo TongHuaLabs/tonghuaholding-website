@@ -71,7 +71,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
               <DNA
                 text={dna}
                 key={key}
-                className="w-full sm:w-1/2 md:w-1/3 py-6"
+                className="w-full sm:w-1/2 md:w-1/3 py-5"
               />
             );
           })}

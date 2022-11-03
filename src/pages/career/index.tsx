@@ -193,7 +193,7 @@ export const query = graphql`
     allMarkdownRemark(
       filter: { frontmatter: { slug: { regex: "/career/blog/" } } }
       sort: { fields: frontmatter___date, order: DESC }
-      limit: 3
+      limit: 12
     ) {
       edges {
         node {

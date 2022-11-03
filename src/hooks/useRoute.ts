@@ -21,7 +21,7 @@ const routeTH: RouteType[] = [
         href: '/about/',
       },
       {
-        title: 'โครงสร้างองค์กร',
+        title: 'โครงสร้างกลุ่มบริษัท',
         href: '/about/organization-chart/',
       },
       {

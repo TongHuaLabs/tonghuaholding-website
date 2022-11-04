@@ -44,6 +44,14 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
 
   const setAnnouncement = allSetAnnouncementJson.edges.slice(0, lg ? 6 : 4);
 
+  const scrollToInvestorContactId = () => {
+    const ele = document.getElementById('contact-investor');
+    ele?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
   return (
     <MainLayout>
       <Seo
@@ -70,6 +78,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
               <OutlineButton
                 title={t('Pages.Investor.Section-1.ContactButton')}
                 className="border-neutral-50 text-neutral-50"
+                onClick={() => scrollToInvestorContactId()}
               />
             </div>
             <StockPriceCard className="w-full lg:w-2/5" {...stockProps} />

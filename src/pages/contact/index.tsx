@@ -36,13 +36,13 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
               <Badge title={t('Pages.Contact.Section-2-1.Title')} />
               <PhoneCall
                 phone="02-236-9171"
-                tel="+66223691711"
+                tel="+6622369171"
                 className="mt-4 hover:underline hover:decoration-primary-main max-w-max"
                 textClassName="text-primary-main lg:text-lg"
               />
               <PhoneCall
                 phone="02-236-9172"
-                tel="+66223691712"
+                tel="+6622369172"
                 className="mt-4 hover:underline hover:decoration-primary-main max-w-max"
                 textClassName="text-primary-main lg:text-lg"
               />

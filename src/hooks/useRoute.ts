@@ -59,11 +59,11 @@ const routeTH: RouteType[] = [
     title: 'ข่าวและกิจกรรม',
     menu: [
       { title: 'หน้าหลักข่าวสาร TH', href: '/newsroom/' },
-      {
-        title: 'ข่าวประชาสัมพันธ์บริษัท',
-        href: '/newsroom/all-news/',
-        indent: true,
-      },
+      // {
+      //   title: 'ข่าวประชาสัมพันธ์บริษัท',
+      //   href: '/newsroom/all-news/',
+      //   indent: true,
+      // },
       {
         title: 'ข่าวแจ้งตลาดหลักทรัพย์',
         href: '/newsroom/all-set-announcement/',
@@ -129,11 +129,11 @@ const routeEN: RouteType[] = [
     title: 'News Room',
     menu: [
       { title: 'News Room', href: '/newsroom/' },
-      {
-        title: 'All News',
-        href: '/newsroom/all-news/',
-        indent: true,
-      },
+      // {
+      //   title: 'All News',
+      //   href: '/newsroom/all-news/',
+      //   indent: true,
+      // },
       {
         title: 'Set Announcement',
         href: '/newsroom/all-set-announcement/',

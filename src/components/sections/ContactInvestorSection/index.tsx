@@ -18,6 +18,7 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
   const { t } = useTranslation();
   return (
     <section
+      id="contact-investor"
       className={classNames('bg-neutral-700 overflow-hidden', className)}
     >
       <div className="flex relative z-10 flex-col space-y-6 py-20 items-center px-4 md:px-6 lg:px-16 max-w-7xl mx-auto">
@@ -28,12 +29,12 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
         </h2>
         <PhoneCall
           phone="02-236-9171"
-          tel="+66223691711"
+          tel="+6622369171"
           className="underline underline-offset-1 text-neutral-50"
         />
         <PhoneCall
           phone="02-236-9172"
-          tel="+66223691712"
+          tel="+6622369172"
           className="underline underline-offset-1 text-neutral-50"
         />
         <MailTo

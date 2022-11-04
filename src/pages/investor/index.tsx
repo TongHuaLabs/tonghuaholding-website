@@ -49,7 +49,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
       <section className="h-[75vh] relative">
         <div className="bg-black/40 absolute z-10 w-full h-full" />
         <StaticImage
-          src="../../images/career-office.png"
+          src="../../images/investor-relation-cover.png"
           alt="Tong Hua Holding Investor"
           className="w-full h-full object-cover absolute z-0"
         />

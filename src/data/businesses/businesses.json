@@ -7,11 +7,7 @@
         "title": "บริษัท ตงฮั้ว แคปปิตอล จำกัด",
         "to": "/businesses/tonghua-capital/",
         "description": "ดำเนินธุรกิจสินเชื่อแฟคตอริ่งบริการวงเงินกู้หมุนเวียนระยะสั้น",
-        "slides": [
-          "../../images/chula-foundation.jpeg",
-          "../../images/competition.jpeg",
-          "../../images/the-new-china.webp"
-        ]
+        "slides": ["../../images/THC-1.png", "../../images/THC-2.png"]
       },
       {
         "image": "../../images/tonghua-asset-management.png",
@@ -19,9 +15,9 @@
         "to": "/businesses/tonghua-asset-management/",
         "description": "ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ",
         "slides": [
-          "../../images/chula-foundation.jpeg",
-          "../../images/competition.jpeg",
-          "../../images/the-new-china.webp"
+          "../../images/THAM-1.png",
+          "../../images/THAM-2.png",
+          "../../images/THAM-3.png"
         ]
       },
       {
@@ -29,11 +25,7 @@
         "title": "บริษัท ตงฮั้ว แอสเซท จำกัด",
         "to": "/businesses/tonghua-asset/",
         "description": "ดำเนินธุรกิจให้เช่าพื้นที่เพื่อจำหน่ายสินค้าและบริการ",
-        "slides": [
-          "../../images/chula-foundation.jpeg",
-          "../../images/competition.jpeg",
-          "../../images/the-new-china.webp"
-        ]
+        "slides": ["../../images/THA-1.png", "../../images/THA-2.png"]
       },
       {
         "image": "../../images/tonghua-media-labs.png",
@@ -41,9 +33,9 @@
         "to": "/businesses/tonghua-media-labs/",
         "description": "ดำเนินธุรกิจผลิตสื่อและจำหน่ายสิ่งพิมพ์",
         "slides": [
-          "../../images/chula-foundation.jpeg",
-          "../../images/competition.jpeg",
-          "../../images/the-new-china.webp"
+          "../../images/THML-1.png",
+          "../../images/THML-2.png",
+          "../../images/THML-3.png"
         ]
       }
     ]
@@ -56,11 +48,7 @@
         "title": "บริษัท ตงฮั้ว แคปปิตอล จำกัด",
         "to": "/businesses/tonghua-capital/",
         "description": "ดำเนินธุรกิจสินเชื่อแฟคตอริ่งบริการวงเงินกู้หมุนเวียนระยะสั้น",
-        "slides": [
-          "../../images/chula-foundation.jpeg",
-          "../../images/competition.jpeg",
-          "../../images/the-new-china.webp"
-        ]
+        "slides": ["../../images/THC-1.png", "../../images/THC-2.png"]
       },
       {
         "image": "../../images/tonghua-asset-management.png",
@@ -68,9 +56,9 @@
         "to": "/businesses/tonghua-asset-management/",
         "description": "ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ",
         "slides": [
-          "../../images/chula-foundation.jpeg",
-          "../../images/competition.jpeg",
-          "../../images/the-new-china.webp"
+          "../../images/THAM-1.png",
+          "../../images/THAM-2.png",
+          "../../images/THAM-3.png"
         ]
       },
       {
@@ -78,11 +66,7 @@
         "title": "บริษัท ตงฮั้ว แอสเซท จำกัด",
         "to": "/businesses/tonghua-asset/",
         "description": "ดำเนินธุรกิจให้เช่าพื้นที่เพื่อจำหน่ายสินค้าและบริการ",
-        "slides": [
-          "../../images/chula-foundation.jpeg",
-          "../../images/competition.jpeg",
-          "../../images/the-new-china.webp"
-        ]
+        "slides": ["../../images/THA-1.png", "../../images/THA-2.png"]
       },
       {
         "image": "../../images/tonghua-media-labs.png",
@@ -90,9 +74,9 @@
         "to": "/businesses/tonghua-media-labs/",
         "description": "ดำเนินธุรกิจผลิตสื่อและจำหน่ายสิ่งพิมพ์",
         "slides": [
-          "../../images/chula-foundation.jpeg",
-          "../../images/competition.jpeg",
-          "../../images/the-new-china.webp"
+          "../../images/THML-1.png",
+          "../../images/THML-2.png",
+          "../../images/THML-3.png"
         ]
       }
     ]

@@ -8,7 +8,7 @@ import PrimaryButton from '@/components/buttons/PrimaryButton';
 import OurBusiness from '@/components/panel/OurBusiness';
 import classNames from 'classnames';
 import ContactInvestorSection from '@/components/sections/ContactInvestorSection';
-import { useLg } from '@/hooks/responsive';
+import { useLg, useMd } from '@/hooks/responsive';
 import { graphql, PageProps } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import {
@@ -25,6 +25,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const { t } = useTranslation();
 
   const isLg = useLg();
+  const isMd = useMd();
 
   const {
     allCompanyInfoJson,
@@ -57,12 +58,17 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <div className="h-full w-full absolute top-0 z-20 px-6 flex flex-col items-left md:items-center justify-center">
           <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
-            <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
+            <h1 className="text-5xl whitespace-pre-line font-bold md:text-center md:text-6xl md:whitespace-normal text-neutral-50">
               {t('Pages.Home.Section-1.Title')}
             </h1>
-            <h2 className="text-lg w-2/3 sm:w-full sm:whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
-              {t('Pages.Home.Section-1.Desc')}
+            <h2 className="text-2xl whitespace-pre-line font-bold md:text-center md:text-3xl lg:whitespace-normal text-neutral-50">
+              {t('Pages.Home.Section-1-1.Title')}
             </h2>
+            <h3 className="text-xl whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
+              {isMd
+                ? t('Pages.Home.Section-1-1.MDesc')
+                : t('Pages.Home.Section-1-1.SDesc')}
+            </h3>
           </div>
           <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
           <DotPattern className="text-neutral-50 z-10 absolute bottom-2.5 right-3 opacity-80 md:hidden" />

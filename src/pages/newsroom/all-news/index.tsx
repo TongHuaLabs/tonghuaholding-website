@@ -5,6 +5,7 @@ import ListBox, { ListProps } from '@/components/ListBox';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type NewsRoomAllNewsProps = PageProps<GatsbyTypes.NewsRoomAllNewsQuery>;
 
@@ -37,6 +38,11 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.NewsRoom.AllNewsPage.Title')}
+        description={t('Seo.NewsRoom.AllNewsPage.Desc')}
+      />
+
       <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
         <ListBox
           className="w-full md:max-w-xs md:ml-auto"

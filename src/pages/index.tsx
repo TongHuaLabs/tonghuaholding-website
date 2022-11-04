@@ -18,6 +18,7 @@ import {
 } from '@/components/cards';
 import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 import MainLayout from '@/layouts/MainLayout';
+import Seo from '@/components/Seo';
 
 type IndexPageProps = PageProps<GatsbyTypes.IndexPageQuery>;
 
@@ -48,6 +49,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo title={t('Seo.Home.Title')} description={t('Seo.Home.Desc')} />
+
       {/* Section 1: TONG HUA HOLDING PCL. */}
       <section className="landing relative">
         <div className="bg-primary-main/80 absolute z-10 w-full h-full" />

@@ -17,6 +17,7 @@ import OutlineButton from '@/components/buttons/OutlineButton';
 import { StaticImage } from 'gatsby-plugin-image';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type InvestorPageProps = PageProps<GatsbyTypes.InvestorPageQuery>;
 
@@ -45,6 +46,11 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.Investor.Title')}
+        description={t('Seo.Investor.Desc')}
+      />
+
       {/* Section 1: Welcome to Investor Relations */}
       <section className="h-[75vh] relative">
         <div className="bg-black/40 absolute z-10 w-full h-full" />

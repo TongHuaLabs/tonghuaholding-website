@@ -7,6 +7,7 @@ import { useLg, useMd } from '@/hooks/responsive';
 import { SeeAllButton } from '@/components/buttons';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type NewsRoomPageProps = PageProps<GatsbyTypes.NewsRoomPageQuery>;
 
@@ -25,6 +26,11 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.NewsRoom.MainPage.Title')}
+        description={t('Seo.NewsRoom.MainPage.Desc')}
+      />
+
       {/* Section 1: หน้าหลักข่าวสาร TH */}
       <PrimarySection title={t('Pages.NewsRoom.MainPage.Section-1.Title')} />
 

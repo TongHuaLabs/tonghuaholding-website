@@ -4,6 +4,7 @@ import { SetAnnouncementCard } from '@/components/cards';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type NewsRoomAllSetAnnouncementProps =
   PageProps<GatsbyTypes.NewsRoomAllSetAnnouncementQuery>;
@@ -16,6 +17,11 @@ const NewsRoomAllSetAnnouncement: React.FC<NewsRoomAllSetAnnouncementProps> = ({
 
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.NewsRoom.AllSetAnnouncementPage.Title')}
+        description={t('Seo.NewsRoom.AllSetAnnouncementPage.Desc')}
+      />
+
       {/* Section 1: ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด */}
       <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
         {/* ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด */}

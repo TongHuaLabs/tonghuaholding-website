@@ -9,6 +9,7 @@ import DotPattern from '@/images/dot-pattern.inline.svg';
 import MainLayout from '@/layouts/MainLayout';
 import { graphql, PageProps } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type ContactUsPageProps = PageProps<GatsbyTypes.ContactUsPageQuery>;
 
@@ -16,6 +17,8 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
   const { t } = useTranslation();
   return (
     <MainLayout>
+      <Seo title={t('Seo.Contact.Title')} description={t('Seo.Contact.Desc')} />
+
       {/* Section 1: ติดต่อเรา */}
       <PrimarySection title={t('Pages.Contact.Section-1.Title')} />
 

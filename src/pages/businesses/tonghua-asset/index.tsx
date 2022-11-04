@@ -8,6 +8,7 @@ import ContactInfoSection from '@/components/sections/ContactInfoSection';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type TonghuaAssetProps = PageProps<GatsbyTypes.TonghuaAssetPageQueryQuery>;
 
@@ -32,6 +33,11 @@ const TonghuaAsset: React.FC<TonghuaAssetProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.Businesses.THA.Title')}
+        description={t('Seo.Businesses.THA.Desc')}
+      />
+
       {/* Section 1: บริษัท ตงฮั้ว แอสเซท จำกัด */}
       <BrandingSection
         title={title}

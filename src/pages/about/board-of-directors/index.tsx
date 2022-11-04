@@ -5,6 +5,7 @@ import { BODCard } from '@/components/cards';
 import { graphql, PageProps } from 'gatsby';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type BoardOfDirectorsPageProps = PageProps<GatsbyTypes.BoardOfDirectorsQuery>;
 
@@ -14,6 +15,11 @@ const BoardOfDirectors: React.FC<BoardOfDirectorsPageProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.About.BodPage.Title')}
+        description={t('Seo.About.BodPage.Desc')}
+      />
+
       {/* Section 1: คณะกรรมการบริษัท */}
       <PrimarySection title={t('Pages.About.BodPage.Section-1.Title')} />
       <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">

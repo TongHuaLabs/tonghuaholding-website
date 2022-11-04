@@ -1,4 +1,5 @@
 import PrimarySection from '@/components/sections/PrimarySection';
+import Seo from '@/components/Seo';
 import MainLayout from '@/layouts/MainLayout';
 import { graphql, PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -11,6 +12,11 @@ const OrganizationChart: React.FC<OrganizationChartProps> = () => {
   const { t } = useTranslation();
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.About.OrgChartPage.Title')}
+        description={t('Seo.About.OrgChartPage.Desc')}
+      />
+
       {/* Section 1: โครงสร้างองค์กร */}
       <PrimarySection title={t('Pages.About.OrgChartPage.Section-1.Title')} />
       {/* Section 2: ณ เดือนกันยายน 2565 */}

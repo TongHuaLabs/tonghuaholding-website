@@ -15,6 +15,7 @@ import Gallery from '@/components/Gallery';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { useLg } from '@/hooks/responsive';
+import Seo from '@/components/Seo';
 
 type AboutPageProps = PageProps<GatsbyTypes.AboutPageQuery>;
 
@@ -44,6 +45,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.About.MainPage.Title')}
+        description={t('Seo.About.MainPage.Desc')}
+      />
+
       {/* Section 1: ข้อมูลบริษัท */}
       <PrimarySection title={t('Pages.About.MainPage.Section-1.Title')} />
       <section className="px-4 pt-10 lg:pt-20 lg:px-16 flex flex-col items-center max-w-7xl mx-auto space-y-10">

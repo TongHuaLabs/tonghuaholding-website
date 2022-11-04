@@ -11,6 +11,7 @@ import { SwiperSlide } from 'swiper/react';
 import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type CareerPageProps = PageProps<GatsbyTypes.CareerPageQuery>;
 
@@ -34,6 +35,8 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo title={t('Seo.Career.Title')} description={t('Seo.Career.Desc')} />
+
       {/* Section 1: LIFE  @TONG HUA */}
       <section className="h-[75vh] relative">
         <div className="bg-black/40 absolute z-10 w-full h-full" />

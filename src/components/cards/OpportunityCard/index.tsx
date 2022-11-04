@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-react-i18next';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import { ReadMoreButton } from '@/components/buttons';
 import { useTranslation } from 'gatsby-plugin-react-i18next';

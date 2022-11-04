@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-react-i18next';
 import classNames from 'classnames';
 import THHLogo from '@images/tonghua-holding.png';
 import PopoverNavigation from '@/layouts/navigation/PopoverNavigation';

@@ -326,7 +326,12 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { slug: { regex: "/newsroom/news/" } } }
+      filter: {
+        frontmatter: {
+          slug: { regex: "/newsroom/news/" }
+          lang: { eq: $language }
+        }
+      }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 4
     ) {

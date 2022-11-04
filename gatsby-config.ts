@@ -99,13 +99,6 @@ export const plugins = [
       },
       generateDefaultLanguagePage: true,
       redirect: false,
-      // pages: [
-      //   {
-      //     matchPath: '/:lang?/blog/:uid',
-      //     getLanguageFromPath: true,
-      //     excludeLanguages: ['es'],
-      //   },
-      // ],
     },
   },
 ];

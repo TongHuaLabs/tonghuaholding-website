@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-react-i18next';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { Disclosure } from '@headlessui/react';
 import { useRoute } from '@/hooks/useRoute';

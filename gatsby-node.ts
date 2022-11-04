@@ -23,6 +23,7 @@ type AllMarkdownRemark = {
     node: {
       id: string;
       frontmatter: {
+        lang: string;
         slug: string;
       };
     };
@@ -45,6 +46,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
           node {
             id
             frontmatter {
+              lang
               slug
             }
           }
@@ -75,13 +77,25 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const { allMarkdownRemark } = data || {};
 
   allMarkdownRemark?.edges.forEach(({ node }) => {
-    const { id, frontmatter } = node;
-    const { slug } = frontmatter;
+    const { frontmatter } = node;
+    const { lang, slug } = frontmatter;
+
+    {
+      lang === 'th' &&
+        actions.createPage({
+          path: slug,
+          component: path.resolve('src', 'templates', 'MarkdownTemplate.tsx'),
+          context: {
+            slug,
+          },
+        });
+    }
+
     actions.createPage({
-      path: slug,
+      path: `${lang}${slug}`,
       component: path.resolve('src', 'templates', 'MarkdownTemplate.tsx'),
       context: {
-        id,
+        slug,
       },
     });
   });

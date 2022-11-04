@@ -1,6 +1,6 @@
 import { ReadMoreButton } from '@/components/buttons';
 import classNames from 'classnames';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';

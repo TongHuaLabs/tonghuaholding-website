@@ -191,7 +191,12 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { slug: { regex: "/career/blog/" } } }
+      filter: {
+        frontmatter: {
+          slug: { regex: "/career/blog/" }
+          lang: { eq: $language }
+        }
+      }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 12
     ) {

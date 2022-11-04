@@ -6,7 +6,7 @@ import PopoverNavigation from '@/layouts/navigation/PopoverNavigation';
 import { useRoute } from '@/hooks/useRoute';
 import MenuIcon from '@/icons/hamburger-menu.inline.svg';
 import CloseIcon from '@/icons/close.inline.svg';
-import ChangeLocale from '@/components/ChangeLocale';
+// import ChangeLocale from '@/components/ChangeLocale';
 
 type NavbarProps = {
   showClose: boolean;
@@ -57,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({
             />
           )}
         </li>
-        <ChangeLocale />
+        {/* <ChangeLocale /> */}
       </ul>
     </nav>
   );

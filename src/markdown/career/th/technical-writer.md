@@ -7,7 +7,7 @@ contract: Permanent
 slug: /career/blog/technical-writer
 date: 2022-04-06
 ---
-![Technical Content Writer & Researcher (Web3)/นักเขียนเชิงเทคนิค](/images/technical_writer.jpg)
+![Technical Content Writer & Researcher (Web3)/นักเขียนเชิงเทคนิค](../../../images/technical_writer.jpg)
 
 ## Technical Content Writer & Researcher (Web3)/นักเขียนเชิงเทคนิค
 

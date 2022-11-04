@@ -8,7 +8,7 @@ slug: /career/blog/frontend-engineer
 date: 2022-05-22
 ---
 
-![Mid/Senior Frontend Engineer (React/React Native)](/images/senior_frontend_engineer.png)
+![Mid/Senior Frontend Engineer (React/React Native)](../../../images/senior_frontend_engineer.png)
 
 ## Mid/Senior Frontend Engineer (React/React Native)
 

@@ -8,7 +8,7 @@ slug: /career/blog/backend-engineer
 date: 2022-05-22
 ---
 
-![Mid/Senior Backend Engineer (Node.js & TypeScript)](/images/senior_backend_engineer.png)
+![Mid/Senior Backend Engineer (Node.js & TypeScript)](../../../images/senior_backend_engineer.png)
 
 ## Mid/Senior Backend Engineer (Node.js & TypeScript)
 

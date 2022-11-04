@@ -28,6 +28,7 @@ function Seo({
     graphql`
       query Seo {
         site {
+          pathPrefix
           siteMetadata {
             title
             description
@@ -48,9 +49,11 @@ function Seo({
     defaultMetaImage,
   } = site?.siteMetadata || {};
 
+  const { pathPrefix } = site || {};
+
   const metaDescription = description || siteDescription;
   const defaultTitle = siteTitle;
-  const metaImage = `${siteUrl}${image || defaultMetaImage}`;
+  const metaImage = `${siteUrl}${pathPrefix}${image || defaultMetaImage}`;
 
   return (
     <Helmet

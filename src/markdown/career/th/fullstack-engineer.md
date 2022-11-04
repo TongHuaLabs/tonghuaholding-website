@@ -7,7 +7,7 @@ contract: Permanent
 slug: /career/blog/fullstack-engineer
 date: 2022-04-06
 ---
-![Mid/Senior Full-Stack Engineer (React, Node.js & TypeScript)](/images/senior_fullstack_engineer.png)
+![Mid/Senior Full-Stack Engineer (React, Node.js & TypeScript)](../../../images/senior_fullstack_engineer.png)
 
 ## Mid/Senior Full-Stack Engineer (React, Node.js & TypeScript)
 

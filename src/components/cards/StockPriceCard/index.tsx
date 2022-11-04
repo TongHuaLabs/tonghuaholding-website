@@ -2,10 +2,22 @@ import classNames from 'classnames';
 import React from 'react';
 
 type StockPriceCardProps = {
-  price?: string;
-  change?: string;
-  total?: string;
-  updatedAt?: string;
+  price?: {
+    title?: string;
+    value?: string;
+  };
+  change?: {
+    title?: string;
+    value?: string;
+  };
+  total?: {
+    title?: string;
+    value?: string;
+  };
+  updatedAt?: {
+    title?: string;
+    value?: string;
+  };
   className?: string;
 };
 
@@ -25,19 +37,22 @@ const StockPriceCard: React.FC<StockPriceCardProps> = ({
     >
       <div className="flex justify-between items-center border-b border-black pb-2">
         <span className="block text-primary-main text-4xl font-bold">TH</span>
-        <span className="text-xs">ปรับปรุงเมื่อ : {updatedAt}</span>
+        <span className="text-xs">
+          {updatedAt?.title}
+          {updatedAt?.value}
+        </span>
       </div>
       <div className="flex items-center justify-between">
-        <span className="block">ราคาล่าสุด (บาท)</span>
-        <span className="block text-xl">{price}</span>
+        <span className="block">{price?.title}</span>
+        <span className="block text-xl">{price?.value}</span>
       </div>
       <div className="flex items-center justify-between">
-        <span className="block">เปลี่ยนแปลง (%)</span>
-        <span className="block text-xl">{change}</span>
+        <span className="block">{change?.title}</span>
+        <span className="block text-xl">{change?.value}</span>
       </div>
       <div className="flex items-center justify-between">
-        <span className="block">ปริมาณซื้อขาย (หุ้น)</span>
-        <span className="block text-xl">{total}</span>
+        <span className="block">{total?.title}</span>
+        <span className="block text-xl">{total?.value}</span>
       </div>
     </div>
   );

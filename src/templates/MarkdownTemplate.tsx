@@ -47,13 +47,15 @@ const MarkdownTemplate = ({
 export default MarkdownTemplate;
 
 export const pageQuery = graphql`
-  query MarkdownTemplate($id: String!) {
+  query MarkdownTemplate($language: String!, $slug: String!) {
     site {
       siteMetadata {
         siteUrl
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    markdownRemark(
+      frontmatter: { lang: { eq: $language }, slug: { eq: $slug } }
+    ) {
       html
       frontmatter {
         title
@@ -63,6 +65,17 @@ export const pageQuery = graphql`
           childImageSharp {
             gatsbyImageData
           }
+        }
+      }
+    }
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

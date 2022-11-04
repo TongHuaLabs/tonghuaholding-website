@@ -21,7 +21,7 @@ const routeTH: RouteType[] = [
         href: '/about/',
       },
       {
-        title: 'โครงสร้างองค์กร',
+        title: 'โครงสร้างกลุ่มบริษัท',
         href: '/about/organization-chart/',
       },
       {
@@ -46,8 +46,8 @@ const routeTH: RouteType[] = [
         href: '/businesses/tonghua-asset/',
       },
       {
-        title: 'บริษัท ตงฮั้ว มิเดีย แล็บ จำกัด',
-        href: '/businesses/tonghua-media-lab/',
+        title: 'บริษัท ตงฮั้ว มีเดีย แล็บ จำกัด',
+        href: '/businesses/tonghua-media-labs/',
       },
     ],
   },
@@ -117,7 +117,7 @@ const routeEN: RouteType[] = [
       },
       {
         title: 'Tong Hua Media Lab',
-        href: '/businesses/tonghua-media-lab/',
+        href: '/businesses/tonghua-media-labs/',
       },
     ],
   },

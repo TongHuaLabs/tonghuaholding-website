@@ -1,11 +1,48 @@
 [
   {
-    "dna": "Creativity"
+    "language": "en",
+    "data": [
+      {
+        "dna": "Innovation"
+      },
+      {
+        "dna": "Creativity"
+      },
+      {
+        "dna": "Adaptability"
+      },
+      {
+        "dna": "Team Spirit"
+      },
+      {
+        "dna": "Openness"
+      },
+      {
+        "dna": "Learning & Growth"
+      }
+    ]
   },
   {
-    "dna": "Analysis"
-  },
-  {
-    "dna": "Dynamic"
+    "language": "th",
+    "data": [
+      {
+        "dna": "Innovation"
+      },
+      {
+        "dna": "Creativity"
+      },
+      {
+        "dna": "Adaptability"
+      },
+      {
+        "dna": "Team Spirit"
+      },
+      {
+        "dna": "Openness"
+      },
+      {
+        "dna": "Learning & Growth"
+      }
+    ]
   }
 ]

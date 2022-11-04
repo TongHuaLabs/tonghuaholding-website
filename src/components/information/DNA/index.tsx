@@ -1,5 +1,4 @@
 import React from 'react';
-import DNASvg from '@/icons/dna.inline.svg';
 import classNames from 'classnames';
 
 type DNAProps = {
@@ -9,16 +8,11 @@ type DNAProps = {
 
 const DNA: React.FC<DNAProps> = ({ text, className }) => {
   return (
-    <div className="flex flex-col items-center">
-      <div
-        className={classNames(
-          `w-14 h-14 flex rounded-full items-center justify-center bg-neutral-50`,
-          className,
-        )}
-      >
-        <DNASvg className="w-6 h-6" />
-      </div>
-      <span className="text-lg font-bold text-neutral-50 mt-3">{text}</span>
+    <div
+      className={classNames(`flex flex-col items-center space-y-2`, className)}
+    >
+      <div className="w-3 h-3 rounded-full bg-neutral-50" />
+      <span className="text-lg font-bold text-neutral-50">{text}</span>
     </div>
   );
 };

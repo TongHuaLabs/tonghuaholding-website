@@ -7,30 +7,30 @@
         "description": "Years"
       },
       {
-        "title": "1991",
-        "description": "IPO"
-      },
-      {
         "title": "4",
-        "description": "Companies"
+        "description": "Affiliates"
       },
       {
         "title": "3",
         "description": "Industries"
+      },
+      {
+        "title": "1.4B",
+        "description": "Wealth"
       }
     ],
     "images": [
       {
-        "url": "../../images/image_1.png"
+        "url": "../../images/business-overview-square1.png"
       },
       {
-        "url": "../../images/image_2.png"
+        "url": "../../images/business-overview-square2.png"
       },
       {
-        "url": "../../images/image_3.png"
+        "url": "../../images/business-overview-square3.png"
       },
       {
-        "url": "../../images/image_4.png"
+        "url": "../../images/business-overview-square4.png"
       }
     ]
   },
@@ -39,33 +39,33 @@
     "info": [
       {
         "title": "62",
-        "description": "ปี"
-      },
-      {
-        "title": "1991",
-        "description": "ไอพีโอ"
+        "description": "Years"
       },
       {
         "title": "4",
-        "description": "บริษัท"
+        "description": "Affiliates"
       },
       {
         "title": "3",
-        "description": "อุตสาหกรรม"
+        "description": "Industries"
+      },
+      {
+        "title": "1.4B",
+        "description": "Wealth"
       }
     ],
     "images": [
       {
-        "url": "../../images/image_1.png"
+        "url": "../../images/business-overview-square1.png"
       },
       {
-        "url": "../../images/image_2.png"
+        "url": "../../images/business-overview-square2.png"
       },
       {
-        "url": "../../images/image_3.png"
+        "url": "../../images/business-overview-square3.png"
       },
       {
-        "url": "../../images/image_4.png"
+        "url": "../../images/business-overview-square4.png"
       }
     ]
   }

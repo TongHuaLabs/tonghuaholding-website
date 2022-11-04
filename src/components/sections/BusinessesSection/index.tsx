@@ -4,30 +4,23 @@ import { BusinessCard } from '@/components/cards';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import Circles from '@/images/circles.inline.svg';
 import classNames from 'classnames';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type BusinessesSectionProps = {
-  allBusinessesJson: {
-    readonly edges: readonly {
-      readonly node: Pick<
-        GatsbyTypes.BusinessesJson,
-        'title' | 'description' | 'to' | 'key'
-      > & {
-        readonly image: GatsbyTypes.Maybe<{
-          readonly childImageSharp: GatsbyTypes.Maybe<
-            Pick<GatsbyTypes.ImageSharp, 'gatsbyImageData'>
-          >;
-        }>;
-        readonly slides: any;
-      };
-    }[];
-  };
+  businesses?: {
+    title?: string;
+    image?: GatsbyTypes.ImageSharp['gatsbyImageData'];
+    description?: string;
+    to?: string;
+  }[];
   className?: string;
 };
 
 const BusinessesSection: React.FC<BusinessesSectionProps> = ({
-  allBusinessesJson,
+  businesses,
   className,
 }) => {
+  const { t } = useTranslation();
   return (
     <section
       className={classNames(
@@ -36,14 +29,14 @@ const BusinessesSection: React.FC<BusinessesSectionProps> = ({
       )}
     >
       <UnderlineHeader
-        title="บริษัทย่อยในเครือ"
+        title={t('Components.BusinessesSection.Title')}
         className="items-center"
         textClassName="text-3xl text-center lg:text-4xl text-neutral-50"
         underlineClassName="bg-primary-main w-16"
       />
       <div className="flex relative z-10 overflow-x-scroll hide-scrollbar md:px-6 px-4 max-w-7xl mx-auto lg:px-0 lg:justify-around">
-        {allBusinessesJson.edges.map(({ node }, key) => {
-          const { title, image, description, to } = node;
+        {businesses?.map((item, key) => {
+          const { title, image, description, to } = item;
           return (
             <div key={key} className="px-4 lg:px-0">
               <BusinessCard

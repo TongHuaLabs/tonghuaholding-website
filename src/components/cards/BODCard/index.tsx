@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby-plugin-react-i18next';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 type BODCardProps = {
@@ -15,11 +15,12 @@ const BODCard: React.FC<BODCardProps> = ({
   name,
   occupation,
   profileImage,
-  href,
+  // href,
   className,
 }) => {
   return (
-    <Link to={href || ''} className={classNames('flex flex-col', className)}>
+    // <Link to={href || ''} className={classNames('flex flex-col', className)}>
+    <div className={classNames('flex flex-col', className)}>
       {profileImage && (
         <div className="!aspect-w-3 !aspect-h-4">
           <GatsbyImage
@@ -31,7 +32,9 @@ const BODCard: React.FC<BODCardProps> = ({
       )}
       <span className="text-neutral-900 text-lg font-bold mt-5">{name}</span>
       <p className="mt-2 text-neutral-900">{occupation}</p>
-    </Link>
+    </div>
+
+    // </Link>
   );
 };
 

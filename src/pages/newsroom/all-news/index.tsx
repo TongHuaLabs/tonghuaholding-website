@@ -4,17 +4,22 @@ import { NewsCard } from '@/components/cards';
 import ListBox, { ListProps } from '@/components/ListBox';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import MainLayout from '@/layouts/MainLayout';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import Seo from '@/components/Seo';
 
 type NewsRoomAllNewsProps = PageProps<GatsbyTypes.NewsRoomAllNewsQuery>;
 
 const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
+  const { t } = useTranslation();
   const newsType: ListProps[] = [
+    // ข่าวสาร TH ทั้งหมด
     {
-      title: 'ข่าวสาร TH ทั้งหมด',
+      title: t('Pages.NewsRoom.AllNewsPage.Section-1.List-1'),
       value: 0,
     },
+    // "ข่าวสาร CSR ทั้งหมด"
     {
-      title: 'ข่าวสาร CSR ทั้งหมด',
+      title: t('Pages.NewsRoom.AllNewsPage.Section-1.List-2'),
       value: 1,
     },
   ];
@@ -33,6 +38,11 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
 
   return (
     <MainLayout>
+      <Seo
+        title={t('Seo.NewsRoom.AllNewsPage.Title')}
+        description={t('Seo.NewsRoom.AllNewsPage.Desc')}
+      />
+
       <section className="px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 lg:py-20 max-w-7xl mx-auto">
         <ListBox
           className="w-full md:max-w-xs md:ml-auto"
@@ -70,9 +80,14 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
 export default NewsRoomAllNews;
 
 export const query = graphql`
-  query NewsRoomAllNews {
+  query NewsRoomAllNews($language: String!) {
     news: allMarkdownRemark(
-      filter: { frontmatter: { slug: { regex: "/newsroom/news/" } } }
+      filter: {
+        frontmatter: {
+          slug: { regex: "/newsroom/news/" }
+          lang: { eq: $language }
+        }
+      }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 12
     ) {
@@ -112,6 +127,17 @@ export const query = graphql`
               }
             }
           }
+        }
+      }
+    }
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

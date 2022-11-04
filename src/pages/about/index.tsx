@@ -13,63 +13,84 @@ import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import Gallery from '@/components/Gallery';
 import MainLayout from '@/layouts/MainLayout';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useLg } from '@/hooks/responsive';
+import Seo from '@/components/Seo';
 
 type AboutPageProps = PageProps<GatsbyTypes.AboutPageQuery>;
 
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
-  const { allTimelineJson, allMissionJson, allBusinessesJson } = data;
-
-  const { timeline } = allTimelineJson.edges[0].node;
-  const { slides } = allTimelineJson.edges[1].node;
+  const { t } = useTranslation();
+  const isLg = useLg();
+  const { allAboutJson, allTimelineJson, allMissionJson, allBusinessesJson } =
+    data;
+  const { data: businessesList } = allBusinessesJson.edges[0].node;
+  const { data: timeline, slides } = allTimelineJson.edges[0].node;
+  const { data: about } = allAboutJson.edges[0].node;
+  const { data: mission } = allMissionJson.edges[0].node;
 
   const showcase: IGatsbyImageData[] = [];
 
-  slides &&
-    slides.forEach((x) => {
-      const { image } = x || {};
-      if (image?.childImageSharp) {
-        showcase.push(image?.childImageSharp?.gatsbyImageData);
-      }
-    });
+  slides?.forEach((x) => {
+    const { image } = x || {};
+    if (image?.childImageSharp) {
+      showcase.push(image?.childImageSharp?.gatsbyImageData);
+    }
+  });
+
+  const businesses = businessesList?.map((item) => {
+    const { title, description, image, to } = item || {};
+    return { title, description, image, to };
+  });
 
   return (
     <MainLayout>
-      <PrimarySection title="ข้อมูลบริษัท" />
-      <section className="px-4 pt-10 lg:pt-20 lg:px-16 flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10 max-w-7xl mx-auto">
-        <StaticImage
-          src="../../images/tonghua-company.png"
-          alt="about of tonghuaholding"
-          className="w-full lg:w-1/2 object-cover"
-        />
-        <div className="space-y-4 w-full lg:w-1/2">
-          <p className="text-lg">
-            บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) เริ่มต้นทำหนังสือ พิมพ์จีนรายวัน
-            ในนาม “หนังสือพิมพ์ตงฮั้ว” ตลอด เวลาบริษัทพัฒนา
-            ปรับปรุงคุณภาพเพื่อให้การนำ เสนอข่าวสาร ตอบสนองความต้องการของผู้อ่าน
-            อย่างต่อเนื่อง ต่อมามีการเพิ่มทุนจดทะเบียนจาก 1 ล้านเป็น
-            ทุนจดทะเบียน 50 ล้านบาท และได้เข้าจดทะ
-            เบียนในตลาดหลักทรัพย์แห่งประเทศไทย โดยเสนอ
-            ขายหุ้นให้กับประชาชนทั่วไปอีก 10 ล้านบาท และเมื่อ วันที่ 14 มกราคม
-            2537 เพิ่มทุนจดทะเบียนเป็น 120 ล้าน
-          </p>
-          <p className="text-lg">
-            บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) เพิ่มประสิทธิ ภาพในการบริหาร
-            โดยการถือหุ้นเพื่อการลงทุนเชิง
-            กลยุทธ์และวางแผนที่จะขยายธุรกิจไปยังธุรกิจใหม่ๆ
-            ที่ไม่ใช่สื่อสิ่งพิมพ์อย่างเดียว
-          </p>
-          <p className="text-lg">
-            ปัจจุบันบริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) มีทุนจดทะเบียนเรียกชำระ
-            แล้ว 965,035,922บาท
-          </p>
-        </div>
+      <Seo
+        title={t('Seo.About.MainPage.Title')}
+        description={t('Seo.About.MainPage.Desc')}
+      />
+
+      {/* Section 1: ข้อมูลบริษัท */}
+      <PrimarySection title={t('Pages.About.MainPage.Section-1.Title')} />
+      <section className="px-4 pt-10 lg:pt-20 lg:px-16 flex flex-col items-center max-w-7xl mx-auto space-y-10">
+        {about && (
+          <>
+            <div className="flex flex-col lg:flex-row items-center lg:space-x-10">
+              <StaticImage
+                src="../../images/tonghua-company.png"
+                alt="about of tonghuaholding"
+                className="w-full lg:w-1/2 object-cover"
+              />
+
+              {isLg && (
+                <p className="text-lg w-1/2 whitespace-pre-wrap">
+                  {about[0]?.msg}
+                </p>
+              )}
+            </div>
+            <div className="space-y-4 w-full">
+              {about.map((item, key) => {
+                const { msg } = item || {};
+                return (
+                  key > 0 && (
+                    <p className="text-lg whitespace-pre-wrap" key={key}>
+                      {msg}
+                    </p>
+                  )
+                );
+              })}
+            </div>
+          </>
+        )}
       </section>
 
-      {/* เหตุการณ์สำคัญ */}
+      {/* Section 2: เหตุการณ์สำคัญ */}
       <section className="relative flex flex-col px-4 pt-16 lg:px-16 md:pt-20 max-w-5xl mx-auto space-y-10 lg:space-y-4 xl:flex-row-reverse xl:items-center xl:max-w-7xl xl:space-y-0 xl:justify-between">
         <DotPattern className="hidden text-primary-main z-10 absolute top-20 right-0 xl:block" />
         <div className="flex flex-col xl:w-[48.5%]">
-          <h2 className="font-bold text-3xl mb-5">เหตุการณ์สำคัญ</h2>
+          <h2 className="font-bold text-3xl mb-5">
+            {t('Pages.About.MainPage.Section-2.Title')}
+          </h2>
           {timeline &&
             timeline.map((item, key) => {
               const { title, description } = item || {};
@@ -84,31 +105,31 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
         <DotPattern className="hidden text-primary-main z-10 absolute bottom-0 left-0 xl:block" />
       </section>
 
-      {/* วิสัยทัศน์ */}
+      {/* Section 3: วิสัยทัศน์ */}
       <section className="pt-16 pb-20 md:py-20 space-y-16 md:space-y-20 px-4 sm:px-28 lg:pb-28 max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center">
           <UnderlineHeader
-            title="วิสัยทัศน์"
+            title={t('Pages.About.MainPage.Section-3.Title')}
             className="items-center"
             textClassName="text-3xl"
             underlineClassName="bg-primary-main w-16"
           />
           <MissionQuoteSVG className="w-12 h-12 mt-5 text-primary-surface" />
           <h3 className="text-2xl font-bold text-primary-main mt-6 text-center whitespace-normal sm:whitespace-pre-line leading-relaxed">
-            {`ดำเนินธุรกิจด้วยความซื่อสัตย์และมั่นคง\nพร้อมก้าวสู่ยุคใหม่เพื่อขยายธุรกิจให้เติบโตอย่างยั่งยืน`}
+            {t('Pages.About.MainPage.Section-3.Desc')}
           </h3>
         </div>
 
         <div className="flex flex-col items-center justify-center">
           <UnderlineHeader
-            title="พันธกิจ"
+            title={t('Pages.About.MainPage.Section-3-1.Title')}
             className="items-center"
             textClassName="text-3xl"
             underlineClassName="bg-primary-main w-14"
           />
           <div className="flex flex-col lg:flex-row mt-11 space-y-16 lg:space-y-0">
-            {allMissionJson.edges.map(({ node }, key) => {
-              const { title, description } = node;
+            {mission?.map((data, key) => {
+              const { title, description } = data || {};
               return (
                 <Info
                   icon={
@@ -134,8 +155,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
         </div>
       </section>
 
-      {/* บริษัทย่อยในเครือ */}
-      <BusinessesSection allBusinessesJson={allBusinessesJson} />
+      {/* Section 4: บริษัทย่อยในเครือ */}
+      <BusinessesSection businesses={businesses} />
     </MainLayout>
   );
 };
@@ -144,10 +165,19 @@ export default AboutPage;
 
 export const query = graphql`
   query AboutPage($language: String!) {
-    allTimelineJson {
+    allAboutJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          timeline {
+          data {
+            msg
+          }
+        }
+      }
+    }
+    allTimelineJson(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          data {
             title
             description
           }
@@ -161,36 +191,39 @@ export const query = graphql`
         }
       }
     }
-    allMissionJson {
+    allMissionJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          title
-          description
+          data {
+            title
+            description
+          }
         }
       }
     }
-    allBusinessesJson {
+    allBusinessesJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          key
-          title
-          description
-          image {
-            childImageSharp {
-              gatsbyImageData
+          data {
+            title
+            description
+            to
+            image {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
-          }
-          to
-          slides {
-            childImageSharp {
-              gatsbyImageData
+            slides {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "about" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

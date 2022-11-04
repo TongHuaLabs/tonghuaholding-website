@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { ReadMoreButton } from '@/components/buttons';
 import { withPrefix } from 'gatsby';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type SetAnnouncementCardProps = {
   title: string | GatsbyTypes.Maybe<string>;
@@ -16,6 +17,7 @@ const SetAnnouncementCard: React.FC<SetAnnouncementCardProps> = ({
   pdf,
   className,
 }) => {
+  const { t } = useTranslation();
   return (
     <article
       className={classNames(
@@ -32,7 +34,7 @@ const SetAnnouncementCard: React.FC<SetAnnouncementCardProps> = ({
         target="__blank"
         className={classNames(`flex items-center`, className)}
       >
-        <ReadMoreButton />
+        <ReadMoreButton title={t('Components.ReadMoreButton.Title')} />
       </a>
     </article>
   );

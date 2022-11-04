@@ -8,7 +8,7 @@ import PrimaryButton from '@/components/buttons/PrimaryButton';
 import OurBusiness from '@/components/panel/OurBusiness';
 import classNames from 'classnames';
 import ContactInvestorSection from '@/components/sections/ContactInvestorSection';
-import { useLg } from '@/hooks/responsive';
+import { useLg, useMd } from '@/hooks/responsive';
 import { graphql, PageProps } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import {
@@ -18,6 +18,7 @@ import {
 } from '@/components/cards';
 import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 import MainLayout from '@/layouts/MainLayout';
+import Seo from '@/components/Seo';
 
 type IndexPageProps = PageProps<GatsbyTypes.IndexPageQuery>;
 
@@ -25,6 +26,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const { t } = useTranslation();
 
   const isLg = useLg();
+  const isMd = useMd();
 
   const {
     allCompanyInfoJson,
@@ -35,14 +37,21 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   } = data;
 
   const latestNews = allMarkdownRemark.edges.slice(0, !isLg ? 4 : 3);
-
   const setNews = allSetAnnouncementJson.edges.slice(0, !isLg ? 4 : 3);
-
   const companyInfo = allCompanyInfoJson.edges[0];
+  const ourBusiness = allOurBusinessJson.edges[0];
+  const { data: businessesList } = allBusinessesJson.edges[0].node;
+
+  const businesses = businessesList?.map((item) => {
+    const { title, description, image, to } = item || {};
+    return { title, description, image, to };
+  });
 
   return (
     <MainLayout>
-      {/* TONG HUA HOLDING PCL. */}
+      <Seo title={t('Seo.Home.Title')} description={t('Seo.Home.Desc')} />
+
+      {/* Section 1: TONG HUA HOLDING PCL. */}
       <section className="landing relative">
         <div className="bg-primary-main/80 absolute z-10 w-full h-full" />
         <StaticImage
@@ -52,22 +61,27 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <div className="h-full w-full absolute top-0 z-20 px-6 flex flex-col items-left md:items-center justify-center">
           <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
-            <h1 className="text-4xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
-              {`TONG HUA\nHOLDING PCL.`}
+            <h1 className="text-5xl whitespace-pre-line font-bold md:text-center md:text-6xl md:whitespace-normal text-neutral-50">
+              {t('Pages.Home.Section-1.Title')}
             </h1>
-            <h2 className="text-lg w-2/3 sm:w-full sm:whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
-              {`ตงฮั้ว โฮลดิ้ง จำกัด มหาชน 62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยั่งยืน`}
+            <h2 className="text-2xl whitespace-pre-line font-bold md:text-center md:text-3xl lg:whitespace-normal text-neutral-50">
+              {t('Pages.Home.Section-1-1.Title')}
             </h2>
+            <h3 className="text-xl whitespace-pre-line text-left md:text-center md:text-2xl text-neutral-50 text-bold">
+              {isMd
+                ? t('Pages.Home.Section-1-1.MDesc')
+                : t('Pages.Home.Section-1-1.SDesc')}
+            </h3>
           </div>
           <DotPattern className="text-neutral-50 z-10 absolute -top-2 left-3 opacity-80 md:hidden" />
           <DotPattern className="text-neutral-50 z-10 absolute bottom-2.5 right-3 opacity-80 md:hidden" />
         </div>
       </section>
 
-      {/* xx Years of Stability & Integrity */}
+      {/* Section 2: 62 Years of Stability & Integrity */}
       <section className="relative px-4 md:px-6 lg:px-16 py-20 lg:py-28 max-w-7xl mx-auto overflow-hidden xl:overflow-visible">
         <UnderlineHeader
-          title={t('section-2-title')}
+          title={t('Pages.Home.Section-2.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl whitespace-pre-line"
           underlineClassName="bg-primary-main w-16"
@@ -78,8 +92,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               const { title, description } = info || {};
               return (
                 <Topic
-                  title={title}
-                  description={description}
+                  title={title || ''}
+                  description={description || ''}
                   className="w-1/2 md:w-1/4 pt-10 md:pt-10 lg:w-1/2 text-neutral-900"
                   key={key}
                 />
@@ -117,10 +131,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <RedCircle className="absolute bottom-24 sm:bottom-32 sm:-right-12 -right-28 lg:bottom-40 lg:right-4  z-0" />
       </section>
 
-      {/* ประเภทธุรกิจของเรา */}
+      {/* Section 3: ประเภทธุรกิจของเรา */}
       <section className="relative py-20 lg:py-28">
         <UnderlineHeader
-          title="ประเภทธุรกิจของเรา"
+          title={t('Pages.Home.Section-3.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl text-neutral-900"
           underlineClassName="bg-primary-main w-16"
@@ -128,38 +142,42 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <Tabs
           className="px-4 md:px-6 lg:px-16 mt-10 max-w-7xl mx-auto"
           tabClassName="w-[32%]"
-          tabs={allOurBusinessJson.edges.map(({ node }) => {
-            const { title } = node;
-            return { title };
-          })}
-          components={allOurBusinessJson.edges.map(({ node }) => {
-            const { title, description, cover } = node;
-            return {
-              child: (
-                <OurBusiness
-                  title={title}
-                  description={description}
-                  cover={cover?.childImageSharp?.gatsbyImageData}
-                  className="mt-10"
-                />
-              ),
-            };
-          })}
+          tabs={
+            ourBusiness.node.data?.map((item) => {
+              const { title } = item || {};
+              return { title };
+            }) || []
+          }
+          components={
+            ourBusiness.node.data?.map((item) => {
+              const { title, description, cover } = item || {};
+              return {
+                child: (
+                  <OurBusiness
+                    title={title}
+                    description={description}
+                    cover={cover?.childImageSharp?.gatsbyImageData}
+                    className="mt-10"
+                  />
+                ),
+              };
+            }) || []
+          }
         />
       </section>
 
-      {/* บริษัทย่อยในเครือ */}
+      {/* Section 4: บริษัทย่อยในเครือ */}
       <section className="pt-20 lg:pt-28">
         <UnderlineHeader
-          title="บริษัทย่อยในเครือ"
+          title={t('Pages.Home.Section-4.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl"
           underlineClassName="bg-primary-main w-16"
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="flex relative z-10 px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 overflow-x-scroll hide-scrollbar lg:justify-around">
-            {allBusinessesJson.edges.map(({ node }, key) => {
-              const { title, image, description, to } = node;
+            {businesses?.map((item, key) => {
+              const { title, image, description, to } = item;
               return (
                 <div key={key} className="px-3 lg:px-0">
                   <BusinessCard
@@ -178,10 +196,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         </div>
       </section>
 
-      {/* ข่าวสาร TH */}
+      {/* Section 5: ข่าวสาร TH */}
       <section className="pl-4 pr-5 md:px-6 lg:px-16 pt-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
-          title="ข่าวสาร TH"
+          title={t('Pages.Home.Section-5.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl"
           underlineClassName="bg-primary-main w-16"
@@ -204,14 +222,17 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           })}
         </div>
         <Link to="/newsroom/all-news" className="flex w-max mx-auto">
-          <PrimaryButton title="ดูเพิ่มเติม" className="text-sm font-medium" />
+          <PrimaryButton
+            title={t('Pages.Home.Section-5.ReadMoreButton')}
+            className="text-sm font-medium"
+          />
         </Link>
       </section>
 
-      {/* ข่าวแจ้งตลาดหลักทรัพย์ */}
+      {/* Section 6: ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 md:px-6 lg:px-16 pt-20 pb-20 lg:pt-28 lg:pb-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
-          title="ข่าวแจ้งตลาดหลักทรัพย์"
+          title={t('Pages.Home.Section-6.Title')}
           className="items-center"
           textClassName="text-3xl text-center lg:text-4xl"
           underlineClassName="bg-primary-main w-16"
@@ -234,11 +255,14 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           to="/newsroom/all-set-announcement"
           className="flex w-max mx-auto"
         >
-          <PrimaryButton title="ดูเพิ่มเติม" className="text-sm font-medium" />
+          <PrimaryButton
+            title={t('Pages.Home.Section-6.ReadMoreButton')}
+            className="text-sm font-medium"
+          />
         </Link>
       </section>
 
-      {/* ติดต่อนักลงทุนสัมพันธ์ */}
+      {/* Section 7: ติดต่อนักลงทุนสัมพันธ์ */}
       <ContactInvestorSection />
     </MainLayout>
   );
@@ -265,34 +289,37 @@ export const query = graphql`
         }
       }
     }
-    allOurBusinessJson {
+    allOurBusinessJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          title
-          description
-          cover {
-            childImageSharp {
-              gatsbyImageData
+          data {
+            title
+            description
+            cover {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
-    allBusinessesJson {
+    allBusinessesJson(filter: { language: { eq: $language } }) {
       edges {
         node {
-          key
-          title
-          description
-          image {
-            childImageSharp {
-              gatsbyImageData
+          data {
+            title
+            description
+            to
+            image {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
-          }
-          to
-          slides {
-            childImageSharp {
-              gatsbyImageData
+            slides {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
@@ -308,7 +335,12 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { slug: { regex: "/newsroom/news/" } } }
+      filter: {
+        frontmatter: {
+          slug: { regex: "/newsroom/news/" }
+          lang: { eq: $language }
+        }
+      }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 4
     ) {
@@ -330,7 +362,7 @@ export const query = graphql`
       }
     }
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { eq: "home" } }
+      filter: { language: { eq: $language }, ns: { eq: "translation" } }
     ) {
       edges {
         node {

@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-react-i18next';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import { ReadMoreButton } from '@/components/buttons';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type OpportunityCardProps = {
   occupation?: string;
@@ -21,6 +22,7 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
   href,
   className,
 }) => {
+  const { t } = useTranslation();
   return (
     <Link to={href || ''}>
       <article
@@ -30,7 +32,7 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
         )}
       >
         <div className="flex flex-col">
-          <span className="text-lg font-bold line-clamp-2 text-neutral-900">
+          <span className="font-bold line-clamp-2 text-neutral-900">
             {occupation}
           </span>
           <p className="text-sm mt-2 text-neutral-600 line-clamp-3">
@@ -46,7 +48,7 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
             <span className="w-px bg-neutral-200 h-4" />
             <span className="text-neutral-900 text-xs">{contract}</span>
           </div>
-          <ReadMoreButton />
+          <ReadMoreButton title={t('Components.ReadMoreButton.Title')} />
         </div>
       </article>
     </Link>

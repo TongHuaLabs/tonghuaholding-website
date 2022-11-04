@@ -8,7 +8,7 @@ slug: /career/blog/data-engineer
 date: 2022-04-06
 ---
 
-![Data Engineer/วิศวกรข้อมูล](/images/senior_data_engineer.png)
+![Data Engineer/วิศวกรข้อมูล](../../../images/senior_data_engineer.png)
 
 ## Data Engineer/วิศวกรข้อมูล
 

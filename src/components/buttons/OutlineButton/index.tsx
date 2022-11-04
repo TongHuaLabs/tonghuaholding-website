@@ -13,12 +13,18 @@ const OutlineButton: React.FC<OutlineButtonProps> = ({
   onClick,
 }) => {
   return (
+    // <button
+    //   onClick={onClick}
+    //   className={classNames(
+    //     'border border-neutral-50 py-1.5 rounded-lg text-neutral-50 px-4 hover:bg-white hover:text-neutral-600',
+    //     className,
+    //   )}
+    // >
+    //   {title}
+    // </button>
     <button
       onClick={onClick}
-      className={classNames(
-        'border border-neutral-50 py-1.5 rounded-lg text-neutral-50 px-4 hover:bg-white hover:text-neutral-600 w-max',
-        className,
-      )}
+      className={classNames('border py-1.5 rounded-lg px-4', className)}
     >
       {title}
     </button>

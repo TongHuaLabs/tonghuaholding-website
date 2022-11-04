@@ -151,7 +151,11 @@
         }
       }
     },
-    "NOTFOUND": {}
+    "NotFound": {
+      "Title": "ขออภัย ไม่พบหน้าเว็บไซต์ที่คุณต้องการ",
+      "BackToHomeButton": "ไปหน้าหลัก",
+      "GoBackButton": "กลับ"
+    }
   },
   "Components": {
     "ContactInfoSection": {

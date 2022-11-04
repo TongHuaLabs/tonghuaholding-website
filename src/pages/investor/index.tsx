@@ -63,6 +63,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
               {/* ติดต่อนักลงทุนสัมพันธ์ */}
               <OutlineButton
                 title={t('Pages.Investor.Section-1.ContactButton')}
+                className="border-neutral-50 text-neutral-50"
               />
             </div>
             <StockPriceCard className="w-full lg:w-2/5" {...stockProps} />

@@ -19,24 +19,25 @@ const SetAnnouncementCard: React.FC<SetAnnouncementCardProps> = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <article
+    <a
+      href={withPrefix(`/pdf/${pdf}`)}
+      target="__blank"
       className={classNames(
-        `p-4 flex flex-col justify-between h-40 bg-neutral-50 rounded-t-lg border-b-4 border-b-primary-main`,
+        `group p-4 flex flex-col justify-between h-40 bg-neutral-50 rounded-t-lg border-b-4 border-b-primary-main`,
         className,
       )}
     >
       <div className="flex flex-col space-y-2">
         <span className="text-sm text-neutral-500">{createAt}</span>
-        <p className="font-medium text-neutral-900 line-clamp-3">{title}</p>
+        <p className="font-medium text-neutral-900 line-clamp-3 group-hover:underline">
+          {title}
+        </p>
       </div>
-      <a
-        href={withPrefix(`/pdf/${pdf}`)}
-        target="__blank"
-        className={classNames(`flex items-center`, className)}
-      >
-        <ReadMoreButton title={t('Components.ReadMoreButton.Title')} />
-      </a>
-    </article>
+      <ReadMoreButton
+        title={t('Components.ReadMoreButton.Title')}
+        className="self-start"
+      />
+    </a>
   );
 };
 

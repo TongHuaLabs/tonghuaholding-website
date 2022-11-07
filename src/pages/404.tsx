@@ -36,7 +36,7 @@ const NotFoundPage: React.FC<{}> = () => {
             </Link>
             <OutlineButton
               title={t('Pages.NotFound.GoBackButton')}
-              className="w-[48.5%] border-primary-main text-primary-main font-bold"
+              className="w-[48.5%] border-primary-main text-primary-main font-bold hover:bg-primary-main hover:text-neutral-50 delay-100"
               onClick={() => navigate(-1)}
             />
           </div>

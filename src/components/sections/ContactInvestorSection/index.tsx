@@ -45,7 +45,7 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
           {/* ข้อมูลการลงทุน */}
           <OutlineButton
             title={t('Components.ContactInvestorSection.ReadMoreButton')}
-            className="border-neutral-50 text-neutral-50"
+            className="border-neutral-50 text-neutral-50 hover:bg-neutral-50 hover:text-neutral-900 delay-100"
           />
         </Link>
         <Circles className="absolute -bottom-4 md:left-14 md:bottom-0" />

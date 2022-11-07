@@ -27,12 +27,12 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
     <Link to={href || ''}>
       <article
         className={classNames(
-          `p-4 h-48 flex flex-col justify-between rounded-lg border border-primary-main`,
+          `p-4 h-48 flex flex-col justify-between rounded-lg border border-primary-main group`,
           className,
         )}
       >
         <div className="flex flex-col">
-          <span className="font-bold line-clamp-2 text-neutral-900">
+          <span className="font-bold line-clamp-2 text-neutral-900 group-hover:underline">
             {occupation}
           </span>
           <p className="text-sm mt-2 text-neutral-600 line-clamp-3">

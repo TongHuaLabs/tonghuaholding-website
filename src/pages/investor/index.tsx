@@ -77,7 +77,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
               {/* ติดต่อนักลงทุนสัมพันธ์ */}
               <OutlineButton
                 title={t('Pages.Investor.Section-1.ContactButton')}
-                className="border-neutral-50 text-neutral-50"
+                className="border-neutral-50 text-neutral-50 hover:bg-neutral-50 hover:text-neutral-900 delay-100"
                 onClick={() => scrollToInvestorContactId()}
               />
             </div>

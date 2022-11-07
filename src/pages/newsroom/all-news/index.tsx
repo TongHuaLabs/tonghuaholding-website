@@ -18,10 +18,10 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
       value: 0,
     },
     // "ข่าวสาร CSR ทั้งหมด"
-    {
-      title: t('Pages.NewsRoom.AllNewsPage.Section-1.List-2'),
-      value: 1,
-    },
+    // {
+    //   title: t('Pages.NewsRoom.AllNewsPage.Section-1.List-2'),
+    //   value: 1,
+    // },
   ];
 
   const [selected, setSelected] = useState<ListProps>(newsType[0]);

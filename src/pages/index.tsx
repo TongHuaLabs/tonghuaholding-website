@@ -12,7 +12,7 @@ import { useLg, useMd } from '@/hooks/responsive';
 import { graphql, PageProps } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import {
-  // LatestNewsCard,
+  LatestNewsCard,
   BusinessCard,
   SetAnnouncementCard,
 } from '@/components/cards';
@@ -33,10 +33,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     allOurBusinessJson,
     allBusinessesJson,
     allSetAnnouncementJson,
-    // allMarkdownRemark,
+    allMarkdownRemark,
   } = data;
 
-  // const latestNews = allMarkdownRemark.edges.slice(0, !isLg ? 4 : 3);
+  const latestNews = allMarkdownRemark.edges.slice(0, !isLg ? 4 : 3);
   const setNews = allSetAnnouncementJson.edges.slice(0, !isLg ? 4 : 3);
   const companyInfo = allCompanyInfoJson.edges[0];
   const ourBusiness = allOurBusinessJson.edges[0];
@@ -197,7 +197,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </section>
 
       {/* Section 5: ข่าวสาร TH */}
-      {/* <section className="pl-4 pr-5 md:px-6 lg:px-16 pt-28 max-w-7xl mx-auto space-y-10">
+      <section className="pl-4 pr-5 md:px-6 lg:px-16 pt-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
           title={t('Pages.Home.Section-5.Title')}
           className="items-center"
@@ -227,7 +227,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
             className="text-sm font-medium"
           />
         </Link>
-      </section> */}
+      </section>
 
       {/* Section 6: ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 md:px-6 lg:px-16 pt-20 pb-20 lg:pt-28 lg:pb-28 max-w-7xl mx-auto space-y-10">

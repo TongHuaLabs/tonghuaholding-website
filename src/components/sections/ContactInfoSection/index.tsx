@@ -47,7 +47,7 @@ const ContactInfoSection: React.FC<ContactInfoSectionProps> = ({
             tel={tel}
             className={classNames(
               `${key === 0 ? 'mt-5' : 'mt-2'}`,
-              'text-neutral-50 underlineunderline-offset-1',
+              'text-neutral-50 underline underline-offset-1',
             )}
             textClassName="text-xl"
           />

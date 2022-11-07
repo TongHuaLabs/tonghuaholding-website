@@ -22,7 +22,7 @@ const DocumentCard: React.FC<DocumentCardProps> = ({
     <a
       href={withPrefix(`/pdf/${toFile}`)}
       target="__blank"
-      className={classNames('flex flex-col', className)}
+      className={classNames('flex flex-col group', className)}
     >
       {coverImage && (
         <div className="!aspect-w-3 !aspect-h-4">
@@ -37,7 +37,9 @@ const DocumentCard: React.FC<DocumentCardProps> = ({
         <div className="border-l-2 border-l-primary-main rounded-md h-6" />
         <span className="text-sm">{createdAt}</span>
       </div>
-      <p className="mt-2 font-medium line-clamp-2">{title}</p>
+      <p className="text-neutral-900 mt-2 font-medium line-clamp-2 group-hover:text-primary-main delay-100">
+        {title}
+      </p>
     </a>
   );
 };

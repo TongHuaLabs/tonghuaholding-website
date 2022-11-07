@@ -24,7 +24,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
     <Link
       to={to || '/'}
       className={classNames(
-        `py-9 px-3 flex bg-white flex-col items-center justify-between rounded-2xl text-center`,
+        `py-9 px-3 flex bg-white flex-col items-center justify-between rounded-2xl text-center transition duration-300 ease-in-out hover:-translate-y-2 hover:border-primary-main hover:border`,
         className,
       )}
     >

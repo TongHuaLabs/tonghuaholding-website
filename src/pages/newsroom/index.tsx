@@ -1,11 +1,10 @@
 import React from 'react';
-// import { NewsCard, SetAnnouncementCard } from '@/components/cards';
-import { SetAnnouncementCard } from '@/components/cards';
+import { NewsCard, SetAnnouncementCard } from '@/components/cards';
 import PrimarySection from '@/components/sections/PrimarySection';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import { graphql, Link, PageProps } from 'gatsby';
 import { useLg, useMd } from '@/hooks/responsive';
-import { PrimaryButton } from '@/components/buttons';
+import { PrimaryButton, SeeAllButton } from '@/components/buttons';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import Seo from '@/components/Seo';
@@ -17,9 +16,8 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
   const lg = useLg();
   const { t } = useTranslation();
 
-  const { allSetAnnouncementJson } = data;
-  // const { allSetAnnouncementJson, allMarkdownRemark } = data;
-  // const news = allMarkdownRemark.edges;
+  const { allSetAnnouncementJson, allMarkdownRemark } = data;
+  const news = allMarkdownRemark.edges;
 
   const setAnnouncement = allSetAnnouncementJson.edges.slice(
     0,
@@ -37,7 +35,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
       <PrimarySection title={t('Pages.NewsRoom.MainPage.Section-1.Title')} />
 
       {/* Section 2: ข่าวประชาสัมพันธ์บริษัท */}
-      {/* <section className="px-4 pt-10 md:px-6 lg:px-16 lg:pt-20 max-w-7xl mx-auto">
+      <section className="px-4 pt-10 md:px-6 lg:px-16 lg:pt-20 max-w-7xl mx-auto">
         <UnderlineHeader
           title={t('Pages.NewsRoom.MainPage.Section-2.Title')}
           textClassName="text-2xl"
@@ -66,7 +64,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
         >
           <SeeAllButton />
         </Link>
-      </section> */}
+      </section>
 
       {/* Section 3: ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 py-20 md:px-6 lg:px-16 lg:py-28 max-w-7xl mx-auto">
@@ -108,7 +106,12 @@ export default NewsRoomPage;
 export const query = graphql`
   query NewsRoomPage($language: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { slug: { regex: "/newsroom/news/" } } }
+      filter: {
+        frontmatter: {
+          slug: { regex: "/newsroom/news/" }
+          lang: { eq: $language }
+        }
+      }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 6
     ) {

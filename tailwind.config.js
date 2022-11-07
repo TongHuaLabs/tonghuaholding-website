@@ -12,7 +12,7 @@ module.exports = {
           pressed: '#89232B',
         },
         brand: {
-          red: '#D9231D',
+          red: '#ED1C24',
           white: '#FFFFFF',
           grey: '#5E6061',
         },

@@ -17,7 +17,11 @@ const MarkdownTemplate = ({
 
   return (
     <MainLayout>
-      <Seo title={title || ''} description={description} />
+      <Seo
+        title={title || ''}
+        description={description}
+        image={cover?.childImageSharp?.gatsbyImageData.images.fallback.src}
+      />
       <section className="relative px-4 md:px-6 lg:px-16 py-10 lg:py-20 max-w-4xl mx-auto">
         <h1 className="font-bold text-2xl lg:text-3xl text-neutral-900">
           {title}

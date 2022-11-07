@@ -28,7 +28,6 @@ export const plugins = [
       path: `${__dirname}/src/data`,
     },
   },
-  'gatsby-transformer-remark',
   {
     resolve: `gatsby-source-filesystem`,
     options: {
@@ -45,7 +44,22 @@ export const plugins = [
   },
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
-  'gatsby-remark-images',
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-images`,
+          options: {
+            // It's important to specify the maxWidth (in pixels) of
+            // the content container as this plugin uses this as the
+            // base for generating different widths of each image.
+            maxWidth: 896,
+          },
+        },
+      ],
+    },
+  },
   {
     resolve: `gatsby-plugin-manifest`,
     options: {

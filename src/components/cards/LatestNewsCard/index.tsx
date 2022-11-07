@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby-plugin-react-i18next';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import classNames from 'classnames';
 
 type LatestNewsCardProps = {
   coverImage?: IGatsbyImageData;
@@ -20,7 +21,7 @@ const LatestNewsCard: React.FC<LatestNewsCardProps> = ({
   className,
 }) => {
   return (
-    <Link to={href || ''} className={className}>
+    <Link to={href || ''} className={classNames(`group`, className)}>
       {coverImage && (
         <div className="relative">
           <div className="!aspect-w-16 !aspect-h-9">
@@ -34,7 +35,7 @@ const LatestNewsCard: React.FC<LatestNewsCardProps> = ({
         </div>
       )}
       <p className="mt-5 text-sm text-neutral-900">{createdAt}</p>
-      <h3 className="text-lg font-medium text-neutral-900 line-clamp-2 mt-2">
+      <h3 className="text-lg font-medium text-neutral-900 line-clamp-2 mt-2 group-hover:text-primary-main delay-100">
         {title}
       </h3>
       <span className="line-clamp-2 text-sm text-neutral-600 mt-2">

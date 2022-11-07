@@ -41,7 +41,7 @@ const ContactInvestorSection: React.FC<ContactInvestorSectionProps> = ({
           mail="contactus@tonghuagroup.com"
           className="mt-2 underline underline-offset-1 text-neutral-50"
         />
-        <Link to="/investor">
+        <Link to="/investor" className="relative z-50">
           {/* ข้อมูลการลงทุน */}
           <OutlineButton
             title={t('Components.ContactInvestorSection.ReadMoreButton')}

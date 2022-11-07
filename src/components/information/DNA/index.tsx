@@ -12,7 +12,7 @@ const DNA: React.FC<DNAProps> = ({ text, className }) => {
       className={classNames(`flex flex-col items-center space-y-2`, className)}
     >
       <div className="w-3 h-3 rounded-full bg-neutral-50" />
-      <span className="text-lg font-bold text-neutral-50">{text}</span>
+      <span className="text-2xl font-bold text-neutral-50">{text}</span>
     </div>
   );
 };

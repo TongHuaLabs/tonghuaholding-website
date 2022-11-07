@@ -24,7 +24,7 @@ const BusinessesSection: React.FC<BusinessesSectionProps> = ({
   return (
     <section
       className={classNames(
-        'py-20 relative bg-neutral-700 overflow-hidden space-y-10',
+        'py-20 relative bg-neutral-700 overflow-hidden',
         className,
       )}
     >
@@ -34,7 +34,7 @@ const BusinessesSection: React.FC<BusinessesSectionProps> = ({
         textClassName="text-3xl text-center lg:text-4xl text-neutral-50"
         underlineClassName="bg-primary-main w-16"
       />
-      <div className="flex relative z-10 overflow-x-scroll hide-scrollbar md:px-6 px-4 max-w-7xl mx-auto lg:px-0 lg:justify-around">
+      <div className="flex relative z-10 overflow-x-scroll hide-scrollbar md:px-6 px-4 max-w-7xl mx-auto lg:px-0 lg:justify-around py-10">
         {businesses?.map((item, key) => {
           const { title, image, description, to } = item;
           return (

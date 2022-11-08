@@ -1,10 +1,11 @@
 ---
+category: /career/blog/
 lang: en
 title: Technical Content Writer & Researcher (Web3)/นักเขียนเชิงเทคนิค
 description: We are looking for a trustworthy, curious, sharp, and proactive full-time Technical Writer & Researcher to join our team in making the internet a better place.
 location: Bangkok
 contract: Permanent
-slug: /career/blog/technical-writer
+slug: technical-writer
 date: 2022-04-06
 ---
 ![Technical Content Writer & Researcher (Web3)/นักเขียนเชิงเทคนิค](../../../images/technical_writer.jpg)

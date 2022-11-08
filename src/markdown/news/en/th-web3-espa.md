@@ -1,8 +1,9 @@
 ---
+category: /newsroom/news/blog/
 lang: en
 title: TH เซ็นสัญญาร่วมโครงการ Web3ESPA เพื่อพัฒนา Web3 Decentralized Storage ในประเทศไทย
 description: Tong Hua Labs (ตงฮั้วแล็บส์) ฝ่ายพัฒนาเทคโนโลยีและนวัตกรรม ภายใต้บริษัทตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)ได้เซ็นต์สัญญาเข้าร่วมโครงการ Web3ESPA (Web3 Enteprise Storage Provider Accelerator) ซึ่งโครงการนี้จัดตั้งโดยบริษัท Protocol Labs (ผู้ก่อตั้งโปรเจค IPFS และ FileCoin), PikNik (ผู้นําด้าน Decentralized Storage ของสหรัฐอเมริกา), Seagate (บริษัทชั้นนำด้าน Data Storage) และ AMD (บริษัทชั้นนำด้าน Semiconductor) เพื่อศึกษาและจัดทำแผนพัฒนาธุรกิจด้าน Web3 Decentralized Storage โดยใช้เทคโนโลยี IPFS และ Filecoin
-slug: /newsroom/news/blog/th-web3-espas
+slug: th-web3-espas
 cover: ../../../images/TH_Web3ESPA.jpeg
 date: 2022-07-07
 ---

@@ -57,7 +57,7 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
         />
         <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {markdown.map(({ node }, key) => {
-            const { title, description, date, cover, slug } =
+            const { title, description, date, cover, category, slug } =
               node?.frontmatter || {};
             return (
               <NewsCard
@@ -66,7 +66,7 @@ const NewsRoomAllNews: React.FC<NewsRoomAllNewsProps> = ({ data }) => {
                 description={description}
                 coverImage={cover?.childImageSharp?.gatsbyImageData}
                 createdAt={date}
-                href={slug}
+                href={`${category}${slug}`}
                 key={key}
               />
             );
@@ -84,7 +84,7 @@ export const query = graphql`
     news: allMarkdownRemark(
       filter: {
         frontmatter: {
-          slug: { regex: "/newsroom/news/" }
+          category: { regex: "/newsroom/news/" }
           lang: { eq: $language }
         }
       }
@@ -96,6 +96,7 @@ export const query = graphql`
           frontmatter {
             lang
             slug
+            category
             title
             date(formatString: "DD/MM/YYYY")
             description
@@ -109,7 +110,7 @@ export const query = graphql`
       }
     }
     csr: allMarkdownRemark(
-      filter: { frontmatter: { slug: { regex: "/newsroom/csr/" } } }
+      filter: { frontmatter: { category: { regex: "/newsroom/csr/" } } }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 12
     ) {
@@ -118,6 +119,7 @@ export const query = graphql`
           frontmatter {
             lang
             slug
+            category
             title
             date(formatString: "DD/MM/YYYY")
             description

@@ -1,7 +1,9 @@
 ---
+category: /about/board-of-directors/
+lang: th
 name: นายสุรงค์ บูลกุล
 occupation: 
-slug: /about/board-of-directors/surong-bulakul
+slug: surong-bulakul
 cover: ../../images/surong-bulakul.png
 order: 8
 ---

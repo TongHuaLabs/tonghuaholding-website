@@ -1,7 +1,9 @@
 ---
+category: /about/board-of-directors/
+lang: en
 name: นายปรีชา เลิศกมลมาศ
 occupation: 
-slug: /about/board-of-directors/preecha-lertkamolmas
+slug: preecha-lertkamolmas
 cover: ../../images/preecha-lertkamolmas.png
 order: 7
 ---

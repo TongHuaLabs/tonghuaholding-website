@@ -1,8 +1,9 @@
 ---
+category: /newsroom/news/blog/
 lang: th
 title: ตงฮั้วประกาศ "ตงฮั้วแล็บส์" คือ New Gen Technology Labs
 description: ตงฮั้วพร้อมมุ่งหน้า สู่เทคโนโลยี Web 3 & Blockchain แบบเต็มรูปแบบ พร้อมปรับทัพสำคัญ “ตงฮั้วแล็บส์” ภายใต้บริษัทตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) นำทีมวางกลยุทธ์ขยายธุรกิจ เพื่อรองรับการเปลี่ยนแปลงทางธุรกิจในการก้าวเข้าสู่ยุคแห่งโลกอนาคต
-slug: /newsroom/news/blog/thl-new-gen-technology-labs
+slug: thl-new-gen-technology-labs
 cover: ../../../images/THL_New_Gen_Technology_Labs.jpeg
 date: 2022-10-12
 ---

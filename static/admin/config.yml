@@ -1,0 +1,304 @@
+backend:
+  name: git-gateway
+  branch: main # Change to your production branch
+
+local_backend: true # Enables Netlify CMS locally
+media_folder: src/images
+public_folder: ../../../images
+
+collections:
+  # News TH
+  - name: 'news_TH'
+    label: 'News TH'
+    folder: 'src/markdown/news/th'
+    create: true
+    slug: '{{title}}'
+    fields:
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'hidden',
+          default: '/newsroom/news/blog/',
+        }
+      - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'th' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'must be replace whitespace with -',
+        }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'date',
+          date_format: 'YYYY-MM-DD',
+        }
+      - {
+          label: 'Feature Image',
+          name: 'cover',
+          widget: image,
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # News EN
+  - name: 'news_EN'
+    label: 'News EN'
+    folder: 'src/markdown/news/en'
+    create: true
+    slug: '{{title}}'
+    fields:
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'hidden',
+          default: '/newsroom/news/blog/',
+        }
+      - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'en' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'must be replace whitespace with -',
+        }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'date',
+          date_format: 'YYYY-MM-DD',
+        }
+      - {
+          label: 'Feature Image',
+          name: 'cover',
+          widget: image,
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # Career TH
+  - name: 'career_TH'
+    label: 'Career TH'
+    folder: 'src/markdown/career/th'
+    create: true
+    slug: '{{title}}'
+    fields:
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'hidden',
+          default: '/career/blog/',
+        }
+      - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'th' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'must be replace whitespace with -',
+        }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - {
+          label: 'Location',
+          name: 'location',
+          widget: 'select',
+          options: ['Bangkok'],
+        }
+      - {
+          label: 'Contract',
+          name: 'contract',
+          widget: 'select',
+          options: ['Permanent', 'Contract'],
+        }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'date',
+          date_format: 'YYYY-MM-DD',
+        }
+      - {
+          label: 'Feature Image',
+          name: 'cover',
+          widget: image,
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # Career EN
+  - name: 'career_EN'
+    label: 'Career EN'
+    folder: 'src/markdown/career/en'
+    create: true
+    slug: '{{title}}'
+    fields:
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'hidden',
+          default: '/career/blog/',
+        }
+      - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'en' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'must be replace whitespace with -',
+        }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - {
+          label: 'Location',
+          name: 'location',
+          widget: 'select',
+          options: ['Bangkok'],
+        }
+      - {
+          label: 'Contract',
+          name: 'contract',
+          widget: 'select',
+          options: ['Permanent', 'Contract'],
+        }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'date',
+          date_format: 'YYYY-MM-DD',
+        }
+      - {
+          label: 'Feature Image',
+          name: 'cover',
+          widget: image,
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # Businesses TH
+  - name: 'businesses_TH'
+    label: 'Businesses TH'
+    folder: 'src/markdown/businesses/th'
+    create: true
+    slug: '{{title}}'
+    fields:
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'hidden',
+          default: '/businesses/info/',
+        }
+      - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'th' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'must be replace whitespace with -',
+        }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'date',
+          date_format: 'YYYY-MM-DD',
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # Businesses EN
+  - name: 'businesses_EN'
+    label: 'Businesses EN'
+    folder: 'src/markdown/businesses/en'
+    create: true
+    slug: '{{title}}'
+    fields:
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'hidden',
+          default: '/businesses/info/',
+        }
+      - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'en' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'must be replace whitespace with -',
+        }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'date',
+          date_format: 'YYYY-MM-DD',
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # Board of Directors TH
+  - name: 'bod_TH'
+    label: 'Board of Directors TH'
+    folder: 'src/markdown/board-of-directors/th'
+    create: true
+    slug: '{{name}}'
+    fields:
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'hidden',
+          default: '/about/board-of-directors/',
+        }
+      - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'th' }
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'must be replace whitespace with -',
+        }
+      - {
+          label: 'Occupation',
+          name: 'occupation',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Feature Image',
+          name: 'cover',
+          widget: image,
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+
+  # Board of Directors EN
+  - name: 'bod_EN'
+    label: 'Board of Directors EN'
+    folder: 'src/markdown/board-of-directors/en'
+    create: true
+    slug: '{{name}}'
+    fields:
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'hidden',
+          default: '/about/board-of-directors/',
+        }
+      - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'en' }
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'must be replace whitespace with -',
+        }
+      - {
+          label: 'Occupation',
+          name: 'occupation',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Feature Image',
+          name: 'cover',
+          widget: image,
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }

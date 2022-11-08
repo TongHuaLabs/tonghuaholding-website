@@ -52,7 +52,9 @@ export default BoardOfDirectors;
 export const query = graphql`
   query BoardOfDirectors($language: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { slug: { regex: "/about/board-of-directors/" } } }
+      filter: {
+        frontmatter: { category: { regex: "/about/board-of-directors/" } }
+      }
       sort: { fields: frontmatter___order, order: ASC }
     ) {
       edges {

@@ -1,10 +1,11 @@
 ---
+category: /career/blog/
 lang: th
 title: Data Engineer/วิศวกรข้อมูล
 description: We are looking for a trustworthy, curious, sharp, and proactive full-time Data Engineer to join our team. You'll have the opportunity to design innovative data solutions and solve challenging problems.
 location: Bangkok
 contract: Permanent
-slug: /career/blog/data-engineer
+slug: data-engineer
 date: 2022-04-06
 ---
 

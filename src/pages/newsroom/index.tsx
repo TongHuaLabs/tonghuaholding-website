@@ -43,7 +43,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
         />
         <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
           {news.map(({ node }, key) => {
-            const { title, description, date, cover, slug } =
+            const { title, description, date, cover, category, slug } =
               node.frontmatter || {};
             return (
               <NewsCard
@@ -52,7 +52,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
                 description={description}
                 coverImage={cover?.childImageSharp?.gatsbyImageData}
                 createdAt={date}
-                href={slug}
+                href={`${category}${slug}`}
                 key={key}
               />
             );
@@ -111,7 +111,7 @@ export const query = graphql`
     allMarkdownRemark(
       filter: {
         frontmatter: {
-          slug: { regex: "/newsroom/news/" }
+          category: { regex: "/newsroom/news/" }
           lang: { eq: $language }
         }
       }
@@ -123,6 +123,7 @@ export const query = graphql`
           frontmatter {
             lang
             slug
+            category
             title
             date(formatString: "DD/MM/YYYY")
             description

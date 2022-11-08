@@ -27,20 +27,20 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-11f8a2006b541d433e24.js"
+    "url": "webpack-runtime-1fa6cef70ca2db306c97.js"
   },
   {
     "url": "framework-a2263c6caa530b74304b.js"
   },
   {
-    "url": "styles.867f0b7d7adfa136b188.css"
+    "url": "styles.d27900ce286442a5d5dc.css"
   },
   {
-    "url": "app-de4dccef12478676750d.js"
+    "url": "app-8d5c32d0275578646d8d.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "5dfff6da82a02c6d34787c1d6a6fc157"
+    "revision": "16cb07270e5ace8b134ca78efc7811dd"
   },
   {
     "url": "polyfill-fcae02c11a8af2fc94d6.js"
@@ -157,7 +157,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/tonghuaholding-website/app-de4dccef12478676750d.js`))) {
+  if (!resources || !(await caches.match(`/tonghuaholding-website/app-8d5c32d0275578646d8d.js`))) {
     return await fetch(event.request)
   }
 

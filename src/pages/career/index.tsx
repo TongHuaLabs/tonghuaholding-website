@@ -3,7 +3,6 @@ import Gallery from '@/components/Gallery';
 import EllipseSvg from '@/icons/ellipse.inline.svg';
 import DNA from '@/components/information/DNA';
 import SwiperCarousel from '@/components/SwiperCarousel';
-import DotPattern from '@/images/dot-pattern.inline.svg';
 import { graphql, PageProps } from 'gatsby';
 import { useMd, useLg } from '@/hooks/responsive';
 import { OpportunityCard, TestimonialCard } from '@/components/cards';
@@ -59,7 +58,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
 
       {/* Section 2: Core Value */}
       <section className="flex flex-col items-center justify-center px-4 md:px-6 py-20 lg:py-28 lg:px-36 bg-primary-main">
-        <h2 className="text-4xl whitespace-pre-line md:whitespace-normal font-medium text-center text-neutral-50">
+        <h2 className="text-3xl whitespace-pre-line md:whitespace-normal font-bold text-center text-neutral-50">
           {/* Our Core Values */}
           {t('Pages.Career.Section-2.Title')}
         </h2>
@@ -83,7 +82,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
 
       {/* Section 3: Thoughts From Our Team */}
       <section className="overflow-hidden py-20 lg:py-28 space-y-6">
-        <h2 className="text-2xl font-bold text-center">
+        <h2 className="text-3xl font-bold text-center">
           {/* Thoughts From Our Team */}
           {t('Pages.Career.Section-3.Title')}
           <hr className="w-16 h-1 mx-auto mt-2 bg-primary-main" />
@@ -120,31 +119,28 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
       </section>
 
       {/* Section 5: Career Opportunity */}
-      <section className="relative max-w-7xl mx-auto">
-        <DotPattern className="text-primary-main z-0 absolute top-8 opacity-70 left-0" />
-        <div className="py-20 px-4 md:px-6 lg:px-16">
-          <h2 className="text-3xl relative font-medium">
-            {/* โอกาสร่วมงานกับเรา */}
-            {t('Pages.Career.Section-5.Title')}
-          </h2>
-          <hr className="h-px mt-2 border-0 bg-neutral-900" />
-          <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
-            {allMarkdownRemark.edges.map(({ node }, key) => {
-              const { title, location, contract, description, slug } =
-                node.frontmatter || {};
-              return (
-                <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2 lg:p-3">
-                  <OpportunityCard
-                    description={description}
-                    occupation={title}
-                    location={location}
-                    contract={contract}
-                    href={slug}
-                  />
-                </div>
-              );
-            })}
-          </div>
+      <section className="py-20 px-4 md:px-6 lg:px-16 max-w-7xl mx-auto">
+        <h2 className="text-2xl relative font-bold">
+          {/* โอกาสร่วมงานกับเรา */}
+          {t('Pages.Career.Section-5.Title')}
+        </h2>
+        <hr className="h-px mt-2 border-0 bg-neutral-900" />
+        <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
+          {allMarkdownRemark.edges.map(({ node }, key) => {
+            const { title, location, contract, description, slug } =
+              node.frontmatter || {};
+            return (
+              <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2 lg:p-3">
+                <OpportunityCard
+                  description={description}
+                  occupation={title}
+                  location={location}
+                  contract={contract}
+                  href={slug}
+                />
+              </div>
+            );
+          })}
         </div>
       </section>
     </MainLayout>

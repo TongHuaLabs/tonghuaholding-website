@@ -3,7 +3,8 @@ export const siteMetadata = {
   description: ``,
   twitter: `@tonghuaholding`,
   // siteUrl: `https://tonghuaholding.com`, // No trailing slash allowed!
-  siteUrl: `https://tonghualabs.github.io/`, // for demo
+  siteUrl: `https://tonghualabs.github.io`, // for demo
+  // siteUrl: `http://localhost:8000`, // for demo
   defaultMetaImage: '/images/meta-default.png', // Path to the image placed in the 'static' folder
 };
 

@@ -4,7 +4,7 @@ import PrimarySection from '@/components/sections/PrimarySection';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import { graphql, Link, PageProps } from 'gatsby';
 import { useLg, useMd } from '@/hooks/responsive';
-import { PrimaryButton, SeeAllButton } from '@/components/buttons';
+import { PrimaryButton } from '@/components/buttons';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import Seo from '@/components/Seo';
@@ -62,7 +62,10 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
           to="/newsroom/all-news/"
           className="flex w-max mx-auto mt-10 md:mt-4"
         >
-          <SeeAllButton />
+          <PrimaryButton
+            title={t('Pages.Home.Section-6.ReadMoreButton')}
+            className="text-sm font-medium"
+          />
         </Link>
       </section>
 

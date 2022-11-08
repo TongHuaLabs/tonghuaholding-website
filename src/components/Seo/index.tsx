@@ -55,6 +55,8 @@ function Seo({
   const defaultTitle = siteTitle;
   const metaImage = `${siteUrl}${pathPrefix}${image || defaultMetaImage}`;
 
+  console.log(`metaImage: `, metaImage);
+
   return (
     <Helmet
       htmlAttributes={{

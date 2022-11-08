@@ -197,37 +197,39 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </section>
 
       {/* Section 5: ข่าวสาร TH */}
-      <section className="pl-4 pr-5 md:px-6 lg:px-16 pt-28 max-w-7xl mx-auto space-y-10">
-        <UnderlineHeader
-          title={t('Pages.Home.Section-5.Title')}
-          className="items-center"
-          textClassName="text-3xl text-center lg:text-4xl"
-          underlineClassName="bg-primary-main w-16"
-        />
-        <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
-          {latestNews.map(({ node }, key) => {
-            const { title, description, date, cover, slug } =
-              node.frontmatter || {};
-            return (
-              <LatestNewsCard
-                title={title}
-                className="md:w-1/2 lg:w-1/3 md:p-4"
-                description={description}
-                coverImage={cover?.childImageSharp?.gatsbyImageData}
-                createdAt={date}
-                href={slug}
-                key={key}
-              />
-            );
-          })}
-        </div>
-        <Link to="/newsroom/all-news" className="flex w-max mx-auto">
-          <PrimaryButton
-            title={t('Pages.Home.Section-5.ReadMoreButton')}
-            className="text-sm font-medium"
+      {latestNews.length > 0 && (
+        <section className="pl-4 pr-5 md:px-6 lg:px-16 pt-28 max-w-7xl mx-auto space-y-10">
+          <UnderlineHeader
+            title={t('Pages.Home.Section-5.Title')}
+            className="items-center"
+            textClassName="text-3xl text-center lg:text-4xl"
+            underlineClassName="bg-primary-main w-16"
           />
-        </Link>
-      </section>
+          <div className="flex flex-col space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
+            {latestNews.map(({ node }, key) => {
+              const { title, description, date, cover, category, slug } =
+                node.frontmatter || {};
+              return (
+                <LatestNewsCard
+                  title={title}
+                  className="md:w-1/2 lg:w-1/3 md:p-4"
+                  description={description}
+                  coverImage={cover?.childImageSharp?.gatsbyImageData}
+                  createdAt={date}
+                  href={`${category}${slug}`}
+                  key={key}
+                />
+              );
+            })}
+          </div>
+          <Link to="/newsroom/all-news" className="flex w-max mx-auto">
+            <PrimaryButton
+              title={t('Pages.Home.Section-5.ReadMoreButton')}
+              className="text-sm font-medium"
+            />
+          </Link>
+        </section>
+      )}
 
       {/* Section 6: ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 md:px-6 lg:px-16 pt-20 pb-20 lg:pt-28 lg:pb-28 max-w-7xl mx-auto space-y-10">
@@ -337,7 +339,7 @@ export const query = graphql`
     allMarkdownRemark(
       filter: {
         frontmatter: {
-          slug: { regex: "/newsroom/news/" }
+          category: { regex: "/newsroom/news/" }
           lang: { eq: $language }
         }
       }
@@ -349,6 +351,7 @@ export const query = graphql`
           frontmatter {
             lang
             slug
+            category
             title
             date(formatString: "DD/MM/YYYY")
             description

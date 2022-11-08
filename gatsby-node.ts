@@ -21,10 +21,10 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 type AllMarkdownRemark = {
   edges: Array<{
     node: {
-      id: string;
       frontmatter: {
         lang: string;
         slug: string;
+        category: string;
       };
     };
   }>;
@@ -44,10 +44,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
       allMarkdownRemark {
         edges {
           node {
-            id
             frontmatter {
               lang
               slug
+              category
             }
           }
         }
@@ -78,23 +78,25 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   allMarkdownRemark?.edges.forEach(({ node }) => {
     const { frontmatter } = node;
-    const { lang, slug } = frontmatter;
+    const { lang, slug, category } = frontmatter;
 
     {
       lang === 'th' &&
         actions.createPage({
-          path: slug,
+          path: `${category}${slug}`,
           component: path.resolve('src', 'templates', 'MarkdownTemplate.tsx'),
           context: {
+            category,
             slug,
           },
         });
     }
 
     actions.createPage({
-      path: `${lang}${slug}`,
+      path: `${lang}${category}${slug}`,
       component: path.resolve('src', 'templates', 'MarkdownTemplate.tsx'),
       context: {
+        category,
         slug,
       },
     });

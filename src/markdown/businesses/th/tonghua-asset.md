@@ -1,7 +1,8 @@
 ---
+category: /businesses/info/
 lang: th
-title: THA
-slug: /businesses/info/tonghua-asset
+title: tonghua asset
+slug: tonghua-asset
 date: 2022-08-31
 ---
 

@@ -52,7 +52,11 @@ const MarkdownTemplate = ({
 export default MarkdownTemplate;
 
 export const pageQuery = graphql`
-  query MarkdownTemplate($language: String!, $slug: String!) {
+  query MarkdownTemplate(
+    $language: String!
+    $slug: String!
+    $category: String!
+  ) {
     site {
       pathPrefix
       siteMetadata {
@@ -60,14 +64,18 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(
-      frontmatter: { lang: { eq: $language }, slug: { eq: $slug } }
+      frontmatter: {
+        lang: { eq: $language }
+        category: { eq: $category }
+        slug: { eq: $slug }
+      }
     ) {
       html
       frontmatter {
         title
         slug
         description
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD/MM/YYYY")
         cover {
           childImageSharp {
             gatsbyImageData

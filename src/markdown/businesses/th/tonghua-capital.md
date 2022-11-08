@@ -1,7 +1,8 @@
 ---
+category: /businesses/info/
 lang: th
-title: THC
-slug: /businesses/info/tonghua-capital
+title: tonghua capital
+slug: tonghua-capital
 date: 2022-08-31
 ---
 

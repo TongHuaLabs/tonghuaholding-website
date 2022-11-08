@@ -127,7 +127,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
         <hr className="h-px mt-2 border-0 bg-neutral-900" />
         <div className="flex flex-col bg-white relative mt-10 space-y-6 md:flex-wrap md:space-y-0 md:flex-row">
           {allMarkdownRemark.edges.map(({ node }, key) => {
-            const { title, location, contract, description, slug } =
+            const { title, location, contract, description, category, slug } =
               node.frontmatter || {};
             return (
               <div key={key} className="md:w-1/2 lg:w-1/3 md:p-2 lg:p-3">
@@ -136,7 +136,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
                   occupation={title}
                   location={location}
                   contract={contract}
-                  href={slug}
+                  href={`${category}${slug}`}
                 />
               </div>
             );
@@ -192,7 +192,7 @@ export const query = graphql`
     allMarkdownRemark(
       filter: {
         frontmatter: {
-          slug: { regex: "/career/blog/" }
+          category: { regex: "/career/blog/" }
           lang: { eq: $language }
         }
       }
@@ -204,6 +204,7 @@ export const query = graphql`
           frontmatter {
             lang
             slug
+            category
             title
             date(formatString: "DD/MM/YYYY")
             location

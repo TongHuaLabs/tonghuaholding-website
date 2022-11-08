@@ -1,7 +1,9 @@
 ---
+category: /about/board-of-directors/
+lang: th
 name: นางวนิดา วรรณศิริกุล
 occupation: 
-slug: /about/board-of-directors/vanida-vanasirikul
+slug: vanida-vanasirikul
 cover: ../../images/vanida-vanasirikul.png
 order: 3
 ---

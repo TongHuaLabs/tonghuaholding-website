@@ -1,7 +1,9 @@
 ---
+category: /about/board-of-directors/
+lang: en
 name: คุณปรียาพร กยาวัฒนกิจ
 occupation: 
-slug: /about/board-of-directors/preeyaporn-kyavatanakij
+slug: preeyaporn-kyavatanakij
 cover: ../../images/preeyaporn-kyavatanakij.png
 order: 4
 ---

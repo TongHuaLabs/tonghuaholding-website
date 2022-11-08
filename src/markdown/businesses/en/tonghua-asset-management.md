@@ -1,8 +1,8 @@
 ---
+category: /businesses/info/
 lang: en
-title: THAM
-slug: /businesses/info/tonghua-asset-management
+title: tonghua asset management
+slug: tonghua-asset-management
 date: 2022-08-31
 ---
-
 เริ่มดำเนินธุรกิจธุรกิจบริการหนี้เสียในปี 2564 โดยจดทะเบียนบริหารสินทรัพย์กับธนาคารแห่งประเทศไทย เพื่อบริหารหนี้ด้อยคุณภาพ และมีวัตถุประสงค์เพื่อซื้อหนี้เสียจากสถาบันการเงิน และผู้ประกอบการด้านการเงิน (Non-Bank) มาบริหารต่อ

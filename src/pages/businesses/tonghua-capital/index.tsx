@@ -106,7 +106,8 @@ export const query = graphql`
     }
     markdownRemark(
       frontmatter: {
-        slug: { eq: "/businesses/info/tonghua-capital" }
+        category: { eq: "/businesses/info/" }
+        slug: { eq: "tonghua-capital" }
         lang: { eq: $language }
       }
     ) {

@@ -1,10 +1,11 @@
 ---
+category: /career/blog/
 lang: en
 title: Mid/Senior Full-Stack Engineer (React, Node.js & TypeScript)
 description: We are looking for a trustworthy, curious, sharp, and proactive full-time Mid/Senior Full-Stack Engineer (React , Node.js & TypeScript) to join our team. You'll have the opportunity to design and develop innovative solutions to solve challenging problems related to Finance and/or Web3.
 location: Bangkok
 contract: Permanent
-slug: /career/blog/fullstack-engineer
+slug: fullstack-engineer
 date: 2022-04-06
 ---
 ![Mid/Senior Full-Stack Engineer (React, Node.js & TypeScript)](../../../images/senior_fullstack_engineer.png)

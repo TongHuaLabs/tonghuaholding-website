@@ -117,4 +117,5 @@ export const plugins = [
       redirect: false,
     },
   },
+  'gatsby-plugin-netlify-cms',
 ];

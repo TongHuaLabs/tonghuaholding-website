@@ -4,6 +4,6 @@ lang: en
 name: นายสมนึก กยาวัฒนกิจ
 occupation: 
 slug: somnuk-kayavatanakij
-cover: ../../images/somnuk-kayavatanakij.png
+cover: ../../../images/somnuk-kayavatanakij.png
 order: 1
 ---

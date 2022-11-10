@@ -4,6 +4,6 @@ lang: th
 name: นางวนิดา วรรณศิริกุล
 occupation: 
 slug: vanida-vanasirikul
-cover: ../../images/vanida-vanasirikul.png
+cover: ../../../images/vanida-vanasirikul.png
 order: 3
 ---

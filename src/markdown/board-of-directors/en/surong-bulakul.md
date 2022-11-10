@@ -4,6 +4,6 @@ lang: en
 name: นายสุรงค์ บูลกุล
 occupation: 
 slug: surong-bulakul
-cover: ../../images/surong-bulakul.png
+cover: ../../../images/surong-bulakul.png
 order: 8
 ---

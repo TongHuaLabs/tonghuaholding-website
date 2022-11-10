@@ -11,7 +11,6 @@ export const siteMetadata = {
 export const pathPrefix = '/tonghuaholding-website';
 
 export const plugins = [
-  `gatsby-plugin-react-helmet`,
   `gatsby-plugin-smoothscroll`,
   `gatsby-plugin-image`,
   {

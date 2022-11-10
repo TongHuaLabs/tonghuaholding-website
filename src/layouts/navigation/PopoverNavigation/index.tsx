@@ -46,6 +46,7 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({
               className={`flex items-center text-sm font-medium hover:text-primary-main ${
                 open ? 'text-primary-main' : 'text-neutral-900'
               }
+              ${active && 'text-primary-main'}
           `}
               activeClassName="navbar-active"
             >

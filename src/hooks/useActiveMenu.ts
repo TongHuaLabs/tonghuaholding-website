@@ -5,11 +5,17 @@ export const useActiveMenu = (title: string) => {
   const { pathname } = useLocation();
   const [isActive, setIsActive] = useState<boolean>(false);
 
-  // TODO : implement after i18n completed
   useEffect(() => {
-    if (pathname.includes('/businesses') && title === 'ธุรกิจในเครือ') {
+    if (
+      (pathname === '/' || pathname === '/th' || pathname === '/th/') &&
+      title === 'หน้าหลัก'
+    ) {
+      setIsActive(true);
+    } else if (pathname.includes('/businesses') && title === 'ธุรกิจในเครือ') {
       setIsActive(true);
     } else if (pathname.includes('/newsroom') && title === 'ข่าวและกิจกรรม') {
+      setIsActive(true);
+    } else if (pathname.includes('/about') && title === 'เกี่ยวกับบริษัท') {
       setIsActive(true);
     } else {
       setIsActive(false);

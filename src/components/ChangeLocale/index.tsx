@@ -6,11 +6,11 @@ import { useI18next, Link } from 'gatsby-plugin-react-i18next';
 import ThailandFlag from '@images/thailand-flag.png';
 import USAFlag from '@images/usa-flag.png';
 
-interface PopoverNavigationProps {
+interface ChangeLocaleProps {
   className?: string;
 }
 
-const PopoverNavigation: React.FC<PopoverNavigationProps> = ({ className }) => {
+const ChangeLocale: React.FC<ChangeLocaleProps> = ({ className }) => {
   const { language, languages, originalPath } = useI18next();
   const [isShowing, setIsShowing] = useState(false);
 
@@ -73,4 +73,4 @@ const PopoverNavigation: React.FC<PopoverNavigationProps> = ({ className }) => {
   );
 };
 
-export default PopoverNavigation;
+export default ChangeLocale;

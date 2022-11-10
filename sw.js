@@ -39,11 +39,11 @@ self.__precacheManifest = [
     "url": "532a2f07-e17e8a0c24cf19f9627d.js"
   },
   {
-    "url": "app-36229a93b8068f387b49.js"
+    "url": "app-681d1ffba627f7543c64.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "c23ea12d910fed0f7f75576e474c2fab"
+    "revision": "954653504e5e4df404c4b9bf61230d57"
   },
   {
     "url": "polyfill-fcae02c11a8af2fc94d6.js"
@@ -160,7 +160,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/tonghuaholding-website/app-36229a93b8068f387b49.js`))) {
+  if (!resources || !(await caches.match(`/tonghuaholding-website/app-681d1ffba627f7543c64.js`))) {
     return await fetch(event.request)
   }
 

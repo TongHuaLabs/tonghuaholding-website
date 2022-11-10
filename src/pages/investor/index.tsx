@@ -86,7 +86,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
         </div>
       </section>
 
-      {/* Section 2: จุดเด่นหุ้น TH */}
+      {/* Section 2: จุดเด่นการลงทุน */}
       <section className="relative px-4 py-20 lg:px-16 lg:py-28 max-w-7xl mx-auto space-y-10">
         <UnderlineHeader
           title={t('Pages.Investor.Section-2.Title')}

@@ -13,10 +13,12 @@ const MarkdownTemplate = ({
   const { siteMetadata, pathPrefix } = site || {};
   const { siteUrl } = siteMetadata || {};
   const { html, frontmatter } = markdownRemark || {};
-  const { title, description, cover, slug, date } = frontmatter || {};
+  const { title, description, cover, slug, category, date } = frontmatter || {};
 
   const coverImage =
     cover?.childImageSharp?.gatsbyImageData.images.fallback.src;
+
+  const shareUrl = `${siteUrl}${pathPrefix}${category}${slug}`;
 
   return (
     <MainLayout>
@@ -26,7 +28,7 @@ const MarkdownTemplate = ({
           {title}
         </h1>
         <h2 className="text-sm text-neutral-600 mt-2">{date}</h2>
-        <ShareButton url={`${siteUrl}${pathPrefix}${slug}`} className="mt-7" />
+        <ShareButton url={shareUrl} className="mt-7" />
         {cover?.childImageSharp && (
           <div className="mt-10">
             <div className="!aspect-w-16 !aspect-h-9">
@@ -43,7 +45,7 @@ const MarkdownTemplate = ({
           className="mt-10 markdown"
         />
         <hr className="border-0 h-px bg-neutral-900 mt-10 w-full" />
-        <ShareButton url={`${siteUrl}${slug}`} className="mt-10" />
+        <ShareButton url={shareUrl} className="mt-10" />
       </section>
     </MainLayout>
   );
@@ -74,6 +76,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         slug
+        category
         description
         date(formatString: "DD/MM/YYYY")
         cover {

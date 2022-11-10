@@ -104,8 +104,6 @@ export const plugins = [
       languages: [`th`, `en`],
       defaultLanguage: `th`,
       siteUrl: siteMetadata.siteUrl,
-      // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
-      // trailingSlash: 'always',
       i18nextOptions: {
         interpolation: {
           escapeValue: false,

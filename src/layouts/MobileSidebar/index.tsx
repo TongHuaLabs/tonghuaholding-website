@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Transition } from '@headlessui/react';
 import MenuItem from './MenuItem';
 import Navbar from '@/layouts/Navbar';
+import { useRoute } from '@/hooks/useRoute';
 
 type MobileSidebarProps = {
   isShowing: boolean;
@@ -15,6 +16,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
   isShowing,
   onClose,
 }) => {
+  const route = useRoute();
   return (
     <Transition
       show={isShowing}
@@ -34,7 +36,9 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
         className="fixed inset-y-0 left-0 z-50 w-full bg-white lg:hidden"
       >
         <Navbar showClose={true} onCloseClick={onClose} />
-        <MenuItem onClose={onClose} />
+        {route.map(({ title, href, menu }, key) => (
+          <MenuItem key={key} title={title} href={href} menu={menu} />
+        ))}
       </Transition.Child>
     </Transition>
   );

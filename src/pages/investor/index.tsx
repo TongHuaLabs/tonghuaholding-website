@@ -26,21 +26,18 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
   const { t } = useTranslation();
 
   const {
-    allStockJson,
-    allProsJson,
-    allTurnoverJson,
-    allAnnualTurnoverJson,
+    stockJson,
+    prosJson,
+    turnoverJson,
+    annualTurnoverJson,
     allSetAnnouncementJson,
     allDocumentJson,
   } = data;
 
-  const { data: turnover } = allTurnoverJson.edges[0].node;
-  const { data: annualTurnover } = allAnnualTurnoverJson.edges[0].node;
-  const { data: pros } = allProsJson.edges[0].node;
-  const { data: stock } = allStockJson.edges[0].node;
+  const stockProps = stockJson?.data && stockJson?.data[0];
+  const turnOver = annualTurnoverJson?.data && annualTurnoverJson.data[0];
 
-  const stockProps = stock && stock[0];
-  const chart = annualTurnover && annualTurnover[0]?.chart;
+  const { chart, title, unit } = turnOver || {};
 
   const setAnnouncement = allSetAnnouncementJson.edges.slice(0, lg ? 6 : 4);
 
@@ -95,7 +92,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
           underlineClassName="bg-primary-main w-16"
         />
         <div className="relative z-10 flex flex-col md:flex-row md:flex-wrap justify-center space-y-32 md:space-y-0 pt-24 md:pt-10">
-          {pros?.map((item, key) => {
+          {prosJson?.data?.map((item, key) => {
             const { roi, title, description } = item || {};
             return (
               <div
@@ -118,7 +115,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
       </section>
 
       {/* Section 3: ผลประกอบการ */}
-      {turnover && annualTurnover && (
+      {turnoverJson && (
         <section className="bg-primary-main">
           <div className="relative px-4 py-20 md:px-6 lg:px-20 lg:py-28 max-w-7xl mx-auto">
             <UnderlineHeader
@@ -129,7 +126,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
             />
             <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-10 mt-10 lg:space-y-0">
               <div className="w-full lg:w-1/2 lg:pr-10 flex flex-col space-y-5">
-                {turnover.map((item, key) => {
+                {turnoverJson.data?.map((item, key) => {
                   const { title, description } = item || {};
                   return (
                     <Blockquote
@@ -143,7 +140,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
               </div>
               <div className="w-full lg:w-1/2 lg:pl-10">
                 <h2 className="text-neutral-50 font-bold text-2xl text-left md:text-right">
-                  {annualTurnover[0]?.title}
+                  {title}
                 </h2>
                 <BarChart
                   className="mt-10 md:mt-3"
@@ -190,8 +187,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
                       },
                       tooltip: {
                         callbacks: {
-                          label: (item) =>
-                            `${item.formattedValue} ${annualTurnover[0]?.unit}`,
+                          label: (item) => `${item.formattedValue} ${unit}`,
                         },
                       },
                     },
@@ -272,62 +268,46 @@ export default InvestorPage;
 
 export const query = graphql`
   query InvestorPage($language: String!) {
-    allStockJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            change {
-              title
-              value
-            }
-            price {
-              title
-              value
-            }
-            total {
-              title
-              value
-            }
-            updatedAt {
-              title
-              value
-            }
-          }
+    stockJson(language: { eq: $language }) {
+      data {
+        change {
+          title
+          value
+        }
+        price {
+          title
+          value
+        }
+        total {
+          title
+          value
+        }
+        updatedAt {
+          title
+          value
         }
       }
     }
-    allProsJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            roi
-            title
-            description
-          }
-        }
+    prosJson(language: { eq: $language }) {
+      data {
+        title
+        roi
+        description
       }
     }
-    allTurnoverJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            title
-            description
-          }
-        }
+    turnoverJson(language: { eq: $language }) {
+      data {
+        title
+        description
       }
     }
-    allAnnualTurnoverJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            title
-            unit
-            chart {
-              year
-              value
-            }
-          }
+    annualTurnoverJson(language: { eq: $language }) {
+      data {
+        title
+        unit
+        chart {
+          value
+          year
         }
       }
     }

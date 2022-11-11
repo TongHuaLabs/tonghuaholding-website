@@ -1,10 +1,11 @@
 import React from 'react';
 import QouteSvg from '@/icons/qoute.inline.svg';
 import classNames from 'classnames';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface TestimonialCardProps {
   name?: string;
-  profileImage?: string;
+  profileImage?: IGatsbyImageData;
   occupation?: string;
   comment?: string;
   className?: string;
@@ -27,11 +28,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <div className="flex items-center justify-between">
         <div className="flex">
           <div className="w-12 h-12 mr-2 p-px border border-primary-main rounded-full">
-            <img
-              alt={name}
-              src={profileImage}
-              className="w-full h-full rounded-full border border-white"
-            />
+            {profileImage && (
+              <GatsbyImage
+                alt={name || ''}
+                image={profileImage}
+                className="w-full h-full rounded-full border border-white"
+              />
+            )}
           </div>
           <div className="flex flex-col">
             <span className="text-lg line-clamp-1">{name}</span>

@@ -5,7 +5,6 @@ import BrandingSection from '@/components/sections/BrandingSection';
 import { graphql, PageProps } from 'gatsby';
 import BusinessesSection from '@/components/sections/BusinessesSection';
 import ContactInfoSection from '@/components/sections/ContactInfoSection';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import Seo from '@/components/Seo';
@@ -14,22 +13,11 @@ type TonghuaCapitalProps = PageProps<GatsbyTypes.TonghuaCapitalPageQueryQuery>;
 
 const TonghuaCapital: React.FC<TonghuaCapitalProps> = ({ data }) => {
   const { t } = useTranslation();
-  const { allBusinessesJson, markdownRemark } = data;
-  const { data: info } = allBusinessesJson.edges[0].node;
-  const { title, description, image, slides } = (info && info[0]) || {}; // index 0: Tonghua Capital
+
+  const { markdownRemark, businessesJson } = data;
+  const tonghuaAsset = businessesJson?.data && businessesJson?.data[0];
+  const { title, description, image, slides } = tonghuaAsset || {}; // index 2: Tonghua Capital
   const { html } = markdownRemark || {};
-
-  const showcase: IGatsbyImageData[] = [];
-
-  slides?.forEach((image) => {
-    image?.childImageSharp &&
-      showcase.push(image?.childImageSharp?.gatsbyImageData);
-  });
-
-  const businesses = info?.map((item) => {
-    const { title, description, image, to } = item || {};
-    return { title, description, image, to };
-  });
 
   return (
     <MainLayout>
@@ -60,7 +48,7 @@ const TonghuaCapital: React.FC<TonghuaCapitalProps> = ({ data }) => {
 
       {/* Section 3: Image Gallery */}
       <section className="pb-10 lg:pb-20 px-4 md:px-6 lg:px-16 max-w-5xl mx-auto">
-        <Gallery showNavigation={true} slidesPerView={1} images={showcase} />
+        <Gallery showNavigation={true} slidesPerView={1} images={slides} />
       </section>
 
       {/* Section 4: Map & Contact Info */}
@@ -74,7 +62,7 @@ const TonghuaCapital: React.FC<TonghuaCapitalProps> = ({ data }) => {
       />
 
       {/* Section 4: Businesses */}
-      <BusinessesSection businesses={businesses} />
+      <BusinessesSection businesses={businessesJson} />
     </MainLayout>
   );
 };
@@ -83,22 +71,20 @@ export default TonghuaCapital;
 
 export const query = graphql`
   query TonghuaCapitalPageQuery($language: String!) {
-    allBusinessesJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            title
-            description
-            to
-            image {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-            slides {
-              childImageSharp {
-                gatsbyImageData
-              }
+    businessesJson(language: { eq: $language }) {
+      data {
+        title
+        to
+        description
+        image {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+        slides {
+          image {
+            childImageSharp {
+              gatsbyImageData
             }
           }
         }

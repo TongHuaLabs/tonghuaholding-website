@@ -7,12 +7,19 @@ import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 type BusinessesSectionProps = {
-  businesses?: {
-    title?: string;
-    image?: GatsbyTypes.ImageSharp['gatsbyImageData'];
-    description?: string;
-    to?: string;
-  }[];
+  businesses?: GatsbyTypes.Maybe<{
+    readonly data: GatsbyTypes.Maybe<
+      readonly GatsbyTypes.Maybe<
+        Pick<GatsbyTypes.BusinessesJsonData, 'title' | 'description' | 'to'> & {
+          readonly image: GatsbyTypes.Maybe<{
+            readonly childImageSharp: GatsbyTypes.Maybe<
+              Pick<GatsbyTypes.ImageSharp, 'gatsbyImageData'>
+            >;
+          }>;
+        }
+      >[]
+    >;
+  }>;
   className?: string;
 };
 
@@ -35,8 +42,8 @@ const BusinessesSection: React.FC<BusinessesSectionProps> = ({
         underlineClassName="bg-primary-main w-16"
       />
       <div className="flex relative z-10 overflow-x-scroll hide-scrollbar md:px-6 px-4 max-w-7xl mx-auto lg:px-0 lg:justify-around py-10">
-        {businesses?.map((item, key) => {
-          const { title, image, description, to } = item;
+        {businesses?.data?.map((item, key) => {
+          const { title, image, description, to } = item || {};
           return (
             <div key={key} className="px-4 lg:px-0">
               <BusinessCard

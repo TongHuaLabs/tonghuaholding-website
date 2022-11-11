@@ -17,8 +17,6 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
   const { t } = useTranslation();
 
   const { allSetAnnouncementJson, allMarkdownRemark } = data;
-  const news = allMarkdownRemark.edges;
-
   const setAnnouncement = allSetAnnouncementJson.edges.slice(
     0,
     lg || md ? 6 : 3,
@@ -42,7 +40,7 @@ const NewsRoomPage: React.FC<NewsRoomPageProps> = ({ data }) => {
           underlineClassName="bg-neutral-900"
         />
         <div className="flex flex-col mt-10 md:mt-4 space-y-10 md:flex-wrap md:space-y-0 md:flex-row">
-          {news.map(({ node }, key) => {
+          {allMarkdownRemark.edges.map(({ node }, key) => {
             const { title, description, date, cover, category, slug } =
               node.frontmatter || {};
             return (

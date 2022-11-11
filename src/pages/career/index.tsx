@@ -1,16 +1,21 @@
 import React from 'react';
 import Gallery from '@/components/Gallery';
 import EllipseSvg from '@/icons/ellipse.inline.svg';
-import DNA from '@/components/information/DNA';
 import SwiperCarousel from '@/components/SwiperCarousel';
 import { graphql, PageProps } from 'gatsby';
 import { useMd, useLg } from '@/hooks/responsive';
 import { OpportunityCard, TestimonialCard } from '@/components/cards';
 import { SwiperSlide } from 'swiper/react';
-import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import MainLayout from '@/layouts/MainLayout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import Seo from '@/components/Seo';
+import AdaptabilitySVG from '@/icons/adaptability.inline.svg';
+import CreativitySVG from '@/icons/creativity.inline.svg';
+import InnovationSVG from '@/icons/innovation.inline.svg';
+import LearnAndGrowthSVG from '@/icons/learn_growth.inline.svg';
+import OpennessSVG from '@/icons/openness.inline.svg';
+import TeamSpiritSVG from '@/icons/team_spirit.inline.svg';
 
 type CareerPageProps = PageProps<GatsbyTypes.CareerPageQuery>;
 
@@ -19,18 +24,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
   const lg = useLg();
   const { t } = useTranslation();
 
-  const { allDnaJson, allTeamJson, allShowcaseJson, allMarkdownRemark } = data;
-  const { data: team } = allTeamJson.edges[0].node;
-  const { data: dna } = allDnaJson.edges[0].node;
-
-  const showcase: IGatsbyImageData[] = [];
-
-  allShowcaseJson.edges.forEach((x) => {
-    const { image } = x.node;
-    if (image?.childImageSharp) {
-      showcase.push(image?.childImageSharp?.gatsbyImageData);
-    }
-  });
+  const { dnaJson, teamJson, showcaseJson, allMarkdownRemark } = data;
 
   return (
     <MainLayout>
@@ -67,14 +61,31 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
           {t('Pages.Career.Section-2.Desc')}
         </p>
         <div className="mt-10 w-full flex flex-col sm:flex-row sm:flex-wrap max-w-5xl mx-auto">
-          {dna?.map((item, key) => {
+          {dnaJson?.data?.map((item, key) => {
             const { dna } = item || {};
+            const iconStyle = 'w-12 h-12 text-neutral-50';
             return (
-              <DNA
-                text={dna}
+              <div
                 key={key}
-                className="w-full sm:w-1/2 md:w-1/3 py-5"
-              />
+                className="flex flex-col items-center space-y-2 w-full sm:w-1/2 md:w-1/3 py-5"
+              >
+                {key === 0 ? (
+                  <InnovationSVG className={iconStyle} />
+                ) : key === 1 ? (
+                  <CreativitySVG className={iconStyle} />
+                ) : key === 2 ? (
+                  <AdaptabilitySVG className={iconStyle} />
+                ) : key === 3 ? (
+                  <TeamSpiritSVG className={iconStyle} />
+                ) : key === 4 ? (
+                  <OpennessSVG className={iconStyle} />
+                ) : (
+                  <LearnAndGrowthSVG className={iconStyle} />
+                )}
+                <span className="text-2xl font-bold text-neutral-50">
+                  {dna}
+                </span>
+              </div>
             );
           })}
         </div>
@@ -93,13 +104,15 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
             pagination={{ clickable: true }}
             slidesPerView={lg ? 3 : md ? 2 : 1}
           >
-            {team?.map((item, key) => {
+            {teamJson?.data?.map((item, key) => {
               const { profileImage } = item || {};
               return (
                 <SwiperSlide key={key}>
                   <TestimonialCard
                     {...item}
-                    profileImage={profileImage?.childImageSharp?.original?.src}
+                    profileImage={
+                      profileImage?.childImageSharp?.gatsbyImageData
+                    }
                   />
                 </SwiperSlide>
               );
@@ -113,7 +126,11 @@ const CareerPage: React.FC<CareerPageProps> = ({ data }) => {
       <section className="pb-20 relative flex flex-col">
         <div className="w-28 h-56 bg-primary-main absolute" />
         <div className="px-4 md:px-16 mt-20 w-full max-w-5xl mx-auto">
-          <Gallery showNavigation={lg} slidesPerView={1} images={showcase} />
+          <Gallery
+            showNavigation={lg}
+            slidesPerView={1}
+            images={showcaseJson?.data}
+          />
         </div>
         <div className="w-28 absolute bottom-0 h-56 bg-primary-main self-end" />
       </section>
@@ -151,40 +168,29 @@ export default CareerPage;
 
 export const query = graphql`
   query CareerPage($language: String!) {
-    allTeamJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            profileImage {
-              childImageSharp {
-                original {
-                  src
-                }
-              }
-            }
-            name
-            occupation
-            comment
+    teamJson(language: { eq: $language }) {
+      data {
+        name
+        comment
+        occupation
+        profileImage {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }
     }
-    allDnaJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            dna
-          }
-        }
+    dnaJson(language: { eq: $language }) {
+      id
+      data {
+        dna
       }
     }
-    allShowcaseJson {
-      edges {
-        node {
-          image {
-            childImageSharp {
-              gatsbyImageData
-            }
+    showcaseJson {
+      data {
+        image {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }

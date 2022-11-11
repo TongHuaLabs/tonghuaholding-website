@@ -1,14 +1,18 @@
 [
   {
-    "image": "../../images/career-1.png"
-  },
-  {
-    "image": "../../images/career-2.png"
-  },
-  {
-    "image": "../../images/career-3.png"
-  },
-  {
-    "image": "../../images/career-4.png"
+    "data": [
+      {
+        "image": "../../images/career-1.png"
+      },
+      {
+        "image": "../../images/career-2.png"
+      },
+      {
+        "image": "../../images/career-3.png"
+      },
+      {
+        "image": "../../images/career-4.png"
+      }
+    ]
   }
 ]

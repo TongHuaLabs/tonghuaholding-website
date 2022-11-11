@@ -9,7 +9,7 @@ import HandshakeIcon from '@/icons/handshake.inline.svg';
 import GlobeIcon from '@/icons/globe.inline.svg';
 import UnderlineHeader from '@/components/UnderlineHeader';
 import BusinessesSection from '@/components/sections/BusinessesSection';
-import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import DotPattern from '@/images/dot-pattern.inline.svg';
 import Gallery from '@/components/Gallery';
 import MainLayout from '@/layouts/MainLayout';
@@ -22,26 +22,11 @@ type AboutPageProps = PageProps<GatsbyTypes.AboutPageQuery>;
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   const { t } = useTranslation();
   const isLg = useLg();
-  const { allAboutJson, allTimelineJson, allMissionJson, allBusinessesJson } =
-    data;
-  const { data: businessesList } = allBusinessesJson.edges[0].node;
-  const { data: timeline, slides } = allTimelineJson.edges[0].node;
-  const { data: about } = allAboutJson.edges[0].node;
-  const { data: mission } = allMissionJson.edges[0].node;
 
-  const showcase: IGatsbyImageData[] = [];
+  const { aboutJson, businessesJson, timelineJson, missionJson } = data;
+  const { data: timeline, slides } = timelineJson || {};
 
-  slides?.forEach((x) => {
-    const { image } = x || {};
-    if (image?.childImageSharp) {
-      showcase.push(image?.childImageSharp?.gatsbyImageData);
-    }
-  });
-
-  const businesses = businessesList?.map((item) => {
-    const { title, description, image, to } = item || {};
-    return { title, description, image, to };
-  });
+  const about = aboutJson?.data && aboutJson.data[0];
 
   return (
     <MainLayout>
@@ -63,13 +48,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
               />
 
               {isLg && (
-                <p className="text-lg w-1/2 whitespace-pre-wrap">
-                  {about[0]?.msg}
-                </p>
+                <p className="text-lg w-1/2 whitespace-pre-wrap">{about.msg}</p>
               )}
             </div>
             <div className="space-y-4 w-full">
-              {about.map((item, key) => {
+              {aboutJson.data.map((item, key) => {
                 const { msg } = item || {};
                 return (
                   key > 0 && (
@@ -91,16 +74,15 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
           <h2 className="font-bold text-3xl mb-5">
             {t('Pages.About.MainPage.Section-2.Title')}
           </h2>
-          {timeline &&
-            timeline.map((item, key) => {
-              const { title, description } = item || {};
-              return (
-                <Timeline title={title} description={description} key={key} />
-              );
-            })}
+          {timeline?.map((item, key) => {
+            const { title, description } = item || {};
+            return (
+              <Timeline title={title} description={description} key={key} />
+            );
+          })}
         </div>
         <div className="w-full xl:w-[48.5%]">
-          <Gallery showNavigation={true} slidesPerView={1} images={showcase} />
+          <Gallery showNavigation={true} slidesPerView={1} images={slides} />
         </div>
         <DotPattern className="hidden text-primary-main z-10 absolute bottom-0 left-0 xl:block" />
       </section>
@@ -128,8 +110,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
             underlineClassName="bg-primary-main w-14"
           />
           <div className="flex flex-col lg:flex-row mt-11 space-y-16 lg:space-y-0">
-            {mission?.map((data, key) => {
-              const { title, description } = data || {};
+            {missionJson?.data?.map((item, key) => {
+              const { title, description } = item || {};
               return (
                 <Info
                   icon={
@@ -156,7 +138,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       </section>
 
       {/* Section 4: บริษัทย่อยในเครือ */}
-      <BusinessesSection businesses={businesses} />
+      <BusinessesSection businesses={businessesJson} />
     </MainLayout>
   );
 };
@@ -165,59 +147,38 @@ export default AboutPage;
 
 export const query = graphql`
   query AboutPage($language: String!) {
-    allAboutJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            msg
+    aboutJson(language: { eq: "en" }) {
+      data {
+        msg
+      }
+    }
+    timelineJson(language: { eq: $language }) {
+      data {
+        title
+        description
+      }
+      slides {
+        image {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }
     }
-    allTimelineJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            title
-            description
-          }
-          slides {
-            image {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
+    missionJson(language: { eq: "en" }) {
+      data {
+        title
+        description
       }
     }
-    allMissionJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            title
-            description
-          }
-        }
-      }
-    }
-    allBusinessesJson(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          data {
-            title
-            description
-            to
-            image {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-            slides {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
+    businessesJson(language: { eq: $language }) {
+      data {
+        title
+        to
+        description
+        image {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }

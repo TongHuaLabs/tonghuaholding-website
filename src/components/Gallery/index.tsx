@@ -1,10 +1,18 @@
 import React from 'react';
 import SwiperCarousel, { SwiperCarouselProps } from '../SwiperCarousel';
 import { SwiperSlide } from 'swiper/react';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 interface GalleryProps extends SwiperCarouselProps {
-  images: IGatsbyImageData[];
+  images: GatsbyTypes.Maybe<
+    readonly GatsbyTypes.Maybe<{
+      readonly image: GatsbyTypes.Maybe<{
+        readonly childImageSharp: GatsbyTypes.Maybe<
+          Pick<GatsbyTypes.ImageSharp, 'gatsbyImageData'>
+        >;
+      }>;
+    }>[]
+  >;
   className?: string;
 }
 
@@ -35,7 +43,7 @@ const Gallery: React.FC<GalleryProps> = ({
             <div className="!aspect-w-16 !aspect-h-9">
               <GatsbyImage
                 alt=""
-                image={slide}
+                image={slide?.image?.childImageSharp?.gatsbyImageData}
                 className="w-full h-full rounded-lg object-cover"
               />
             </div>

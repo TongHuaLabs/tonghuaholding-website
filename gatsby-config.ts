@@ -2,13 +2,14 @@ export const siteMetadata = {
   title: `Tong Hua Holding`,
   description: ``,
   twitter: `@tonghuaholding`,
-  // siteUrl: `https://tonghuaholding.com`, // No trailing slash allowed!
-  siteUrl: `https://tonghualabs.github.io`, // for demo
+  siteUrl: `https://tonghuaholding.com`, // No trailing slash allowed!
+  // siteUrl: `https://tonghualabs.github.io`, // for demo
   // siteUrl: `http://localhost:9000`, // for demo
   defaultMetaImage: '/images/meta-default.png', // Path to the image placed in the 'static' folder
 };
 
-export const pathPrefix = '/tonghuaholding-website';
+// export const pathPrefix = '/tonghuaholding-website';
+export const pathPrefix = '';
 
 export const plugins = [
   `gatsby-plugin-react-helmet`,

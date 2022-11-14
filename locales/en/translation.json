@@ -20,11 +20,11 @@
       },
       "Section-5": {
         "Title": "ข่าวสาร TH",
-        "ReadMoreButton": "ดูเพิ่มเติม"
+        "ReadMoreButton": "See more"
       },
       "Section-6": {
         "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
-        "ReadMoreButton": "ดูเพิ่มเติม"
+        "ReadMoreButton": "See more"
       }
     },
     "About": {
@@ -120,7 +120,7 @@
       },
       "Section-4": {
         "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
-        "ReadMoreButton": "ดูเพิ่มเติม"
+        "ReadMoreButton": "See more"
       },
       "Section-5": {
         "Title": "เอกสารเผยแพร่ทั้งหมด"
@@ -136,7 +136,7 @@
         },
         "Section-3": {
           "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
-          "ReadMoreButton": "ดูเพิ่มเติม"
+          "ReadMoreButton": "See more"
         }
       },
       "AllDocumentPage": {
@@ -399,19 +399,19 @@
       "chart": [
         {
           "year": "2562",
-          "value": 44.32
+          "value": "44.32"
         },
         {
           "year": "2563",
-          "value": 26.08
+          "value": "26.08"
         },
         {
           "year": "2564",
-          "value": 96.11
+          "value": "96.11"
         },
         {
           "year": "Q2/2565",
-          "value": 114.11
+          "value": "114.11"
         }
       ]
     },

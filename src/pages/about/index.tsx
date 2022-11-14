@@ -23,10 +23,43 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   const { t } = useTranslation();
   const isLg = useLg();
 
-  const { aboutJson, businessesJson, timelineJson, missionJson } = data;
-  const { data: timeline, slides } = timelineJson || {};
+  const { businessesJson, timelineJson } = data;
+  const { slides } = timelineJson?.data || {};
 
-  const about = aboutJson?.data && aboutJson.data[0];
+  // history
+  const history: [{ message: string }] = t('Data.History', {
+    returnObjects: true,
+  });
+
+  // timeline
+  const timeline: [{ title: string; description: string }] = t(
+    'Data.Timeline',
+    {
+      returnObjects: true,
+    },
+  );
+
+  // mission
+  const mission: [{ title: string; description: string }] = t('Data.Mission', {
+    returnObjects: true,
+  });
+
+  // businesses
+  const businesses: [
+    {
+      title: string;
+      description: string;
+      to: string;
+      image: GatsbyTypes.ImageSharp['gatsbyImageData'];
+    },
+  ] = t('Data.Businesses', {
+    returnObjects: true,
+  });
+  businessesJson?.data?.forEach((item, key) => {
+    const { image, to } = item || {};
+    businesses[key].image = image;
+    businesses[key].to = to || '';
+  });
 
   return (
     <MainLayout>
@@ -38,7 +71,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       {/* Section 1: ข้อมูลบริษัท */}
       <PrimarySection title={t('Pages.About.MainPage.Section-1.Title')} />
       <section className="px-4 pt-10 lg:pt-20 lg:px-16 flex flex-col items-center max-w-7xl mx-auto space-y-10">
-        {about && (
+        {history && (
           <>
             <div className="flex flex-col lg:flex-row items-center lg:space-x-10">
               <StaticImage
@@ -48,16 +81,18 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
               />
 
               {isLg && (
-                <p className="text-lg w-1/2 whitespace-pre-wrap">{about.msg}</p>
+                <p className="text-lg w-1/2 whitespace-pre-wrap">
+                  {history[0].message}
+                </p>
               )}
             </div>
             <div className="space-y-4 w-full">
-              {aboutJson.data.map((item, key) => {
-                const { msg } = item || {};
+              {history.map((item, key) => {
+                const { message } = item || {};
                 return (
                   key > 0 && (
                     <p className="text-lg whitespace-pre-wrap" key={key}>
-                      {msg}
+                      {message}
                     </p>
                   )
                 );
@@ -82,7 +117,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
           })}
         </div>
         <div className="w-full xl:w-[48.5%]">
-          <Gallery showNavigation={true} slidesPerView={1} images={slides} />
+          <Gallery
+            showNavigation={true}
+            slidesPerView={1}
+            slidesImage={slides}
+          />
         </div>
         <DotPattern className="hidden text-primary-main z-10 absolute bottom-0 left-0 xl:block" />
       </section>
@@ -110,7 +149,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
             underlineClassName="bg-primary-main w-14"
           />
           <div className="flex flex-col lg:flex-row mt-11 space-y-16 lg:space-y-0">
-            {missionJson?.data?.map((item, key) => {
+            {mission.map((item, key) => {
               const { title, description } = item || {};
               return (
                 <Info
@@ -138,7 +177,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
       </section>
 
       {/* Section 4: บริษัทย่อยในเครือ */}
-      <BusinessesSection businesses={businessesJson} />
+      <BusinessesSection businesses={businesses} />
     </MainLayout>
   );
 };
@@ -147,35 +186,20 @@ export default AboutPage;
 
 export const query = graphql`
   query AboutPage($language: String!) {
-    aboutJson(language: { eq: "en" }) {
-      data {
-        msg
-      }
-    }
     timelineJson(language: { eq: $language }) {
       data {
-        title
-        description
-      }
-      slides {
-        image {
-          childImageSharp {
-            gatsbyImageData
+        slides {
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }
     }
-    missionJson(language: { eq: "en" }) {
-      data {
-        title
-        description
-      }
-    }
     businessesJson(language: { eq: $language }) {
       data {
-        title
         to
-        description
         image {
           childImageSharp {
             gatsbyImageData

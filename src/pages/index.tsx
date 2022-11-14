@@ -39,6 +39,47 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const latestNews = allMarkdownRemark.edges.slice(0, !isLg ? 4 : 3);
   const setNews = allSetAnnouncementJson.edges.slice(0, !isLg ? 4 : 3);
 
+  // companyInfo
+  const companyInfo: [{ title: string; description: string }] = t(
+    'Data.CompanyInfo',
+    {
+      returnObjects: true,
+    },
+  );
+  const companyInfoImages = companyInfoJson?.data?.images || [];
+
+  // ourBusiness
+  const ourBusiness: [
+    {
+      title: string;
+      description: string;
+      image: GatsbyTypes.ImageSharp['gatsbyImageData'];
+    },
+  ] = t('Data.OurBusiness', {
+    returnObjects: true,
+  });
+  ourBusinessJson?.data?.images?.forEach((item, key) => {
+    const { url } = item || {};
+    ourBusiness[key].image = url;
+  });
+
+  // businesses
+  const businesses: [
+    {
+      title: string;
+      description: string;
+      to: string;
+      image: GatsbyTypes.ImageSharp['gatsbyImageData'];
+    },
+  ] = t('Data.Businesses', {
+    returnObjects: true,
+  });
+  businessesJson?.data?.forEach((item, key) => {
+    const { image, to } = item || {};
+    businesses[key].image = image;
+    businesses[key].to = to || '';
+  });
+
   return (
     <MainLayout>
       <Seo title={t('Seo.Home.Title')} description={t('Seo.Home.Desc')} />
@@ -80,7 +121,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <div className="relative z-10 flex flex-col lg:flex-row lg:justify-center lg:items-center lg:mt-10">
           <div className="flex flex-wrap lg:items-center lg:flex-grow lg:h-64 xl:max-w-lg">
-            {companyInfoJson?.info?.map((info, key) => {
+            {companyInfo.map((info, key) => {
               const { title, description } = info || {};
               return (
                 <Topic
@@ -93,7 +134,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
             })}
           </div>
           <div className="flex justify-center flex-wrap mt-20 rotate-45 min-w-[320px]">
-            {companyInfoJson?.images?.map((image, key) => {
+            {companyInfoImages.map((image, key) => {
               const { url } = image || {};
               return (
                 <div
@@ -135,20 +176,20 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           className="px-4 md:px-6 lg:px-16 mt-10 max-w-7xl mx-auto"
           tabClassName="w-[32%]"
           tabs={
-            ourBusinessJson?.data?.map((item) => {
+            ourBusiness.map((item) => {
               const { title } = item || {};
               return { title };
             }) || []
           }
           components={
-            ourBusinessJson?.data?.map((item) => {
-              const { title, description, cover } = item || {};
+            ourBusiness.map((item) => {
+              const { title, description, image } = item || {};
               return {
                 child: (
                   <OurBusiness
                     title={title}
                     description={description}
-                    cover={cover?.childImageSharp?.gatsbyImageData}
+                    cover={image?.childImageSharp?.gatsbyImageData}
                     className="mt-10"
                   />
                 ),
@@ -168,7 +209,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="flex relative z-10 px-4 pt-10 pb-20 lg:pb-28 md:px-6 lg:px-16 overflow-x-scroll hide-scrollbar lg:justify-around">
-            {businessesJson?.data?.map((item, key) => {
+            {businesses.map((item, key) => {
               const { title, image, description, to } = item || {};
               return (
                 <div key={key} className="px-3 lg:px-0">
@@ -267,34 +308,30 @@ export default IndexPage;
 export const query = graphql`
   query IndexPage($language: String!) {
     companyInfoJson(language: { eq: $language }) {
-      info {
-        title
-        description
-      }
-      images {
-        url {
-          childImageSharp {
-            gatsbyImageData
+      data {
+        images {
+          url {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }
     }
     ourBusinessJson(language: { eq: $language }) {
       data {
-        title
-        description
-        cover {
-          childImageSharp {
-            gatsbyImageData
+        images {
+          url {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }
     }
     businessesJson(language: { eq: $language }) {
       data {
-        title
         to
-        description
         image {
           childImageSharp {
             gatsbyImageData

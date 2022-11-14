@@ -5,5 +5,5 @@ name: นางวนิดา วรรณศิริกุล
 occupation: 
 slug: vanida-vanasirikul
 cover: ../../../images/vanida-vanasirikul.png
-order: 3
+order: 7
 ---

@@ -1,72 +1,40 @@
 [
   {
     "language": "en",
-    "info": [
-      {
-        "title": "1960",
-        "description": "Founded"
-      },
-      {
-        "title": "62",
-        "description": "Years"
-      },
-      {
-        "title": "3",
-        "description": "Industries"
-      },
-      {
-        "title": "1991",
-        "description": "Listed"
-      }
-    ],
-    "images": [
-      {
-        "url": "../../images/business-overview-square1.png"
-      },
-      {
-        "url": "../../images/business-overview-square2.png"
-      },
-      {
-        "url": "../../images/business-overview-square3.png"
-      },
-      {
-        "url": "../../images/business-overview-square4.png"
-      }
-    ]
+    "data": {
+      "images": [
+        {
+          "url": "../../images/business-overview-square1.png"
+        },
+        {
+          "url": "../../images/business-overview-square2.png"
+        },
+        {
+          "url": "../../images/business-overview-square3.png"
+        },
+        {
+          "url": "../../images/business-overview-square4.png"
+        }
+      ]
+    }
   },
   {
     "language": "th",
-    "info": [
-      {
-        "title": "1960",
-        "description": "Founded"
-      },
-      {
-        "title": "62",
-        "description": "Years"
-      },
-      {
-        "title": "3",
-        "description": "Industries"
-      },
-      {
-        "title": "1991",
-        "description": "Listed"
-      }
-    ],
-    "images": [
-      {
-        "url": "../../images/business-overview-square1.png"
-      },
-      {
-        "url": "../../images/business-overview-square2.png"
-      },
-      {
-        "url": "../../images/business-overview-square3.png"
-      },
-      {
-        "url": "../../images/business-overview-square4.png"
-      }
-    ]
+    "data": {
+      "images": [
+        {
+          "url": "../../images/business-overview-square3.png"
+        },
+        {
+          "url": "../../images/business-overview-square4.png"
+        },
+        {
+          "url": "../../images/business-overview-square1.png"
+        },
+        {
+          "url": "../../images/business-overview-square2.png"
+        }
+      ]
+    }
   }
 ]

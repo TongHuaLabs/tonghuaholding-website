@@ -18,9 +18,35 @@ const TonghuaAssetManagement: React.FC<TonghuaAssetManagementProps> = ({
   const { t } = useTranslation();
 
   const { markdownRemark, businessesJson } = data;
-  const tonghuaAsset = businessesJson?.data && businessesJson?.data[1];
-  const { title, description, image, slides } = tonghuaAsset || {}; // index 1: Tonghua Asset Management
   const { html } = markdownRemark || {};
+
+  // businesses
+  const businesses: [
+    {
+      title: string;
+      description: string;
+      to: string;
+      image: GatsbyTypes.ImageSharp['gatsbyImageData'];
+      slides:
+        | {
+            image: GatsbyTypes.ImageSharp['gatsbyImageData'];
+          }
+        | [];
+    },
+  ] = t('Data.Businesses', {
+    returnObjects: true,
+  });
+
+  businessesJson?.data?.forEach((item, key) => {
+    const { image, to, slides } = item || {};
+    businesses[key].image = image;
+    businesses[key].slides = slides || ([] as any);
+    businesses[key].to = to || '';
+  });
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  /* @ts-ignore */
+  const { title, description, image, slides } = businesses[1]; // index 1: Tonghua Asset Management
 
   return (
     <MainLayout>
@@ -51,7 +77,7 @@ const TonghuaAssetManagement: React.FC<TonghuaAssetManagementProps> = ({
 
       {/* Section 3: Image Gallery */}
       <section className="pb-10 lg:pb-20 px-4 md:px-6 lg:px-16 max-w-5xl mx-auto">
-        <Gallery showNavigation={true} slidesPerView={1} images={slides} />
+        <Gallery showNavigation={true} slidesPerView={1} slidesImage={slides} />
       </section>
 
       {/* Section 4: Map & Contact Info */}
@@ -60,12 +86,12 @@ const TonghuaAssetManagement: React.FC<TonghuaAssetManagementProps> = ({
           { phone: '(+66) 2236-9171', tel: '+6622369171' },
           { phone: '(+66) 2236-9172', tel: '+6622369172' },
         ]}
-        mail="contactus@tonghuagroup.com"
+        mail="contact@tonghuaholding.com"
         iframeUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.748859222239!2d100.51239781483024!3d13.733648990359175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2999cb642394d%3A0x30bc126296234b83!2sTONG%20HUA%20HOLDING%20PCL!5e0!3m2!1sen!2sth!4v1657095822723!5m2!1sen!2sth"
       />
 
       {/* Section 4: Businesses */}
-      <BusinessesSection businesses={businessesJson} />
+      <BusinessesSection businesses={businesses} />
     </MainLayout>
   );
 };
@@ -76,9 +102,7 @@ export const query = graphql`
   query TonghuaAssetManagementPageQuery($language: String!) {
     businessesJson(language: { eq: $language }) {
       data {
-        title
         to
-        description
         image {
           childImageSharp {
             gatsbyImageData

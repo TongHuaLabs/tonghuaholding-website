@@ -25,21 +25,58 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
   const lg = useLg();
   const { t } = useTranslation();
 
-  const {
-    stockJson,
-    prosJson,
-    turnoverJson,
-    annualTurnoverJson,
-    allSetAnnouncementJson,
-    allDocumentJson,
-  } = data;
-
-  const stockProps = stockJson?.data && stockJson?.data[0];
-  const turnOver = annualTurnoverJson?.data && annualTurnoverJson.data[0];
-
-  const { chart, title, unit } = turnOver || {};
-
+  const { allSetAnnouncementJson, allDocumentJson } = data;
   const setAnnouncement = allSetAnnouncementJson.edges.slice(0, lg ? 6 : 4);
+
+  // annualTurnover
+  const annualTurnover: {
+    title: string;
+    unit: string;
+    chart: { year: string; value: number }[];
+  } = t('Data.AnnualTurnover', {
+    returnObjects: true,
+  });
+
+  // turnover
+  const turnover: {
+    title: string;
+    description: string;
+  }[] = t('Data.Turnover', {
+    returnObjects: true,
+  });
+
+  const { chart, title, unit } = annualTurnover;
+
+  // pros
+  const pros: {
+    topic: string;
+    title: string;
+    description: string;
+  }[] = t('Data.Pros', {
+    returnObjects: true,
+  });
+
+  // stock
+  const stock: {
+    price: {
+      title: string;
+      value: string;
+    };
+    change: {
+      title: string;
+      value: string;
+    };
+    total: {
+      title: string;
+      value: string;
+    };
+    updatedAt: {
+      title: string;
+      value: string;
+    };
+  } = t('Data.Stock', {
+    returnObjects: true,
+  });
 
   const scrollToInvestorContactId = () => {
     const ele = document.getElementById('contact-investor');
@@ -78,7 +115,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
                 onClick={() => scrollToInvestorContactId()}
               />
             </div>
-            <StockPriceCard className="w-full lg:w-2/5" {...stockProps} />
+            <StockPriceCard className="w-full lg:w-2/5" {...stock} />
           </div>
         </div>
       </section>
@@ -92,8 +129,8 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
           underlineClassName="bg-primary-main w-16"
         />
         <div className="relative z-10 flex flex-col md:flex-row md:flex-wrap justify-center space-y-32 md:space-y-0 pt-24 md:pt-10">
-          {prosJson?.data?.map((item, key) => {
-            const { roi, title, description } = item || {};
+          {pros.map((item, key) => {
+            const { topic, title, description } = item || {};
             return (
               <div
                 className={`w-full md:px-4 md:w-1/2 xl:w-1/3 ${
@@ -102,7 +139,7 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
                 key={key}
               >
                 <RedCircleStockCard
-                  roi={roi}
+                  topic={topic}
                   title={title}
                   description={description}
                   className="h-auto md:h-64"
@@ -115,90 +152,88 @@ const InvestorPage: React.FC<InvestorPageProps> = ({ data }) => {
       </section>
 
       {/* Section 3: ผลประกอบการ */}
-      {turnoverJson && (
-        <section className="bg-primary-main">
-          <div className="relative px-4 py-20 md:px-6 lg:px-20 lg:py-28 max-w-7xl mx-auto">
-            <UnderlineHeader
-              title={t('Pages.Investor.Section-3.Title')}
-              className="items-center"
-              textClassName="text-3xl text-center lg:text-4xl text-neutral-50"
-              underlineClassName="bg-neutral-50 w-16"
-            />
-            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-10 mt-10 lg:space-y-0">
-              <div className="w-full lg:w-1/2 lg:pr-10 flex flex-col space-y-5">
-                {turnoverJson.data?.map((item, key) => {
-                  const { title, description } = item || {};
-                  return (
-                    <Blockquote
-                      title={title}
-                      description={description}
-                      className="bg-neutral-50 p-5"
-                      key={key}
-                    />
-                  );
-                })}
-              </div>
-              <div className="w-full lg:w-1/2 lg:pl-10">
-                <h2 className="text-neutral-50 font-bold text-2xl text-left md:text-right">
-                  {title}
-                </h2>
-                <BarChart
-                  className="mt-10 md:mt-3"
-                  data={{
-                    labels:
-                      chart?.map((turnover) => {
-                        const { year } = turnover || {};
-                        return `${year}`;
-                      }) || [],
-                    datasets: [
-                      {
-                        backgroundColor: 'rgb(250,250,250)',
-                        borderColor: 'rgb(250,250,250)',
-                        data:
-                          chart?.map((turnover) => {
-                            const { value } = turnover || {};
-                            return Number(value);
-                          }) || [],
-                      },
-                    ],
-                  }}
-                  options={{
-                    scales: {
-                      y: {
-                        grid: {
-                          color: 'rgba(250,250,250,0.2)',
-                        },
-                        ticks: {
-                          color: 'rgb(250,250,250)',
-                        },
-                      },
-                      x: {
-                        grid: {
-                          color: 'rgba(250,250,250,0.2)',
-                        },
-                        ticks: {
-                          color: 'rgb(250,250,250)',
-                        },
-                      },
-                    },
-                    plugins: {
-                      legend: {
-                        display: false,
-                      },
-                      tooltip: {
-                        callbacks: {
-                          label: (item) => `${item.formattedValue} ${unit}`,
-                        },
-                      },
-                    },
-                  }}
-                />
-              </div>
+      <section className="bg-primary-main">
+        <div className="relative px-4 py-20 md:px-6 lg:px-20 lg:py-28 max-w-7xl mx-auto">
+          <UnderlineHeader
+            title={t('Pages.Investor.Section-3.Title')}
+            className="items-center"
+            textClassName="text-3xl text-center lg:text-4xl text-neutral-50"
+            underlineClassName="bg-neutral-50 w-16"
+          />
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-10 mt-10 lg:space-y-0">
+            <div className="w-full lg:w-1/2 lg:pr-10 flex flex-col space-y-5">
+              {turnover.map((item, key) => {
+                const { title, description } = item || {};
+                return (
+                  <Blockquote
+                    title={title}
+                    description={description}
+                    className="bg-neutral-50 p-5"
+                    key={key}
+                  />
+                );
+              })}
             </div>
-            <DotPattern className="hidden lg:block text-neutral-50 z-0 absolute lg:top-40 xl:top-52 left-1" />
+            <div className="w-full lg:w-1/2 lg:pl-10">
+              <h2 className="text-neutral-50 font-bold text-2xl text-left md:text-right">
+                {title}
+              </h2>
+              <BarChart
+                className="mt-10 md:mt-3"
+                data={{
+                  labels:
+                    chart?.map((turnover) => {
+                      const { year } = turnover || {};
+                      return `${year}`;
+                    }) || [],
+                  datasets: [
+                    {
+                      backgroundColor: 'rgb(250,250,250)',
+                      borderColor: 'rgb(250,250,250)',
+                      data:
+                        chart?.map((turnover) => {
+                          const { value } = turnover || {};
+                          return Number(value);
+                        }) || [],
+                    },
+                  ],
+                }}
+                options={{
+                  scales: {
+                    y: {
+                      grid: {
+                        color: 'rgba(250,250,250,0.2)',
+                      },
+                      ticks: {
+                        color: 'rgb(250,250,250)',
+                      },
+                    },
+                    x: {
+                      grid: {
+                        color: 'rgba(250,250,250,0.2)',
+                      },
+                      ticks: {
+                        color: 'rgb(250,250,250)',
+                      },
+                    },
+                  },
+                  plugins: {
+                    legend: {
+                      display: false,
+                    },
+                    tooltip: {
+                      callbacks: {
+                        label: (item) => `${item.formattedValue} ${unit}`,
+                      },
+                    },
+                  },
+                }}
+              />
+            </div>
           </div>
-        </section>
-      )}
+          <DotPattern className="hidden lg:block text-neutral-50 z-0 absolute lg:top-40 xl:top-52 left-1" />
+        </div>
+      </section>
 
       {/* Section 4: ข่าวแจ้งตลาดหลักทรัพย์ */}
       <section className="px-4 py-20 lg:px-16 lg:py-28 max-w-7xl mx-auto space-y-10">
@@ -268,49 +303,6 @@ export default InvestorPage;
 
 export const query = graphql`
   query InvestorPage($language: String!) {
-    stockJson(language: { eq: $language }) {
-      data {
-        change {
-          title
-          value
-        }
-        price {
-          title
-          value
-        }
-        total {
-          title
-          value
-        }
-        updatedAt {
-          title
-          value
-        }
-      }
-    }
-    prosJson(language: { eq: $language }) {
-      data {
-        title
-        roi
-        description
-      }
-    }
-    turnoverJson(language: { eq: $language }) {
-      data {
-        title
-        description
-      }
-    }
-    annualTurnoverJson(language: { eq: $language }) {
-      data {
-        title
-        unit
-        chart {
-          value
-          year
-        }
-      }
-    }
     allSetAnnouncementJson(sort: { fields: createdAt, order: DESC }, limit: 6) {
       edges {
         node {

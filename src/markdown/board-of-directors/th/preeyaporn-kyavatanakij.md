@@ -5,5 +5,5 @@ name: คุณปรียาพร กยาวัฒนกิจ
 occupation: 
 slug: preeyaporn-kyavatanakij
 cover: ../../../images/preeyaporn-kyavatanakij.png
-order: 4
+order: 6
 ---

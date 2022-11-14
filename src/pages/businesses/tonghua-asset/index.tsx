@@ -57,7 +57,7 @@ const TonghuaAsset: React.FC<TonghuaAssetProps> = ({ data }) => {
           { phone: '(+66) 2236-9171', tel: '+6622369171' },
           { phone: '(+66) 2236-9172', tel: '+6622369172' },
         ]}
-        mail="contactus@tonghuagroup.com"
+        mail="contact@tonghuaholding.com"
         iframeUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.748859222239!2d100.51239781483024!3d13.733648990359175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2999cb642394d%3A0x30bc126296234b83!2sTONG%20HUA%20HOLDING%20PCL!5e0!3m2!1sen!2sth!4v1657095822723!5m2!1sen!2sth"
       />
 

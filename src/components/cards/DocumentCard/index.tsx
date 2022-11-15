@@ -23,11 +23,11 @@ const DocumentCard: React.FC<DocumentCardProps> = ({
   const content = (
     <>
       {coverImage && (
-        <div className="!aspect-w-3 !aspect-h-4">
+        <div className="!aspect-w-3 !aspect-h-4 cover-lg">
           <GatsbyImage
             alt={title || ''}
             image={coverImage}
-            className="object-cover w-full h-full rounded-lg border border-primary-main"
+            className="object-cover w-full h-full border rounded-lg border-primary-main"
           />
         </div>
       )}

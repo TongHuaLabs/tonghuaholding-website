@@ -22,13 +22,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
 }) => {
   return (
     <Link to={href || ''} className={classNames(`group`, className)}>
-      <article className="space-y-2">
+      <article className="space-y-2 cover-lg">
         <div className="!aspect-w-16 !aspect-h-9">
           {coverImage && (
             <GatsbyImage
               alt={title || ''}
               image={coverImage}
-              className="object-cover w-full h-full rounded-lg"
+              className="object-cover w-full h-full"
             />
           )}
         </div>

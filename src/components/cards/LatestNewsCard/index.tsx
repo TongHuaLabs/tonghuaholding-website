@@ -23,12 +23,12 @@ const LatestNewsCard: React.FC<LatestNewsCardProps> = ({
   return (
     <Link to={href || ''} className={classNames(`group`, className)}>
       {coverImage && (
-        <div className="relative">
+        <div className="relative cover-lg">
           <div className="!aspect-w-16 !aspect-h-9">
             <GatsbyImage
               alt={title || ''}
               image={coverImage}
-              className="object-cover w-full h-full rounded-lg relative"
+              className="object-cover w-full h-full relative"
             />
             <div className="absolute -z-10 w-full h-full rounded-lg bg-primary-main !left-1.5 !top-1.5" />
           </div>

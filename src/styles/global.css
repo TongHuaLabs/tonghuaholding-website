@@ -22,11 +22,11 @@
     height: calc(120% - 48px);
   }
   .list {
-    @apply mt-4 !important
+    @apply mt-4 !important;
   }
   .timeline-card-arrow {
-   @apply self-center border-transparent border-r-primary-main relative right-2;
-   border-width: 15px;
+    @apply self-center border-transparent border-r-primary-main relative right-2;
+    border-width: 15px;
   }
   .navbar-active {
     @apply text-primary-main !important;
@@ -40,27 +40,38 @@
 }
 
 /* Swiper */
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
- @apply bottom-0 !important
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  @apply bottom-0 !important;
 }
 
 .swiper-pagination-bullet-active {
- @apply bg-primary-main !important;
+  @apply bg-primary-main !important;
 }
 
 .swiper-wrapper {
-@apply items-center pb-12;
+  @apply items-center pb-12;
 }
 
-.swiper-button-next,.swiper-button-prev {
-@apply text-primary-main !important;
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-primary-main !important;
 }
-
 
 @media only screen and (min-width: 1280px) {
   .ellipse {
     height: calc(140% - 48px);
   }
+}
+
+.cover-lg .gatsby-image-wrapper img {
+  @apply rounded-lg !important;
+}
+
+.cover-full .gatsby-image-wrapper img {
+  @apply rounded-full !important;
 }
 
 /* Markdown */
@@ -110,7 +121,7 @@
 }
 
 .markdown blockquote > p {
-  @apply my-0
+  @apply my-0;
 }
 
 .markdown blockquote > blockquote {
@@ -121,7 +132,8 @@
   @apply text-base font-normal text-neutral-900 border border-neutral-900;
 }
 
-.markdown table tr > th,td {
+.markdown table tr > th,
+td {
   @apply border border-neutral-900 py-1 px-2;
 }
 

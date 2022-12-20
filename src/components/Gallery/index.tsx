@@ -4,7 +4,7 @@ import { SwiperSlide } from 'swiper/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 interface GalleryProps extends SwiperCarouselProps {
-  images: GatsbyTypes.Maybe<
+  slidesImage: GatsbyTypes.Maybe<
     readonly GatsbyTypes.Maybe<{
       readonly image: GatsbyTypes.Maybe<{
         readonly childImageSharp: GatsbyTypes.Maybe<
@@ -17,7 +17,7 @@ interface GalleryProps extends SwiperCarouselProps {
 }
 
 const Gallery: React.FC<GalleryProps> = ({
-  images,
+  slidesImage,
   className,
   slidesPerView,
   spaceBetween,
@@ -25,7 +25,7 @@ const Gallery: React.FC<GalleryProps> = ({
   autoplay,
   pagination,
 }) => {
-  if (!images) {
+  if (!slidesImage) {
     return <div />;
   }
   return (
@@ -37,14 +37,14 @@ const Gallery: React.FC<GalleryProps> = ({
       spaceBetween={spaceBetween}
       loop
     >
-      {images.map((slide, key) => {
+      {slidesImage.map((image, key) => {
         return (
           <SwiperSlide key={key} className={className}>
             <div className="!aspect-w-16 !aspect-h-9 cover-lg">
               <GatsbyImage
                 alt=""
-                image={slide?.image?.childImageSharp?.gatsbyImageData}
-                className="w-full h-full object-cover"
+                image={image?.image?.childImageSharp?.gatsbyImageData}
+                className="w-full h-full rounded-lg object-cover"
               />
             </div>
           </SwiperSlide>

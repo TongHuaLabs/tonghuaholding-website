@@ -1,18 +1,40 @@
 [
   {
-    "data": [
-      {
-        "image": "../../images/career-1.png"
-      },
-      {
-        "image": "../../images/career-2.png"
-      },
-      {
-        "image": "../../images/career-3.png"
-      },
-      {
-        "image": "../../images/career-4.png"
-      }
-    ]
+    "languague": "en",
+    "data": {
+      "slides": [
+        {
+          "image": "../../images/career-1.png"
+        },
+        {
+          "image": "../../images/career-2.png"
+        },
+        {
+          "image": "../../images/career-3.png"
+        },
+        {
+          "image": "../../images/career-4.png"
+        }
+      ]
+    }
+  },
+  {
+    "languague": "th",
+    "data": {
+      "slides": [
+        {
+          "image": "../../images/career-1.png"
+        },
+        {
+          "image": "../../images/career-2.png"
+        },
+        {
+          "image": "../../images/career-3.png"
+        },
+        {
+          "image": "../../images/career-4.png"
+        }
+      ]
+    }
   }
 ]

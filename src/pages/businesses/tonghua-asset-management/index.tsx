@@ -18,9 +18,35 @@ const TonghuaAssetManagement: React.FC<TonghuaAssetManagementProps> = ({
   const { t } = useTranslation();
 
   const { markdownRemark, businessesJson } = data;
-  const tonghuaAsset = businessesJson?.data && businessesJson?.data[1];
-  const { title, description, image, slides } = tonghuaAsset || {}; // index 1: Tonghua Asset Management
   const { html } = markdownRemark || {};
+
+  // businesses
+  const businesses: [
+    {
+      title: string;
+      description: string;
+      to: string;
+      image: GatsbyTypes.ImageSharp['gatsbyImageData'];
+      slides:
+        | {
+            image: GatsbyTypes.ImageSharp['gatsbyImageData'];
+          }
+        | [];
+    },
+  ] = t('Data.Businesses', {
+    returnObjects: true,
+  });
+
+  businessesJson?.data?.forEach((item, key) => {
+    const { image, to, slides } = item || {};
+    businesses[key].image = image;
+    businesses[key].slides = slides || ([] as any);
+    businesses[key].to = to || '';
+  });
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  /* @ts-ignore */
+  const { title, description, image, slides } = businesses[1]; // index 1: Tonghua Asset Management
 
   return (
     <MainLayout>
@@ -51,7 +77,7 @@ const TonghuaAssetManagement: React.FC<TonghuaAssetManagementProps> = ({
 
       {/* Section 3: Image Gallery */}
       <section className="pb-10 lg:pb-20 px-4 md:px-6 lg:px-16 max-w-5xl mx-auto">
-        <Gallery showNavigation={true} slidesPerView={1} images={slides} />
+        <Gallery showNavigation={true} slidesPerView={1} slidesImage={slides} />
       </section>
 
       {/* Section 4: Map & Contact Info */}
@@ -65,7 +91,7 @@ const TonghuaAssetManagement: React.FC<TonghuaAssetManagementProps> = ({
       />
 
       {/* Section 4: Businesses */}
-      <BusinessesSection businesses={businessesJson} />
+      <BusinessesSection businesses={businesses} />
     </MainLayout>
   );
 };
@@ -76,9 +102,7 @@ export const query = graphql`
   query TonghuaAssetManagementPageQuery($language: String!) {
     businessesJson(language: { eq: $language }) {
       data {
-        title
         to
-        description
         image {
           childImageSharp {
             gatsbyImageData

@@ -33,19 +33,19 @@
           "Title": "About TH"
         },
         "Section-2": {
-          "Title": "เหตุการณ์สำคัญ"
+          "Title": "Important Events"
         },
         "Section-3": {
           "Title": "Vision",
-          "Desc": "ดำเนินธุรกิจด้วยความซื่อสัตย์และมั่นคง\nพร้อมก้าวสู่ยุคใหม่เพื่อขยายธุรกิจให้เติบโตอย่างยั่งยืน"
+          "Desc": "Conduct Business with Stability & Integrity\nfor a new generation of prolong Growth & Sustainability"
         },
         "Section-3-1": {
-          "Title": "พันธกิจ"
+          "Title": "Mission"
         }
       },
       "OrgChartPage": {
         "Section-1": {
-          "Title": "โครงสร้างกลุ่มบริษัท"
+          "Title": "Company Structure"
         },
         "Section-2": {
           "Title": "As of September 2022"
@@ -53,10 +53,10 @@
       },
       "BodPage": {
         "Section-1": {
-          "Title": "คณะกรรมการบริษัท"
+          "Title": "Board of Directors"
         },
         "Section-1-1": {
-          "Title": "คณะกรรมการบริษัท"
+          "Title": "Board of Directors"
         }
       }
     },
@@ -71,19 +71,19 @@
         "Desc": "Let’s start something new with Powerful energy."
       },
       "Section-2": {
-        "Title": "ค่านิยมหลักของเรา",
+        "Title": "Our Core Values",
         "Desc": "เราปรับตัวเข้ากับเทรนด์ในทุกยุคทุกสมัยด้วยการพัฒนานวัตกรรมในการสร้างสรรค์โซลูชันใหม่ ๆ พร้อมด้วยการร่วมมือกันของทีมที่กระตือรือร้นที่จะเรียนรู้และเติบโต เสริมด้วยวัฒนธรรมองค์กรที่เปิดกว้างในการรับฟังทุกความคิดเห็นของทุกคน"
       },
       "Section-3": {
-        "Title": "ความคิดเห็นจากทีมงาน"
+        "Title": "Thoughts from our team"
       },
       "Section-5": {
-        "Title": "โอกาสร่วมงานกับเรา"
+        "Title": "Career Opportunities"
       }
     },
     "Contact": {
       "Section-1": {
-        "Title": "ติดต่อเรา"
+        "Title": "Contact Us"
       },
       "Section-2": {
         "Title": "กรุณาติดต่อเรา หากท่านต้องการสอบถามข้อมูลเพิ่มเติม"
@@ -92,56 +92,56 @@
         "Title": "ติดต่อส่วนกลาง"
       },
       "Section-2-2": {
-        "Title": "วันเวลาทำการ"
+        "Title": "Business Hours"
       },
       "Section-2-2-1": {
-        "Title": "วันทำการ: วัน จันทร์ - ศุกร์"
+        "Title": "Workday: Mon - Fri"
       },
       "Section-2-2-2": {
-        "Title": "เวลาทำการ: 09.00 น. - 17.30 น."
+        "Title": "Operating hours: 9 AM - 5 PM"
       },
       "Section-2-3": {
         "Title": "Company Address"
       },
       "Section-2-3-1": {
-        "Title": "877-881 เจริญกรุง ตลาดน้อย สัมพันธวงศ์\nกรุงเทพมหานคร 10100"
+        "Title": "877-881 Charoenkrung Road, Talad Noi, Samphanthawong\nBangkok 10100"
       }
     },
     "Investor": {
       "Section-1": {
         "Title": "Welcome to\nInvestor Relations",
-        "ContactButton": "ติดต่อนักลงทุนสัมพันธ์"
+        "ContactButton": "Investor Relation Contact"
       },
       "Section-2": {
         "Title": "จุดเด่นการลงทุน"
       },
       "Section-3": {
-        "Title": "ผลประกอบการ"
+        "Title": "Profit of the year"
       },
       "Section-4": {
-        "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
-        "ReadMoreButton": "ดูเพิ่มเติม"
+        "Title": "SET Announcement",
+        "ReadMoreButton": "Explore more"
       },
       "Section-5": {
-        "Title": "เอกสารเผยแพร่ทั้งหมด"
+        "Title": "Publications and Webcast"
       }
     },
     "NewsRoom": {
       "MainPage": {
         "Section-1": {
-          "Title": "หน้าหลักข่าวสาร TH"
+          "Title": "TH News Main Page"
         },
         "Section-2": {
-          "Title": "ข่าวประชาสัมพันธ์บริษัท"
+          "Title": "Company PR News"
         },
         "Section-3": {
-          "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
+          "Title": "SET Announcement",
           "ReadMoreButton": "More News"
         }
       },
       "AllDocumentPage": {
         "Section-1": {
-          "Title": "เอกสารเผยแพร่ทั้งหมด"
+          "Title": "Publications and Webcast"
         }
       },
       "AllNewsPage": {
@@ -157,27 +157,27 @@
       }
     },
     "NotFound": {
-      "Title": "ขออภัย ไม่พบหน้าเว็บไซต์ที่คุณต้องการ",
-      "BackToHomeButton": "ไปหน้าหลัก",
-      "GoBackButton": "กลับ"
+      "Title": "Sorry, the page you were looking for could not be found.",
+      "BackToHomeButton": "Back to Home",
+      "GoBackButton": "Back"
     }
   },
   "Components": {
     "ContactInfoSection": {
-      "Title": "ข้อมูลการติดต่อ"
+      "Title": "Contact Information"
     },
     "ContactInvestorSection": {
-      "Title": "ติดต่อนักลงทุนสัมพันธ์",
-      "ReadMoreButton": "ข้อมูลการลงทุน"
+      "Title": "Investor Relation Contact",
+      "ReadMoreButton": "Shareholder Information"
     },
     "BusinessesSection": {
-      "Title": "บริษัทย่อยในเครือ"
+      "Title": "Company Subsidiaries"
     },
     "SeeAllButton": {
-      "Title": "อ่านทั้งหมด"
+      "Title": "See All"
     },
     "ReadMoreButton": {
-      "Title": "อ่านเพิ่มเติม"
+      "Title": "Read more"
     }
   },
   "Seo": {
@@ -314,31 +314,31 @@
     ],
     "Timeline": [
       {
-        "title": "16 มีนาคม 2503",
+        "title": "16 March 1960",
         "description": "ก่อตั้งหนังสือพิมพ์รายวันภาษาจีน ในนาม “หนังสือพิมพ์ตงฮั้ว”"
       },
       {
-        "title": "7 ตุลาคม 2503",
+        "title": "7 October 1960",
         "description": "จดทะเบียนในนาม “บริษัท หนังสือพิมพ์ตงฮั้ว จำกัด” ด้วยทุนจดทะเบียน 1 ล้านบาท"
       },
       {
-        "title": "ปี 2513",
+        "title": "Year 1970",
         "description": "ปฏิวัติระบบการพิมพ์ โดยนำเครื่องพิมพ์ “ออฟเซท 4 สี” เข้ามาใช้ในการนำเสนอข่าว ถือเป็นหนังสือพิมพ์หลากสีฉบับแรกของประเทศไทย"
       },
       {
-        "title": "29 พฤษภาคม 2534",
+        "title": "29 May 1991",
         "description": "เสนอขายเพิ่มทุนให้กับประชาชนทั่วไป รวมเป็นทุนจดทะเบียน 60 ล้านบาท"
       },
       {
-        "title": "14 มกราคม 2537",
+        "title": "14 January 1994",
         "description": "จดทะเบียนเป็นนิติบุคคลตามกฎหมายว่าด้วยบริษัทมหาชนจำกัด ในนาม “บริษัท ตงฮั้ว คอมมูนิเคชั่นส์ จำกัด (มหาชน) เพิ่มทุนจดทะเบียนเป็น 120 ล้านบาท"
       },
       {
-        "title": "ปี 2557",
+        "title": "Year 2014",
         "description": "ประกาศเพิ่มทุนจดทะเบียนเป็น 1,159,998,983 บาท โดยมีทุนจดทะเบียนชำระแล้วจำนวน 965,000,000 บาท และจดทะเบียนจัดตั้งบริษัทย่อย คือ บริษัท ดีดี ธัญการย์ จำกัด เพื่อดำเนินธุรกิจค้าปลีก"
       },
       {
-        "title": "ปี 2559",
+        "title": "Year 2016",
         "description": "บริษัท ตงฮั้ว คอมมูนิเคชั่นส์ จำกัด (มหาชน)” ปรับโครงสร้างและเปลี่ยนชื่อเป็น “บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)"
       }
     ],
@@ -352,7 +352,7 @@
         "description": "เราเชื่อมั่นว่านวัตกรรมเป็นกุญแจสู่ความสำเร็จ และมองหาโอกาสทางธุรกิจใหม่ๆอย่างต่อเนื่อง"
       },
       {
-        "title": "สร้างความเชื่อมั่นและไว้ใจ",
+        "title": "Build Trust & Confidence",
         "description": "เราเชื่อว่าลูกค้า พันธมิตรคือคนสำคัญ  ทำให้เรามีความสัมพันธ์ที่ดีและพร้อมเติบโตไปด้วยกัน"
       }
     ],
@@ -395,22 +395,22 @@
     ],
     "AnnualTurnover": {
       "title": "ผลการดำเนินงาน Q2/2565 กำไรสุทธิ",
-      "unit": "ล้านบาท",
+      "unit": "Million THB",
       "chart": [
         {
-          "year": "2562",
+          "year": "2019",
           "value": "44.32"
         },
         {
-          "year": "2563",
+          "year": "2020",
           "value": "26.08"
         },
         {
-          "year": "2564",
+          "year": "2021",
           "value": "96.11"
         },
         {
-          "year": "Q2/2565",
+          "year": "Q2/2022",
           "value": "114.11"
         }
       ]
@@ -427,32 +427,32 @@
     ],
     "Pros": [
       {
-        "topic": "3 ธุรกิจ",
-        "title": "ไฟแนนซ์ เทคโนโลยี และมีเดีย",
+        "topic": "3 Business",
+        "title": "Finance, Technology and Media",
         "description": "ตงฮั้วโฮลดิ้งมีความมุ่งมั่นขยายตัวไปยังธุรกิจใหม่ที่เกิดขึ้นในอนาคต ทั้งยังทำธุรกิจหลากหลาย และขับเคลื่อนโดยเทคโนโลยีที่ทันสมัย"
       },
       {
-        "topic": "1,494 ลบ.",
+        "topic": "1,494ML THB",
         "title": "มูลค่าสินทรัพย์รวม\nณ 30/06/3565",
         "description": "ตงฮั้วโฮลดิ้งมีทุนจดทะเบียนตอนแรกเข้าตลาดหลักทรัพย์ 60 ล้านบาท เป็นธุรกิจที่มีจุดยืน และกลยุทธ์การวางแผนธุรกิจใหม่ ๆ ทั้งธุรกิจให้สินเชื่อที่มีหลักประกัน, สินเชื่อแฟคตอริ่ง และการบริหารหนี้ด้อยคุณภาพ"
       },
       {
-        "topic": "6.40 บาท",
-        "title": "ราคาหุ้นสูงสุด\nในปี 2565",
+        "topic": "6.40 Baht",
+        "title": "Highest Stock Price\nof Y2022",
         "description": "ตงฮั้วโฮลดิ้ง สร้างผลตอบแทนสูงสุดต่อนักลงทุนอย่างต่อเนื่อง"
       }
     ],
     "Stock": {
       "price": {
-        "title": "ราคาล่าสุด (บาท)",
+        "title": "Latest Price (Baht)",
         "value": "3.94"
       },
       "change": {
-        "title": "เปลี่ยนแปลง (%)",
+        "title": "Change (%)",
         "value": "+0.04(+1.03%)"
       },
       "total": {
-        "title": "ปริมาณซื้อขาย (หุ้น)",
+        "title": "Trading Volume (Shares)",
         "value": "5,185,487"
       },
       "updatedAt": {

@@ -187,21 +187,21 @@
     },
     "About": {
       "MainPage": {
-        "Title": "ข้อมูลบริษัท | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+        "Title": "Company Information | Tong Hua Holding Public Company Limited",
         "Desc": "บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) มุ่งมั่นทำธุรกิจบนความซื่อสัตย์และมั่นคง TH พร้อมก้าวสู่ยุคใหม่ ขยายธุรกิจ เพื่อการเติบโตอย่างยั่งยืน"
       },
       "OrgChartPage": {
-        "Title": "โครงสร้างกลุ่มบริษัท | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+        "Title": "Company Structure | Tong Hua Holding Public Company Limited",
         "Desc": "บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) มุ่งมั่นทำธุรกิจบนความซื่อสัตย์และมั่นคง TH พร้อมก้าวสู่ยุคใหม่ ขยายธุรกิจ เพื่อการเติบโตอย่างยั่งยืน"
       },
       "BodPage": {
-        "Title": "คณะกรรมการบริษัท | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+        "Title": "Board of Directors | Tong Hua Holding Public Company Limited",
         "Desc": "บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) มุ่งมั่นทำธุรกิจบนความซื่อสัตย์และมั่นคง TH พร้อมก้าวสู่ยุคใหม่ ขยายธุรกิจ เพื่อการเติบโตอย่างยั่งยืน"
       }
     },
     "Businesses": {
       "THC": {
-        "Title": "บริษัท ตงฮั้ว แคปปิตอล จำกัด | ธุรกิจในครือ TH",
+        "Title": "Tong Hua Capital Company Limited | TH Company Subsidiaries",
         "Desc": "ธุรกิจสินเชื่อแฟคตอริ่ง ให้บริการวงเงินกู้หมุนเวียนระยะสั้น โดยรับซื้อหนี้การค้าในรูปของใบวางบิล ใบรับวางบิล หรือ invoice โดยการรับโอนสิทธิเพื่อจัดเก็บเงินจากลูกหนี้"
       },
       "THA": {
@@ -213,25 +213,25 @@
         "Desc": "เริ่มดำเนินธุรกิจธุรกิจบริการหนี้เสียในปี 2564 โดยจดทะเบียนบริหารสินทรัพย์กับธนาคารแห่งประเทศไทย เพื่อบริหารหนี้ด้อยคุณภาพ"
       },
       "THML": {
-        "Title": "บริษัท ตงฮั้ว มีเดีย แล็บ จำกัด | ธุรกิจในครือ TH",
+        "Title": "Tong Hua Media Lab Company Limited | TH Company Subsidiaries",
         "Desc": "ดำเนินธุรกิจสื่อสิ่งพิมพ์ “หนังสือพิมพ์ตงฮั้ว” ให้ข้อมูลข่าวสังคม เศรษฐกิจ พร้อมสร้างสรรค์สื่อออนไลน์ที่มุ่งเน้นการประชาสัมพันธ์ประเทศ จีน สังคมคนจีนในประเทศไทย"
       }
     },
     "Investor": {
-      "Title": "นักลงทุนสัมพันธ์ | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+      "Title": "Investor Relation | Tong Hua Holding Public Company Limited",
       "Desc": "ข้อมูลข่าวสารเพื่อการลงทุน ภาพรวมธุรกิจ เอกสารต่าง ๆ ที่น่าสนใจเกี่ยวกับหุ้น TH"
     },
     "NewsRoom": {
       "MainPage": {
-        "Title": "หน้าหลักข่าวสาร TH | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+        "Title": "TH News Main Page | Tong Hua Holding Public Company Limited",
         "Desc": "ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) ติดตามข่าว ข่าวสาร TH ล่าสุด"
       },
       "AllNewsPage": {
-        "Title": "ข่าวประชาสัมพันธ์ | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+        "Title": "PR News | Tong Hua Holding Public Company Limited",
         "Desc": "ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) ติดตามข่าว ข่าวประชาสัมพันธ์ ล่าสุด"
       },
       "AllSetAnnouncementPage": {
-        "Title": "ข่าวแจ้งตลาดหลักทรัพย์ | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+        "Title": "SET Announcement | Tong Hua Holding Public Company Limited",
         "Desc": "ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) ติดตามข่าว ข่าวแจ้งตลาดหลักทรัพย์ ล่าสุด"
       }
     },
@@ -284,7 +284,7 @@
       },
       {
         "title": "Tong Hua Asset Management Company Limited",
-        "description": "ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ"
+        "description": "Non-Performing Asset Management Business"
       },
       {
         "title": "Tong Hua Asset Company Limited",
@@ -418,7 +418,7 @@
     "Turnover": [
       {
         "title": "รายได้รวมเพิ่มขึ้น 241%",
-        "description": "เมื่อเทียบช่วงเดียวกันกับปีก่อนหน้า"
+        "description": "Compared with the same period of previous year"
       },
       {
         "title": "กำไรสุทธิ เพิ่มขึ้น 256%",

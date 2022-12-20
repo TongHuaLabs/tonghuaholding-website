@@ -26,7 +26,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       )}
     >
       <div className="flex items-center justify-between">
-        <div className="flex">
+        <div className="flex cover-full">
           <div className="w-12 h-12 mr-2 p-px border border-primary-main rounded-full">
             {profileImage && (
               <GatsbyImage

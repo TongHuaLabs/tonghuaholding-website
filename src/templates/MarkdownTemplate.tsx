@@ -30,12 +30,12 @@ const MarkdownTemplate = ({
         <h2 className="text-sm text-neutral-600 mt-2">{date}</h2>
         <ShareButton url={shareUrl} className="mt-7" />
         {cover?.childImageSharp && (
-          <div className="mt-10">
+          <div className="mt-10 cover-lg">
             <div className="!aspect-w-16 !aspect-h-9">
               <GatsbyImage
                 alt={title || ''}
                 image={cover.childImageSharp.gatsbyImageData}
-                className="object-cover w-full h-full rounded-lg"
+                className="object-cover w-full h-full"
               />
             </div>
           </div>

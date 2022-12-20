@@ -20,7 +20,7 @@ const BODCard: React.FC<BODCardProps> = ({
 }) => {
   return (
     // <Link to={href || ''} className={classNames('flex flex-col', className)}>
-    <div className={classNames('flex flex-col', className)}>
+    <div className={classNames('flex flex-col cover-lg', className)}>
       {profileImage && (
         <div className="!aspect-w-3 !aspect-h-4">
           <GatsbyImage

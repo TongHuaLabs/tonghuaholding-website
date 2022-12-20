@@ -25,7 +25,7 @@ const BrandingSection: React.FC<BrandingSectionProps> = ({
           </h2>
         </div>
         {image && (
-          <div className="relative">
+          <div className="relative cover-lg">
             <GatsbyImage
               alt={title || ''}
               image={image}

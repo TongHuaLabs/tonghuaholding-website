@@ -86,10 +86,10 @@
         "Title": "Contact Us"
       },
       "Section-2": {
-        "Title": "กรุณาติดต่อเรา หากท่านต้องการสอบถามข้อมูลเพิ่มเติม"
+        "Title": "Please contact us for more information"
       },
       "Section-2-1": {
-        "Title": "ติดต่อส่วนกลาง"
+        "Title": "Operator Contact"
       },
       "Section-2-2": {
         "Title": "Business Hours"
@@ -113,7 +113,7 @@
         "ContactButton": "Investor Relation Contact"
       },
       "Section-2": {
-        "Title": "จุดเด่นการลงทุน"
+        "Title": "Investment Highlights"
       },
       "Section-3": {
         "Title": "Profit of the year"
@@ -182,7 +182,7 @@
   },
   "Seo": {
     "Home": {
-      "Title": "บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) | Tong Hua Holding",
+      "Title": "Tong Hua Holding Company Limited",
       "Desc": "บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) ลงทุนใน 3 กลุ่มธุรกิจหลักเกี่ยวกับ ไฟแนนซ์ เทคโนโลยี และมีเดีย เพื่อพัฒนาโซลูชั่นที่ตอบโจทย์กับชีวิตของผู้คนในทุกรูปแบบ"
     },
     "About": {
@@ -205,11 +205,11 @@
         "Desc": "ธุรกิจสินเชื่อแฟคตอริ่ง ให้บริการวงเงินกู้หมุนเวียนระยะสั้น โดยรับซื้อหนี้การค้าในรูปของใบวางบิล ใบรับวางบิล หรือ invoice โดยการรับโอนสิทธิเพื่อจัดเก็บเงินจากลูกหนี้"
       },
       "THA": {
-        "Title": "บริษัท ตงฮั้ว แอสเซท จำกัด | ธุรกิจในครือ TH",
+        "Title": "Tong Hua Asset Company Limited | TH Company Subsidiaries",
         "Desc": "ธุรกิจค้าปลีก ในรูปแบบประเภท Discount Supermarket ปัจจุบันเปลี่ยนการบริหารธุรกิจมาเป็นการให้เช่าพื้นที่แก่ ท็อปส์ ซุเปอร์มาร์เก็ต เพื่อจำหน่ายสินค้าและบริการ รวมถึงปล่อยสินเชื่อระยะยาว โดยมีหลักประกัน"
       },
       "THAM": {
-        "Title": "บริษัท บริหารสินทรัพย์ตงฮั้ว จำกัด | ธุรกิจในครือ TH",
+        "Title": "Tong Hua Asset Management Company Limited | TH Company Subsidiaries",
         "Desc": "เริ่มดำเนินธุรกิจธุรกิจบริการหนี้เสียในปี 2564 โดยจดทะเบียนบริหารสินทรัพย์กับธนาคารแห่งประเทศไทย เพื่อบริหารหนี้ด้อยคุณภาพ"
       },
       "THML": {
@@ -236,12 +236,12 @@
       }
     },
     "Career": {
-      "Title": "ร่วมงานกับเรา | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+      "Title": "Work with Us | Tong Hua Holding Public Company Limited",
       "Desc": "เราปรับตัวเข้ากับเทรนด์ในทุกยุคทุกสมัยโดยการสร้างสรรค์โซลูชันใหม่ ๆ ด้วยทีมที่พร้อมจะเรียนรู้และเติบโต เสริมด้วยวัฒนธรรมองค์กรที่เปิดกว้างในการรับฟัง"
     },
     "Contact": {
-      "Title": "ติดต่อเรา | บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
-      "Desc": "บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) 877-881 เจริญกรุง ตลาดน้อย สัมพันธวงศ์ กรุงเทพมหานคร 10100 Email: contact@tonghuaholding Tel: 02-236-9171"
+      "Title": "Contact Us | Tong Hua Holding Public Company Limited",
+      "Desc": "Tong Hua Holding Company Public Limited 877-881 Charoenkrung Road, Talad Noi, Samphanthawong, Bangkok 10100 Email: contact@tonghuaholding Tel: 02-236-9171"
     }
   },
   "Data": {
@@ -279,19 +279,19 @@
     ],
     "Businesses": [
       {
-        "title": "บริษัท ตงฮั้ว แคปปิตอล จำกัด",
+        "title": "Tong Hua Capital Company Limited",
         "description": "ดำเนินธุรกิจสินเชื่อแฟคตอริ่งบริการวงเงินกู้หมุนเวียนระยะสั้น"
       },
       {
-        "title": "บริษัท บริหารสินทรัพย์ตงฮั้ว จำกัด",
+        "title": "Tong Hua Asset Management Company Limited",
         "description": "ดำเนินธุรกิจบริหารหนี้ด้อยคุณภาพ"
       },
       {
-        "title": "บริษัท ตงฮั้ว แอสเซท จำกัด",
+        "title": "Tong Hua Asset Company Limited",
         "description": "ดำเนินธุรกิจให้เช่าพื้นที่เพื่อจำหน่ายสินค้าและบริการ"
       },
       {
-        "title": "บริษัท ตงฮั้ว มีเดีย แล็บ จำกัด",
+        "title": "Tong Hua Media Lab Company Limited",
         "description": "ดำเนินธุรกิจผลิตสื่อและจำหน่ายสิ่งพิมพ์"
       }
     ],
@@ -348,7 +348,7 @@
         "description": "เราพร้อมและมุ่งมั่นที่จะสร้างความฝันให้เป็นสิ่งที่เกิดขึ้นจริง"
       },
       {
-        "title": "เป็นผู้นำในการสร้างนวัตกรรมใหม่",
+        "title": "Leader in New Innovation",
         "description": "เราเชื่อมั่นว่านวัตกรรมเป็นกุญแจสู่ความสำเร็จ และมองหาโอกาสทางธุรกิจใหม่ๆอย่างต่อเนื่อง"
       },
       {
@@ -433,7 +433,7 @@
       },
       {
         "topic": "1,494ML THB",
-        "title": "มูลค่าสินทรัพย์รวม\nณ 30/06/3565",
+        "title": "Consolidated Assets\nas of 30/06/2022",
         "description": "ตงฮั้วโฮลดิ้งมีทุนจดทะเบียนตอนแรกเข้าตลาดหลักทรัพย์ 60 ล้านบาท เป็นธุรกิจที่มีจุดยืน และกลยุทธ์การวางแผนธุรกิจใหม่ ๆ ทั้งธุรกิจให้สินเชื่อที่มีหลักประกัน, สินเชื่อแฟคตอริ่ง และการบริหารหนี้ด้อยคุณภาพ"
       },
       {

@@ -2,41 +2,41 @@
   "Pages": {
     "Home": {
       "Section-1": {
-        "Title": "Tong Hua Holding PCL."
+        "Title": "Tong Hua \nHolding PCL."
       },
       "Section-1-1": {
         "Title": "TONG HUA HOLDING PCL.",
-        "SDesc": "62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ\nเติบโตอย่างยั่งยืน",
-        "MDesc": "62 ปี แห่งความซื่อสัตย์และมั่นคง\nTH ก้าวสู่ยุคใหม่ ขยายธุรกิจ เติบโตอย่างยั่งยืน"
+        "SDesc": "62 Years of Stability and Integrity\nNew generation of TH with feasible Growth \nand prolong Sustainability",
+        "MDesc": "62 Years of Stability and Integrity\nNew generation of TH with feasible Growth and prolong Sustainability"
       },
       "Section-2": {
         "Title": "62 Years of\nStability & Integrity"
       },
       "Section-3": {
-        "Title": "ประเภทธุรกิจของเรา"
+        "Title": "Our Type of Business"
       },
       "Section-4": {
-        "Title": "บริษัทย่อยในเครือ"
+        "Title": "Company Subsidiaries"
       },
       "Section-5": {
-        "Title": "ข่าวสาร TH",
-        "ReadMoreButton": "ดูเพิ่มเติม"
+        "Title": "TH News & Media",
+        "ReadMoreButton": "More News"
       },
       "Section-6": {
-        "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
-        "ReadMoreButton": "ดูเพิ่มเติม"
+        "Title": "SET Announcements",
+        "ReadMoreButton": "Explore more"
       }
     },
     "About": {
       "MainPage": {
         "Section-1": {
-          "Title": "ข้อมูลบริษัท"
+          "Title": "About TH"
         },
         "Section-2": {
           "Title": "เหตุการณ์สำคัญ"
         },
         "Section-3": {
-          "Title": "วิสัยทัศน์",
+          "Title": "Vision",
           "Desc": "ดำเนินธุรกิจด้วยความซื่อสัตย์และมั่นคง\nพร้อมก้าวสู่ยุคใหม่เพื่อขยายธุรกิจให้เติบโตอย่างยั่งยืน"
         },
         "Section-3-1": {
@@ -48,7 +48,7 @@
           "Title": "โครงสร้างกลุ่มบริษัท"
         },
         "Section-2": {
-          "Title": "ณ เดือนกันยายน 2565"
+          "Title": "As of September 2022"
         }
       },
       "BodPage": {
@@ -62,7 +62,7 @@
     },
     "Businesses": {
       "Section-2": {
-        "Title": "เกี่ยวกับบริษัท"
+        "Title": "About company"
       }
     },
     "Career": {
@@ -101,7 +101,7 @@
         "Title": "เวลาทำการ: 09.00 น. - 17.30 น."
       },
       "Section-2-3": {
-        "Title": "ที่อยู่บริษัท"
+        "Title": "Company Address"
       },
       "Section-2-3-1": {
         "Title": "877-881 เจริญกรุง ตลาดน้อย สัมพันธวงศ์\nกรุงเทพมหานคร 10100"
@@ -136,7 +136,7 @@
         },
         "Section-3": {
           "Title": "ข่าวแจ้งตลาดหลักทรัพย์",
-          "ReadMoreButton": "ดูเพิ่มเติม"
+          "ReadMoreButton": "More News"
         }
       },
       "AllDocumentPage": {
@@ -146,13 +146,13 @@
       },
       "AllNewsPage": {
         "Section-1": {
-          "List-1": "ข่าวสาร TH ทั้งหมด",
-          "List-2": "ข่าวสาร CSR ทั้งหมด"
+          "List-1": "All TH News ",
+          "List-2": "All CSR News"
         }
       },
       "AllSetAnnouncementPage": {
         "Section-1": {
-          "Title": "ข่าวแจ้งตลาดหลักทรัพย์ทั้งหมด"
+          "Title": "All SET Announcement"
         }
       }
     },
@@ -456,8 +456,8 @@
         "value": "5,185,487"
       },
       "updatedAt": {
-        "title": "ปรับปรุงเมื่อ: ",
-        "value": "04 พฤศจิกายน 2565"
+        "title": "Last Update: ",
+        "value": "04 November 2022"
       }
     }
   }

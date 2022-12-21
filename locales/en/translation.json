@@ -72,7 +72,7 @@
       },
       "Section-2": {
         "Title": "Our Core Values",
-        "Desc": "เราปรับตัวเข้ากับเทรนด์ในทุกยุคทุกสมัยด้วยการพัฒนานวัตกรรมในการสร้างสรรค์โซลูชันใหม่ ๆ พร้อมด้วยการร่วมมือกันของทีมที่กระตือรือร้นที่จะเรียนรู้และเติบโต เสริมด้วยวัฒนธรรมองค์กรที่เปิดกว้างในการรับฟังทุกความคิดเห็นของทุกคน"
+        "Desc": "We adapt to trends by creating new initiative solutions by growing and enthusiastic team, driving with open culture organization that listen to everyone's feedback."
       },
       "Section-3": {
         "Title": "Thoughts from our team"
@@ -183,7 +183,7 @@
   "Seo": {
     "Home": {
       "Title": "Tong Hua Holding Company Limited",
-      "Desc": "บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน) ลงทุนใน 3 กลุ่มธุรกิจหลักเกี่ยวกับ ไฟแนนซ์ เทคโนโลยี และมีเดีย เพื่อพัฒนาโซลูชั่นที่ตอบโจทย์กับชีวิตของผู้คนในทุกรูปแบบ"
+      "Desc": "Tong Hua Holding Public Company Limited invest in 3 core industries of Finance, Technology and Media for developing new solutions to match everyone's life."
     },
     "About": {
       "MainPage": {
@@ -202,7 +202,7 @@
     "Businesses": {
       "THC": {
         "Title": "Tong Hua Capital Company Limited | TH Company Subsidiaries",
-        "Desc": "ธุรกิจสินเชื่อแฟคตอริ่ง ให้บริการวงเงินกู้หมุนเวียนระยะสั้น โดยรับซื้อหนี้การค้าในรูปของใบวางบิล ใบรับวางบิล หรือ invoice โดยการรับโอนสิทธิเพื่อจัดเก็บเงินจากลูกหนี้"
+        "Desc": "Factoring Business - Short-term loan leasing service by purchasing invoices (considered as trade liability) and transfer the right for account receivable collections from debtors."
       },
       "THA": {
         "Title": "Tong Hua Asset Company Limited | TH Company Subsidiaries",
@@ -210,11 +210,11 @@
       },
       "THAM": {
         "Title": "Tong Hua Asset Management Company Limited | TH Company Subsidiaries",
-        "Desc": "เริ่มดำเนินธุรกิจธุรกิจบริการหนี้เสียในปี 2564 โดยจดทะเบียนบริหารสินทรัพย์กับธนาคารแห่งประเทศไทย เพื่อบริหารหนี้ด้อยคุณภาพ"
+        "Desc": "Start Non-profit loan management business in 2021 and received asset management registration license from Bank of Thailand for Non-profit loan management."
       },
       "THML": {
         "Title": "Tong Hua Media Lab Company Limited | TH Company Subsidiaries",
-        "Desc": "ดำเนินธุรกิจสื่อสิ่งพิมพ์ “หนังสือพิมพ์ตงฮั้ว” ให้ข้อมูลข่าวสังคม เศรษฐกิจ พร้อมสร้างสรรค์สื่อออนไลน์ที่มุ่งเน้นการประชาสัมพันธ์ประเทศ จีน สังคมคนจีนในประเทศไทย"
+        "Desc": "Printing business under labelled of \"Tong Hua Newspaper\" providing Thai economic and social news for Chinese circles in Thailand with promoting public relation of China and Chinese Society via online platform to Thai audiences."
       }
     },
     "Investor": {
@@ -237,7 +237,7 @@
     },
     "Career": {
       "Title": "Work with Us | Tong Hua Holding Public Company Limited",
-      "Desc": "เราปรับตัวเข้ากับเทรนด์ในทุกยุคทุกสมัยโดยการสร้างสรรค์โซลูชันใหม่ ๆ ด้วยทีมที่พร้อมจะเรียนรู้และเติบโต เสริมด้วยวัฒนธรรมองค์กรที่เปิดกว้างในการรับฟัง"
+      "Desc": "We adapt to trends by creating new initiative solutions by growing and enthusiastic team, driving with open culture organization."
     },
     "Contact": {
       "Title": "Contact Us | Tong Hua Holding Public Company Limited",
@@ -323,15 +323,15 @@
       },
       {
         "title": "Year 1970",
-        "description": "ปฏิวัติระบบการพิมพ์ โดยนำเครื่องพิมพ์ “ออฟเซท 4 สี” เข้ามาใช้ในการนำเสนอข่าว ถือเป็นหนังสือพิมพ์หลากสีฉบับแรกของประเทศไทย"
+        "description": "Initiated printing innovation by installing 4 Color Offset Printing Machines (CMYK) for newspaper printing which is the first 4 colored printing Chinese newspaper in Thailand."
       },
       {
         "title": "29 May 1991",
-        "description": "เสนอขายเพิ่มทุนให้กับประชาชนทั่วไป รวมเป็นทุนจดทะเบียน 60 ล้านบาท"
+        "description": "Initial Public Offering (IPO) with a sum of 60 Million Bath in registered capital."
       },
       {
         "title": "14 January 1994",
-        "description": "จดทะเบียนเป็นนิติบุคคลตามกฎหมายว่าด้วยบริษัทมหาชนจำกัด ในนาม “บริษัท ตงฮั้ว คอมมูนิเคชั่นส์ จำกัด (มหาชน) เพิ่มทุนจดทะเบียนเป็น 120 ล้านบาท"
+        "description": "Registered as juristic person legally by law as a public company limited under \"Tong Hua Communications Public Company Limited\" with increase of registered capital to 120 Million Baht."
       },
       {
         "title": "Year 2014",

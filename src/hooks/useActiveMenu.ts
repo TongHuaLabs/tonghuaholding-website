@@ -11,11 +11,20 @@ export const useActiveMenu = (title: string) => {
       title === 'หน้าหลัก'
     ) {
       setIsActive(true);
-    } else if (pathname.includes('/businesses') && title === 'ธุรกิจในเครือ') {
+    } else if (
+      pathname.includes('/businesses') &&
+      (title === 'ธุรกิจในเครือ' || title === 'Businesses')
+    ) {
       setIsActive(true);
-    } else if (pathname.includes('/newsroom') && title === 'ข่าวและกิจกรรม') {
+    } else if (
+      pathname.includes('/newsroom') &&
+      (title === 'ข่าวและกิจกรรม' || title === 'News Room')
+    ) {
       setIsActive(true);
-    } else if (pathname.includes('/about') && title === 'เกี่ยวกับบริษัท') {
+    } else if (
+      pathname.includes('/about') &&
+      (title === 'เกี่ยวกับบริษัท' || title === 'About')
+    ) {
       setIsActive(true);
     } else {
       setIsActive(false);

@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-a84d9454c3cf778bee17.js"
+    "url": "webpack-runtime-77056bf694541b168eb2.js"
   },
   {
     "url": "framework-a2263c6caa530b74304b.js"
@@ -39,18 +39,18 @@ self.__precacheManifest = [
     "url": "532a2f07-e17e8a0c24cf19f9627d.js"
   },
   {
-    "url": "app-fbcc7dac39980a099075.js"
+    "url": "app-a4ddfb10ed79c9575567.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "0d9cd3d340827706a591a42d024b6541"
+    "revision": "bd551950d09a2405279582901e614311"
   },
   {
     "url": "polyfill-fcae02c11a8af2fc94d6.js"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "3c3f65fec1df1bc42ae248d0715c1c07"
+    "revision": "38a2f86f7a601f4777c891c607964e31"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -155,12 +155,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^`), ``)
+  pathname = pathname.replace(new RegExp(`^/tonghuaholding-website`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-fbcc7dac39980a099075.js`))) {
+  if (!resources || !(await caches.match(`/tonghuaholding-website/app-a4ddfb10ed79c9575567.js`))) {
     return await fetch(event.request)
   }
 
@@ -173,7 +173,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/tonghuaholding-website/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })

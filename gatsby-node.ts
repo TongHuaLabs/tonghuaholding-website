@@ -32,6 +32,8 @@ type AllMarkdownRemark = {
 
 type GatsbyNodeQuery = {
   allMarkdownRemark: AllMarkdownRemark;
+  allNewsTH: AllMarkdownRemark;
+  allNewsEN: AllMarkdownRemark;
   bod: AllMarkdownRemark;
 };
 
@@ -42,6 +44,42 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const { data, errors } = await graphql<GatsbyNodeQuery>(`
     {
       allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              lang
+              slug
+              category
+            }
+          }
+        }
+      }
+      allNewsTH: allMarkdownRemark(
+        filter: {
+          frontmatter: {
+            lang: { eq: "th" }
+            category: { regex: "/newsroom/news/" }
+          }
+        }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              lang
+              slug
+              category
+            }
+          }
+        }
+      }
+      allNewsEN: allMarkdownRemark(
+        filter: {
+          frontmatter: {
+            lang: { eq: "en" }
+            category: { regex: "/newsroom/news/" }
+          }
+        }
+      ) {
         edges {
           node {
             frontmatter {
@@ -74,7 +112,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     return Promise.reject(errors);
   }
 
-  const { allMarkdownRemark } = data || {};
+  const { allMarkdownRemark, allNewsTH, allNewsEN } = data || {};
 
   allMarkdownRemark?.edges.forEach(({ node }) => {
     const { frontmatter } = node;
@@ -101,6 +139,39 @@ export const createPages: GatsbyNode['createPages'] = async ({
       },
     });
   });
+
+  if (allNewsTH && allNewsEN) {
+    const postPerPage = 2;
+    const numPagesTH = Math.ceil(allNewsTH?.edges.length / postPerPage);
+    const numPagesEN = Math.ceil(allNewsEN?.edges.length / postPerPage);
+
+    Array.from({ length: numPagesTH }).forEach((_, i) => {
+      actions.createPage({
+        path: i === 0 ? `/newsroom/all-news` : `/newsroom/all-news/${i + 1}`,
+        component: path.resolve('src', 'templates', 'AllNewsTemplate.tsx'),
+        context: {
+          limit: postPerPage,
+          skip: i * postPerPage,
+          numPages: numPagesTH,
+          currentPage: i + 1,
+        },
+      });
+    });
+
+    Array.from({ length: numPagesEN }).forEach((_, i) => {
+      actions.createPage({
+        path:
+          i === 0 ? `/en/newsroom/all-news` : `/en/newsroom/all-news/${i + 1}`,
+        component: path.resolve('src', 'templates', 'AllNewsTemplate.tsx'),
+        context: {
+          limit: postPerPage,
+          skip: i * postPerPage,
+          numPages: numPagesEN,
+          currentPage: i + 1,
+        },
+      });
+    });
+  }
 
   // bod?.edges.forEach(({ node }) => {
   //   const { id, frontmatter } = node;

@@ -178,7 +178,9 @@
     },
     "ReadMoreButton": {
       "Title": "อ่านเพิ่มเติม"
-    }
+    },
+    "CopyRight": "© สงวนลิขสิทธ์ พ.ศ. 2565 บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)",
+    "PrivacyPolicy": "Privacy Policy"
   },
   "Seo": {
     "Home": {

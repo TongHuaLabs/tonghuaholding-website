@@ -3,6 +3,7 @@ import THHLogo from '@images/tonghua-logo-white.png';
 import Social from '@/components/Social';
 import DisclosureNavigation from '@/layouts/navigation/DisclosureNavigation';
 import { useRoute } from '@/hooks/useRoute';
+import CopyRight from './Copyright';
 
 type FooterProps = {};
 
@@ -42,20 +43,10 @@ const Footer: React.FC<FooterProps> = () => {
             backgroundClassName="bg-white w-8 h-8"
             iconClassName="w-4 h-4 text-primary-main"
           />
-          <div className="flex flex-col mt-6 space-y-4 text-left md:text-right md:mt-0">
-            <p className="text-sm text-neutral-50">
-              © สงวนลิขสิทธ์ พ.ศ. 2565 บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)
-            </p>
-            <p className="text-sm font-medium text-neutral-50">Cookie Policy</p>
-          </div>
+          <CopyRight className="mt-6 text-left md:text-right md:mt-0" />
         </div>
         <hr className="hidden mt-7 lg:block h-px w-full border-0 bg-neutral-50" />
-        <div className="items-center justify-between hidden w-full lg:flex mt-7">
-          <p className="text-sm text-neutral-50">
-            © สงวนลิขสิทธ์ พ.ศ. 2565 บริษัท ตงฮั้ว โฮลดิ้ง จำกัด (มหาชน)
-          </p>
-          <p className="text-sm font-medium text-neutral-50">Cookie Policy</p>
-        </div>
+        <CopyRight className="items-center justify-between hidden w-full mt-7 lg:flex lg:flex-row" />
       </div>
     </footer>
   );

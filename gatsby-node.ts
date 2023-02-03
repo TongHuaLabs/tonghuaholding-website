@@ -143,7 +143,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   });
 
   if (allNewsTH && allNewsEN) {
-    const postPerPage = 2;
+    const postPerPage = 6;
     const numPagesTH = Math.ceil(allNewsTH?.edges.length / postPerPage);
     const numPagesEN = Math.ceil(allNewsEN?.edges.length / postPerPage);
 

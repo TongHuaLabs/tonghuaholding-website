@@ -94,7 +94,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <div className="h-full w-full absolute top-0 z-20 px-6 flex flex-col items-left md:items-center justify-center">
           <div className="flex flex-col items-start justify-center space-y-4 md:items-center">
-            <h1 className="text-5xl whitespace-pre-line font-bold md:text-center md:text-6xl md:whitespace-normal text-neutral-50">
+            <h1 className="text-5xl whitespace-pre-line font-bold md:text-center md:text-6xl lg:whitespace-normal text-neutral-50">
               {t('Pages.Home.Section-1.Title')}
             </h1>
             <h2 className="text-2xl whitespace-pre-line font-bold md:text-center md:text-3xl lg:whitespace-normal text-neutral-50">

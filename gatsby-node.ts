@@ -43,9 +43,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 }) => {
   const { data, errors } = await graphql<GatsbyNodeQuery>(`
     {
-      allMarkdownRemark(
-        filter: { frontmatter: { category: { regex: "/newsroom/news/" } } }
-      ) {
+      allMarkdownRemark {
         edges {
           node {
             frontmatter {

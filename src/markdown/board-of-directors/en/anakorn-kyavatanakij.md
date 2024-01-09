@@ -4,6 +4,6 @@ lang: en
 name: นายอาณกร กยาวัฒนกิจ
 occupation: 
 slug: anakorn-kyavatanakij
-cover: ../../../images/avatar-placeholder.png
+cover: ../../../images/anakorn-kyavatanakij.jpeg
 order: 8
 ---

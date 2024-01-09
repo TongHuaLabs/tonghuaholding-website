@@ -2,7 +2,7 @@
   "editor.rulers": [80],
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "conventionalCommits.scopes": ["deps"],

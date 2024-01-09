@@ -4,6 +4,6 @@ lang: th
 name: นายธีรศักดิ์ ปัสสารี
 occupation: 
 slug: teerasak-padsaree
-cover: ../../../images/avatar-placeholder.png
+cover: ../../../images/teerasak-padsaree.jpeg
 order: 5
 ---

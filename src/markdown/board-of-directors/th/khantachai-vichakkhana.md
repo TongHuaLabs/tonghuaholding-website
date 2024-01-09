@@ -5,5 +5,5 @@ name: นายขันธชัย วิจักขณะ
 occupation: 
 slug: khantachai-vichakkhana
 cover: ../../../images/khantachai-vichakkhana.png
-order: 3
+order: 2
 ---

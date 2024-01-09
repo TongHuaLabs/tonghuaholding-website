@@ -5,5 +5,5 @@ name: นายสุรงค์ บูลกุล
 occupation: 
 slug: surong-bulakul
 cover: ../../../images/surong-bulakul.png
-order: 5
+order: 4
 ---

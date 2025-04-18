@@ -53,7 +53,7 @@ export default NewsRoomAllSetAnnouncement;
 
 export const query = graphql`
   query NewsRoomAllSetAnnouncement($language: String!) {
-    allSetAnnouncementJson(sort: { fields: createdAt, order: DESC }) {
+    allSetAnnouncementJson(sort: { fields: order, order: DESC }) {
       edges {
         node {
           title
